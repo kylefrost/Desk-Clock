@@ -38,10 +38,10 @@
     if (timeVal <= 7) {
         [_backgroundView setBackgroundColor:[UIColor blackColor]];
     }
-    else if (timeVal <= 20 && timeVal >=8) {
+    else if (timeVal <= 19 && timeVal >=8) {
         [_backgroundView setBackgroundColor:[UIColor whiteColor]];
     }
-    else if (timeVal >= 21) {
+    else if (timeVal >= 20) {
         [_backgroundView setBackgroundColor:[UIColor blackColor]];
     }
 }
@@ -73,13 +73,13 @@
     
     // Set night mode or day mode colors
     if (timeVal <= 7) {
+        _timeLabel.textColor = [UIColor whiteColor];
+    }
+    else if (timeVal <= 19 && timeVal >=8) {
         _timeLabel.textColor = [UIColor blackColor];
     }
-    else if (timeVal <= 20 && timeVal >=8) {
-        _timeLabel.textColor = [UIColor blackColor];
-    }
-    else if (timeVal >= 21) {
-        _timeLabel.textColor = [UIColor blackColor];
+    else if (timeVal >= 20) {
+        _timeLabel.textColor = [UIColor whiteColor];
     }
 }
 
@@ -112,10 +112,10 @@
     if (timeVal <= 7) {
         _dayLabel.textColor = [UIColor whiteColor];
     }
-    else if (timeVal <= 20 && timeVal >=8) {
+    else if (timeVal <= 19 && timeVal >=8) {
         _dayLabel.textColor = [UIColor blackColor];
     }
-    else if (timeVal >= 21) {
+    else if (timeVal >= 20) {
         _dayLabel.textColor = [UIColor whiteColor];
     }
     
@@ -168,10 +168,10 @@
     if (timeVal <= 7) {
         _dayMonthLabel.textColor = [UIColor whiteColor];
     }
-    else if (timeVal <= 20 && timeVal >=8) {
+    else if (timeVal <= 19 && timeVal >=8) {
         _dayMonthLabel.textColor = [UIColor blackColor];
     }
-    else if (timeVal >= 21) {
+    else if (timeVal >= 20) {
         _dayMonthLabel.textColor = [UIColor whiteColor];
     }
     
@@ -331,12 +331,12 @@
         _offLabel.textColor = [UIColor whiteColor];
         _alarmLabel.textColor = [UIColor whiteColor];
     }
-    else if (timeVal <= 20 && timeVal >=8) {
+    else if (timeVal <= 19 && timeVal >=8) {
         _onLabel.textColor = [UIColor blackColor];
         _offLabel.textColor = [UIColor blackColor];
         _alarmLabel.textColor = [UIColor blackColor];
     }
-    else if (timeVal >= 21) {
+    else if (timeVal >= 20) {
         _onLabel.textColor = [UIColor whiteColor];
         _offLabel.textColor = [UIColor whiteColor];
         _alarmLabel.textColor = [UIColor whiteColor];
@@ -347,7 +347,7 @@
     
     // Find brightness
     UIScreen *mainScreen = [UIScreen mainScreen];
-    mainScreen.brightness = 0.5;
+    // mainScreen.brightness = 0.5;
     
     // If button is pressed, night mode turned on, and if again, day mode turned on
     if (mainScreen.brightness > 0.1) {
