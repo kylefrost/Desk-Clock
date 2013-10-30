@@ -79,25 +79,25 @@
                                     <action selector="updateBrightness" destination="vXZ-lx-hvc" eventType="touchUpInside" id="2RA-qg-XFE"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="AM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Jz-Ot-OAU">
-                                <rect key="frame" x="248" y="149" width="26" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="AM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fzE-A4-N23">
+                                <rect key="frame" x="247" y="157" width="26" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="PM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ab-LI-Yc5">
-                                <rect key="frame" x="295" y="149" width="26" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="/" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lg2-Wc-L1V">
+                                <rect key="frame" x="273" y="151" width="14" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="/" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3zl-Jd-E2c">
-                                <rect key="frame" x="281" y="149" width="6" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b6Y-2z-Sty">
+                                <rect key="frame" x="295" y="157" width="26" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -105,14 +105,11 @@
                         <color key="tintColor" red="0.64608577806122447" green="0.0" blue="0.083616055479814891" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="sZr-IR-jgv" secondAttribute="centerX" id="6IF-Di-rsx"/>
-                            <constraint firstAttribute="trailing" secondItem="7Ab-LI-Yc5" secondAttribute="trailing" constant="247" id="9KR-Y1-cLx"/>
-                            <constraint firstItem="3zl-Jd-E2c" firstAttribute="leading" secondItem="6Jz-Ot-OAU" secondAttribute="trailing" constant="7" id="HUa-0N-EyV"/>
                             <constraint firstAttribute="trailing" secondItem="Efd-og-9Fj" secondAttribute="trailing" constant="80" id="JxV-Df-4oF"/>
                             <constraint firstItem="Oct-Hq-tax" firstAttribute="top" secondItem="Q2i-E2-qno" secondAttribute="bottom" constant="20" id="MBR-yI-RGA"/>
                             <constraint firstAttribute="centerX" secondItem="WAC-JN-ejx" secondAttribute="centerX" id="NA4-Fi-5VA"/>
                             <constraint firstItem="Efd-og-9Fj" firstAttribute="leading" secondItem="Aw3-XX-7J4" secondAttribute="trailing" constant="30" id="QH2-N3-cOd"/>
                             <constraint firstItem="rfU-P5-tkP" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="20" id="Qk2-iw-NTP"/>
-                            <constraint firstItem="7Ab-LI-Yc5" firstAttribute="leading" secondItem="3zl-Jd-E2c" secondAttribute="trailing" constant="8" id="R7h-pg-e53"/>
                             <constraint firstItem="gk4-BC-gTt" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="20" id="Rhm-KI-sVK"/>
                             <constraint firstItem="rfU-P5-tkP" firstAttribute="top" secondItem="WAC-JN-ejx" secondAttribute="bottom" constant="11" id="YHR-oS-Mqw"/>
                             <constraint firstAttribute="trailing" secondItem="Q2i-E2-qno" secondAttribute="trailing" constant="20" id="d14-XH-2wQ"/>
@@ -124,15 +121,15 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="alarmLabel" destination="pzN-Hu-gnf" id="kxJ-wD-Au2"/>
-                        <outlet property="amLabel" destination="6Jz-Ot-OAU" id="Axa-uR-E3v"/>
+                        <outlet property="amLabel" destination="fzE-A4-N23" id="Gdi-MK-Wp5"/>
                         <outlet property="backgroundView" destination="kh9-bI-dsS" id="q0h-fI-2TK"/>
                         <outlet property="brightnessButton" destination="sZr-IR-jgv" id="Xpn-NR-vV5"/>
                         <outlet property="dayLabel" destination="rfU-P5-tkP" id="xxQ-B5-oFV"/>
                         <outlet property="dayMonthLabel" destination="gk4-BC-gTt" id="nCx-u0-EwA"/>
                         <outlet property="offLabel" destination="Efd-og-9Fj" id="2Th-6M-9m6"/>
                         <outlet property="onLabel" destination="Aw3-XX-7J4" id="zcA-TC-Qhk"/>
-                        <outlet property="pmLabel" destination="7Ab-LI-Yc5" id="CRU-ex-ulf"/>
-                        <outlet property="slashLabel" destination="3zl-Jd-E2c" id="lGO-fa-sf8"/>
+                        <outlet property="pmLabel" destination="b6Y-2z-Sty" id="3KI-72-wf7"/>
+                        <outlet property="slashLabel" destination="Lg2-Wc-L1V" id="wzU-kH-05d"/>
                         <outlet property="timeLabel" destination="WAC-JN-ejx" id="dOi-Rm-HBU"/>
                     </connections>
                 </viewController>

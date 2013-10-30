@@ -361,12 +361,18 @@
     }
 }
 
+
 -(void)updateAMPM {
     
     // Set text attributes
-    _amLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:17];
-    _pmLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:17];
-    _slashLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:17];
+    _amLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:20];
+    _pmLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:20];
+    _slashLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:30];
+    
+    // Set text
+    _amLabel.text = @"AM";
+    _pmLabel.text = @"PM";
+    _slashLabel.text = @"/";
     
     // Find time in 24 hour format
     NSDateFormatter *timeFormat = [[NSDateFormatter alloc] init];
@@ -375,30 +381,43 @@
     NSLog(@"timeVal: %@", time);
     int timeVal = [time intValue];
     
+
     // Set if statements for showing AM and PM
     if (timeVal < 12) {
         if (timeVal <= 7) {
             _amLabel.textColor = [UIColor whiteColor];
-            _pmLabel.textColor = [UIColor grayColor];
+            _pmLabel.textColor = [UIColor darkGrayColor];
+            _slashLabel.textColor = [UIColor whiteColor];
         }
         else if (timeVal <= 19 && timeVal >=8) {
-            
+            _amLabel.textColor = [UIColor blackColor];
+            _pmLabel.textColor = [UIColor lightGrayColor];
+            _slashLabel.textColor = [UIColor blackColor];
         }
         else if (timeVal >= 20) {
-            
+            _amLabel.textColor = [UIColor whiteColor];
+            _pmLabel.textColor = [UIColor darkGrayColor];
+            _slashLabel.textColor = [UIColor whiteColor];
         }
     }
-    else {
+    else if (timeVal >= 12) {
         if (timeVal <= 7) {
-            
+            _amLabel.textColor = [UIColor darkGrayColor];
+            _pmLabel.textColor = [UIColor whiteColor];
+            _slashLabel.textColor = [UIColor whiteColor];
         }
         else if (timeVal <= 19 && timeVal >=8) {
-            
+            _amLabel.textColor = [UIColor lightGrayColor];
+            _pmLabel.textColor = [UIColor blackColor];
+            _slashLabel.textColor = [UIColor blackColor];
         }
         else if (timeVal >= 20) {
-            
+            _amLabel.textColor = [UIColor darkGrayColor];
+            _pmLabel.textColor = [UIColor whiteColor];
+            _slashLabel.textColor = [UIColor whiteColor];
         }
     }
+
 }
 
 
