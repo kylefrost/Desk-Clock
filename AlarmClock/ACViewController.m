@@ -26,6 +26,7 @@
     [self updateMonthDay];
     [self updateAlarm];
     [self updateBrightness];
+    [self updateAMPM];
     
     // Find time in 24 hour format
     NSDateFormatter *timeFormat = [[NSDateFormatter alloc] init];
@@ -357,6 +358,46 @@
     else if (mainScreen.brightness <= 0.1) {
         [_brightnessButton setTitle:@"View Mode" forState:UIControlStateNormal];
         [[UIScreen mainScreen] setBrightness:0.5];
+    }
+}
+
+-(void)updateAMPM {
+    
+    // Set text attributes
+    _amLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:17];
+    _pmLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:17];
+    _slashLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:17];
+    
+    // Find time in 24 hour format
+    NSDateFormatter *timeFormat = [[NSDateFormatter alloc] init];
+    [timeFormat setDateFormat:@"HH"];
+    NSString *time = [timeFormat stringFromDate:[NSDate date]];
+    NSLog(@"timeVal: %@", time);
+    int timeVal = [time intValue];
+    
+    // Set if statements for showing AM and PM
+    if (timeVal < 12) {
+        if (timeVal <= 7) {
+            _amLabel.textColor = [UIColor whiteColor];
+            _pmLabel.textColor = [UIColor grayColor];
+        }
+        else if (timeVal <= 19 && timeVal >=8) {
+            
+        }
+        else if (timeVal >= 20) {
+            
+        }
+    }
+    else {
+        if (timeVal <= 7) {
+            
+        }
+        else if (timeVal <= 19 && timeVal >=8) {
+            
+        }
+        else if (timeVal >= 20) {
+            
+        }
     }
 }
 

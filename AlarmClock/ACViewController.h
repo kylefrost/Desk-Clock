@@ -24,6 +24,7 @@
 -(void)updateMonthDay;
 -(void)updateAlarm;
 -(IBAction)updateBrightness;
+-(void)updateAMPM;
 
 @property (strong, nonatomic) IBOutlet UIView *backgroundView;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
@@ -34,5 +35,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *offLabel;
 @property(nonatomic) CGFloat brightness;
 @property (weak, nonatomic) IBOutlet UIButton *brightnessButton;
+@property (weak, nonatomic) IBOutlet UILabel *amLabel;
+@property (weak, nonatomic) IBOutlet UILabel *pmLabel;
+@property (weak, nonatomic) IBOutlet UILabel *slashLabel;
 
 @end
