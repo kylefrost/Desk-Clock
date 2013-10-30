@@ -26,6 +26,24 @@
     [self updateMonthDay];
     [self updateAlarm];
     [self updateBrightness];
+    
+    // Find time in 24 hour format
+    NSDateFormatter *timeFormat = [[NSDateFormatter alloc] init];
+    [timeFormat setDateFormat:@"HH"];
+    NSString *time = [timeFormat stringFromDate:[NSDate date]];
+    NSLog(@"timeVal: %@", time);
+    int timeVal = [time intValue];
+    
+    // Set night mode or day mode colors
+    if (timeVal <= 7) {
+        [_backgroundView setBackgroundColor:[UIColor blackColor]];
+    }
+    else if (timeVal <= 20 && timeVal >=8) {
+        [_backgroundView setBackgroundColor:[UIColor whiteColor]];
+    }
+    else if (timeVal >= 21) {
+        [_backgroundView setBackgroundColor:[UIColor blackColor]];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -46,9 +64,34 @@
     
     // Update timeLabel to show every one second
     [self performSelector:@selector(updateTime) withObject:self afterDelay:1.0];
+    
+    // Find time in 24 hour format
+    NSDateFormatter *timeFormat = [[NSDateFormatter alloc] init];
+    [timeFormat setDateFormat:@"HH"];
+    NSString *time = [timeFormat stringFromDate:[NSDate date]];
+    int timeVal = [time intValue];
+    
+    // Set night mode or day mode colors
+    if (timeVal <= 7) {
+        _timeLabel.textColor = [UIColor blackColor];
+    }
+    else if (timeVal <= 20 && timeVal >=8) {
+        _timeLabel.textColor = [UIColor blackColor];
+    }
+    else if (timeVal >= 21) {
+        _timeLabel.textColor = [UIColor blackColor];
+    }
 }
 
+
 -(void)updateDay {
+    
+    // Find time in 24 hour format
+    NSDateFormatter *timeFormat = [[NSDateFormatter alloc] init];
+    [timeFormat setDateFormat:@"HH"];
+    NSString *time = [timeFormat stringFromDate:[NSDate date]];
+    NSLog(@"timeVal: %@", time);
+    int timeVal = [time intValue];
     
     // Get day of week.
     NSDate *today = [NSDate date];
@@ -64,6 +107,17 @@
 
     // Attributes of dayLabel text
     _dayLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:40];
+    
+    // Set night mode or day mode colors
+    if (timeVal <= 7) {
+        _dayLabel.textColor = [UIColor whiteColor];
+    }
+    else if (timeVal <= 20 && timeVal >=8) {
+        _dayLabel.textColor = [UIColor blackColor];
+    }
+    else if (timeVal >= 21) {
+        _dayLabel.textColor = [UIColor whiteColor];
+    }
     
     // Set weekday label based on weekday value
     if (weekday == 1) {
@@ -91,6 +145,13 @@
 
 -(void)updateMonthDay {
     
+    // Find time in 24 hour format
+    NSDateFormatter *timeFormat = [[NSDateFormatter alloc] init];
+    [timeFormat setDateFormat:@"HH"];
+    NSString *time = [timeFormat stringFromDate:[NSDate date]];
+    NSLog(@"timeVal: %@", time);
+    int timeVal = [time intValue];
+    
     // Get day of week.
     NSDate *today = [NSDate date];
     NSCalendar *gregorian = [[NSCalendar alloc]
@@ -99,6 +160,20 @@
     [gregorian components:(NSDayCalendarUnit | NSWeekdayCalendarUnit | NSMonthCalendarUnit) fromDate:today];
     NSInteger day = [weekdayComponents day];
     NSInteger month = [weekdayComponents month];
+    
+    // Set day of week label attributes
+    _dayMonthLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:40];
+    
+    // Set night mode or day mode colors
+    if (timeVal <= 7) {
+        _dayMonthLabel.textColor = [UIColor whiteColor];
+    }
+    else if (timeVal <= 20 && timeVal >=8) {
+        _dayMonthLabel.textColor = [UIColor blackColor];
+    }
+    else if (timeVal >= 21) {
+        _dayMonthLabel.textColor = [UIColor whiteColor];
+    }
     
     // Set monthName string
     if (month == 1) {
@@ -137,9 +212,6 @@
     else if (month == 12) {
         monthName = @"December";
     }
-    
-    // Set day of week label attributes
-    _dayMonthLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:40];
     
     // Set text of Day of Month
     if (day == 1) {
@@ -254,17 +326,20 @@
     NSLog(@"timeVal: %@", time);
     int timeVal = [time intValue];
     
-    if (timeVal <= 6) {
+    if (timeVal <= 7) {
         _onLabel.textColor = [UIColor whiteColor];
         _offLabel.textColor = [UIColor whiteColor];
+        _alarmLabel.textColor = [UIColor whiteColor];
     }
-    else if (timeVal <= 20 && timeVal >=7) {
+    else if (timeVal <= 20 && timeVal >=8) {
         _onLabel.textColor = [UIColor blackColor];
         _offLabel.textColor = [UIColor blackColor];
+        _alarmLabel.textColor = [UIColor blackColor];
     }
     else if (timeVal >= 21) {
         _onLabel.textColor = [UIColor whiteColor];
         _offLabel.textColor = [UIColor whiteColor];
+        _alarmLabel.textColor = [UIColor whiteColor];
     }
 }
 
