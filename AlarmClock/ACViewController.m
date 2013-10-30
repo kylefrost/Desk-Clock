@@ -32,7 +32,7 @@
     NSDateFormatter *timeFormat = [[NSDateFormatter alloc] init];
     [timeFormat setDateFormat:@"HH"];
     NSString *time = [timeFormat stringFromDate:[NSDate date]];
-    NSLog(@"timeVal: %@", time);
+    // NSLNSLog(@"timeVal: %@", time);
     int timeVal = [time intValue];
     
     // Set night mode or day mode colors
@@ -45,6 +45,9 @@
     else if (timeVal >= 20) {
         [_backgroundView setBackgroundColor:[UIColor blackColor]];
     }
+    
+    // Update timeLabel to show every one second
+    [self performSelector:@selector(viewDidLoad) withObject:self afterDelay:1.0];
 }
 
 - (void)didReceiveMemoryWarning
@@ -91,7 +94,7 @@
     NSDateFormatter *timeFormat = [[NSDateFormatter alloc] init];
     [timeFormat setDateFormat:@"HH"];
     NSString *time = [timeFormat stringFromDate:[NSDate date]];
-    NSLog(@"timeVal: %@", time);
+    // NSLog(@"timeVal: %@", time);
     int timeVal = [time intValue];
     
     // Get day of week.
@@ -100,11 +103,11 @@
                              initWithCalendarIdentifier:NSGregorianCalendar];
     NSDateComponents *weekdayComponents =
     [gregorian components:(NSDayCalendarUnit | NSWeekdayCalendarUnit) fromDate:today];
-    NSInteger day = [weekdayComponents day];
+    // NSInteger day = [weekdayComponents day];
     NSInteger weekday = [weekdayComponents weekday];
     
     // NSLog of day
-    NSLog(@"NSInteger 'day' = %ld\nNSInteger 'weekday' = %ld", (long)day, (long)weekday);
+    // NSLog(@"NSInteger 'day' = %ld\nNSInteger 'weekday' = %ld", (long)day, (long)weekday);
 
     // Attributes of dayLabel text
     _dayLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:40];
@@ -142,6 +145,9 @@
     else if (weekday == 7) {
         _dayLabel.text = @"Saturday";
     }
+    
+    // Update timeLabel to show every one second
+    [self performSelector:@selector(updateDay) withObject:self afterDelay:1.0];
 }
 
 -(void)updateMonthDay {
@@ -150,7 +156,7 @@
     NSDateFormatter *timeFormat = [[NSDateFormatter alloc] init];
     [timeFormat setDateFormat:@"HH"];
     NSString *time = [timeFormat stringFromDate:[NSDate date]];
-    NSLog(@"timeVal: %@", time);
+    // NSLog(@"timeVal: %@", time);
     int timeVal = [time intValue];
     
     // Get day of week.
@@ -311,6 +317,9 @@
     
     // Set month and day label as **Month** **Date**
     _dayMonthLabel.text = [NSString stringWithFormat:@"%@ %@", monthName, dayOfMonth];
+    
+    // Update timeLabel to show every one second
+    [self performSelector:@selector(updateMonthDay) withObject:self afterDelay:1.0];
 }
 
 -(void)updateAlarm {
@@ -324,7 +333,7 @@
     NSDateFormatter *timeFormat = [[NSDateFormatter alloc] init];
     [timeFormat setDateFormat:@"HH"];
     NSString *time = [timeFormat stringFromDate:[NSDate date]];
-    NSLog(@"timeVal: %@", time);
+    // NSLog(@"timeVal: %@", time);
     int timeVal = [time intValue];
     
     if (timeVal <= 7) {
@@ -342,6 +351,9 @@
         _offLabel.textColor = [UIColor whiteColor];
         _alarmLabel.textColor = [UIColor whiteColor];
     }
+    
+    // Update timeLabel to show every one second
+    [self performSelector:@selector(updateAlarm) withObject:self afterDelay:1.0];
 }
 
 -(IBAction)updateBrightness {
@@ -378,7 +390,7 @@
     NSDateFormatter *timeFormat = [[NSDateFormatter alloc] init];
     [timeFormat setDateFormat:@"HH"];
     NSString *time = [timeFormat stringFromDate:[NSDate date]];
-    NSLog(@"timeVal: %@", time);
+    // NSLog(@"timeVal: %@", time);
     int timeVal = [time intValue];
     
 
@@ -417,7 +429,9 @@
             _slashLabel.textColor = [UIColor whiteColor];
         }
     }
-
+    
+    // Update timeLabel to show every one second
+    [self performSelector:@selector(updateAMPM) withObject:self afterDelay:1.0];
 }
 
 

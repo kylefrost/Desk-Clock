@@ -40,7 +40,7 @@
 
 -(IBAction)pressDone {
     [self dismissViewControllerAnimated:YES completion:NULL];
-    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
+    // [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
 }
 
 @end
