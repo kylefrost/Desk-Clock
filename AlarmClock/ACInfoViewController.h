@@ -12,6 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UINavigationBar *bar;
 @property(nonatomic,readonly) UIBarPosition barPosition;
+@property (strong, nonatomic) IBOutlet UIView *backgroundView;
 
 -(IBAction)pressDone;
 -(void)nightMode;

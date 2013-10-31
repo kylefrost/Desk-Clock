@@ -8,6 +8,7 @@
 
 #import "ACViewController.h"
 #import <UIKit/UIScreen.h>
+#import "ACInfoViewController.h"
 
 @interface ACViewController ()
 

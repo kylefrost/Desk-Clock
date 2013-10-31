@@ -71,18 +71,21 @@
         [[UINavigationBar appearance] setBarTintColor:[UIColor blackColor]];
         [[UINavigationBar appearance] setTitleTextAttributes:nightAtt];
         [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+        _backgroundView.backgroundColor = [UIColor darkGrayColor];
     }
     else if (timeVal <= 19 && timeVal >=8) {
         
         [[UINavigationBar appearance] setBarTintColor:[UIColor whiteColor]];
         [[UINavigationBar appearance] setTitleTextAttributes:dayAtt];
         [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+        _backgroundView.backgroundColor = [UIColor whiteColor];
     }
     else if (timeVal >= 20) {
         
         [[UINavigationBar appearance] setBarTintColor:[UIColor blackColor]];
         [[UINavigationBar appearance] setTitleTextAttributes:nightAtt];
         [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+        _backgroundView.backgroundColor = [UIColor darkGrayColor];
     }
 }
 
