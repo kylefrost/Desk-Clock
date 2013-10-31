@@ -28,12 +28,15 @@
     [self updateBrightness];
     [self updateAMPM];
     
+    
+    /*
     // Find time in 24 hour format
     NSDateFormatter *timeFormat = [[NSDateFormatter alloc] init];
     [timeFormat setDateFormat:@"HH"];
     NSString *time = [timeFormat stringFromDate:[NSDate date]];
     // NSLNSLog(@"timeVal: %@", time);
     int timeVal = [time intValue];
+    
     
     // Set night mode or day mode colors
     if (timeVal <= 7) {
@@ -45,9 +48,10 @@
     else if (timeVal >= 20) {
         [_backgroundView setBackgroundColor:[UIColor blackColor]];
     }
+     */
     
     // Update timeLabel to show every one second
-    [self performSelector:@selector(viewDidLoad) withObject:self afterDelay:1.0];
+    // [self performSelector:@selector(viewDidLoad) withObject:self afterDelay:1.0];
 }
 
 - (void)didReceiveMemoryWarning
@@ -84,6 +88,17 @@
     }
     else if (timeVal >= 20) {
         _timeLabel.textColor = [UIColor whiteColor];
+    }
+    
+    // Set night or day mode colors for background
+    if (timeVal <= 7) {
+        [_backgroundView setBackgroundColor:[UIColor blackColor]];
+    }
+    else if (timeVal <= 19 && timeVal >=8) {
+        [_backgroundView setBackgroundColor:[UIColor whiteColor]];
+    }
+    else if (timeVal >= 20) {
+        [_backgroundView setBackgroundColor:[UIColor blackColor]];
     }
 }
 
@@ -364,13 +379,16 @@
     
     // If button is pressed, night mode turned on, and if again, day mode turned on
     if (mainScreen.brightness > 0.1) {
-        [_brightnessButton setTitle:@"Night Mode" forState:UIControlStateNormal];
-        [[UIScreen mainScreen] setBrightness:0.1];
+        [_brightnessButton setTitle:@"View Mode" forState:UIControlStateNormal];
+        [[UIScreen mainScreen] setBrightness:0.0];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Night Mode Enabled" message: @"Night Mode has been enabled, and brightness has been turned down. Press View Mode to turn brightness back up." delegate: nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+        [alert show];
     }
     else if (mainScreen.brightness <= 0.1) {
-        [_brightnessButton setTitle:@"View Mode" forState:UIControlStateNormal];
+        [_brightnessButton setTitle:@"Night Mode" forState:UIControlStateNormal];
         [[UIScreen mainScreen] setBrightness:0.5];
     }
+    
 }
 
 
@@ -429,6 +447,7 @@
             _slashLabel.textColor = [UIColor whiteColor];
         }
     }
+    
     
     // Update timeLabel to show every one second
     [self performSelector:@selector(updateAMPM) withObject:self afterDelay:1.0];
