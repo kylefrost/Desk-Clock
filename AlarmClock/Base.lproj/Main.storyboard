@@ -208,6 +208,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <rect key="frame" x="138" y="98" width="51" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="onTintColor" red="0.70588237050000002" green="0.1019607931" blue="0.13333334029999999" alpha="1" colorSpace="deviceRGB"/>
+                                <connections>
+                                    <action selector="toggleEnabledForAlarmSwitch:" destination="NnW-xl-tu4" eventType="valueChanged" id="Zxf-Wo-B9y"/>
+                                </connections>
                             </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -216,6 +219,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     <navigationItem key="navigationItem" id="hmB-5o-6E7"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <connections>
+                        <outlet property="alarmSwitch" destination="CgG-qY-OS3" id="iis-fR-pSW"/>
                         <outlet property="backgroundView" destination="iLG-6s-g9S" id="lkx-j2-vwY"/>
                         <outlet property="bar" destination="6hO-fI-7xa" id="W9K-WA-aMi"/>
                     </connections>

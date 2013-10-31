@@ -89,4 +89,17 @@
     }
 }
 
+-(IBAction)toggleEnabledForAlarmSwitch:(id)sender {
+    
+    // Integer 1 = On -- 0 = Off
+    if (_alarmSwitch.on) {
+        [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:@"integer"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    else {
+        [[NSUserDefaults standardUserDefaults] setObject:@"0" forKey:@"integer"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+}
+
 @end
