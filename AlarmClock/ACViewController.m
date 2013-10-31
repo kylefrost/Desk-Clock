@@ -25,7 +25,7 @@
     [self updateDay];
     [self updateMonthDay];
     [self updateAlarm];
-    [self updateBrightness];
+    // [self updateBrightness];
     [self updateAMPM];
     
     
@@ -381,8 +381,8 @@
     if (mainScreen.brightness > 0.1) {
         [_brightnessButton setTitle:@"View Mode" forState:UIControlStateNormal];
         [[UIScreen mainScreen] setBrightness:0.0];
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Night Mode Enabled" message: @"Night Mode has been enabled, and brightness has been turned down. Press View Mode to turn brightness back up." delegate: nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
-        [alert show];
+        // UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Night Mode Enabled" message: @"Night Mode has been enabled, and brightness has been turned down. Press View Mode to turn brightness back up." delegate: nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+        // [alert show];
     }
     else if (mainScreen.brightness <= 0.1) {
         [_brightnessButton setTitle:@"Night Mode" forState:UIControlStateNormal];
