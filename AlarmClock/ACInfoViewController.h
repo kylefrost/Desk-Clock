@@ -10,6 +10,10 @@
 
 @interface ACInfoViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UINavigationBar *bar;
+@property(nonatomic,readonly) UIBarPosition barPosition;
+
 -(IBAction)pressDone;
+-(void)nightMode;
 
 @end
