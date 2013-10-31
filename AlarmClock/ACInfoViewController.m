@@ -14,6 +14,7 @@
 @end
 
 @implementation ACInfoViewController
+@synthesize alarmSwitch;
 
 /* - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -92,7 +93,7 @@
 -(IBAction)toggleEnabledForAlarmSwitch:(id)sender {
     
     // Integer 1 = On -- 0 = Off
-    if (_alarmSwitch.on) {
+    if (alarmSwitch.on) {
         [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:@"integer"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
