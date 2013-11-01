@@ -19,6 +19,9 @@
 		270894131821C297006E23BA /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 270894091821C297006E23BA /* iTunesArtwork@2x.png */; };
 		27208B15182145CC0025FEBD /* ACTutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27208B13182145CC0025FEBD /* ACTutorialViewController.m */; };
 		27208B16182145CC0025FEBD /* ACTutorialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27208B14182145CC0025FEBD /* ACTutorialViewController.xib */; };
+		27291F0B1823E8B200CB2070 /* Main~ipad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27291F0A1823E8B200CB2070 /* Main~ipad.storyboard */; };
+		27291F101823EF6100CB2070 /* ACViewController~ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 27291F0F1823EF6100CB2070 /* ACViewController~ipad.m */; };
+		27291F131823EF8100CB2070 /* ACInfoViewController~ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 27291F121823EF8100CB2070 /* ACInfoViewController~ipad.m */; };
 		276901B51820C4F9006B915D /* Digital-7MonoItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 276901B41820C4D1006B915D /* Digital-7MonoItalic.otf */; };
 		277AFEE6181EA5B80009AE0F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 277AFEE5181EA5B80009AE0F /* Foundation.framework */; };
 		277AFEE8181EA5B80009AE0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 277AFEE7181EA5B80009AE0F /* CoreGraphics.framework */; };
@@ -64,6 +67,11 @@
 		27208B12182145CC0025FEBD /* ACTutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACTutorialViewController.h; sourceTree = "<group>"; };
 		27208B13182145CC0025FEBD /* ACTutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACTutorialViewController.m; sourceTree = "<group>"; };
 		27208B14182145CC0025FEBD /* ACTutorialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACTutorialViewController.xib; sourceTree = "<group>"; };
+		27291F0A1823E8B200CB2070 /* Main~ipad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Main~ipad.storyboard"; sourceTree = "<group>"; };
+		27291F0E1823EF6100CB2070 /* ACViewController~ipad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ACViewController~ipad.h"; sourceTree = "<group>"; };
+		27291F0F1823EF6100CB2070 /* ACViewController~ipad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ACViewController~ipad.m"; sourceTree = "<group>"; };
+		27291F111823EF8100CB2070 /* ACInfoViewController~ipad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ACInfoViewController~ipad.h"; sourceTree = "<group>"; };
+		27291F121823EF8100CB2070 /* ACInfoViewController~ipad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ACInfoViewController~ipad.m"; sourceTree = "<group>"; };
 		276901B41820C4D1006B915D /* Digital-7MonoItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Digital-7MonoItalic.otf"; sourceTree = "<group>"; };
 		277AFEE2181EA5B80009AE0F /* AlarmClock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlarmClock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		277AFEE5181EA5B80009AE0F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -140,6 +148,30 @@
 			name = Tutorial;
 			sourceTree = "<group>";
 		};
+		27291F0C1823EF2B00CB2070 /* iPhone */ = {
+			isa = PBXGroup;
+			children = (
+				277AFEFA181EA5B80009AE0F /* ACViewController.h */,
+				277AFEFB181EA5B80009AE0F /* ACViewController.m */,
+				277AFF20181EBE510009AE0F /* ACInfoViewController.h */,
+				277AFF21181EBE510009AE0F /* ACInfoViewController.m */,
+				277AFEF7181EA5B80009AE0F /* Main.storyboard */,
+			);
+			name = iPhone;
+			sourceTree = "<group>";
+		};
+		27291F0D1823EF3500CB2070 /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+				27291F0A1823E8B200CB2070 /* Main~ipad.storyboard */,
+				27291F0E1823EF6100CB2070 /* ACViewController~ipad.h */,
+				27291F0F1823EF6100CB2070 /* ACViewController~ipad.m */,
+				27291F111823EF8100CB2070 /* ACInfoViewController~ipad.h */,
+				27291F121823EF8100CB2070 /* ACInfoViewController~ipad.m */,
+			);
+			name = iPad;
+			sourceTree = "<group>";
+		};
 		277AFED9181EA5B80009AE0F = {
 			isa = PBXGroup;
 			children = (
@@ -175,11 +207,8 @@
 			children = (
 				277AFEF4181EA5B80009AE0F /* ACAppDelegate.h */,
 				277AFEF5181EA5B80009AE0F /* ACAppDelegate.m */,
-				277AFEFA181EA5B80009AE0F /* ACViewController.h */,
-				277AFEFB181EA5B80009AE0F /* ACViewController.m */,
-				277AFF20181EBE510009AE0F /* ACInfoViewController.h */,
-				277AFF21181EBE510009AE0F /* ACInfoViewController.m */,
-				277AFEF7181EA5B80009AE0F /* Main.storyboard */,
+				27291F0D1823EF3500CB2070 /* iPad */,
+				27291F0C1823EF2B00CB2070 /* iPhone */,
 				27208B17182146F10025FEBD /* Tutorial */,
 				277AFEEC181EA5B80009AE0F /* Supporting Files */,
 			);
@@ -306,6 +335,7 @@
 				27208B16182145CC0025FEBD /* ACTutorialViewController.xib in Resources */,
 				277AFEF0181EA5B80009AE0F /* InfoPlist.strings in Resources */,
 				2708940D1821C297006E23BA /* AppIcon40x40@2x.png in Resources */,
+				27291F0B1823E8B200CB2070 /* Main~ipad.storyboard in Resources */,
 				2708940A1821C297006E23BA /* AppIcon29x29.png in Resources */,
 				277AFF1E181EB1CD0009AE0F /* DS-DIGII.TTF in Resources */,
 				277AFEF9181EA5B80009AE0F /* Main.storyboard in Resources */,
@@ -332,10 +362,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				277AFF22181EBE510009AE0F /* ACInfoViewController.m in Sources */,
+				27291F131823EF8100CB2070 /* ACInfoViewController~ipad.m in Sources */,
 				277AFEF6181EA5B80009AE0F /* ACAppDelegate.m in Sources */,
 				277AFEFC181EA5B80009AE0F /* ACViewController.m in Sources */,
 				27208B15182145CC0025FEBD /* ACTutorialViewController.m in Sources */,
 				277AFEF2181EA5B80009AE0F /* main.m in Sources */,
+				27291F101823EF6100CB2070 /* ACViewController~ipad.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,7 +498,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AlarmClock/AlarmClock-Prefix.pch";
 				INFOPLIST_FILE = "AlarmClock/AlarmClock-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -479,7 +513,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AlarmClock/AlarmClock-Prefix.pch";
 				INFOPLIST_FILE = "AlarmClock/AlarmClock-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

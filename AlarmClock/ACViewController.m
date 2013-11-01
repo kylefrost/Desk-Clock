@@ -132,7 +132,7 @@
     if (timeVal <= 7) {
         _dayLabel.textColor = [UIColor whiteColor];
     }
-    else if (timeVal <= 19 && timeVal >=8) {
+    else if (timeVal <= 19 && timeVal >= 8) {
         _dayLabel.textColor = [UIColor blackColor];
     }
     else if (timeVal >= 20) {
