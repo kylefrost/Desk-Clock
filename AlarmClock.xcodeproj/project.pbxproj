@@ -163,11 +163,11 @@
 		27291F0D1823EF3500CB2070 /* iPad */ = {
 			isa = PBXGroup;
 			children = (
-				27291F0A1823E8B200CB2070 /* Main~ipad.storyboard */,
 				27291F0E1823EF6100CB2070 /* ACViewController~ipad.h */,
 				27291F0F1823EF6100CB2070 /* ACViewController~ipad.m */,
 				27291F111823EF8100CB2070 /* ACInfoViewController~ipad.h */,
 				27291F121823EF8100CB2070 /* ACInfoViewController~ipad.m */,
+				27291F0A1823E8B200CB2070 /* Main~ipad.storyboard */,
 			);
 			name = iPad;
 			sourceTree = "<group>";
