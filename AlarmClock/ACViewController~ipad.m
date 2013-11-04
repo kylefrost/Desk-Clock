@@ -9,6 +9,13 @@
 #import "ACViewController~ipad.h"
 #import "ACInfoViewController~ipad.h"
 
+#define TIME_SIZE 225
+#define DAY_DAYMONTH_ALARM_SIZE 75
+#define ON_OFF_SIZE 55
+#define AM_PM_SIZE 45
+#define SLASH_SIZE 55
+#define BRIGHT_BUTTON_SIZE 20
+
 
 @interface ACViewController_ipad ()
 
@@ -69,7 +76,7 @@
     _timeLabel.text = [dateFormat stringFromDate:[NSDate date]];
     
     // Set label attributes
-    _timeLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:225];
+    _timeLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:TIME_SIZE];
     
     // Update timeLabel to show every one second
     [self performSelector:@selector(updateTime) withObject:self afterDelay:1.0];
@@ -126,7 +133,7 @@
     // NSLog(@"NSInteger 'day' = %ld\nNSInteger 'weekday' = %ld", (long)day, (long)weekday);
     
     // Attributes of dayLabel text
-    _dayLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:75];
+    _dayLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:DAY_DAYMONTH_ALARM_SIZE];
     
     // Set night mode or day mode colors
     if (timeVal <= 7) {
@@ -185,13 +192,13 @@
     NSInteger month = [weekdayComponents month];
     
     // Set day of week label attributes
-    _dayMonthLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:75];
+    _dayMonthLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:DAY_DAYMONTH_ALARM_SIZE];
     
     // Set night mode or day mode colors
     if (timeVal <= 7) {
         _dayMonthLabel.textColor = [UIColor whiteColor];
     }
-    else if (timeVal <= 19 && timeVal >=8) {
+    else if (timeVal <= 19 && timeVal >= 8) {
         _dayMonthLabel.textColor = [UIColor blackColor];
     }
     else if (timeVal >= 20) {
@@ -347,9 +354,9 @@
 -(void)updateAlarm {
 
     // Set text attributes
-    _onLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:55];
-    _offLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:55];
-    _alarmLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:65];
+    _onLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:ON_OFF_SIZE];
+    _offLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:ON_OFF_SIZE];
+    _alarmLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:DAY_DAYMONTH_ALARM_SIZE];
     
     // Find time in 24 hour format
     NSDateFormatter *timeFormat = [[NSDateFormatter alloc] init];
@@ -399,7 +406,7 @@
     }
     
     // Button Size
-    _brightnessButton.titleLabel.font = [UIFont systemFontOfSize:20];
+    _brightnessButton.titleLabel.font = [UIFont systemFontOfSize:BRIGHT_BUTTON_SIZE];
     
     // Update timeLabel to show every one second
     [self performSelector:@selector(updateAlarm) withObject:self afterDelay:1.0];
@@ -430,9 +437,9 @@
 -(void)updateAMPM {
     
     // Set text attributes
-    _amLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:45];
-    _pmLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:45];
-    _slashLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:55];
+    _amLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:AM_PM_SIZE];
+    _pmLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:AM_PM_SIZE];
+    _slashLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:SLASH_SIZE];
     
     // Set text
     _amLabel.text = @"AM";

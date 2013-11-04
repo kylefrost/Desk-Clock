@@ -10,6 +10,15 @@
 #import <UIKit/UIScreen.h>
 #import "ACInfoViewController.h"
 
+#define TIME_SIZE 125
+#define DAY_DAYMONTH_ALARM_SIZE 40
+#define ON_OFF_SIZE 25
+#define AM_PM_SIZE 20
+#define SLASH_SIZE 30
+#define BRIGHT_BUTTON_SIZE 12
+
+
+
 @interface ACViewController ()
 
 @end
@@ -31,24 +40,24 @@
     
     
     /*
-    // Find time in 24 hour format
-    NSDateFormatter *timeFormat = [[NSDateFormatter alloc] init];
-    [timeFormat setDateFormat:@"HH"];
-    NSString *time = [timeFormat stringFromDate:[NSDate date]];
-    // NSLNSLog(@"timeVal: %@", time);
-    int timeVal = [time intValue];
-    
-    
-    // Set night mode or day mode colors
-    if (timeVal <= 7) {
-        [_backgroundView setBackgroundColor:[UIColor blackColor]];
-    }
-    else if (timeVal <= 19 && timeVal >=8) {
-        [_backgroundView setBackgroundColor:[UIColor whiteColor]];
-    }
-    else if (timeVal >= 20) {
-        [_backgroundView setBackgroundColor:[UIColor blackColor]];
-    }
+     // Find time in 24 hour format
+     NSDateFormatter *timeFormat = [[NSDateFormatter alloc] init];
+     [timeFormat setDateFormat:@"HH"];
+     NSString *time = [timeFormat stringFromDate:[NSDate date]];
+     // NSLNSLog(@"timeVal: %@", time);
+     int timeVal = [time intValue];
+     
+     
+     // Set night mode or day mode colors
+     if (timeVal <= 7) {
+     [_backgroundView setBackgroundColor:[UIColor blackColor]];
+     }
+     else if (timeVal <= 19 && timeVal >=8) {
+     [_backgroundView setBackgroundColor:[UIColor whiteColor]];
+     }
+     else if (timeVal >= 20) {
+     [_backgroundView setBackgroundColor:[UIColor blackColor]];
+     }
      */
     
     // Update timeLabel to show every one second
@@ -69,7 +78,7 @@
     _timeLabel.text = [dateFormat stringFromDate:[NSDate date]];
     
     // Set label attributes
-    _timeLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:125];
+    _timeLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:TIME_SIZE];
     
     // Update timeLabel to show every one second
     [self performSelector:@selector(updateTime) withObject:self afterDelay:1.0];
@@ -84,7 +93,7 @@
     if (timeVal <= 7) {
         _timeLabel.textColor = [UIColor whiteColor];
     }
-    else if (timeVal <= 19 && timeVal >=8) {
+    else if (timeVal <= 19 && timeVal >= 8) {
         _timeLabel.textColor = [UIColor blackColor];
     }
     else if (timeVal >= 20) {
@@ -95,7 +104,7 @@
     if (timeVal <= 7) {
         [_backgroundView setBackgroundColor:[UIColor blackColor]];
     }
-    else if (timeVal <= 19 && timeVal >=8) {
+    else if (timeVal <= 19 && timeVal >= 8) {
         [_backgroundView setBackgroundColor:[UIColor whiteColor]];
     }
     else if (timeVal >= 20) {
@@ -124,9 +133,9 @@
     
     // NSLog of day
     // NSLog(@"NSInteger 'day' = %ld\nNSInteger 'weekday' = %ld", (long)day, (long)weekday);
-
+    
     // Attributes of dayLabel text
-    _dayLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:40];
+    _dayLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:DAY_DAYMONTH_ALARM_SIZE];
     
     // Set night mode or day mode colors
     if (timeVal <= 7) {
@@ -185,13 +194,13 @@
     NSInteger month = [weekdayComponents month];
     
     // Set day of week label attributes
-    _dayMonthLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:40];
+    _dayMonthLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:DAY_DAYMONTH_ALARM_SIZE];
     
     // Set night mode or day mode colors
     if (timeVal <= 7) {
         _dayMonthLabel.textColor = [UIColor whiteColor];
     }
-    else if (timeVal <= 19 && timeVal >=8) {
+    else if (timeVal <= 19 && timeVal >= 8) {
         _dayMonthLabel.textColor = [UIColor blackColor];
     }
     else if (timeVal >= 20) {
@@ -338,12 +347,18 @@
     [self performSelector:@selector(updateMonthDay) withObject:self afterDelay:1.0];
 }
 
+
+-(BOOL)readValue {
+    NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
+    return [preferences boolForKey:@"switchOnOff"];
+}
+
 -(void)updateAlarm {
     
     // Set text attributes
-    _onLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:25];
-    _offLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:25];
-    _alarmLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:40];
+    _onLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:ON_OFF_SIZE];
+    _offLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:ON_OFF_SIZE];
+    _alarmLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:DAY_DAYMONTH_ALARM_SIZE];
     
     // Find time in 24 hour format
     NSDateFormatter *timeFormat = [[NSDateFormatter alloc] init];
@@ -352,24 +367,48 @@
     // NSLog(@"timeVal: %@", time);
     int timeVal = [time intValue];
     
-    // Convert NSUserDefault to integer
-    // NSInteger *
+    // Get UISwitch state
+    NSUserDefaults* alarmPreference = [NSUserDefaults standardUserDefaults];
+    BOOL alarmState = [alarmPreference boolForKey:@"switchOnOff"];
     
-    if (timeVal <= 7) {
-        _onLabel.textColor = [UIColor whiteColor];
-        _offLabel.textColor = [UIColor whiteColor];
-        _alarmLabel.textColor = [UIColor whiteColor];
+    // Set alarm state
+    if (alarmState == 1) {
+        if (timeVal <= 7) {
+            _onLabel.textColor = [UIColor whiteColor];
+            _offLabel.textColor = [UIColor darkGrayColor];
+            _alarmLabel.textColor = [UIColor whiteColor];
+        }
+        else if (timeVal <= 19 && timeVal >= 8) {
+            _onLabel.textColor = [UIColor blackColor];
+            _offLabel.textColor = [UIColor lightGrayColor];
+            _alarmLabel.textColor = [UIColor blackColor];
+        }
+        else if (timeVal >= 20) {
+            _onLabel.textColor = [UIColor whiteColor];
+            _offLabel.textColor = [UIColor darkGrayColor];
+            _alarmLabel.textColor = [UIColor whiteColor];
+        }
     }
-    else if (timeVal <= 19 && timeVal >=8) {
-        _onLabel.textColor = [UIColor blackColor];
-        _offLabel.textColor = [UIColor blackColor];
-        _alarmLabel.textColor = [UIColor blackColor];
+    else if (alarmState == 0) {
+        if (timeVal <= 7) {
+            _onLabel.textColor = [UIColor darkGrayColor];
+            _offLabel.textColor = [UIColor whiteColor];
+            _alarmLabel.textColor = [UIColor whiteColor];
+        }
+        else if (timeVal <= 19 && timeVal >= 8) {
+            _onLabel.textColor = [UIColor lightGrayColor];
+            _offLabel.textColor = [UIColor blackColor];
+            _alarmLabel.textColor = [UIColor blackColor];
+        }
+        else if (timeVal >= 20) {
+            _onLabel.textColor = [UIColor darkGrayColor];
+            _offLabel.textColor = [UIColor whiteColor];
+            _alarmLabel.textColor = [UIColor whiteColor];
+        }
     }
-    else if (timeVal >= 20) {
-        _onLabel.textColor = [UIColor whiteColor];
-        _offLabel.textColor = [UIColor whiteColor];
-        _alarmLabel.textColor = [UIColor whiteColor];
-    }
+    
+    // Button Size
+    _brightnessButton.titleLabel.font = [UIFont systemFontOfSize:BRIGHT_BUTTON_SIZE];
     
     // Update timeLabel to show every one second
     [self performSelector:@selector(updateAlarm) withObject:self afterDelay:1.0];
@@ -389,6 +428,7 @@
         // [alert show];
     }
     else if (mainScreen.brightness <= 0.1) {
+        
         [_brightnessButton setTitle:@"Night Mode" forState:UIControlStateNormal];
         [[UIScreen mainScreen] setBrightness:0.5];
     }
@@ -399,9 +439,9 @@
 -(void)updateAMPM {
     
     // Set text attributes
-    _amLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:20];
-    _pmLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:20];
-    _slashLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:30];
+    _amLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:AM_PM_SIZE];
+    _pmLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:AM_PM_SIZE];
+    _slashLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:SLASH_SIZE];
     
     // Set text
     _amLabel.text = @"AM";
@@ -415,7 +455,7 @@
     // NSLog(@"timeVal: %@", time);
     int timeVal = [time intValue];
     
-
+    
     // Set if statements for showing AM and PM
     if (timeVal < 12) {
         if (timeVal <= 7) {
@@ -423,7 +463,7 @@
             _pmLabel.textColor = [UIColor darkGrayColor];
             _slashLabel.textColor = [UIColor whiteColor];
         }
-        else if (timeVal <= 19 && timeVal >=8) {
+        else if (timeVal <= 19 && timeVal >= 8) {
             _amLabel.textColor = [UIColor blackColor];
             _pmLabel.textColor = [UIColor lightGrayColor];
             _slashLabel.textColor = [UIColor blackColor];
@@ -440,7 +480,7 @@
             _pmLabel.textColor = [UIColor whiteColor];
             _slashLabel.textColor = [UIColor whiteColor];
         }
-        else if (timeVal <= 19 && timeVal >=8) {
+        else if (timeVal <= 19 && timeVal >= 8) {
             _amLabel.textColor = [UIColor lightGrayColor];
             _pmLabel.textColor = [UIColor blackColor];
             _slashLabel.textColor = [UIColor blackColor];
