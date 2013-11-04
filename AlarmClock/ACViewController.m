@@ -18,7 +18,6 @@
 #define BRIGHT_BUTTON_SIZE 12
 
 
-
 @interface ACViewController ()
 
 @end
