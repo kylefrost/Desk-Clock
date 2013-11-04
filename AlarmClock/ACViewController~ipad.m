@@ -338,8 +338,14 @@
     [self performSelector:@selector(updateMonthDay) withObject:self afterDelay:1.0];
 }
 
+
+-(BOOL)readValue {
+    NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
+    return [preferences boolForKey:@"switchOnOff"];
+}
+
 -(void)updateAlarm {
-    
+
     // Set text attributes
     _onLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:55];
     _offLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:55];
@@ -352,41 +358,41 @@
     // NSLog(@"timeVal: %@", time);
     int timeVal = [time intValue];
     
-    // Convert NSUserDefault to integer, 1 = On -- 0 = Off
-    NSString *alarm = [[NSUserDefaults standardUserDefaults] objectForKey:@"integer"];
-    int alarmState = [alarm intValue];
+    // Get UISwitch state
+    NSUserDefaults* alarmPreference = [NSUserDefaults standardUserDefaults];
+    BOOL alarmState = [alarmPreference boolForKey:@"switchOnOff"];
     
     // Set alarm state
     if (alarmState == 1) {
         if (timeVal <= 7) {
             _onLabel.textColor = [UIColor whiteColor];
-            _offLabel.textColor = [UIColor whiteColor];
+            _offLabel.textColor = [UIColor darkGrayColor];
             _alarmLabel.textColor = [UIColor whiteColor];
         }
         else if (timeVal <= 19 && timeVal >= 8) {
             _onLabel.textColor = [UIColor blackColor];
-            _offLabel.textColor = [UIColor blackColor];
+            _offLabel.textColor = [UIColor lightGrayColor];
             _alarmLabel.textColor = [UIColor blackColor];
         }
         else if (timeVal >= 20) {
             _onLabel.textColor = [UIColor whiteColor];
-            _offLabel.textColor = [UIColor whiteColor];
+            _offLabel.textColor = [UIColor darkGrayColor];
             _alarmLabel.textColor = [UIColor whiteColor];
         }
     }
     else if (alarmState == 0) {
         if (timeVal <= 7) {
-            _onLabel.textColor = [UIColor whiteColor];
+            _onLabel.textColor = [UIColor darkGrayColor];
             _offLabel.textColor = [UIColor whiteColor];
             _alarmLabel.textColor = [UIColor whiteColor];
         }
         else if (timeVal <= 19 && timeVal >= 8) {
-            _onLabel.textColor = [UIColor blackColor];
+            _onLabel.textColor = [UIColor lightGrayColor];
             _offLabel.textColor = [UIColor blackColor];
             _alarmLabel.textColor = [UIColor blackColor];
         }
         else if (timeVal >= 20) {
-            _onLabel.textColor = [UIColor whiteColor];
+            _onLabel.textColor = [UIColor darkGrayColor];
             _offLabel.textColor = [UIColor whiteColor];
             _alarmLabel.textColor = [UIColor whiteColor];
         }

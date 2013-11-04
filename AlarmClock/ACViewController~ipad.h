@@ -13,6 +13,7 @@
     NSDate *dateOfInterest;
     NSString *monthName;
     NSString *dayOfMonth;
+    // BOOL alarmState;
     // int findWeekDay(int date);
     // int date;
     
@@ -25,6 +26,7 @@
 -(void)updateAlarm;
 -(IBAction)updateBrightness;
 -(void)updateAMPM;
+-(BOOL)readValue;
 
 @property (strong, nonatomic) IBOutlet UIView *backgroundView;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;

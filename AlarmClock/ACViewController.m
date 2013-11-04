@@ -354,15 +354,6 @@
     
     // Convert NSUserDefault to integer
     // NSInteger *
-    int value = [[NSUserDefaults standardUserDefaults] objectForKey:@"integer"];
-    NSLog(@"value: %d", value);
-    
-    if (value == 1) {
-        
-    }
-    else if (value == 2) {
-        
-    }
     
     if (timeVal <= 7) {
         _onLabel.textColor = [UIColor whiteColor];

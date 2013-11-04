@@ -35,6 +35,21 @@
     
     [self setNeedsStatusBarAppearanceUpdate];
     self.bar.delegate = self;
+    
+    NSUserDefaults* preferences = [NSUserDefaults standardUserDefaults];
+    BOOL alarmState = [preferences boolForKey:@"switchOnOff"];
+    
+    if (alarmState == 1) {
+        alarmSwitch.on = TRUE;
+    }
+    else if (alarmState == 0) {
+        alarmSwitch.on = FALSE;
+    }
+}
+
+- (BOOL)readValue  {
+    NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
+    return [preferences boolForKey:@"switchOnOff"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -74,7 +89,7 @@
         [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
         _backgroundView.backgroundColor = [UIColor darkGrayColor];
     }
-    else if (timeVal <= 19 && timeVal >=8) {
+    else if (timeVal <= 19 && timeVal >= 8) {
         
         [[UINavigationBar appearance] setBarTintColor:[UIColor whiteColor]];
         [[UINavigationBar appearance] setTitleTextAttributes:dayAtt];
@@ -94,13 +109,28 @@
     
     // Integer 1 = On -- 0 = Off
     if (alarmSwitch.on) {
-        [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:@"integer"];
+        // [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:@"integer"];
+        // [[NSUserDefaults standardUserDefaults] synchronize];
+        [[NSUserDefaults standardUserDefaults] setBool:1 forKey:@"switchOnOff"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
     else {
-        [[NSUserDefaults standardUserDefaults] setObject:@"0" forKey:@"integer"];
+        // [[NSUserDefaults standardUserDefaults] setObject:@"0" forKey:@"integer"];
+        // [[NSUserDefaults standardUserDefaults] synchronize];
+        [[NSUserDefaults standardUserDefaults] setBool:0 forKey:@"switchOnOff"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
+    
+    NSUserDefaults* preferences  = [NSUserDefaults standardUserDefaults];
+    BOOL alarmState = [preferences boolForKey:@"switchOnOff"];
+    
+    NSLog(@"BOOL for AlarmState is %d", alarmState);
+}
+
+-(void)saveValue  {
+    NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
+    [preferences setBool:alarmSwitch.on forKey:@"switchOnOff"];
+    [preferences synchronize];
 }
 
 @end

@@ -11,7 +11,7 @@
 @interface ACInfoViewController_ipad : UIViewController {
     
     IBOutlet UISwitch *alarmSwitch;
-    NSInteger alarmState;
+    // NSInteger alarmState;
 }
 
 @property (nonatomic, retain) UISwitch *alarmSwitch;
@@ -22,5 +22,7 @@
 -(IBAction)pressDone;
 -(void)nightMode;
 -(IBAction)toggleEnabledForAlarmSwitch:(id)sender;
+-(void)saveValue;
+-(BOOL)readValue;
 
 @end

@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ACInfoViewController : UIViewController {
+@interface ACInfoViewController : UIViewController  {
     
     IBOutlet UISwitch *alarmSwitch;
-    NSInteger alarmState;
+    // NSInteger alarmState;
 }
 
 @property (nonatomic, retain) UISwitch *alarmSwitch;
@@ -22,5 +22,7 @@
 -(IBAction)pressDone;
 -(void)nightMode;
 -(IBAction)toggleEnabledForAlarmSwitch:(id)sender;
+-(void)saveValue;
+-(BOOL)readValue;
 
 @end
