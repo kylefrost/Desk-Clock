@@ -159,7 +159,7 @@
                                     <action selector="toggleEnabledForAlarmSwitch:" destination="rf8-1q-V9E" eventType="touchUpInside" id="iL0-cj-uhY"/>
                                 </connections>
                             </switch>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="ctH-tq-gcA">
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="ctH-tq-gcA">
                                 <rect key="frame" x="0.0" y="404" width="540" height="216"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <date key="date" timeIntervalSinceReferenceDate="405007432.26128501">

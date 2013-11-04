@@ -36,6 +36,7 @@
     // [self updateBrightness];
     [self updateAMPM];
     
+    // If following is commented out, status bar will disappear when InfoViewController is opened
     
     /*
      // Find time in 24 hour format
