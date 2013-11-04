@@ -16,7 +16,7 @@
 
 /*
  This file, and its header file, actually do nothing to the project. In every project I do, I always find a way to leave a note or
-     have a seret page for my girlfriend, Lauren White ( http://www.twitter.com/lauren_alexis ). She doesn't code, probably will never
+     have a secret page for my girlfriend, Lauren White ( http://www.twitter.com/lauren_alexis ). She doesn't code, probably will never
      find this (and if she does, it is because I led her to it [which I already did while writing this]), but nonetheless I am
      putting this here, in my public source code, for her to eventually see.
  
