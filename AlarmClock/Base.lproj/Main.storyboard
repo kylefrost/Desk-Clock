@@ -219,7 +219,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     <navigationItem key="navigationItem" id="hmB-5o-6E7"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <connections>
-                        <outlet property="alarmPIcker" destination="qKi-ZC-ihT" id="Epa-d5-hlI"/>
+                        <outlet property="alarmPicker" destination="qKi-ZC-ihT" id="HAu-yj-6AT"/>
                         <outlet property="alarmSwitch" destination="CgG-qY-OS3" id="iis-fR-pSW"/>
                         <outlet property="backgroundView" destination="iLG-6s-g9S" id="lkx-j2-vwY"/>
                         <outlet property="bar" destination="6hO-fI-7xa" id="W9K-WA-aMi"/>

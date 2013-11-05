@@ -25,6 +25,6 @@
 -(IBAction)toggleEnabledForAlarmSwitch:(id)sender;
 -(void)saveValue;
 -(BOOL)readValue;
--(void)saveAlarm;
+// -(void)saveAlarm;
 
 @end

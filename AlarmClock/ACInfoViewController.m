@@ -40,14 +40,21 @@
     BOOL alarmState = [preferences boolForKey:@"switchOnOff"];
     
     if (alarmState == 1) {
+        [self.alarmPicker setUserInteractionEnabled:YES];
+        [self.alarmPicker setAlpha:1.0];
         alarmSwitch.on = TRUE;
     }
     else if (alarmState == 0) {
+        [self.alarmPicker setAlpha:0.0];
+        [self.alarmPicker setUserInteractionEnabled:NO];
         alarmSwitch.on = FALSE;
     }
     
-    // NSDate *storedAlarmTime = [[NSUserDefaults standardUserDefaults] objectForKey:@"alarmTime"];
-    // [self.alarmPicker setDate:storedAlarmTime animated:NO];
+    // Load alarmPicker
+    // NSUserDefaults *alarmTime = [NSUserDefaults standardUserDefaults];
+    NSDate *storedAlarmTime = [[NSUserDefaults standardUserDefaults] objectForKey:@"alarmTimeStateStored"];
+    [self.alarmPicker setDate:storedAlarmTime];
+
 }
 
 - (BOOL)readValue  {
@@ -68,6 +75,7 @@
 -(IBAction)pressDone {
     [self dismissViewControllerAnimated:YES completion:NULL];
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
+    [self saveAlarm];
 }
 
 -(void)nightMode {
@@ -112,17 +120,16 @@
     
     // Integer 1 = On -- 0 = Off
     if (alarmSwitch.on) {
-        // [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:@"integer"];
-        // [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        [self.alarmPicker setUserInteractionEnabled:YES];
+        [self.alarmPicker setAlpha:1.0];
         [[NSUserDefaults standardUserDefaults] setBool:1 forKey:@"switchOnOff"];
-        NSUserDefaults *savedTime = [NSUserDefaults standardUserDefaults];
-        NSDate *alarmTime = [self.alarmPicker date];
-        [savedTime setObject:alarmTime forKey:@"alarmTime"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
     else {
-        // [[NSUserDefaults standardUserDefaults] setObject:@"0" forKey:@"integer"];
-        // [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        [self.alarmPicker setAlpha:0.0];
+        [self.alarmPicker setUserInteractionEnabled:NO];
         [[NSUserDefaults standardUserDefaults] setBool:0 forKey:@"switchOnOff"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
@@ -139,12 +146,16 @@
     [preferences synchronize];
 }
 
+
 -(void)saveAlarm {
     
-    NSUserDefaults *savedTime = [NSUserDefaults standardUserDefaults];
-    NSDate *alarmTime = [self.alarmPicker date];
-    [savedTime setObject:alarmTime forKey:@"alarmTime"];
+    // Save time of alarm
+    NSUserDefaults *alarmStoreTime = [NSUserDefaults standardUserDefaults];
+    NSDate *alarmTime = self.alarmPicker.date;
+    [alarmStoreTime setObject:alarmTime forKey:@"alarmTimeStateStored"];
     [[NSUserDefaults standardUserDefaults] synchronize];
+    NSLog(@"\n\nAlarm time saved.");
 }
+
 
 @end
