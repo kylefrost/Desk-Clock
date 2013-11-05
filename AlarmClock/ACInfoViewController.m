@@ -53,8 +53,12 @@
     // Load alarmPicker
     // NSUserDefaults *alarmTime = [NSUserDefaults standardUserDefaults];
     NSDate *storedAlarmTime = [[NSUserDefaults standardUserDefaults] objectForKey:@"alarmTimeStateStored"];
+    
+    if (storedAlarmTime == nil) {
+        storedAlarmTime = [NSDate date];
+    }
+    
     [self.alarmPicker setDate:storedAlarmTime];
-
 }
 
 - (BOOL)readValue  {
