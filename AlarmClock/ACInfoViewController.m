@@ -7,6 +7,7 @@
 //
 
 #import "ACInfoViewController.h"
+#import "ACViewController.h"
 #import <UIKit/UIAppearance.h>
 
 @interface ACInfoViewController ()
@@ -36,6 +37,7 @@
     [self setNeedsStatusBarAppearanceUpdate];
     self.bar.delegate = self;
     
+    // Load the alarmSwitch
     NSUserDefaults* preferences = [NSUserDefaults standardUserDefaults];
     BOOL alarmState = [preferences boolForKey:@"switchOnOff"];
     
@@ -121,6 +123,8 @@
         _backgroundView.backgroundColor = [UIColor darkGrayColor];
         _alarmLabel.textColor = [UIColor whiteColor];
     }
+    
+    [self performSelector:@selector(nightMode) withObject:self afterDelay:1.0];
 }
 
 -(IBAction)toggleEnabledForAlarmSwitch:(id)sender {
@@ -163,6 +167,5 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
     NSLog(@"\n\nAlarm time saved.");
 }
-
 
 @end
