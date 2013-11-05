@@ -199,6 +199,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <connections>
+                        <outlet property="alarmLabel" destination="6qz-U1-hyC" id="82O-QY-Ain"/>
                         <outlet property="alarmPicker" destination="ctH-tq-gcA" id="AVs-FQ-oil"/>
                         <outlet property="alarmSwitch" destination="Me9-EO-l1n" id="QPm-Ov-D4z"/>
                         <outlet property="backgroundView" destination="7L6-9V-32M" id="i7a-rH-WWT"/>

@@ -7,6 +7,7 @@
 //
 
 #import "ACInfoViewController~ipad.h"
+#import <UIKit/UIAppearance.h>
 
 @interface ACInfoViewController_ipad ()
 
@@ -39,11 +40,21 @@
     BOOL alarmState = [preferences boolForKey:@"switchOnOff"];
     
     if (alarmState == 1) {
+        [self.alarmPicker setUserInteractionEnabled:YES];
+        [self.alarmPicker setAlpha:1.0];
         alarmSwitch.on = TRUE;
     }
     else if (alarmState == 0) {
+        [self.alarmPicker setAlpha:0.0];
+        [self.alarmPicker setUserInteractionEnabled:NO];
         alarmSwitch.on = FALSE;
     }
+    
+    // Load alarmPicker
+    // NSUserDefaults *alarmTime = [NSUserDefaults standardUserDefaults];
+    NSDate *storedAlarmTime = [[NSUserDefaults standardUserDefaults] objectForKey:@"alarmTimeStateStored"];
+    [self.alarmPicker setDate:storedAlarmTime];
+    
 }
 
 - (BOOL)readValue  {
@@ -64,6 +75,7 @@
 -(IBAction)pressDone {
     [self dismissViewControllerAnimated:YES completion:NULL];
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
+    [self saveAlarm];
 }
 
 -(void)nightMode {
@@ -87,6 +99,7 @@
         [[UINavigationBar appearance] setTitleTextAttributes:nightAtt];
         [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
         _backgroundView.backgroundColor = [UIColor darkGrayColor];
+        _alarmLabel.textColor = [UIColor whiteColor];
     }
     else if (timeVal <= 19 && timeVal >= 8) {
         
@@ -94,6 +107,7 @@
         [[UINavigationBar appearance] setTitleTextAttributes:dayAtt];
         [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
         _backgroundView.backgroundColor = [UIColor whiteColor];
+        _alarmLabel.textColor = [UIColor blackColor];
     }
     else if (timeVal >= 20) {
         
@@ -101,6 +115,7 @@
         [[UINavigationBar appearance] setTitleTextAttributes:nightAtt];
         [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
         _backgroundView.backgroundColor = [UIColor darkGrayColor];
+        _alarmLabel.textColor = [UIColor whiteColor];
     }
 }
 
@@ -108,14 +123,16 @@
     
     // Integer 1 = On -- 0 = Off
     if (alarmSwitch.on) {
-        // [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:@"integer"];
-        // [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        [self.alarmPicker setUserInteractionEnabled:YES];
+        [self.alarmPicker setAlpha:1.0];
         [[NSUserDefaults standardUserDefaults] setBool:1 forKey:@"switchOnOff"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
     else {
-        // [[NSUserDefaults standardUserDefaults] setObject:@"0" forKey:@"integer"];
-        // [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        [self.alarmPicker setAlpha:0.0];
+        [self.alarmPicker setUserInteractionEnabled:NO];
         [[NSUserDefaults standardUserDefaults] setBool:0 forKey:@"switchOnOff"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
@@ -131,5 +148,17 @@
     [preferences setBool:alarmSwitch.on forKey:@"switchOnOff"];
     [preferences synchronize];
 }
+
+
+-(void)saveAlarm {
+    
+    // Save time of alarm
+    NSUserDefaults *alarmStoreTime = [NSUserDefaults standardUserDefaults];
+    NSDate *alarmTime = self.alarmPicker.date;
+    [alarmStoreTime setObject:alarmTime forKey:@"alarmTimeStateStored"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    NSLog(@"\n\nAlarm time saved.");
+}
+
 
 @end

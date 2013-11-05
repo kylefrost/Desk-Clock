@@ -19,11 +19,13 @@
 @property(nonatomic,readonly) UIBarPosition barPosition;
 @property (strong, nonatomic) IBOutlet UIView *backgroundView;
 @property (weak, nonatomic) IBOutlet UIDatePicker *alarmPicker;
+@property (weak, nonatomic) IBOutlet UILabel *alarmLabel;
 
 -(IBAction)pressDone;
 -(void)nightMode;
 -(IBAction)toggleEnabledForAlarmSwitch:(id)sender;
 -(void)saveValue;
 -(BOOL)readValue;
+// -(void)saveAlarm;
 
 @end
