@@ -99,6 +99,7 @@
         [[UINavigationBar appearance] setTitleTextAttributes:nightAtt];
         [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
         _backgroundView.backgroundColor = [UIColor darkGrayColor];
+        _alarmLabel.textColor = [UIColor whiteColor];
     }
     else if (timeVal <= 19 && timeVal >= 8) {
         
@@ -106,6 +107,7 @@
         [[UINavigationBar appearance] setTitleTextAttributes:dayAtt];
         [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
         _backgroundView.backgroundColor = [UIColor whiteColor];
+        _alarmLabel.textColor = [UIColor blackColor];
     }
     else if (timeVal >= 20) {
         
@@ -113,6 +115,7 @@
         [[UINavigationBar appearance] setTitleTextAttributes:nightAtt];
         [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
         _backgroundView.backgroundColor = [UIColor darkGrayColor];
+        _alarmLabel.textColor = [UIColor whiteColor];
     }
 }
 
