@@ -8,6 +8,7 @@
 
 #import "ACViewController~ipad.h"
 #import "ACInfoViewController~ipad.h"
+#import "MKiCloudSync.h"
 #import <UIKit/UIScreen.h>
 
 #define TIME_SIZE 225
@@ -62,6 +63,16 @@
     
     // Update timeLabel to show every one second
     // [self performSelector:@selector(viewDidLoad) withObject:self afterDelay:1.0];
+    
+    
+    // iCloud syncing
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(viewDidLoad)
+                                                 name:kMKiCloudSyncNotification
+                                               object:nil];
+    
+    [MKiCloudSync start];
+    [MKiCloudSync initialize];
 }
 
 - (void)didReceiveMemoryWarning

@@ -36,10 +36,23 @@
     [self nightMode];
     
     // iCloud syncing
+    //[[NSNotificationCenter defaultCenter] addObserver:self
+                                             //selector:@selector(viewDidLoad)
+                                                 //name:kMKiCloudSyncNotification
+                                               //object:nil];
+    
+    // iCloud syncing
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(viewDidLoad)
+                                             selector:@selector(saveAlarm)
                                                  name:kMKiCloudSyncNotification
                                                object:nil];
+    // iCloud syncing
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(saveValue)
+                                                 name:kMKiCloudSyncNotification
+                                               object:nil];
+    [MKiCloudSync start];
+    [MKiCloudSync initialize];
     
     [self setNeedsStatusBarAppearanceUpdate];
     self.bar.delegate = self;
@@ -71,7 +84,8 @@
 }
 
 -(void)viewDidUnload {
-    [[NSNotificationCenter defaultCenter] removeObserver:kMKiCloudSyncNotification];
+    // [[NSNotificationCenter defaultCenter] removeObserver:kMKiCloudSyncNotification];
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
 }
 
 - (BOOL)readValue  {
@@ -93,6 +107,17 @@
     [self dismissViewControllerAnimated:YES completion:NULL];
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
     [self saveAlarm];
+    
+    // iCloud syncing
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(saveAlarm)
+                                                 name:kMKiCloudSyncNotification
+                                               object:nil];
+    // iCloud syncing
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(saveValue)
+                                                 name:kMKiCloudSyncNotification
+                                               object:nil];
 }
 
 -(void)nightMode {
@@ -160,9 +185,22 @@
     BOOL alarmState = [preferences boolForKey:@"switchOnOff"];
     
     NSLog(@"BOOL for AlarmState is %d", alarmState);
+    
+    // iCloud syncing
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(saveAlarm)
+                                                 name:kMKiCloudSyncNotification
+                                               object:nil];
+    // iCloud syncing
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(saveValue)
+                                                 name:kMKiCloudSyncNotification
+                                               object:nil];
 }
 
 -(void)saveValue  {
+    
+    // Save alarmSwitch state
     NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
     [preferences setBool:alarmSwitch.on forKey:@"switchOnOff"];
     [preferences synchronize];
