@@ -34,6 +34,7 @@
 	// Do any additional setup after loading the view.
     
     [self nightMode];
+    [self determineBuild];
     
     // iCloud syncing
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -214,6 +215,19 @@
     [alarmStoreTime setObject:alarmTime forKey:@"alarmTimeStateStored"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     NSLog(@"\n\nAlarm time saved.");
+}
+
+-(void)determineBuild {
+    
+    // Determine if build is beta or not
+    NSString *filePath = @"BetaSettings.plist";
+    NSDictionary* betaDictionary = [[NSDictionary alloc] initWithContentsOfFile:filePath];
+    
+    // If yes
+    if ([[betaDictionary objectForKey:@"isBetaBuildRelease"] boolValue] == YES) {
+        
+        NSLog(@"YES");
+    }
 }
 
 @end

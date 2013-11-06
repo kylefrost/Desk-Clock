@@ -11,10 +11,12 @@
 @interface ACInfoViewController_ipad : UIViewController {
     
     IBOutlet UISwitch *alarmSwitch;
+    IBOutlet UIButton *betaButton;
     // NSInteger alarmState;
 }
 
 @property (nonatomic, retain) UISwitch *alarmSwitch;
+@property (nonatomic, retain) IBOutlet UIButton *betaButton;
 @property (weak, nonatomic) IBOutlet UINavigationBar *bar;
 @property(nonatomic,readonly) UIBarPosition barPosition;
 @property (strong, nonatomic) IBOutlet UIView *backgroundView;
@@ -26,6 +28,7 @@
 -(IBAction)toggleEnabledForAlarmSwitch:(id)sender;
 -(void)saveValue;
 -(BOOL)readValue;
+-(void)determineBuild;
 // -(void)saveAlarm;
 
 @end

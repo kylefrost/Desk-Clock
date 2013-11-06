@@ -22,6 +22,8 @@
 		27291F0B1823E8B200CB2070 /* Main~ipad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27291F0A1823E8B200CB2070 /* Main~ipad.storyboard */; };
 		27291F101823EF6100CB2070 /* ACViewController~ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 27291F0F1823EF6100CB2070 /* ACViewController~ipad.m */; };
 		27291F131823EF8100CB2070 /* ACInfoViewController~ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 27291F121823EF8100CB2070 /* ACInfoViewController~ipad.m */; };
+		274B70C2182AC23900266466 /* BetaSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 274B70C1182AC23900266466 /* BetaSettings.plist */; };
+		274B70C4182AC3F000266466 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 274B70C3182AC3F000266466 /* Crashlytics.framework */; };
 		27642FF11827FB92007D66CE /* ACLaurenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27642FF01827FB92007D66CE /* ACLaurenViewController.m */; };
 		276901B51820C4F9006B915D /* Digital-7MonoItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 276901B41820C4D1006B915D /* Digital-7MonoItalic.otf */; };
 		277AFEE6181EA5B80009AE0F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 277AFEE5181EA5B80009AE0F /* Foundation.framework */; };
@@ -40,7 +42,6 @@
 		277AFF11181EA5B80009AE0F /* AlarmClockTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 277AFF10181EA5B80009AE0F /* AlarmClockTests.m */; };
 		277AFF22181EBE510009AE0F /* ACInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 277AFF21181EBE510009AE0F /* ACInfoViewController.m */; };
 		277AFF23181EBE510009AE0F /* ACInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 277AFF21181EBE510009AE0F /* ACInfoViewController.m */; };
-		27D7FF8F182AB8F300A14824 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27D7FF8E182AB8F300A14824 /* Crashlytics.framework */; };
 		27D7FF93182ABAF800A14824 /* ACBetaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D7FF92182ABAF800A14824 /* ACBetaViewController.m */; };
 		27D7FF98182ABB3300A14824 /* ACBetaViewController~ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D7FF97182ABB3300A14824 /* ACBetaViewController~ipad.m */; };
 		27E01BF21829AAC500DB1132 /* MKiCloudSync.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E01BF11829AAC500DB1132 /* MKiCloudSync.m */; };
@@ -75,6 +76,8 @@
 		27291F0F1823EF6100CB2070 /* ACViewController~ipad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ACViewController~ipad.m"; sourceTree = "<group>"; };
 		27291F111823EF8100CB2070 /* ACInfoViewController~ipad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ACInfoViewController~ipad.h"; sourceTree = "<group>"; };
 		27291F121823EF8100CB2070 /* ACInfoViewController~ipad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ACInfoViewController~ipad.m"; sourceTree = "<group>"; };
+		274B70C1182AC23900266466 /* BetaSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BetaSettings.plist; sourceTree = "<group>"; };
+		274B70C3182AC3F000266466 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = AlarmClock/Crashlytics.framework; sourceTree = "<group>"; };
 		27642FEF1827FB92007D66CE /* ACLaurenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACLaurenViewController.h; sourceTree = "<group>"; };
 		27642FF01827FB92007D66CE /* ACLaurenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACLaurenViewController.m; sourceTree = "<group>"; };
 		276901B41820C4D1006B915D /* Digital-7MonoItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Digital-7MonoItalic.otf"; sourceTree = "<group>"; };
@@ -99,7 +102,6 @@
 		277AFF10181EA5B80009AE0F /* AlarmClockTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlarmClockTests.m; sourceTree = "<group>"; };
 		277AFF20181EBE510009AE0F /* ACInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACInfoViewController.h; sourceTree = "<group>"; };
 		277AFF21181EBE510009AE0F /* ACInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACInfoViewController.m; sourceTree = "<group>"; };
-		27D7FF8E182AB8F300A14824 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		27D7FF91182ABAF800A14824 /* ACBetaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACBetaViewController.h; sourceTree = "<group>"; };
 		27D7FF92182ABAF800A14824 /* ACBetaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACBetaViewController.m; sourceTree = "<group>"; };
 		27D7FF96182ABB3300A14824 /* ACBetaViewController~ipad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ACBetaViewController~ipad.h"; sourceTree = "<group>"; };
@@ -116,7 +118,7 @@
 			files = (
 				277AFEE8181EA5B80009AE0F /* CoreGraphics.framework in Frameworks */,
 				277AFEEA181EA5B80009AE0F /* UIKit.framework in Frameworks */,
-				27D7FF8F182AB8F300A14824 /* Crashlytics.framework in Frameworks */,
+				274B70C4182AC3F000266466 /* Crashlytics.framework in Frameworks */,
 				277AFEE6181EA5B80009AE0F /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -216,7 +218,7 @@
 		277AFEE4181EA5B80009AE0F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				27D7FF8E182AB8F300A14824 /* Crashlytics.framework */,
+				274B70C3182AC3F000266466 /* Crashlytics.framework */,
 				277AFEE5181EA5B80009AE0F /* Foundation.framework */,
 				277AFEE7181EA5B80009AE0F /* CoreGraphics.framework */,
 				277AFEE9181EA5B80009AE0F /* UIKit.framework */,
@@ -251,6 +253,7 @@
 				277AFEEE181EA5B80009AE0F /* InfoPlist.strings */,
 				277AFEF1181EA5B80009AE0F /* main.m */,
 				277AFEF3181EA5B80009AE0F /* AlarmClock-Prefix.pch */,
+				274B70C1182AC23900266466 /* BetaSettings.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -276,8 +279,8 @@
 		27D7FF90182ABAD900A14824 /* Beta Settings */ = {
 			isa = PBXGroup;
 			children = (
-				27D7FF94182ABB0E00A14824 /* iPhone */,
 				27D7FF95182ABB1400A14824 /* iPad */,
+				27D7FF94182ABB0E00A14824 /* iPhone */,
 			);
 			name = "Beta Settings";
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 				2708940F1821C297006E23BA /* AppIcon60x60@2x.png in Resources */,
 				270894111821C297006E23BA /* AppIcon76x76@2x.png in Resources */,
 				2708940E1821C297006E23BA /* AppIcon60x60.png in Resources */,
+				274B70C2182AC23900266466 /* BetaSettings.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,14 +435,14 @@
 /* Begin PBXShellScriptBuildPhase section */
 		27D7FF8D182AB8A200A14824 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			files = (
 			);
 			inputPaths = (
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = "./Crashlytics.framework/run e6796ec21a8268eef118ce2bffeb5fd9a084bcb1";
 		};
@@ -593,6 +597,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/Kyle/XcodeProjects/Desk-Clock",
+					/Users/Kyle/XcodeProjects/AlarmClock/AlarmClock,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AlarmClock/AlarmClock-Prefix.pch";
@@ -616,6 +621,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/Kyle/XcodeProjects/Desk-Clock",
+					/Users/Kyle/XcodeProjects/AlarmClock/AlarmClock,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AlarmClock/AlarmClock-Prefix.pch";

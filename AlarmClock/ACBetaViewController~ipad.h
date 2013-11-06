@@ -10,4 +10,6 @@
 
 @interface ACBetaViewController_ipad : UIViewController
 
+-(IBAction)closeBetaSettings;
+
 @end

@@ -8,13 +8,13 @@
 
 #import "ACAppDelegate.h"
 #import "MKiCloudSync.h"
-#import <Crashlytics/Crashlytics.h>
+// #import <Crashlytics/Crashlytics.h>
 
 @implementation ACAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [Crashlytics startWithAPIKey:@"e6796ec21a8268eef118ce2bffeb5fd9a084bcb1"];
+    // [Crashlytics startWithAPIKey:@"e6796ec21a8268eef118ce2bffeb5fd9a084bcb1"];
     
     [MKiCloudSync start];
     

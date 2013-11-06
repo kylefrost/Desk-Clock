@@ -31,6 +31,10 @@
 	// Do any additional setup after loading the view.
 }
 
+-(IBAction)closeBetaSettings {
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

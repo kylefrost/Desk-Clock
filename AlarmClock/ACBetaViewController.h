@@ -10,4 +10,6 @@
 
 @interface ACBetaViewController : UIViewController
 
+-(IBAction)closeBetaSettings:(id)sender;
+
 @end
