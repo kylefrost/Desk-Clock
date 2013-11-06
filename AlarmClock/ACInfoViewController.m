@@ -8,6 +8,7 @@
 
 #import "ACInfoViewController.h"
 #import "ACViewController.h"
+#import "MKiCloudSync.h"
 #import <UIKit/UIAppearance.h>
 
 @interface ACInfoViewController ()
@@ -33,6 +34,12 @@
 	// Do any additional setup after loading the view.
     
     [self nightMode];
+    
+    // iCloud syncing
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(viewDidLoad)
+                                                 name:kMKiCloudSyncNotification
+                                               object:nil];
     
     [self setNeedsStatusBarAppearanceUpdate];
     self.bar.delegate = self;
@@ -61,6 +68,10 @@
     }
     
     [self.alarmPicker setDate:storedAlarmTime];
+}
+
+-(void)viewDidUnload {
+    [[NSNotificationCenter defaultCenter] removeObserver:kMKiCloudSyncNotification];
 }
 
 - (BOOL)readValue  {

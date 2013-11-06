@@ -7,6 +7,8 @@
 //
 
 #import "ACInfoViewController~ipad.h"
+#import "ACViewController~ipad.h"
+#import "MKiCloudSync.h"
 #import <UIKit/UIAppearance.h>
 
 @interface ACInfoViewController_ipad ()
@@ -33,9 +35,16 @@
     
     [self nightMode];
     
+    // iCloud syncing
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(viewDidLoad)
+                                                 name:kMKiCloudSyncNotification
+                                               object:nil];
+    
     [self setNeedsStatusBarAppearanceUpdate];
     self.bar.delegate = self;
     
+    // Load the alarmSwitch
     NSUserDefaults* preferences = [NSUserDefaults standardUserDefaults];
     BOOL alarmState = [preferences boolForKey:@"switchOnOff"];
     
@@ -59,6 +68,10 @@
     }
     
     [self.alarmPicker setDate:storedAlarmTime];
+}
+
+-(void)viewDidUnload {
+    [[NSNotificationCenter defaultCenter] removeObserver:kMKiCloudSyncNotification];
 }
 
 - (BOOL)readValue  {
@@ -121,6 +134,8 @@
         _backgroundView.backgroundColor = [UIColor darkGrayColor];
         _alarmLabel.textColor = [UIColor whiteColor];
     }
+    
+    [self performSelector:@selector(nightMode) withObject:self afterDelay:1.0];
 }
 
 -(IBAction)toggleEnabledForAlarmSwitch:(id)sender {
@@ -163,6 +178,5 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
     NSLog(@"\n\nAlarm time saved.");
 }
-
 
 @end

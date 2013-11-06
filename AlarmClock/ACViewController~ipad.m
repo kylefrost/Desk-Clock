@@ -8,6 +8,7 @@
 
 #import "ACViewController~ipad.h"
 #import "ACInfoViewController~ipad.h"
+#import <UIKit/UIScreen.h>
 
 #define TIME_SIZE 225
 #define DAY_DAYMONTH_ALARM_SIZE 75

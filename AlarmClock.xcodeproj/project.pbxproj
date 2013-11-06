@@ -38,10 +38,9 @@
 		277AFF07181EA5B80009AE0F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 277AFEE9181EA5B80009AE0F /* UIKit.framework */; };
 		277AFF0F181EA5B80009AE0F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 277AFF0D181EA5B80009AE0F /* InfoPlist.strings */; };
 		277AFF11181EA5B80009AE0F /* AlarmClockTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 277AFF10181EA5B80009AE0F /* AlarmClockTests.m */; };
-		277AFF1E181EB1CD0009AE0F /* DS-DIGII.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 277AFF1D181EB1CD0009AE0F /* DS-DIGII.TTF */; };
-		277AFF1F181EB1CD0009AE0F /* DS-DIGII.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 277AFF1D181EB1CD0009AE0F /* DS-DIGII.TTF */; };
 		277AFF22181EBE510009AE0F /* ACInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 277AFF21181EBE510009AE0F /* ACInfoViewController.m */; };
 		277AFF23181EBE510009AE0F /* ACInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 277AFF21181EBE510009AE0F /* ACInfoViewController.m */; };
+		27E01BF21829AAC500DB1132 /* MKiCloudSync.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E01BF11829AAC500DB1132 /* MKiCloudSync.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,9 +94,11 @@
 		277AFF0C181EA5B80009AE0F /* AlarmClockTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AlarmClockTests-Info.plist"; sourceTree = "<group>"; };
 		277AFF0E181EA5B80009AE0F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		277AFF10181EA5B80009AE0F /* AlarmClockTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlarmClockTests.m; sourceTree = "<group>"; };
-		277AFF1D181EB1CD0009AE0F /* DS-DIGII.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DS-DIGII.TTF"; sourceTree = "<group>"; };
 		277AFF20181EBE510009AE0F /* ACInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACInfoViewController.h; sourceTree = "<group>"; };
 		277AFF21181EBE510009AE0F /* ACInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACInfoViewController.m; sourceTree = "<group>"; };
+		27E01BEF1829A9C700DB1132 /* AlarmClock.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = AlarmClock.entitlements; sourceTree = "<group>"; };
+		27E01BF01829AAC500DB1132 /* MKiCloudSync.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKiCloudSync.h; sourceTree = "<group>"; };
+		27E01BF11829AAC500DB1132 /* MKiCloudSync.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKiCloudSync.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,11 +231,11 @@
 		277AFEEC181EA5B80009AE0F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				27E01BF31829AACC00DB1132 /* iCloud */,
 				27642FF21827FB9E007D66CE /* Lauren (Secret) */,
 				270893FF1821C269006E23BA /* Images */,
 				277AFEFD181EA5B80009AE0F /* Images.xcassets */,
 				276901B41820C4D1006B915D /* Digital-7MonoItalic.otf */,
-				277AFF1D181EB1CD0009AE0F /* DS-DIGII.TTF */,
 				277AFEED181EA5B80009AE0F /* AlarmClock-Info.plist */,
 				277AFEEE181EA5B80009AE0F /* InfoPlist.strings */,
 				277AFEF1181EA5B80009AE0F /* main.m */,
@@ -259,6 +260,16 @@
 				277AFF0D181EA5B80009AE0F /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		27E01BF31829AACC00DB1132 /* iCloud */ = {
+			isa = PBXGroup;
+			children = (
+				27E01BEF1829A9C700DB1132 /* AlarmClock.entitlements */,
+				27E01BF01829AAC500DB1132 /* MKiCloudSync.h */,
+				27E01BF11829AAC500DB1132 /* MKiCloudSync.m */,
+			);
+			name = iCloud;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -309,6 +320,17 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Kyle Frost";
 				TargetAttributes = {
+					277AFEE1181EA5B80009AE0F = {
+						DevelopmentTeam = 34UZ7Y2KSW;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
+					};
 					277AFF02181EA5B80009AE0F = {
 						TestTargetID = 277AFEE1181EA5B80009AE0F;
 					};
@@ -350,7 +372,6 @@
 				2708940D1821C297006E23BA /* AppIcon40x40@2x.png in Resources */,
 				27291F0B1823E8B200CB2070 /* Main~ipad.storyboard in Resources */,
 				2708940A1821C297006E23BA /* AppIcon29x29.png in Resources */,
-				277AFF1E181EB1CD0009AE0F /* DS-DIGII.TTF in Resources */,
 				277AFEF9181EA5B80009AE0F /* Main.storyboard in Resources */,
 				2708940F1821C297006E23BA /* AppIcon60x60@2x.png in Resources */,
 				270894111821C297006E23BA /* AppIcon76x76@2x.png in Resources */,
@@ -362,7 +383,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				277AFF1F181EB1CD0009AE0F /* DS-DIGII.TTF in Resources */,
 				277AFF0F181EA5B80009AE0F /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -375,6 +395,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				277AFF22181EBE510009AE0F /* ACInfoViewController.m in Sources */,
+				27E01BF21829AAC500DB1132 /* MKiCloudSync.m in Sources */,
 				27291F131823EF8100CB2070 /* ACInfoViewController~ipad.m in Sources */,
 				277AFEF6181EA5B80009AE0F /* ACAppDelegate.m in Sources */,
 				277AFEFC181EA5B80009AE0F /* ACViewController.m in Sources */,
@@ -509,11 +530,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = AlarmClock/AlarmClock.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AlarmClock/AlarmClock-Prefix.pch";
 				INFOPLIST_FILE = "AlarmClock/AlarmClock-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -524,11 +549,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = AlarmClock/AlarmClock.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AlarmClock/AlarmClock-Prefix.pch";
 				INFOPLIST_FILE = "AlarmClock/AlarmClock-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};

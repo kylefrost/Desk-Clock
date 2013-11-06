@@ -7,6 +7,7 @@
 //
 
 #import "ACAppDelegate.h"
+#import "MKiCloudSync.h"
 
 @implementation ACAppDelegate
 
@@ -14,6 +15,8 @@
 {
     // Override point for customization after application launch.
     return YES;
+    
+    [MKiCloudSync start];
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application
