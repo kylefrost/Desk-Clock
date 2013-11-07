@@ -37,9 +37,11 @@
     self.bar.delegate = self;
     
     [TestFlight passCheckpoint:@"Beta Settings Page Opened."];
-    
+}
+
+-(void)viewDidAppear:(BOOL)animated {
     UIAlertView *betaView = [[UIAlertView alloc] initWithTitle:@"Proceed with caution."
-                                                       message:@"You are now entering the beta settings. Don't report any bugs experienced while in this page." delegate:self cancelButtonTitle:@"I can handle this." otherButtonTitles:@"Get me out of here!", nil];
+                                                       message:@"You are now entering the beta settings. Don't report any bugs experienced while in this page.\n\nIf you do, I will find you, and I will...show you how to properly report bugs.\n\nI went there." delegate:self cancelButtonTitle:@"I can handle this." otherButtonTitles:@"Get me out of here!", nil];
     [betaView show];
 }
 
@@ -47,6 +49,7 @@
 
     // User Pressed Proceed
     if (buttonIndex == 0) {
+        nil;
         NSLog(@"Pressed Proceed");
         [TestFlight passCheckpoint:@"Beta Settings Accessed."];
     }
