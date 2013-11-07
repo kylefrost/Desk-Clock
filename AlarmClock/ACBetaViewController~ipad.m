@@ -29,6 +29,10 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    UIAlertView *betaView = [[UIAlertView alloc] initWithTitle:@"Beta Settings"
+                                                       message:@"Proceed with caution. You are now entering the beta settings. Don't report any bugs experienced while in this page." delegate:self cancelButtonTitle:@"Proceed" otherButtonTitles:@"Leave", nil];
+    [betaView show];
 }
 
 -(IBAction)closeBetaSettings {

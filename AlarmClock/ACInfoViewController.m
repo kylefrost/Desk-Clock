@@ -9,6 +9,7 @@
 #import "ACInfoViewController.h"
 #import "ACViewController.h"
 #import "MKiCloudSync.h"
+#import "TestFlight.h"
 #import <UIKit/UIAppearance.h>
 
 @interface ACInfoViewController ()
@@ -17,15 +18,16 @@
 
 @implementation ACInfoViewController
 @synthesize alarmSwitch;
+@synthesize betaButton;
 
 /* - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-} */
+ {
+ self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+ if (self) {
+ // Custom initialization
+ }
+ return self;
+ } */
 
 - (void)viewDidLoad
 {
@@ -34,12 +36,13 @@
 	// Do any additional setup after loading the view.
     
     [self nightMode];
+    [self determineBuild];
     
     // iCloud syncing
-    //[[NSNotificationCenter defaultCenter] addObserver:self
-                                             //selector:@selector(viewDidLoad)
-                                                 //name:kMKiCloudSyncNotification
-                                               //object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(viewDidLoad)
+                                                 name:kMKiCloudSyncNotification
+                                               object:nil];
     
     // iCloud syncing
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -81,11 +84,11 @@
     }
     
     [self.alarmPicker setDate:storedAlarmTime];
+    
 }
 
 -(void)viewDidUnload {
     // [[NSNotificationCenter defaultCenter] removeObserver:kMKiCloudSyncNotification];
-    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
 }
 
 - (BOOL)readValue  {
@@ -215,6 +218,25 @@
     [alarmStoreTime setObject:alarmTime forKey:@"alarmTimeStateStored"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     NSLog(@"\n\nAlarm time saved.");
+}
+
+-(void)determineBuild {
+    
+    // Determine if build is beta or not
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"BetaSettings" ofType:@"plist"];
+    NSDictionary* betaDictionary = [[NSDictionary alloc] initWithContentsOfFile:filePath];
+    BOOL buildBOOL = [[betaDictionary objectForKey:@"isBetaBuildRelease"] boolValue];
+    
+    // If beta, show button, if not, don't show button
+    if (buildBOOL == 1) {
+        [self.betaButton setAlpha:1.0];
+        [self.betaButton setUserInteractionEnabled:YES];
+    }
+    else if (buildBOOL == 0) {
+        [self.betaButton setAlpha:0.0];
+        [self.betaButton setUserInteractionEnabled:NO];
+    }
+    
 }
 
 @end

@@ -17,6 +17,7 @@
 
 @implementation ACInfoViewController_ipad
 @synthesize alarmSwitch;
+@synthesize betaButton;
 
 /* - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
  {
@@ -82,6 +83,7 @@
     }
     
     [self.alarmPicker setDate:storedAlarmTime];
+    
 }
 
 -(void)viewDidUnload {
@@ -220,14 +222,20 @@
 -(void)determineBuild {
     
     // Determine if build is beta or not
-    NSString *filePath = @"BetaSettings.plist";
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"BetaSettings" ofType:@"plist"];
     NSDictionary* betaDictionary = [[NSDictionary alloc] initWithContentsOfFile:filePath];
+    BOOL buildBOOL = [[betaDictionary objectForKey:@"isBetaBuildRelease"] boolValue];
     
-    // If yes
-    if ([[betaDictionary objectForKey:@"isBetaBuildRelease"] boolValue] == YES) {
-        
-        NSLog(@"YES");
+    // If beta, show button, if not, don't show button
+    if (buildBOOL == 1) {
+        [self.betaButton setAlpha:1.0];
+        [self.betaButton setUserInteractionEnabled:YES];
     }
+    else if (buildBOOL == 0) {
+        [self.betaButton setAlpha:0.0];
+        [self.betaButton setUserInteractionEnabled:NO];
+    }
+    
 }
 
 @end
