@@ -9,6 +9,7 @@
 #import "ACViewController.h"
 #import "ACInfoViewController.h"
 #import "MKiCloudSync.h"
+#import "ACTutorialViewController.h"
 #import <UIKit/UIScreen.h>
 
 #define TIME_SIZE 125
@@ -24,6 +25,18 @@
 @end
 
 @implementation ACViewController
+
+
+-(void)loadTutorial {
+    
+    NSUserDefaults *tutorialDefaults = [NSUserDefaults standardUserDefaults];
+    
+    if (![tutorialDefaults boolForKey:@"firstLoad"]) {
+        [self showTutorial];
+        [tutorialDefaults setBool:YES forKey:@"firstLoad"];
+    }
+}
+
 
 - (void)viewDidLoad
 {
@@ -64,6 +77,10 @@
     // Update timeLabel to show every one second
     // [self performSelector:@selector(viewDidLoad) withObject:self afterDelay:1.0];
     
+    // First Open
+    // [self isFirstOpen];
+    
+    [self performSelector:@selector(loadTutorial) withObject:nil afterDelay:0.0];
     
     // iCloud syncing
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -73,6 +90,20 @@
     
     [MKiCloudSync start];
     [MKiCloudSync initialize];
+    // [self loadTutorial];
+}
+
+-(void)isFirstOpen {
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    // [defaults setBool:NO forKey:@"notFirstRun"];
+    if (![defaults boolForKey:@"notFirstRun"]) {
+        [self showTutorial];
+        [defaults setBool:YES forKey:@"notFirstRun"];
+        [defaults synchronize];
+    }
+    else {
+        nil;
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -508,5 +539,12 @@
     [self performSelector:@selector(updateAMPM) withObject:self afterDelay:1.0];
 }
 
+-(void)showTutorial {
+    UIViewController *view = [[ACTutorialViewController alloc] initWithNibName:@"ACTutorialViewController" bundle:nil];
+    view.modalPresentationStyle = UIModalPresentationCurrentContext;
+    view.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    [self presentViewController:view animated:YES completion:NULL];
+    
+}
 
 @end

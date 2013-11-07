@@ -9,6 +9,7 @@
 #import "ACAppDelegate.h"
 #import "MKiCloudSync.h"
 #import "TestFlight.h"
+#import "ACTutorialViewController.h"
 #import <Crashlytics/Crashlytics.h>
 
 @implementation ACAppDelegate
@@ -22,8 +23,33 @@
     // Start NSUserDefaults iCloud Sync
     [MKiCloudSync start];
     
+    // [self isFirstOpen];
+    
     // Override point for customization after application launch.
     return YES;
+    
+}
+
+-(void)isFirstOpen {
+
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setBool:NO forKey:@"notFirstRun"];
+    if (![defaults boolForKey:@"notFirstRun"]) {
+        [self showTutorial];
+        [defaults setBool:YES forKey:@"notFirstRun"];
+        [defaults synchronize];
+    }
+    else {
+        nil;
+    }
+}
+
+-(void)showTutorial {
+    
+    // ACTutorialViewController *view = [[ACTutorialViewController alloc] initWithNibName:@"ACTutorialViewController" bundle:nil];
+    
+    // UIAlertView *tutView = [[UIAlertView alloc] initWithTitle:@"Test" message:@"Test Message" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
+    // [tutView show];
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application

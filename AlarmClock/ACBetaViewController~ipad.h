@@ -8,8 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ACBetaViewController_ipad : UIViewController
+@interface ACBetaViewController_ipad : UIViewController {
+    
+    
+}
+
+@property (weak, nonatomic) IBOutlet UINavigationBar *bar;
+@property(nonatomic,readonly) UIBarPosition barPosition;
+@property (weak, nonatomic) IBOutlet UIButton *crashButton;
 
 -(IBAction)closeBetaSettings;
+
+// Beta Settings
+
+-(IBAction)pressCrashButton;
+-(IBAction)resetTutorial;
 
 @end

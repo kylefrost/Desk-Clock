@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Kyle Frost. All rights reserved.
 //
 
+#import "ACAppDelegate.h"
 #import <UIKit/UIKit.h>
 
 @interface ACBetaViewController : UIViewController {
@@ -22,5 +23,6 @@
 // Beta Settings
 
 -(IBAction)pressCrashButton;
+-(IBAction)resetTutorial;
 
 @end

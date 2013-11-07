@@ -60,6 +60,16 @@
     }
 }
 
+-(IBAction)resetTutorial {
+    
+    UIAlertView *tutAlert = [[UIAlertView alloc] initWithTitle:@"TutorialView" message:@"ACTutorialViewController NSUserDefault has been reset to NO." delegate:self cancelButtonTitle:@"K Thanks" otherButtonTitles:nil];
+    [tutAlert show];
+    
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setBool:NO forKey:@"firstLoad"];
+    [defaults synchronize];
+}
+
 - (UIBarPosition)positionForBar:(id <UIBarPositioning>)bar {
     return UIBarPositionTopAttached;
 }

@@ -7,32 +7,75 @@
 //
 
 #import "ACBetaViewController~ipad.h"
+#import "TestFlight.h"
+#import <Crashlytics/Crashlytics.h>
 
 @interface ACBetaViewController_ipad ()
 
 @end
 
 @implementation ACBetaViewController_ipad
+@synthesize crashButton;
 
 /*
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-*/
+ - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+ {
+ self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+ if (self) {
+ // Custom initialization
+ }
+ return self;
+ }
+ */
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    UIAlertView *betaView = [[UIAlertView alloc] initWithTitle:@"Beta Settings"
-                                                       message:@"Proceed with caution. You are now entering the beta settings. Don't report any bugs experienced while in this page." delegate:self cancelButtonTitle:@"Proceed" otherButtonTitles:@"Leave", nil];
+    [self setNeedsStatusBarAppearanceUpdate];
+    self.bar.delegate = self;
+    
+    [TestFlight passCheckpoint:@"Beta Settings Page Opened."];
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    UIAlertView *betaView = [[UIAlertView alloc] initWithTitle:@"Proceed with caution."
+                                                       message:@"You are now entering the beta settings. Don't report any bugs experienced while in this page.\n\nIf you do, I will find you, and I will...show you how to properly report bugs.\n\nI went there." delegate:self cancelButtonTitle:@"I can handle this." otherButtonTitles:@"Get me out of here!", nil];
     [betaView show];
+}
+
+- (void)alertView:(UIAlertView *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    // User Pressed Proceed
+    if (buttonIndex == 0) {
+        nil;
+        NSLog(@"Pressed Proceed");
+        [TestFlight passCheckpoint:@"Beta Settings Accessed."];
+    }
+    
+    //User Pressed Leave
+    else if (buttonIndex == 1) {
+        [self dismissViewControllerAnimated:YES completion:NULL];
+    }
+}
+
+-(IBAction)resetTutorial {
+    
+    UIAlertView *tutAlert = [[UIAlertView alloc] initWithTitle:@"TutorialView" message:@"ACTutorialViewController NSUserDefault has been reset to NO." delegate:self cancelButtonTitle:@"K Thanks" otherButtonTitles:nil];
+    [tutAlert show];
+    
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setBool:NO forKey:@"firstLoad"];
+    [defaults synchronize];
+}
+
+- (UIBarPosition)positionForBar:(id <UIBarPositioning>)bar {
+    return UIBarPositionTopAttached;
+}
+
+-(IBAction)pressCrashButton {
+    [[Crashlytics sharedInstance] crash];
 }
 
 -(IBAction)closeBetaSettings {

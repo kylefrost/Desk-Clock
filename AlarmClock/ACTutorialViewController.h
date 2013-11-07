@@ -10,4 +10,10 @@
 
 @interface ACTutorialViewController : UIViewController
 
+@property (assign, nonatomic) NSInteger index;
+@property (strong, nonatomic) IBOutlet UILabel *screenNumber;
+@property (strong, nonatomic) IBOutlet UIView *mainView;
+
+-(IBAction)closeTutorial;
+
 @end

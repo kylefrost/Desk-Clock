@@ -44,6 +44,10 @@
 		278A542E182AFC6800A632DE /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 278A542D182AFC6800A632DE /* Crashlytics.framework */; };
 		278A5433182B107100A632DE /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 278A542F182B107100A632DE /* libTestFlight.a */; };
 		278A5436182B10C800A632DE /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 278A5435182B10C800A632DE /* libz.dylib */; };
+		278A543E182B40F900A632DE /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 278A543D182B40F900A632DE /* Accelerate.framework */; };
+		278A5447182B4D6C00A632DE /* iPhone5c.png in Resources */ = {isa = PBXBuildFile; fileRef = 278A5445182B4D6C00A632DE /* iPhone5c.png */; };
+		278A5448182B4D6C00A632DE /* iPhone5s.png in Resources */ = {isa = PBXBuildFile; fileRef = 278A5446182B4D6C00A632DE /* iPhone5s.png */; };
+		278A544A182B56CB00A632DE /* TutorialState.plist in Resources */ = {isa = PBXBuildFile; fileRef = 278A5449182B56CB00A632DE /* TutorialState.plist */; };
 		27D7FF93182ABAF800A14824 /* ACBetaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D7FF92182ABAF800A14824 /* ACBetaViewController.m */; };
 		27D7FF98182ABB3300A14824 /* ACBetaViewController~ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D7FF97182ABB3300A14824 /* ACBetaViewController~ipad.m */; };
 		27E01BF21829AAC500DB1132 /* MKiCloudSync.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E01BF11829AAC500DB1132 /* MKiCloudSync.m */; };
@@ -109,6 +113,10 @@
 		278A5431182B107100A632DE /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
 		278A5432182B107100A632DE /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
 		278A5435182B10C800A632DE /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		278A543D182B40F900A632DE /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		278A5445182B4D6C00A632DE /* iPhone5c.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhone5c.png; sourceTree = "<group>"; };
+		278A5446182B4D6C00A632DE /* iPhone5s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhone5s.png; sourceTree = "<group>"; };
+		278A5449182B56CB00A632DE /* TutorialState.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TutorialState.plist; sourceTree = "<group>"; };
 		27D7FF91182ABAF800A14824 /* ACBetaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACBetaViewController.h; sourceTree = "<group>"; };
 		27D7FF92182ABAF800A14824 /* ACBetaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACBetaViewController.m; sourceTree = "<group>"; };
 		27D7FF96182ABB3300A14824 /* ACBetaViewController~ipad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ACBetaViewController~ipad.h"; sourceTree = "<group>"; };
@@ -123,6 +131,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				278A543E182B40F900A632DE /* Accelerate.framework in Frameworks */,
 				278A5436182B10C800A632DE /* libz.dylib in Frameworks */,
 				278A5433182B107100A632DE /* libTestFlight.a in Frameworks */,
 				277AFEE8181EA5B80009AE0F /* CoreGraphics.framework in Frameworks */,
@@ -148,16 +157,8 @@
 		270893FF1821C269006E23BA /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				270894001821C297006E23BA /* AppIcon29x29.png */,
-				270894011821C297006E23BA /* AppIcon29x29@2x.png */,
-				270894021821C297006E23BA /* AppIcon40x40.png */,
-				270894031821C297006E23BA /* AppIcon40x40@2x.png */,
-				270894041821C297006E23BA /* AppIcon60x60.png */,
-				270894051821C297006E23BA /* AppIcon60x60@2x.png */,
-				270894061821C297006E23BA /* AppIcon76x76.png */,
-				270894071821C297006E23BA /* AppIcon76x76@2x.png */,
-				270894081821C297006E23BA /* iTunesArtwork.png */,
-				270894091821C297006E23BA /* iTunesArtwork@2x.png */,
+				278A5440182B4D2500A632DE /* Product Images */,
+				278A543F182B4D0000A632DE /* Icons */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -165,9 +166,8 @@
 		27208B17182146F10025FEBD /* Tutorial */ = {
 			isa = PBXGroup;
 			children = (
-				27208B12182145CC0025FEBD /* ACTutorialViewController.h */,
-				27208B13182145CC0025FEBD /* ACTutorialViewController.m */,
-				27208B14182145CC0025FEBD /* ACTutorialViewController.xib */,
+				278A5438182B385900A632DE /* iPad */,
+				278A5437182B385400A632DE /* iPhone */,
 			);
 			name = Tutorial;
 			sourceTree = "<group>";
@@ -227,6 +227,7 @@
 		277AFEE4181EA5B80009AE0F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				278A543D182B40F900A632DE /* Accelerate.framework */,
 				278A5435182B10C800A632DE /* libz.dylib */,
 				278A542D182AFC6800A632DE /* Crashlytics.framework */,
 				277AFEE5181EA5B80009AE0F /* Foundation.framework */,
@@ -265,6 +266,7 @@
 				277AFEF1181EA5B80009AE0F /* main.m */,
 				277AFEF3181EA5B80009AE0F /* AlarmClock-Prefix.pch */,
 				274B70C1182AC23900266466 /* BetaSettings.plist */,
+				278A5449182B56CB00A632DE /* TutorialState.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -296,6 +298,49 @@
 				278A5432182B107100A632DE /* TestFlight+ManualSessions.h */,
 			);
 			name = TestFlight;
+			sourceTree = "<group>";
+		};
+		278A5437182B385400A632DE /* iPhone */ = {
+			isa = PBXGroup;
+			children = (
+				27208B12182145CC0025FEBD /* ACTutorialViewController.h */,
+				27208B13182145CC0025FEBD /* ACTutorialViewController.m */,
+				27208B14182145CC0025FEBD /* ACTutorialViewController.xib */,
+			);
+			name = iPhone;
+			sourceTree = "<group>";
+		};
+		278A5438182B385900A632DE /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = iPad;
+			sourceTree = "<group>";
+		};
+		278A543F182B4D0000A632DE /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				270894001821C297006E23BA /* AppIcon29x29.png */,
+				270894011821C297006E23BA /* AppIcon29x29@2x.png */,
+				270894021821C297006E23BA /* AppIcon40x40.png */,
+				270894031821C297006E23BA /* AppIcon40x40@2x.png */,
+				270894041821C297006E23BA /* AppIcon60x60.png */,
+				270894051821C297006E23BA /* AppIcon60x60@2x.png */,
+				270894061821C297006E23BA /* AppIcon76x76.png */,
+				270894071821C297006E23BA /* AppIcon76x76@2x.png */,
+				270894081821C297006E23BA /* iTunesArtwork.png */,
+				270894091821C297006E23BA /* iTunesArtwork@2x.png */,
+			);
+			name = Icons;
+			sourceTree = "<group>";
+		};
+		278A5440182B4D2500A632DE /* Product Images */ = {
+			isa = PBXGroup;
+			children = (
+				278A5445182B4D6C00A632DE /* iPhone5c.png */,
+				278A5446182B4D6C00A632DE /* iPhone5s.png */,
+			);
+			name = "Product Images";
 			sourceTree = "<group>";
 		};
 		27D7FF90182ABAD900A14824 /* Beta Settings */ = {
@@ -432,10 +477,13 @@
 				270894101821C297006E23BA /* AppIcon76x76.png in Resources */,
 				277AFEFE181EA5B80009AE0F /* Images.xcassets in Resources */,
 				27208B16182145CC0025FEBD /* ACTutorialViewController.xib in Resources */,
+				278A5448182B4D6C00A632DE /* iPhone5s.png in Resources */,
+				278A5447182B4D6C00A632DE /* iPhone5c.png in Resources */,
 				277AFEF0181EA5B80009AE0F /* InfoPlist.strings in Resources */,
 				2708940D1821C297006E23BA /* AppIcon40x40@2x.png in Resources */,
 				27291F0B1823E8B200CB2070 /* Main~ipad.storyboard in Resources */,
 				2708940A1821C297006E23BA /* AppIcon29x29.png in Resources */,
+				278A544A182B56CB00A632DE /* TutorialState.plist in Resources */,
 				277AFEF9181EA5B80009AE0F /* Main.storyboard in Resources */,
 				2708940F1821C297006E23BA /* AppIcon60x60@2x.png in Resources */,
 				270894111821C297006E23BA /* AppIcon76x76@2x.png in Resources */,

@@ -9,6 +9,7 @@
 #import "ACInfoViewController~ipad.h"
 #import "ACViewController~ipad.h"
 #import "MKiCloudSync.h"
+#import "TestFlight.h"
 #import <UIKit/UIAppearance.h>
 
 @interface ACInfoViewController_ipad ()

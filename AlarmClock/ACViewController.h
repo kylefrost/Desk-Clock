@@ -28,6 +28,11 @@
 -(void)updateAMPM;
 -(BOOL)readValue;
 
+// First Open
+-(void)loadTutorial;
+-(void)isFirstOpen;
+-(void)showTutorial;
+
 @property (strong, nonatomic) IBOutlet UIView *backgroundView;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dayLabel;
