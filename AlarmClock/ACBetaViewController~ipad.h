@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
 
 @interface ACBetaViewController_ipad : UIViewController {
     
@@ -23,5 +24,6 @@
 
 -(IBAction)pressCrashButton;
 -(IBAction)resetTutorial;
+-(IBAction)sendReport;
 
 @end

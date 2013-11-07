@@ -217,7 +217,7 @@
     NSDate *alarmTime = self.alarmPicker.date;
     [alarmStoreTime setObject:alarmTime forKey:@"alarmTimeStateStored"];
     [[NSUserDefaults standardUserDefaults] synchronize];
-    NSLog(@"\n\nAlarm time saved.");
+    NSLog(@"Alarm time saved.");
 }
 
 -(void)determineBuild {
@@ -231,10 +231,12 @@
     if (buildBOOL == 1) {
         [self.betaButton setAlpha:1.0];
         [self.betaButton setUserInteractionEnabled:YES];
+        NSLog(@"Build is a beta build.");
     }
     else if (buildBOOL == 0) {
         [self.betaButton setAlpha:0.0];
         [self.betaButton setUserInteractionEnabled:NO];
+        NSLog(@"Build is NOT a beta build.");
     }
     
 }

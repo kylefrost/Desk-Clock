@@ -24,5 +24,6 @@
 
 -(IBAction)pressCrashButton;
 -(IBAction)resetTutorial;
+-(IBAction)sendReport;
 
 @end

@@ -57,6 +57,7 @@
     //User Pressed Leave
     else if (buttonIndex == 1) {
         [self dismissViewControllerAnimated:YES completion:NULL];
+        [TestFlight passCheckpoint:@"Beta Settings Canceled."];
     }
 }
 
@@ -68,6 +69,50 @@
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     [defaults setBool:NO forKey:@"firstLoad"];
     [defaults synchronize];
+    [TestFlight passCheckpoint:@"Tutorial Default Reset to NO."];
+}
+
+-(IBAction)sendReport {
+    // Email Subject
+    NSString *emailTitle = @"Desk Clock Beta: Bug Report/Feature Request";
+    // Email Content
+    NSString *messageBody = @"Feedback and Bug Reports listed below.";
+    // To address
+    NSArray *toRecipents = [NSArray arrayWithObject:@"8e41b0c0f5e1ab257f20c959c8873563_ijkustcefu3tmnzxguztm@n.testflightapp.com"];
+    
+    MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
+    // mc.mailComposeDelegate = self;
+    [mc setSubject:emailTitle];
+    [mc setMessageBody:messageBody isHTML:NO];
+    [mc setToRecipients:toRecipents];
+    
+    // Present mail view controller on screen
+    [self presentViewController:mc animated:YES completion:NULL];
+    
+}
+
+- (void) mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    switch (result)
+    {
+        case MFMailComposeResultCancelled:
+            NSLog(@"Mail cancelled");
+            break;
+        case MFMailComposeResultSaved:
+            NSLog(@"Mail saved");
+            break;
+        case MFMailComposeResultSent:
+            NSLog(@"Mail sent");
+            break;
+        case MFMailComposeResultFailed:
+            NSLog(@"Mail sent failure: %@", [error localizedDescription]);
+            break;
+        default:
+            break;
+    }
+    
+    // Close the Mail Interface
+    [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 - (UIBarPosition)positionForBar:(id <UIBarPositioning>)bar {
@@ -75,6 +120,7 @@
 }
 
 -(IBAction)pressCrashButton {
+    [TestFlight passCheckpoint:@"Crash Button Pressed"];
     [[Crashlytics sharedInstance] crash];
 }
 

@@ -46,7 +46,7 @@
 }
 
 - (void)alertView:(UIAlertView *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-
+    
     // User Pressed Proceed
     if (buttonIndex == 0) {
         nil;
@@ -57,6 +57,7 @@
     //User Pressed Leave
     else if (buttonIndex == 1) {
         [self dismissViewControllerAnimated:YES completion:NULL];
+        [TestFlight passCheckpoint:@"Beta Settings Canceled."];
     }
 }
 
@@ -68,6 +69,7 @@
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     [defaults setBool:NO forKey:@"firstLoad"];
     [defaults synchronize];
+    [TestFlight passCheckpoint:@"Tutorial Default Reset to NO."];
 }
 
 - (UIBarPosition)positionForBar:(id <UIBarPositioning>)bar {
@@ -75,6 +77,7 @@
 }
 
 -(IBAction)pressCrashButton {
+    [TestFlight passCheckpoint:@"Crash Button Pressed"];
     [[Crashlytics sharedInstance] crash];
 }
 
