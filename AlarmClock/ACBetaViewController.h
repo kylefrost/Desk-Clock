@@ -8,6 +8,7 @@
 
 #import "ACAppDelegate.h"
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
 
 @interface ACBetaViewController : UIViewController {
 
@@ -24,6 +25,6 @@
 
 -(IBAction)pressCrashButton;
 -(IBAction)resetTutorial;
--(IBAction)sendReport;
+-(IBAction)sendReport:(id)sender;
 
 @end
