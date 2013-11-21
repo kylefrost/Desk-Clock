@@ -51,6 +51,7 @@
 		278A544A182B56CB00A632DE /* TutorialState.plist in Resources */ = {isa = PBXBuildFile; fileRef = 278A5449182B56CB00A632DE /* TutorialState.plist */; };
 		27D7FF93182ABAF800A14824 /* ACBetaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D7FF92182ABAF800A14824 /* ACBetaViewController.m */; };
 		27D7FF98182ABB3300A14824 /* ACBetaViewController~ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D7FF97182ABB3300A14824 /* ACBetaViewController~ipad.m */; };
+		27DA48D9183DBF1E00E42540 /* InitialSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 27DA48D8183DBF1E00E42540 /* InitialSettings.plist */; };
 		27E01BF21829AAC500DB1132 /* MKiCloudSync.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E01BF11829AAC500DB1132 /* MKiCloudSync.m */; };
 /* End PBXBuildFile section */
 
@@ -123,6 +124,7 @@
 		27D7FF92182ABAF800A14824 /* ACBetaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACBetaViewController.m; sourceTree = "<group>"; };
 		27D7FF96182ABB3300A14824 /* ACBetaViewController~ipad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ACBetaViewController~ipad.h"; sourceTree = "<group>"; };
 		27D7FF97182ABB3300A14824 /* ACBetaViewController~ipad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ACBetaViewController~ipad.m"; sourceTree = "<group>"; };
+		27DA48D8183DBF1E00E42540 /* InitialSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = InitialSettings.plist; sourceTree = "<group>"; };
 		27E01BEF1829A9C700DB1132 /* AlarmClock.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = AlarmClock.entitlements; sourceTree = "<group>"; };
 		27E01BF01829AAC500DB1132 /* MKiCloudSync.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKiCloudSync.h; sourceTree = "<group>"; };
 		27E01BF11829AAC500DB1132 /* MKiCloudSync.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKiCloudSync.m; sourceTree = "<group>"; };
@@ -271,6 +273,7 @@
 				277AFEF3181EA5B80009AE0F /* AlarmClock-Prefix.pch */,
 				274B70C1182AC23900266466 /* BetaSettings.plist */,
 				278A5449182B56CB00A632DE /* TutorialState.plist */,
+				27DA48D8183DBF1E00E42540 /* InitialSettings.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -483,6 +486,7 @@
 				27208B16182145CC0025FEBD /* ACTutorialViewController.xib in Resources */,
 				278A5448182B4D6C00A632DE /* iPhone5s.png in Resources */,
 				278A5447182B4D6C00A632DE /* iPhone5c.png in Resources */,
+				27DA48D9183DBF1E00E42540 /* InitialSettings.plist in Resources */,
 				277AFEF0181EA5B80009AE0F /* InfoPlist.strings in Resources */,
 				2708940D1821C297006E23BA /* AppIcon40x40@2x.png in Resources */,
 				27291F0B1823E8B200CB2070 /* Main~ipad.storyboard in Resources */,
