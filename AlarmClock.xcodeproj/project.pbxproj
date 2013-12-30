@@ -49,6 +49,8 @@
 		278A5447182B4D6C00A632DE /* iPhone5c.png in Resources */ = {isa = PBXBuildFile; fileRef = 278A5445182B4D6C00A632DE /* iPhone5c.png */; };
 		278A5448182B4D6C00A632DE /* iPhone5s.png in Resources */ = {isa = PBXBuildFile; fileRef = 278A5446182B4D6C00A632DE /* iPhone5s.png */; };
 		278A544A182B56CB00A632DE /* TutorialState.plist in Resources */ = {isa = PBXBuildFile; fileRef = 278A5449182B56CB00A632DE /* TutorialState.plist */; };
+		27D5CCEF18711EFC00061B47 /* ACOverlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D5CCEE18711EFC00061B47 /* ACOverlayViewController.m */; };
+		27D5CCF218711F1600061B47 /* ACOverlayViewController~ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D5CCF118711F1600061B47 /* ACOverlayViewController~ipad.m */; };
 		27D7FF93182ABAF800A14824 /* ACBetaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D7FF92182ABAF800A14824 /* ACBetaViewController.m */; };
 		27D7FF98182ABB3300A14824 /* ACBetaViewController~ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D7FF97182ABB3300A14824 /* ACBetaViewController~ipad.m */; };
 		27DA48D9183DBF1E00E42540 /* InitialSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 27DA48D8183DBF1E00E42540 /* InitialSettings.plist */; };
@@ -120,6 +122,10 @@
 		278A5445182B4D6C00A632DE /* iPhone5c.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhone5c.png; sourceTree = "<group>"; };
 		278A5446182B4D6C00A632DE /* iPhone5s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhone5s.png; sourceTree = "<group>"; };
 		278A5449182B56CB00A632DE /* TutorialState.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TutorialState.plist; sourceTree = "<group>"; };
+		27D5CCED18711EFC00061B47 /* ACOverlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACOverlayViewController.h; sourceTree = "<group>"; };
+		27D5CCEE18711EFC00061B47 /* ACOverlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACOverlayViewController.m; sourceTree = "<group>"; };
+		27D5CCF018711F1600061B47 /* ACOverlayViewController~ipad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ACOverlayViewController~ipad.h"; sourceTree = "<group>"; };
+		27D5CCF118711F1600061B47 /* ACOverlayViewController~ipad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ACOverlayViewController~ipad.m"; sourceTree = "<group>"; };
 		27D7FF91182ABAF800A14824 /* ACBetaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACBetaViewController.h; sourceTree = "<group>"; };
 		27D7FF92182ABAF800A14824 /* ACBetaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACBetaViewController.m; sourceTree = "<group>"; };
 		27D7FF96182ABB3300A14824 /* ACBetaViewController~ipad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ACBetaViewController~ipad.h"; sourceTree = "<group>"; };
@@ -171,6 +177,7 @@
 		27208B17182146F10025FEBD /* Tutorial */ = {
 			isa = PBXGroup;
 			children = (
+				27D5CCEA18711EC600061B47 /* OverlayTutorial */,
 				278A5438182B385900A632DE /* iPad */,
 				278A5437182B385400A632DE /* iPhone */,
 			);
@@ -348,6 +355,33 @@
 				278A5446182B4D6C00A632DE /* iPhone5s.png */,
 			);
 			name = "Product Images";
+			sourceTree = "<group>";
+		};
+		27D5CCEA18711EC600061B47 /* OverlayTutorial */ = {
+			isa = PBXGroup;
+			children = (
+				27D5CCEC18711EE600061B47 /* iPad */,
+				27D5CCEB18711ED500061B47 /* iPhone */,
+			);
+			name = OverlayTutorial;
+			sourceTree = "<group>";
+		};
+		27D5CCEB18711ED500061B47 /* iPhone */ = {
+			isa = PBXGroup;
+			children = (
+				27D5CCED18711EFC00061B47 /* ACOverlayViewController.h */,
+				27D5CCEE18711EFC00061B47 /* ACOverlayViewController.m */,
+			);
+			name = iPhone;
+			sourceTree = "<group>";
+		};
+		27D5CCEC18711EE600061B47 /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+				27D5CCF018711F1600061B47 /* ACOverlayViewController~ipad.h */,
+				27D5CCF118711F1600061B47 /* ACOverlayViewController~ipad.m */,
+			);
+			name = iPad;
 			sourceTree = "<group>";
 		};
 		27D7FF90182ABAD900A14824 /* Beta Settings */ = {
@@ -536,11 +570,13 @@
 				27291F131823EF8100CB2070 /* ACInfoViewController~ipad.m in Sources */,
 				277AFEF6181EA5B80009AE0F /* ACAppDelegate.m in Sources */,
 				277AFEFC181EA5B80009AE0F /* ACViewController.m in Sources */,
+				27D5CCEF18711EFC00061B47 /* ACOverlayViewController.m in Sources */,
 				27D7FF98182ABB3300A14824 /* ACBetaViewController~ipad.m in Sources */,
 				27208B15182145CC0025FEBD /* ACTutorialViewController.m in Sources */,
 				27D7FF93182ABAF800A14824 /* ACBetaViewController.m in Sources */,
 				27642FF11827FB92007D66CE /* ACLaurenViewController.m in Sources */,
 				277AFEF2181EA5B80009AE0F /* main.m in Sources */,
+				27D5CCF218711F1600061B47 /* ACOverlayViewController~ipad.m in Sources */,
 				27291F101823EF6100CB2070 /* ACViewController~ipad.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -540,10 +540,15 @@
 }
 
 -(void)showTutorial {
+    /*
     UIViewController *view = [[ACTutorialViewController alloc] initWithNibName:@"ACTutorialViewController" bundle:nil];
     view.modalPresentationStyle = UIModalPresentationCurrentContext;
     view.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
     [self presentViewController:view animated:YES completion:NULL];
+    */
+    
+    UIView *view = [[UIView alloc] init];
+    
     
 }
 

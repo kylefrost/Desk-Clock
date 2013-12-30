@@ -34,33 +34,25 @@
     // Do any additional setup after loading the view from its nib.
     // self.screenNumber.text = [NSString stringWithFormat:@"Screen #%ld", (long)self.index];
  
+    /*
     // Scroll View stuff
-    UIView *tempView = self.viewOne;
-    NSArray *views = [NSArray arrayWithObjects:tempView, [viewTwo viewWithTag:2], [viewThree viewWithTag:3], nil];
+    UIView *tempView = viewOne;
+    NSArray *views = [NSArray arrayWithObjects:tempView, viewTwo, tempView, nil];
     for (int i = 0; i < views.count; i++) {
         CGRect frame;
         frame.origin.x = self.scrollView.frame.size.width * i;
         frame.origin.y = 0;
         frame.size = self.scrollView.frame.size;
         
-        // UIView *subview = [[UIView alloc] initWithFrame:frame];
-        // subview = [views objectAtIndex:i];
-        // subview.backgroundColor = [colors objectAtIndex:i];
-        // [self.scrollView addSubview:subview];
-        if (i == 0) {
-            [self.scrollView addSubview:viewOne];
-        }
-        else if (i == 1) {
-            [self.scrollView addSubview:viewTwo];
-        }
-        else if (i == 2) {
-            [self.scrollView addSubview:viewThree];
-        }
+        UIView *subview = [[UIView alloc] initWithFrame:frame];
+        subview = [views objectAtIndex:i];
+        [self.scrollView addSubview:subview];
     }
+    */
  
     
     pageControlBeingUsed = NO;
-    self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width * views.count, self.scrollView.frame.size.height);
+    // self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width * views.count, self.scrollView.frame.size.height);
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)sender {
