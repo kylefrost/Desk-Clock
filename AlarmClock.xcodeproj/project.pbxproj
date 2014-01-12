@@ -26,6 +26,7 @@
 		27642FF11827FB92007D66CE /* ACLaurenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27642FF01827FB92007D66CE /* ACLaurenViewController.m */; };
 		2767D54C182C3C020012586B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2767D54B182C3C020012586B /* MessageUI.framework */; };
 		276901B51820C4F9006B915D /* Digital-7MonoItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 276901B41820C4D1006B915D /* Digital-7MonoItalic.otf */; };
+		276B615618822DE100A8709E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 276B615518822DE100A8709E /* CoreLocation.framework */; };
 		277AFEE6181EA5B80009AE0F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 277AFEE5181EA5B80009AE0F /* Foundation.framework */; };
 		277AFEE8181EA5B80009AE0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 277AFEE7181EA5B80009AE0F /* CoreGraphics.framework */; };
 		277AFEEA181EA5B80009AE0F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 277AFEE9181EA5B80009AE0F /* UIKit.framework */; };
@@ -91,6 +92,7 @@
 		27642FF01827FB92007D66CE /* ACLaurenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACLaurenViewController.m; sourceTree = "<group>"; };
 		2767D54B182C3C020012586B /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		276901B41820C4D1006B915D /* Digital-7MonoItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Digital-7MonoItalic.otf"; sourceTree = "<group>"; };
+		276B615518822DE100A8709E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		277AFEE2181EA5B80009AE0F /* AlarmClock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlarmClock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		277AFEE5181EA5B80009AE0F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		277AFEE7181EA5B80009AE0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -141,6 +143,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				276B615618822DE100A8709E /* CoreLocation.framework in Frameworks */,
 				2767D54C182C3C020012586B /* MessageUI.framework in Frameworks */,
 				278A543E182B40F900A632DE /* Accelerate.framework in Frameworks */,
 				278A5436182B10C800A632DE /* libz.dylib in Frameworks */,
@@ -239,6 +242,7 @@
 		277AFEE4181EA5B80009AE0F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				276B615518822DE100A8709E /* CoreLocation.framework */,
 				2767D54B182C3C020012586B /* MessageUI.framework */,
 				278A543D182B40F900A632DE /* Accelerate.framework */,
 				278A5435182B10C800A632DE /* libz.dylib */,

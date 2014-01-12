@@ -10,12 +10,17 @@
 #import "TestFlight.h"
 #import <Crashlytics/Crashlytics.h>
 #import <MessageUI/MessageUI.h>
+#import <CoreLocation/CoreLocation.h>
 
 @interface ACBetaViewController ()
 
 @end
 
-@implementation ACBetaViewController
+@implementation ACBetaViewController {
+    CLLocationManager *_locationManager;
+    
+}
+
 @synthesize crashButton;
 
 /*
@@ -29,6 +34,19 @@
  }
  */
 
+
+-(CLLocationCoordinate2D) getLocation{
+    CLLocationManager *locationManager = [[CLLocationManager alloc] init];
+    locationManager.delegate = self;
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    locationManager.distanceFilter = kCLDistanceFilterNone;
+    [locationManager startUpdatingLocation];
+    CLLocation *location = [locationManager location];
+    CLLocationCoordinate2D coordinate = [location coordinate];
+    
+    return coordinate;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -38,6 +56,89 @@
     self.bar.delegate = self;
     
     [TestFlight passCheckpoint:@"Beta Settings Page Opened."];
+    
+    CLLocationCoordinate2D coordinate = [self getLocation];
+    NSLog(@"Lat is: %f, and Long is: %f", coordinate.latitude, coordinate.longitude);
+    
+    [self getWeather];
+}
+
+// Beta settings for weather information
+
+-(IBAction)getWeatherButton {
+    [self getWeather];
+    
+}
+
+-(void)getWeather {
+    
+    CLLocationCoordinate2D coordinate = [self getLocation];
+    NSLog(@"Lat is: %f, and Long is: %f", coordinate.latitude, coordinate.longitude);
+    
+    NSString *apiURLString = [NSString stringWithFormat:@"http://api.openweathermap.org/data/2.1/find/city?lat=%f&lon=%f&cnt=1", coordinate.latitude, coordinate.longitude];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:apiURLString]];
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+        NSHTTPURLResponse *httpResponse = nil;
+        if ([response isKindOfClass:[NSHTTPURLResponse class]]) {
+            httpResponse = (NSHTTPURLResponse *) response;
+        
+    }
+        
+        // NSURLConnection's completionHandler is called on the background thread.
+        // Prepare a block to show an alert on the main thread:
+        __block NSString *message = @"";
+        void (^showAlert)(void) = ^{
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                [[[UIAlertView alloc] initWithTitle:nil message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+            }];
+        };
+        
+        // Check for error or non-OK statusCode:
+        if (error || httpResponse.statusCode != 200) {
+            message = @"Error fetching weather";
+            showAlert();
+            return;
+        }
+    
+    NSError *jsonError = nil;
+    NSDictionary *root = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
+        @try {
+            if (jsonError == nil && root) {
+                // TODO: type checking / validation, this is really dangerous...
+                NSDictionary *firstListItem = [root[@"list"] objectAtIndex:0];
+                NSDictionary *main = firstListItem[@"main"];
+                
+                // Get the temperature:
+                NSNumber *temperatureNumber = main[@"temp"]; // in degrees Kelvin
+                int temperature = [temperatureNumber integerValue] - 273.15;
+                int ftemp = (((temperature*9)/5)+32);
+                
+                NSLog(@"ftemp: %d", ftemp);
+            
+                NSString *curTemp = [NSString stringWithFormat:@"%dº", ftemp];
+                NSLog(@"curTemp: %@", curTemp);
+                currentTemp = [NSString stringWithFormat:@"%dº", ftemp];
+                _temp.text = [NSString stringWithFormat:@"%@", currentTemp];
+                
+                NSUserDefaults *theTemp = [NSUserDefaults standardUserDefaults];
+                [theTemp setObject:currentTemp forKey:@"temp"];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+                
+                return;
+            }
+        }
+        @catch (NSException *exception) {
+        }
+        message = @"Error parsing response";
+        showAlert();
+    }];
+
+}
+
+-(int)getTemp {
+    
+    return 1;
 }
 
 -(void)viewDidAppear:(BOOL)animated {
