@@ -10,6 +10,7 @@
 #import "ACInfoViewController.h"
 #import "MKiCloudSync.h"
 #import "ACTutorialViewController.h"
+#import "ACTimeObject.h"
 #import <UIKit/UIScreen.h>
 
 #define TIME_SIZE 125
@@ -91,6 +92,34 @@
     [MKiCloudSync start];
     [MKiCloudSync initialize];
     // [self loadTutorial];
+    
+    [self configureViewForOrientation:[UIApplication sharedApplication].statusBarOrientation];
+}
+
+-(void)configureViewForOrientation:(UIInterfaceOrientation)orientation {
+    if (UIInterfaceOrientationIsPortrait(orientation)) {
+        
+        // self.testLabel = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 30.0f, 300.0f, 30.0f)];
+        // self.testLabel.text = @"00:00:00";
+        // self.testLabel.textColor = [UIColor whiteColor];
+        
+        [ACTimeObject updateTimeObject:self];
+        
+        [self.view addSubview:self.testLabel];
+        
+    }
+    
+    else {
+        
+        
+        
+    }
+}
+
+-(void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+    
+    [super willAnimateRotationToInterfaceOrientation:toInterfaceOrientation duration:duration];
+    [self configureViewForOrientation:toInterfaceOrientation];
 }
 
 -(void)isFirstOpen {
@@ -547,7 +576,7 @@
     [self presentViewController:view animated:YES completion:NULL];
     */
     
-    UIView *view = [[UIView alloc] init];
+    // UIView *view = [[UIView alloc] init];
     
     
 }

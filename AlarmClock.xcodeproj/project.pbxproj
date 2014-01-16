@@ -17,6 +17,7 @@
 		270894111821C297006E23BA /* AppIcon76x76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 270894071821C297006E23BA /* AppIcon76x76@2x.png */; };
 		270894121821C297006E23BA /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 270894081821C297006E23BA /* iTunesArtwork.png */; };
 		270894131821C297006E23BA /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 270894091821C297006E23BA /* iTunesArtwork@2x.png */; };
+		2711906518876A620019D19F /* ACTimeObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2711906418876A620019D19F /* ACTimeObject.m */; };
 		27208B15182145CC0025FEBD /* ACTutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27208B13182145CC0025FEBD /* ACTutorialViewController.m */; };
 		27208B16182145CC0025FEBD /* ACTutorialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27208B14182145CC0025FEBD /* ACTutorialViewController.xib */; };
 		27291F0B1823E8B200CB2070 /* Main~ipad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27291F0A1823E8B200CB2070 /* Main~ipad.storyboard */; };
@@ -79,6 +80,8 @@
 		270894071821C297006E23BA /* AppIcon76x76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "AppIcon76x76@2x.png"; path = "DeskClockIcons/AppIcon76x76@2x.png"; sourceTree = "<group>"; };
 		270894081821C297006E23BA /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iTunesArtwork.png; path = DeskClockIcons/iTunesArtwork.png; sourceTree = "<group>"; };
 		270894091821C297006E23BA /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iTunesArtwork@2x.png"; path = "DeskClockIcons/iTunesArtwork@2x.png"; sourceTree = "<group>"; };
+		2711906318876A620019D19F /* ACTimeObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACTimeObject.h; sourceTree = "<group>"; };
+		2711906418876A620019D19F /* ACTimeObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACTimeObject.m; sourceTree = "<group>"; };
 		27208B12182145CC0025FEBD /* ACTutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACTutorialViewController.h; sourceTree = "<group>"; };
 		27208B13182145CC0025FEBD /* ACTutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACTutorialViewController.m; sourceTree = "<group>"; };
 		27208B14182145CC0025FEBD /* ACTutorialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACTutorialViewController.xib; sourceTree = "<group>"; };
@@ -265,6 +268,8 @@
 				27D7FF90182ABAD900A14824 /* Beta Settings */,
 				27208B17182146F10025FEBD /* Tutorial */,
 				277AFEEC181EA5B80009AE0F /* Supporting Files */,
+				2711906318876A620019D19F /* ACTimeObject.h */,
+				2711906418876A620019D19F /* ACTimeObject.m */,
 			);
 			path = AlarmClock;
 			sourceTree = "<group>";
@@ -578,6 +583,7 @@
 				27D7FF98182ABB3300A14824 /* ACBetaViewController~ipad.m in Sources */,
 				27208B15182145CC0025FEBD /* ACTutorialViewController.m in Sources */,
 				27D7FF93182ABAF800A14824 /* ACBetaViewController.m in Sources */,
+				2711906518876A620019D19F /* ACTimeObject.m in Sources */,
 				27642FF11827FB92007D66CE /* ACLaurenViewController.m in Sources */,
 				277AFEF2181EA5B80009AE0F /* main.m in Sources */,
 				27D5CCF218711F1600061B47 /* ACOverlayViewController~ipad.m in Sources */,

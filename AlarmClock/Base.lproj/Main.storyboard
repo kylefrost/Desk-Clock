@@ -133,6 +133,7 @@
                         <outlet property="brightnessButton" destination="sZr-IR-jgv" id="Xpn-NR-vV5"/>
                         <outlet property="dayLabel" destination="rfU-P5-tkP" id="xxQ-B5-oFV"/>
                         <outlet property="dayMonthLabel" destination="gk4-BC-gTt" id="nCx-u0-EwA"/>
+                        <outlet property="landscapeView" destination="kh9-bI-dsS" id="9Lk-Gm-7sz"/>
                         <outlet property="offLabel" destination="Efd-og-9Fj" id="2Th-6M-9m6"/>
                         <outlet property="onLabel" destination="Aw3-XX-7J4" id="zcA-TC-Qhk"/>
                         <outlet property="pmLabel" destination="b6Y-2z-Sty" id="3KI-72-wf7"/>
@@ -162,7 +163,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bls-1Q-emn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="880" y="829"/>
+            <point key="canvasLocation" x="805" y="912"/>
         </scene>
         <!--Info View Controller-->
         <scene sceneID="5Kj-st-wgf">
@@ -277,7 +278,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <!--View Controller-->
         <scene sceneID="PBl-Gl-CdJ">
             <objects>
-                <viewController id="2J9-RI-aAq" sceneMemberID="viewController">
+                <viewController id="2J9-RI-aAq" customClass="ACViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Iqv-fO-xFl"/>
                         <viewControllerLayoutGuide type="bottom" id="BR4-tp-MKQ"/>
@@ -287,10 +288,13 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="portraitView" destination="kn1-zr-t0t" id="yQ3-Qb-l8g"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jwW-1s-UbN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1772" y="823"/>
+            <point key="canvasLocation" x="1467" y="805"/>
         </scene>
         <!--Beta View Controller-->
         <scene sceneID="ezo-Tc-wPm">
