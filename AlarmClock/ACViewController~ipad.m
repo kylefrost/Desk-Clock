@@ -118,6 +118,7 @@
     [dateFormat setDateFormat:@"hh:mm:ss"];
     _timeLabel.text = [dateFormat stringFromDate:[NSDate date]];
     
+    
     // Set label attributes
     _timeLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:TIME_SIZE];
     
@@ -141,6 +142,7 @@
         _timeLabel.textColor = [UIColor whiteColor];
     }
     
+    
     // Set night or day mode colors for background
     if (timeVal <= 7) {
         [_backgroundView setBackgroundColor:[UIColor blackColor]];
@@ -151,6 +153,7 @@
     else if (timeVal >= 20) {
         [_backgroundView setBackgroundColor:[UIColor blackColor]];
     }
+    
 }
 
 

@@ -9,21 +9,25 @@
 #import "ACTimeObject.h"
 #import "ACViewController.h"
 
+#define TIME_SIZE 60
+
 @implementation ACTimeObject
 
 +(void)updateTimeObject:(ACViewController *)mainView {
     
-    mainView.testLabel = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 30.0f, 300.0f, 30.0f)];
-    mainView.testLabel.text = @"00:00:00";
-    mainView.testLabel.textColor = [UIColor whiteColor];
+    mainView.timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 30.0f, 300.0f, 80.0f)];
+    mainView.timeLabel.text = @"00:00:00";
+    mainView.timeLabel.textColor = [UIColor whiteColor];
     
+    /*
     // Set timeLabel to show time
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"hh:mm:ss"];
-    mainView.testLabel.text = [dateFormat stringFromDate:[NSDate date]];
+    mainView.timeLabel.text = [dateFormat stringFromDate:[NSDate date]];
+    */
     
     // Set label attributes
-    mainView.testLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:55];
+    mainView.timeLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:TIME_SIZE];
     
     // Update timeLabel to show every one second
     [mainView performSelector:@selector(updateTime) withObject:self afterDelay:1.0];
@@ -36,13 +40,13 @@
     
     // Set night mode or day mode colors
     if (timeVal <= 7) {
-        mainView.testLabel.textColor = [UIColor whiteColor];
+        mainView.timeLabel.textColor = [UIColor whiteColor];
     }
     else if (timeVal <= 19 && timeVal >= 8) {
-        mainView.testLabel.textColor = [UIColor blackColor];
+        mainView.timeLabel.textColor = [UIColor blackColor];
     }
     else if (timeVal >= 20) {
-        mainView.testLabel.textColor = [UIColor whiteColor];
+        mainView.timeLabel.textColor = [UIColor whiteColor];
     }
     
 }

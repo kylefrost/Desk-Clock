@@ -198,6 +198,8 @@
 				277AFF20181EBE510009AE0F /* ACInfoViewController.h */,
 				277AFF21181EBE510009AE0F /* ACInfoViewController.m */,
 				277AFEF7181EA5B80009AE0F /* Main.storyboard */,
+				2711906318876A620019D19F /* ACTimeObject.h */,
+				2711906418876A620019D19F /* ACTimeObject.m */,
 			);
 			name = iPhone;
 			sourceTree = "<group>";
@@ -268,8 +270,6 @@
 				27D7FF90182ABAD900A14824 /* Beta Settings */,
 				27208B17182146F10025FEBD /* Tutorial */,
 				277AFEEC181EA5B80009AE0F /* Supporting Files */,
-				2711906318876A620019D19F /* ACTimeObject.h */,
-				2711906418876A620019D19F /* ACTimeObject.m */,
 			);
 			path = AlarmClock;
 			sourceTree = "<group>";

@@ -37,7 +37,7 @@
 @property (strong, nonatomic) IBOutlet UIView *backgroundView;
 @property (strong, nonatomic) IBOutlet UIView *portraitView;
 @property (strong, nonatomic) IBOutlet UIView *landscapeView;
-@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+@property (strong, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dayLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dayMonthLabel;
 @property (weak, nonatomic) IBOutlet UILabel *alarmLabel;
