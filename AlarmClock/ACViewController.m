@@ -10,9 +10,10 @@
 #import "ACInfoViewController.h"
 #import "MKiCloudSync.h"
 #import "ACTutorialViewController.h"
+#import "ACTimeObject.h"
 #import <UIKit/UIScreen.h>
 
-#define TIME_SIZE 125
+#define TIME_SIZE 60
 #define DAY_DAYMONTH_ALARM_SIZE 40
 #define ON_OFF_SIZE 25
 #define AM_PM_SIZE 20
@@ -91,6 +92,33 @@
     [MKiCloudSync start];
     [MKiCloudSync initialize];
     // [self loadTutorial];
+    
+    [self configureViewForOrientation:[UIApplication sharedApplication].statusBarOrientation];
+}
+
+-(void)configureViewForOrientation:(UIInterfaceOrientation)orientation {
+    if (UIInterfaceOrientationIsPortrait(orientation)) {
+        
+        // self.testLabel = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 30.0f, 300.0f, 30.0f)];
+        // self.testLabel.text = @"00:00:00";
+        // self.testLabel.textColor = [UIColor whiteColor];
+        
+        [ACTimeObject updateTimeObject:self];
+        [self.view addSubview:self.timeLabel];
+        
+    }
+    
+    else {
+        
+        [self.timeLabel setHidden:YES];
+        
+    }
+}
+
+-(void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+    
+    [super willAnimateRotationToInterfaceOrientation:toInterfaceOrientation duration:duration];
+    [self configureViewForOrientation:toInterfaceOrientation];
 }
 
 -(void)isFirstOpen {
@@ -114,10 +142,12 @@
 
 -(void)updateTime {
     
+    
     // Set timeLabel to show time
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"hh:mm:ss"];
     _timeLabel.text = [dateFormat stringFromDate:[NSDate date]];
+    
     
     // Set label attributes
     _timeLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:TIME_SIZE];
@@ -130,7 +160,7 @@
     [timeFormat setDateFormat:@"HH"];
     NSString *time = [timeFormat stringFromDate:[NSDate date]];
     int timeVal = [time intValue];
-    
+    /*
     // Set night mode or day mode colors
     if (timeVal <= 7) {
         _timeLabel.textColor = [UIColor whiteColor];
@@ -141,7 +171,7 @@
     else if (timeVal >= 20) {
         _timeLabel.textColor = [UIColor whiteColor];
     }
-    
+    */
     // Set night or day mode colors for background
     if (timeVal <= 7) {
         [_backgroundView setBackgroundColor:[UIColor blackColor]];
@@ -152,6 +182,7 @@
     else if (timeVal >= 20) {
         [_backgroundView setBackgroundColor:[UIColor blackColor]];
     }
+    
 }
 
 
@@ -547,7 +578,7 @@
     [self presentViewController:view animated:YES completion:NULL];
     */
     
-    UIView *view = [[UIView alloc] init];
+    // UIView *view = [[UIView alloc] init];
     
     
 }

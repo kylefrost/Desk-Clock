@@ -35,7 +35,9 @@
 -(void)showTutorial;
 
 @property (strong, nonatomic) IBOutlet UIView *backgroundView;
-@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+@property (strong, nonatomic) IBOutlet UIView *portraitView;
+@property (strong, nonatomic) IBOutlet UIView *landscapeView;
+@property (strong, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dayLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dayMonthLabel;
 @property (weak, nonatomic) IBOutlet UILabel *alarmLabel;
@@ -46,5 +48,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *amLabel;
 @property (weak, nonatomic) IBOutlet UILabel *pmLabel;
 @property (weak, nonatomic) IBOutlet UILabel *slashLabel;
+
+@property (nonatomic, strong) UILabel *testLabel;
 
 @end
