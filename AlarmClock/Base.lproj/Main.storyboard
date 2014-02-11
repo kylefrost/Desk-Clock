@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B3116" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
@@ -133,11 +133,11 @@
                         <outlet property="brightnessButton" destination="sZr-IR-jgv" id="Xpn-NR-vV5"/>
                         <outlet property="dayLabel" destination="rfU-P5-tkP" id="xxQ-B5-oFV"/>
                         <outlet property="dayMonthLabel" destination="gk4-BC-gTt" id="nCx-u0-EwA"/>
+                        <outlet property="landscapeView" destination="kh9-bI-dsS" id="9Lk-Gm-7sz"/>
                         <outlet property="offLabel" destination="Efd-og-9Fj" id="2Th-6M-9m6"/>
                         <outlet property="onLabel" destination="Aw3-XX-7J4" id="zcA-TC-Qhk"/>
                         <outlet property="pmLabel" destination="b6Y-2z-Sty" id="3KI-72-wf7"/>
                         <outlet property="slashLabel" destination="Lg2-Wc-L1V" id="wzU-kH-05d"/>
-                        <outlet property="timeLabel" destination="WAC-JN-ejx" id="dOi-Rm-HBU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -162,7 +162,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bls-1Q-emn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="880" y="829"/>
+            <point key="canvasLocation" x="805" y="912"/>
         </scene>
         <!--Info View Controller-->
         <scene sceneID="5Kj-st-wgf">
@@ -277,7 +277,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <!--View Controller-->
         <scene sceneID="PBl-Gl-CdJ">
             <objects>
-                <viewController id="2J9-RI-aAq" sceneMemberID="viewController">
+                <viewController id="2J9-RI-aAq" customClass="ACViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Iqv-fO-xFl"/>
                         <viewControllerLayoutGuide type="bottom" id="BR4-tp-MKQ"/>
@@ -287,10 +287,13 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="portraitView" destination="kn1-zr-t0t" id="yQ3-Qb-l8g"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jwW-1s-UbN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1772" y="823"/>
+            <point key="canvasLocation" x="1467" y="805"/>
         </scene>
         <!--Beta View Controller-->
         <scene sceneID="ezo-Tc-wPm">
@@ -347,13 +350,49 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <action selector="sendReport:" destination="fBt-mO-jAZ" eventType="touchUpInside" id="Hwh-bM-Ogr"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HfV-zp-ZZZ">
+                                <rect key="frame" x="111" y="247" width="117" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Test Weather API">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="getWeatherButton" destination="fBt-mO-jAZ" eventType="touchUpInside" id="dvt-8w-IqZ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Current Temp and Weather" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TCK-OG-YC9">
+                                <rect key="frame" x="303" y="237" width="206" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gcn-SK-RJ7">
+                                <rect key="frame" x="303" y="266" width="85" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Weather" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jci-8P-84Q">
+                                <rect key="frame" x="396" y="266" width="113" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="UjJ-gP-IbF">
+                                <rect key="frame" x="274" y="294" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="UjJ-gP-IbF" id="Olw-Ej-0dc"/>
                         <outlet property="bar" destination="h6N-lX-igl" id="oqp-hc-bDL"/>
                         <outlet property="crashButton" destination="9BY-Co-rvJ" id="EyA-P1-hC0"/>
+                        <outlet property="temp" destination="gcn-SK-RJ7" id="bna-8O-S1W"/>
+                        <outlet property="weather" destination="Jci-8P-84Q" id="hf2-Pa-vVs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bLa-ht-BfI" userLabel="First Responder" sceneMemberID="firstResponder"/>
