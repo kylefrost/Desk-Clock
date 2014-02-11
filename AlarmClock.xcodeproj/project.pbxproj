@@ -18,6 +18,8 @@
 		270894121821C297006E23BA /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 270894081821C297006E23BA /* iTunesArtwork.png */; };
 		270894131821C297006E23BA /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 270894091821C297006E23BA /* iTunesArtwork@2x.png */; };
 		2711906518876A620019D19F /* ACTimeObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2711906418876A620019D19F /* ACTimeObject.m */; };
+		271C36A318A9E11400FA8B53 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 278A542F182B107100A632DE /* libTestFlight.a */; };
+		271C36A518A9E1BE00FA8B53 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 271C36A418A9E1BE00FA8B53 /* Crashlytics.framework */; };
 		27208B15182145CC0025FEBD /* ACTutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27208B13182145CC0025FEBD /* ACTutorialViewController.m */; };
 		27208B16182145CC0025FEBD /* ACTutorialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27208B14182145CC0025FEBD /* ACTutorialViewController.xib */; };
 		27291F0B1823E8B200CB2070 /* Main~ipad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27291F0A1823E8B200CB2070 /* Main~ipad.storyboard */; };
@@ -44,8 +46,6 @@
 		277AFF11181EA5B80009AE0F /* AlarmClockTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 277AFF10181EA5B80009AE0F /* AlarmClockTests.m */; };
 		277AFF22181EBE510009AE0F /* ACInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 277AFF21181EBE510009AE0F /* ACInfoViewController.m */; };
 		277AFF23181EBE510009AE0F /* ACInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 277AFF21181EBE510009AE0F /* ACInfoViewController.m */; };
-		278A542E182AFC6800A632DE /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 278A542D182AFC6800A632DE /* Crashlytics.framework */; };
-		278A5433182B107100A632DE /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 278A542F182B107100A632DE /* libTestFlight.a */; };
 		278A5436182B10C800A632DE /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 278A5435182B10C800A632DE /* libz.dylib */; };
 		278A543E182B40F900A632DE /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 278A543D182B40F900A632DE /* Accelerate.framework */; };
 		278A5447182B4D6C00A632DE /* iPhone5c.png in Resources */ = {isa = PBXBuildFile; fileRef = 278A5445182B4D6C00A632DE /* iPhone5c.png */; };
@@ -82,6 +82,7 @@
 		270894091821C297006E23BA /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iTunesArtwork@2x.png"; path = "DeskClockIcons/iTunesArtwork@2x.png"; sourceTree = "<group>"; };
 		2711906318876A620019D19F /* ACTimeObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACTimeObject.h; sourceTree = "<group>"; };
 		2711906418876A620019D19F /* ACTimeObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACTimeObject.m; sourceTree = "<group>"; };
+		271C36A418A9E1BE00FA8B53 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		27208B12182145CC0025FEBD /* ACTutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACTutorialViewController.h; sourceTree = "<group>"; };
 		27208B13182145CC0025FEBD /* ACTutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACTutorialViewController.m; sourceTree = "<group>"; };
 		27208B14182145CC0025FEBD /* ACTutorialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACTutorialViewController.xib; sourceTree = "<group>"; };
@@ -117,7 +118,6 @@
 		277AFF10181EA5B80009AE0F /* AlarmClockTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlarmClockTests.m; sourceTree = "<group>"; };
 		277AFF20181EBE510009AE0F /* ACInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACInfoViewController.h; sourceTree = "<group>"; };
 		277AFF21181EBE510009AE0F /* ACInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACInfoViewController.m; sourceTree = "<group>"; };
-		278A542D182AFC6800A632DE /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = AlarmClock/Crashlytics.framework; sourceTree = "<group>"; };
 		278A542F182B107100A632DE /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
 		278A5430182B107100A632DE /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		278A5431182B107100A632DE /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
@@ -147,13 +147,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				276B615618822DE100A8709E /* CoreLocation.framework in Frameworks */,
+				271C36A518A9E1BE00FA8B53 /* Crashlytics.framework in Frameworks */,
 				2767D54C182C3C020012586B /* MessageUI.framework in Frameworks */,
 				278A543E182B40F900A632DE /* Accelerate.framework in Frameworks */,
 				278A5436182B10C800A632DE /* libz.dylib in Frameworks */,
-				278A5433182B107100A632DE /* libTestFlight.a in Frameworks */,
+				271C36A318A9E11400FA8B53 /* libTestFlight.a in Frameworks */,
 				277AFEE8181EA5B80009AE0F /* CoreGraphics.framework in Frameworks */,
 				277AFEEA181EA5B80009AE0F /* UIKit.framework in Frameworks */,
-				278A542E182AFC6800A632DE /* Crashlytics.framework in Frameworks */,
 				277AFEE6181EA5B80009AE0F /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -245,11 +245,11 @@
 		277AFEE4181EA5B80009AE0F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				271C36A418A9E1BE00FA8B53 /* Crashlytics.framework */,
 				276B615518822DE100A8709E /* CoreLocation.framework */,
 				2767D54B182C3C020012586B /* MessageUI.framework */,
 				278A543D182B40F900A632DE /* Accelerate.framework */,
 				278A5435182B10C800A632DE /* libz.dylib */,
-				278A542D182AFC6800A632DE /* Crashlytics.framework */,
 				277AFEE5181EA5B80009AE0F /* Foundation.framework */,
 				277AFEE7181EA5B80009AE0F /* CoreGraphics.framework */,
 				277AFEE9181EA5B80009AE0F /* UIKit.framework */,
@@ -565,7 +565,8 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "./AlarmClock/Crashlytics.framework/run e6796ec21a8268eef118ce2bffeb5fd9a084bcb1";
+			shellScript = "./Crashlytics.framework/run e6796ec21a8268eef118ce2bffeb5fd9a084bcb1 a12dedb951e246404c4da4a62cdfdc987980947d1e39583cb86f9f54d4c38dd5";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -723,6 +724,7 @@
 					"/Users/Kyle/XcodeProjects/Desk-Clock",
 					/Users/Kyle/XcodeProjects/AlarmClock/AlarmClock,
 					"/Users/Kyle/XcodeProjects/Desk-Clock/AlarmClock",
+					"/Users/Kyle/Xcode/Desk-Clock",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AlarmClock/AlarmClock-Prefix.pch";
@@ -731,6 +733,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/Kyle/XcodeProjects/Desk-Clock/AlarmClock",
+					"/Users/Kyle/Xcode/Desk-Clock/AlarmClock",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -752,6 +755,7 @@
 					"/Users/Kyle/XcodeProjects/Desk-Clock",
 					/Users/Kyle/XcodeProjects/AlarmClock/AlarmClock,
 					"/Users/Kyle/XcodeProjects/Desk-Clock/AlarmClock",
+					"/Users/Kyle/Xcode/Desk-Clock",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AlarmClock/AlarmClock-Prefix.pch";
@@ -760,6 +764,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/Kyle/XcodeProjects/Desk-Clock/AlarmClock",
+					"/Users/Kyle/Xcode/Desk-Clock/AlarmClock",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

@@ -8,7 +8,7 @@
 
 #import "ACBetaViewController.h"
 #import "TestFlight.h"
-#import <Crashlytics/Crashlytics.h>
+// #import <Crashlytics/Crashlytics.h>
 #import <MessageUI/MessageUI.h>
 #import <CoreLocation/CoreLocation.h>
 
@@ -180,7 +180,7 @@
 
 -(IBAction)pressCrashButton {
     [TestFlight passCheckpoint:@"Crash Button Pressed"];
-    [[Crashlytics sharedInstance] crash];
+    // [[Crashlytics sharedInstance] crash];
 }
 
 -(IBAction)sendReport:(id)sender {
