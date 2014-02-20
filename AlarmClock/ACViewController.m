@@ -10,7 +10,8 @@
 #import "ACInfoViewController.h"
 #import "MKiCloudSync.h"
 #import "ACTutorialViewController.h"
-#import "ACTimeObject.h"
+#import "ACPortrait_Orient.h"
+#import "ACLandscape_Orient.h"
 #import <UIKit/UIScreen.h>
 
 #define TIME_SIZE 60
@@ -38,9 +39,23 @@
     }
 }
 
+-(void)isFirstOpen {
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    // [defaults setBool:NO forKey:@"notFirstRun"];
+    if (![defaults boolForKey:@"notFirstRun"]) {
+        [self showTutorial];
+        [defaults setBool:YES forKey:@"notFirstRun"];
+        [defaults synchronize];
+    }
+    else {
+        nil;
+    }
+}
 
-- (void)viewDidLoad
-{
+
+
+- (void)viewDidLoad {
+    
     [super viewDidLoad];
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
 	// Do any additional setup after loading the view, typically from a nib.
@@ -52,30 +67,6 @@
     // [self updateBrightness];
     [self updateAMPM];
     
-    // If following is commented out, status bar will disappear when InfoViewController is opened
-    
-    /*
-     // Find time in 24 hour format
-     NSDateFormatter *timeFormat = [[NSDateFormatter alloc] init];
-     [timeFormat setDateFormat:@"HH"];
-     NSString *time = [timeFormat stringFromDate:[NSDate date]];
-     // NSLNSLog(@"timeVal: %@", time);
-     int timeVal = [time intValue];
-     
-     
-     // Set night mode or day mode colors
-     if (timeVal <= 7) {
-     [_backgroundView setBackgroundColor:[UIColor blackColor]];
-     }
-     else if (timeVal <= 19 && timeVal >=8) {
-     [_backgroundView setBackgroundColor:[UIColor whiteColor]];
-     }
-     else if (timeVal >= 20) {
-     [_backgroundView setBackgroundColor:[UIColor blackColor]];
-     }
-     */
-    
-    // Update timeLabel to show every one second
     // [self performSelector:@selector(viewDidLoad) withObject:self afterDelay:1.0];
     
     // First Open
@@ -98,20 +89,24 @@
 
 -(void)configureViewForOrientation:(UIInterfaceOrientation)orientation {
     if (UIInterfaceOrientationIsPortrait(orientation)) {
+
+        /******** LOAD ALL ACPORTRAIT_ORIENT METHODS ********/
         
-        // self.testLabel = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 30.0f, 300.0f, 30.0f)];
-        // self.testLabel.text = @"00:00:00";
-        // self.testLabel.textColor = [UIColor whiteColor];
+        [ACPortrait_Orient hideAllTheLandscapeThings:self];
+        [ACPortrait_Orient updateTimeLabel:self];
+        // [ACPortrait_Orient updateAllTheThings];
         
-        [ACTimeObject updateTimeObject:self];
-        [self.view addSubview:self.timeLabel];
-        
+        [ACPortrait_Orient addAllThePortraitSubviews:self];
     }
     
     else {
+
+        /******** LOAD ALL ACLANDSCAPE_ORIENT METHODS ********/
         
-        [self.timeLabel setHidden:YES];
+        [ACLandscape_Orient hideAllThePortraitThings:self];
+        [ACLandscape_Orient updateTimeLabel:self];
         
+        [ACLandscape_Orient addAllTheLandscapeSubviews:self];
     }
 }
 
@@ -119,19 +114,6 @@
     
     [super willAnimateRotationToInterfaceOrientation:toInterfaceOrientation duration:duration];
     [self configureViewForOrientation:toInterfaceOrientation];
-}
-
--(void)isFirstOpen {
-    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-    // [defaults setBool:NO forKey:@"notFirstRun"];
-    if (![defaults boolForKey:@"notFirstRun"]) {
-        [self showTutorial];
-        [defaults setBool:YES forKey:@"notFirstRun"];
-        [defaults synchronize];
-    }
-    else {
-        nil;
-    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -142,7 +124,7 @@
 
 -(void)updateTime {
     
-    
+    /*
     // Set timeLabel to show time
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"hh:mm:ss"];
@@ -151,9 +133,10 @@
     
     // Set label attributes
     _timeLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:TIME_SIZE];
-    
+    */
+     
     // Update timeLabel to show every one second
-    [self performSelector:@selector(updateTime) withObject:self afterDelay:1.0];
+    //[self performSelector:@selector(configureViewForOrientation:) withObject:self afterDelay:1.0];
     
     // Find time in 24 hour format
     NSDateFormatter *timeFormat = [[NSDateFormatter alloc] init];
@@ -188,6 +171,7 @@
 
 -(void)updateDay {
     
+    /*
     // Find time in 24 hour format
     NSDateFormatter *timeFormat = [[NSDateFormatter alloc] init];
     [timeFormat setDateFormat:@"HH"];
@@ -203,11 +187,14 @@
     [gregorian components:(NSDayCalendarUnit | NSWeekdayCalendarUnit) fromDate:today];
     // NSInteger day = [weekdayComponents day];
     NSInteger weekday = [weekdayComponents weekday];
+    */
     
     // NSLog of day
     // NSLog(@"NSInteger 'day' = %ld\nNSInteger 'weekday' = %ld", (long)day, (long)weekday);
     
     // Attributes of dayLabel text
+    
+    /*
     _dayLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:DAY_DAYMONTH_ALARM_SIZE];
     
     // Set night mode or day mode colors
@@ -246,10 +233,13 @@
     
     // Update timeLabel to show every one second
     [self performSelector:@selector(updateDay) withObject:self afterDelay:1.0];
+    */
+
 }
 
 -(void)updateMonthDay {
     
+    /*
     // Find time in 24 hour format
     NSDateFormatter *timeFormat = [[NSDateFormatter alloc] init];
     [timeFormat setDateFormat:@"HH"];
@@ -418,6 +408,7 @@
     
     // Update timeLabel to show every one second
     [self performSelector:@selector(updateMonthDay) withObject:self afterDelay:1.0];
+    */
 }
 
 
@@ -428,6 +419,7 @@
 
 -(void)updateAlarm {
     
+    /*
     // Set text attributes
     _onLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:ON_OFF_SIZE];
     _offLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:ON_OFF_SIZE];
@@ -485,6 +477,7 @@
     
     // Update timeLabel to show every one second
     [self performSelector:@selector(updateAlarm) withObject:self afterDelay:1.0];
+    */
 }
 
 -(IBAction)updateBrightness {
@@ -511,6 +504,7 @@
 
 -(void)updateAMPM {
     
+    /*
     // Set text attributes
     _amLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:AM_PM_SIZE];
     _pmLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:AM_PM_SIZE];
@@ -568,6 +562,7 @@
     
     // Update timeLabel to show every one second
     [self performSelector:@selector(updateAMPM) withObject:self afterDelay:1.0];
+    */
 }
 
 -(void)showTutorial {

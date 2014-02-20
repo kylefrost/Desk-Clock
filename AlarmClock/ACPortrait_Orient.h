@@ -10,11 +10,16 @@
 
 @class ACViewController;
 
-@interface ACTimeObject : NSObject
+@interface ACPortrait_Orient : NSObject
 
 @property (nonatomic, assign) ACViewController *mainView;
 
-+(void)updateTimeObject:(ACViewController *)mainView;
++(void)updateTimeLabel:(ACViewController *)mainView;
 
++(void)hideAllTheLandscapeThings:(ACViewController *)mainView;
+
++(void)addAllThePortraitSubviews:(ACViewController *)mainView;
+
++(void)updateAllTheThings;
 
 @end

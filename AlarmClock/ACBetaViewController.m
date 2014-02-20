@@ -8,7 +8,7 @@
 
 #import "ACBetaViewController.h"
 #import "TestFlight.h"
-// #import <Crashlytics/Crashlytics.h>
+#import <Crashlytics/Crashlytics.h>
 #import <MessageUI/MessageUI.h>
 #import <CoreLocation/CoreLocation.h>
 

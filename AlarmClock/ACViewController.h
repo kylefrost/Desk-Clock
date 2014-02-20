@@ -20,6 +20,7 @@
     
 }
 
+
 // int findWeekDay(int date);
 -(void)updateTime;
 -(void)updateDay;
@@ -34,21 +35,34 @@
 -(void)isFirstOpen;
 -(void)showTutorial;
 
-@property (strong, nonatomic) IBOutlet UIView *backgroundView;
-@property (strong, nonatomic) IBOutlet UIView *portraitView;
-@property (strong, nonatomic) IBOutlet UIView *landscapeView;
-@property (strong, nonatomic) IBOutlet UILabel *timeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *dayLabel;
-@property (weak, nonatomic) IBOutlet UILabel *dayMonthLabel;
-@property (weak, nonatomic) IBOutlet UILabel *alarmLabel;
-@property (weak, nonatomic) IBOutlet UILabel *onLabel;
-@property (weak, nonatomic) IBOutlet UILabel *offLabel;
+// Brightness Button
 @property(nonatomic) CGFloat brightness;
 @property (weak, nonatomic) IBOutlet UIButton *brightnessButton;
-@property (weak, nonatomic) IBOutlet UILabel *amLabel;
-@property (weak, nonatomic) IBOutlet UILabel *pmLabel;
-@property (weak, nonatomic) IBOutlet UILabel *slashLabel;
 
-@property (nonatomic, strong) UILabel *testLabel;
+// Background
+@property (strong, nonatomic) IBOutlet UIView *backgroundView;
+
+// Portrait Stuff
+@property (strong, nonatomic) UILabel *timeLabelPortrait;
+@property (strong, nonatomic) UILabel *dayLabelPortrait;
+@property (strong, nonatomic) UILabel *dayMonthLabelPortrait;
+@property (strong, nonatomic) UILabel *alarmLabelPortrait;
+@property (strong, nonatomic) UILabel *onLabelPortrait;
+@property (strong, nonatomic) UILabel *offLabelPortrait;
+@property (strong, nonatomic) UILabel *amLabelPortrait;
+@property (strong, nonatomic) UILabel *pmLabelPortrait;
+@property (strong, nonatomic) UILabel *slashLabelPortrait;
+
+
+// Landscape Stuff
+@property (strong, nonatomic) UILabel *timeLabelLandscape;
+@property (strong, nonatomic) UILabel *dayLabelLandscape;
+@property (strong, nonatomic) UILabel *dayMonthLabelLandscape;
+@property (strong, nonatomic) UILabel *alarmLabelLandscape;
+@property (strong, nonatomic) UILabel *onLabelLandscape;
+@property (strong, nonatomic) UILabel *offLabelLandscape;
+@property (strong, nonatomic) UILabel *amLabelLandscape;
+@property (strong, nonatomic) UILabel *pmLabelLandscape;
+@property (strong, nonatomic) UILabel *slashLabelLandscape;
 
 @end

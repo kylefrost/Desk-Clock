@@ -17,7 +17,7 @@
 		270894111821C297006E23BA /* AppIcon76x76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 270894071821C297006E23BA /* AppIcon76x76@2x.png */; };
 		270894121821C297006E23BA /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 270894081821C297006E23BA /* iTunesArtwork.png */; };
 		270894131821C297006E23BA /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 270894091821C297006E23BA /* iTunesArtwork@2x.png */; };
-		2711906518876A620019D19F /* ACTimeObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2711906418876A620019D19F /* ACTimeObject.m */; };
+		2711906518876A620019D19F /* ACPortrait_Orient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2711906418876A620019D19F /* ACPortrait_Orient.m */; };
 		271C36A318A9E11400FA8B53 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 278A542F182B107100A632DE /* libTestFlight.a */; };
 		271C36A518A9E1BE00FA8B53 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 271C36A418A9E1BE00FA8B53 /* Crashlytics.framework */; };
 		27208B15182145CC0025FEBD /* ACTutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27208B13182145CC0025FEBD /* ACTutorialViewController.m */; };
@@ -25,6 +25,7 @@
 		27291F0B1823E8B200CB2070 /* Main~ipad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27291F0A1823E8B200CB2070 /* Main~ipad.storyboard */; };
 		27291F101823EF6100CB2070 /* ACViewController~ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 27291F0F1823EF6100CB2070 /* ACViewController~ipad.m */; };
 		27291F131823EF8100CB2070 /* ACInfoViewController~ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 27291F121823EF8100CB2070 /* ACInfoViewController~ipad.m */; };
+		273692C918B53D4A00BC893A /* ACLandscape_Orient.m in Sources */ = {isa = PBXBuildFile; fileRef = 273692C818B53D4A00BC893A /* ACLandscape_Orient.m */; };
 		274B70C2182AC23900266466 /* BetaSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 274B70C1182AC23900266466 /* BetaSettings.plist */; };
 		27642FF11827FB92007D66CE /* ACLaurenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27642FF01827FB92007D66CE /* ACLaurenViewController.m */; };
 		2767D54C182C3C020012586B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2767D54B182C3C020012586B /* MessageUI.framework */; };
@@ -80,8 +81,8 @@
 		270894071821C297006E23BA /* AppIcon76x76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "AppIcon76x76@2x.png"; path = "DeskClockIcons/AppIcon76x76@2x.png"; sourceTree = "<group>"; };
 		270894081821C297006E23BA /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iTunesArtwork.png; path = DeskClockIcons/iTunesArtwork.png; sourceTree = "<group>"; };
 		270894091821C297006E23BA /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iTunesArtwork@2x.png"; path = "DeskClockIcons/iTunesArtwork@2x.png"; sourceTree = "<group>"; };
-		2711906318876A620019D19F /* ACTimeObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACTimeObject.h; sourceTree = "<group>"; };
-		2711906418876A620019D19F /* ACTimeObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACTimeObject.m; sourceTree = "<group>"; };
+		2711906318876A620019D19F /* ACPortrait_Orient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACPortrait_Orient.h; sourceTree = "<group>"; };
+		2711906418876A620019D19F /* ACPortrait_Orient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACPortrait_Orient.m; sourceTree = "<group>"; };
 		271C36A418A9E1BE00FA8B53 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		27208B12182145CC0025FEBD /* ACTutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACTutorialViewController.h; sourceTree = "<group>"; };
 		27208B13182145CC0025FEBD /* ACTutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACTutorialViewController.m; sourceTree = "<group>"; };
@@ -91,6 +92,8 @@
 		27291F0F1823EF6100CB2070 /* ACViewController~ipad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ACViewController~ipad.m"; sourceTree = "<group>"; };
 		27291F111823EF8100CB2070 /* ACInfoViewController~ipad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ACInfoViewController~ipad.h"; sourceTree = "<group>"; };
 		27291F121823EF8100CB2070 /* ACInfoViewController~ipad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ACInfoViewController~ipad.m"; sourceTree = "<group>"; };
+		273692C718B53D4A00BC893A /* ACLandscape_Orient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACLandscape_Orient.h; sourceTree = "<group>"; };
+		273692C818B53D4A00BC893A /* ACLandscape_Orient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACLandscape_Orient.m; sourceTree = "<group>"; };
 		274B70C1182AC23900266466 /* BetaSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BetaSettings.plist; sourceTree = "<group>"; };
 		27642FEF1827FB92007D66CE /* ACLaurenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACLaurenViewController.h; sourceTree = "<group>"; };
 		27642FF01827FB92007D66CE /* ACLaurenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACLaurenViewController.m; sourceTree = "<group>"; };
@@ -193,13 +196,15 @@
 		27291F0C1823EF2B00CB2070 /* iPhone */ = {
 			isa = PBXGroup;
 			children = (
+				277AFEF7181EA5B80009AE0F /* Main.storyboard */,
 				277AFEFA181EA5B80009AE0F /* ACViewController.h */,
 				277AFEFB181EA5B80009AE0F /* ACViewController.m */,
 				277AFF20181EBE510009AE0F /* ACInfoViewController.h */,
 				277AFF21181EBE510009AE0F /* ACInfoViewController.m */,
-				277AFEF7181EA5B80009AE0F /* Main.storyboard */,
-				2711906318876A620019D19F /* ACTimeObject.h */,
-				2711906418876A620019D19F /* ACTimeObject.m */,
+				2711906318876A620019D19F /* ACPortrait_Orient.h */,
+				2711906418876A620019D19F /* ACPortrait_Orient.m */,
+				273692C718B53D4A00BC893A /* ACLandscape_Orient.h */,
+				273692C818B53D4A00BC893A /* ACLandscape_Orient.m */,
 			);
 			name = iPhone;
 			sourceTree = "<group>";
@@ -207,11 +212,11 @@
 		27291F0D1823EF3500CB2070 /* iPad */ = {
 			isa = PBXGroup;
 			children = (
+				27291F0A1823E8B200CB2070 /* Main~ipad.storyboard */,
 				27291F0E1823EF6100CB2070 /* ACViewController~ipad.h */,
 				27291F0F1823EF6100CB2070 /* ACViewController~ipad.m */,
 				27291F111823EF8100CB2070 /* ACInfoViewController~ipad.h */,
 				27291F121823EF8100CB2070 /* ACInfoViewController~ipad.m */,
-				27291F0A1823E8B200CB2070 /* Main~ipad.storyboard */,
 			);
 			name = iPad;
 			sourceTree = "<group>";
@@ -584,7 +589,8 @@
 				27D7FF98182ABB3300A14824 /* ACBetaViewController~ipad.m in Sources */,
 				27208B15182145CC0025FEBD /* ACTutorialViewController.m in Sources */,
 				27D7FF93182ABAF800A14824 /* ACBetaViewController.m in Sources */,
-				2711906518876A620019D19F /* ACTimeObject.m in Sources */,
+				2711906518876A620019D19F /* ACPortrait_Orient.m in Sources */,
+				273692C918B53D4A00BC893A /* ACLandscape_Orient.m in Sources */,
 				27642FF11827FB92007D66CE /* ACLaurenViewController.m in Sources */,
 				277AFEF2181EA5B80009AE0F /* main.m in Sources */,
 				27D5CCF218711F1600061B47 /* ACOverlayViewController~ipad.m in Sources */,
