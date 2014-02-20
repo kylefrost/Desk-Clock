@@ -52,6 +52,9 @@
 @property (strong, nonatomic) UILabel *amLabelPortrait;
 @property (strong, nonatomic) UILabel *pmLabelPortrait;
 @property (strong, nonatomic) UILabel *slashLabelPortrait;
+-(void)loadPortraitLabels;
+-(void)setUpPortraitView;
+-(void)refreshPortraitView;
 
 
 // Landscape Stuff
@@ -64,5 +67,8 @@
 @property (strong, nonatomic) UILabel *amLabelLandscape;
 @property (strong, nonatomic) UILabel *pmLabelLandscape;
 @property (strong, nonatomic) UILabel *slashLabelLandscape;
+-(void)loadLandscapeLabels;
+-(void)setUpLandscapeView;
+-(void)refreshLandscapeView;
 
 @end

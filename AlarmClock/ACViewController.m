@@ -90,24 +90,73 @@
 -(void)configureViewForOrientation:(UIInterfaceOrientation)orientation {
     if (UIInterfaceOrientationIsPortrait(orientation)) {
 
-        /******** LOAD ALL ACPORTRAIT_ORIENT METHODS ********/
-        
+        [self loadPortraitLabels];
+        [self setUpPortraitView];
+        // [self refreshPortraitView];
+        // [self performSelector:@selector(loadPortraitView) withObject:self afterDelay:1.0];
+        /*
         [ACPortrait_Orient hideAllTheLandscapeThings:self];
         [ACPortrait_Orient updateTimeLabel:self];
-        // [ACPortrait_Orient updateAllTheThings];
         
         [ACPortrait_Orient addAllThePortraitSubviews:self];
+        */
     }
     
     else {
 
-        /******** LOAD ALL ACLANDSCAPE_ORIENT METHODS ********/
-        
+        [self loadLandscapeLabels];
+        [self setUpLandscapeView];
+        // [self refreshLandscapeView];
+        // [self performSelector:@selector(loadLandscapeView) withObject:self afterDelay:1.0];
+        /*
         [ACLandscape_Orient hideAllThePortraitThings:self];
         [ACLandscape_Orient updateTimeLabel:self];
         
+        
         [ACLandscape_Orient addAllTheLandscapeSubviews:self];
+        */
     }
+}
+
+-(void)loadPortraitLabels {
+    
+    [ACPortrait_Orient updateTimeLabel:self];
+    
+    [self performSelector:@selector(loadPortraitLabels) withObject:self afterDelay:1.0];
+}
+
+-(void)setUpPortraitView {
+    
+    [ACPortrait_Orient hideAllTheLandscapeThings:self];
+    [ACPortrait_Orient addAllThePortraitSubviews:self];
+    
+}
+
+-(void)refreshPortraitView {
+    
+    [self performSelector:@selector(loadPortraitLabels) withObject:self afterDelay:1.0];
+    
+}
+
+-(void)loadLandscapeLabels {
+    
+    [ACLandscape_Orient updateTimeLabel:self];
+    // [ACLandscape_Orient addAllTheLandscapeSubviews:self];
+    
+    // [self performSelector:@selector(loadLandscapeView) withObject:self afterDelay:1.0];
+}
+
+-(void)setUpLandscapeView {
+  
+    [ACLandscape_Orient hideAllThePortraitThings:self];
+    [ACLandscape_Orient addAllTheLandscapeSubviews:self];
+    
+}
+
+-(void)refreshLandscapeView {
+    
+    [self performSelector:@selector(loadLandscapeLabels) withObject:self afterDelay:1.0];
+    
 }
 
 -(void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
