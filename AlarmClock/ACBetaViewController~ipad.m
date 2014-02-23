@@ -92,7 +92,7 @@
     NSArray *toRecipents = [NSArray arrayWithObject:@"8e41b0c0f5e1ab257f20c959c8873563_ijkustcefu3tmnzxguztm@n.testflightapp.com"];
     
     MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
-    mc.mailComposeDelegate = self;
+    // mc.mailComposeDelegate = self;
     [mc setSubject:emailTitle];
     [mc setMessageBody:messageBody isHTML:NO];
     [mc setToRecipients:toRecipents];

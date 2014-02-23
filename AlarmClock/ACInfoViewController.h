@@ -11,12 +11,12 @@
 @interface ACInfoViewController : UIViewController  {
     
     IBOutlet UISwitch *alarmSwitch;
-    IBOutlet UIButton *betaButton;
+    IBOutlet UIBarButtonItem *betaButton;
     // NSInteger alarmState;
 }
 
 @property (nonatomic, retain) UISwitch *alarmSwitch;
-@property (nonatomic, retain) IBOutlet UIButton *betaButton;
+@property (nonatomic, retain) IBOutlet UIBarButtonItem *betaButton;
 @property (weak, nonatomic) IBOutlet UINavigationBar *bar;
 @property(nonatomic,readonly) UIBarPosition barPosition;
 @property (strong, nonatomic) IBOutlet UIView *backgroundView;

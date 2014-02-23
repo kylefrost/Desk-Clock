@@ -10,8 +10,6 @@
 #import "ACInfoViewController.h"
 #import "MKiCloudSync.h"
 #import "ACTutorialViewController.h"
-#import "ACPortrait_Orient.h"
-#import "ACLandscape_Orient.h"
 #import "Definitions.h"
 #import <UIKit/UIScreen.h>
 
@@ -57,7 +55,6 @@
     // Load tutorial if it is the first open
     [self isFirstOpen];
     [self loadTutorial];
-    
     [self performSelector:@selector(loadTutorial) withObject:nil afterDelay:0.0];
     
     // iCloud syncing
@@ -76,256 +73,105 @@
     // Get Orientation at launch
     [self getOrientation];
     
-    // Start updating clock time
+    // Run Portrait/Landscape Independent Functions (found at bottom)
     [self updateClockLabelTime];
+    [self updateDayLabelDate];
+    [self updateLabelColors];
+    [self updateBackgroundColor];
     
 }
 
--(void)updateClockLabelTime {
-    
-    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateFormat:@"hh:mm:ss"];
-    _timeLabel.text = [dateFormat stringFromDate:[NSDate date]];
-    // [self.view addSubview:timeLabel];
-    
-    NSLog(@"%@", [dateFormat stringFromDate:[NSDate date]]);
-    
-    [self performSelector:@selector(updateClockLabelTime) withObject:self afterDelay:1.0];
-    
-}
-
+// Run functions based on orientation
 -(void)getOrientation {
     
     UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
     
+    // Portrait
     if(orientation == 0) {
+        
         [self updateTimePortrait];
         [self updateDayPortrait];
         [self updateMonthDayPortrait];
         [self updateAlarmPortrait];
         [self updateAMPMPortrait];
         
-        // [self setUpPortraitView];
-        NSLog(@"Turned portrait");
     }
+    // Portrait
     else if(orientation == UIInterfaceOrientationPortrait) {
+        
         [self updateTimePortrait];
         [self updateDayPortrait];
         [self updateMonthDayPortrait];
         [self updateAlarmPortrait];
         [self updateAMPMPortrait];
         
-        // [self setUpPortraitView];
-        NSLog(@"Turned portrait");
     }
+    // Portrait
     else if(orientation == UIInterfaceOrientationPortraitUpsideDown) {
+        
         [self updateTimePortrait];
         [self updateDayPortrait];
         [self updateMonthDayPortrait];
         [self updateAlarmPortrait];
         [self updateAMPMPortrait];
         
-        // [self setUpPortraitView];
-        NSLog(@"Turned portrait upside down");
     }
+    // Landscape
     else if(orientation == UIInterfaceOrientationLandscapeLeft) {
+        
         [self updateTimeLandscape];
         [self updateDayLandscape];
         [self updateMonthDayPortrait];
         [self updateAlarmLandscape];
         [self updateAMPMLandscape];
         
-        // [self setUpLandscapeView];
-        NSLog(@"Turned landscape");
     }
+    // Landscape
     else if(orientation == UIInterfaceOrientationLandscapeRight) {
+        
         [self updateTimeLandscape];
         [self updateDayLandscape];
         [self updateMonthDayPortrait];
         [self updateAlarmLandscape];
         [self updateAMPMLandscape];
         
-        // [self setUpLandscapeView];
-        NSLog(@"Turned landscape");
     }
+    
+    /* 
+     Check every tenth second for orientation to decrease lag when
+     change orientations. Tried running this afterDelay:0.0 but CPU
+     usage was spiking to 98% - 100%. At afterDelay:0.1 it only peaks
+     at around 1% - 2%.
+     */
+    
     [self performSelector:@selector(getOrientation) withObject:self afterDelay:0.1];
 }
 
+/******************* All Portrait Functions *******************/
 
--(void)addAllTheSubviews {
-    
-    [self.view addSubview:_timeLabel];
-    [self.view addSubview:self.dayLabel];
-    [self.view addSubview:self.dayMonthLabel];
-    [self.view addSubview:self.alarmLabel];
-    [self.view addSubview:self.onLabel];
-    [self.view addSubview:self.offLabel];
-    [self.view addSubview:self.amLabel];
-    [self.view addSubview:self.pmLabel];
-    [self.view addSubview:self.slashLabel];
-    
-}
-
--(void)loadPortraitLabels {
-    
-    [self updateTimePortrait];
-    [self updateDayPortrait];
-    [self updateMonthDayPortrait];
-    [self updateAlarmPortrait];
-    [self updateAMPMPortrait];
-    
-}
-
--(void)setUpPortraitView {
-    
-    // _timeLabel = [[UILabel alloc] initWithFrame:self.portraitRect];
-    // _timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 30.0f, 300.0f, 80.0f)];
-    
-}
-
--(void)loadLandscapeLabels {
-    
-    [self updateTimeLandscape];
-    [self updateDayLandscape];
-    [self updateMonthDayPortrait];
-    [self updateAlarmLandscape];
-    [self updateAMPMLandscape];
-    
-}
-
--(void)setUpLandscapeView {
-    
-    // _timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 30.0f, 300.0f, 80.0f)];
-    
-}
-
-/*
--(void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
-    
-    [super willAnimateRotationToInterfaceOrientation:toInterfaceOrientation duration:duration];
-    [self configureViewForOrientation:toInterfaceOrientation];
-}
-*/
-
-/************ All Portrait Functions ************/
-
+// Update the timeLabel for Portrait view
 -(void)updateTimePortrait {
     
     NSLog(@"updateTimePortrait is called");
-    
-    // _timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 30.0f, 300.0f, 80.0f)];
-    
-    // Set timeLabel to show time
-    // NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    // [dateFormat setDateFormat:@"hh:mm:ss"];
-    // _timeLabel.text = [dateFormat stringFromDate:[NSDate date]];
-    
-    
+ 
     // Set label attributes
     _timeLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:TIME_SIZE_PORTRAIT];
     [_timeLabel setFrame:CGRectMake(10.0f, 0.0f, 300.0f, 80.0f)];
-     
-    // Update timeLabel to show every one second
-    // [self performSelector:@selector(updateTimePortrait) withObject:self afterDelay:1.0];
-    
-    // Find time in 24 hour format
-    NSDateFormatter *timeFormat = [[NSDateFormatter alloc] init];
-    [timeFormat setDateFormat:@"HH"];
-    NSString *time = [timeFormat stringFromDate:[NSDate date]];
-    int timeVal = [time intValue];
-    
-    // Set night mode or day mode colors
-    if (timeVal <= 7) {
-        _timeLabel.textColor = [UIColor whiteColor];
-    }
-    else if (timeVal <= 19 && timeVal >= 8) {
-        _timeLabel.textColor = [UIColor blackColor];
-    }
-    else if (timeVal >= 20) {
-        _timeLabel.textColor = [UIColor whiteColor];
-    }
-    
-    // Set night or day mode colors for background
-    if (timeVal <= 7) {
-        [_backgroundView setBackgroundColor:[UIColor blackColor]];
-    }
-    else if (timeVal <= 19 && timeVal >= 8) {
-        [_backgroundView setBackgroundColor:[UIColor whiteColor]];
-    }
-    else if (timeVal >= 20) {
-        [_backgroundView setBackgroundColor:[UIColor blackColor]];
-    }
     
 }
 
+// Update the dayLabel for Portrait view
 -(void)updateDayPortrait {
     
-    /*
-    // Find time in 24 hour format
-    NSDateFormatter *timeFormat = [[NSDateFormatter alloc] init];
-    [timeFormat setDateFormat:@"HH"];
-    NSString *time = [timeFormat stringFromDate:[NSDate date]];
-    // NSLog(@"timeVal: %@", time);
-    int timeVal = [time intValue];
-    
-    // Get day of week.
-    NSDate *today = [NSDate date];
-    NSCalendar *gregorian = [[NSCalendar alloc]
-                             initWithCalendarIdentifier:NSGregorianCalendar];
-    NSDateComponents *weekdayComponents =
-    [gregorian components:(NSDayCalendarUnit | NSWeekdayCalendarUnit) fromDate:today];
-    // NSInteger day = [weekdayComponents day];
-    NSInteger weekday = [weekdayComponents weekday];
-    */
-    
-    // NSLog of day
-    // NSLog(@"NSInteger 'day' = %ld\nNSInteger 'weekday' = %ld", (long)day, (long)weekday);
-    
-    // Attributes of dayLabel text
-    
-    /*
-    _dayLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:DAY_DAYMONTH_ALARM_SIZE];
-    
-    // Set night mode or day mode colors
-    if (timeVal <= 7) {
-        _dayLabel.textColor = [UIColor whiteColor];
-    }
-    else if (timeVal <= 19 && timeVal >= 8) {
-        _dayLabel.textColor = [UIColor blackColor];
-    }
-    else if (timeVal >= 20) {
-        _dayLabel.textColor = [UIColor whiteColor];
-    }
-    
-    // Set weekday label based on weekday value
-    if (weekday == 1) {
-        _dayLabel.text = @"Sunday";
-    }
-    else if (weekday == 2) {
-        _dayLabel.text = @"Monday";
-    }
-    else if (weekday == 3) {
-        _dayLabel.text = @"Tuesday";
-    }
-    else if (weekday == 4) {
-        _dayLabel.text = @"Wednesday";
-    }
-    else if (weekday == 5) {
-        _dayLabel.text = @"Thursday";
-    }
-    else if (weekday == 6) {
-        _dayLabel.text = @"Friday";
-    }
-    else if (weekday == 7) {
-        _dayLabel.text = @"Saturday";
-    }
-    
-    // Update timeLabel to show every one second
-    [self performSelector:@selector(updateDay) withObject:self afterDelay:1.0];
-    */
+    NSLog(@"updateDayPortrait is called");
+
+    // Set label attributes
+    _dayLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:DAY_DAYMONTH_ALARM_SIZE_PORTRAIT];
+    [_dayLabel setFrame:CGRectMake(0.0f, 0.0f, 300.0f, 80.0f)];
 
 }
 
+// Update the dayMonthLabel for Portrait view
 -(void)updateMonthDayPortrait {
     
     /*
@@ -500,6 +346,7 @@
     */
 }
 
+// Update the alarmLabel for Portrait view
 -(void)updateAlarmPortrait {
     
     /*
@@ -563,6 +410,7 @@
     */
 }
 
+// Update the amLabel and pmLabel and slashLabel for Portrait view
 -(void)updateAMPMPortrait {
     
     /*
@@ -626,125 +474,28 @@
     */
 }
 
-/************ All Landscape Functions ************/
+/******************* All Landscape Functions *******************/
 
+// Update the timeLabel for Landscape view
 -(void)updateTimeLandscape {
     
     NSLog(@"updateTimeLandscape is called");
-    
-    // _timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 30.0f, 300.0f, 80.0f)];
-    
-    // Set timeLabel to show time
-    // NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    // [dateFormat setDateFormat:@"hh:mm:ss"];
-    // _timeLabel.text = [dateFormat stringFromDate:[NSDate date]];
-    
     
     // Set label attributes
     _timeLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:TIME_SIZE_LANDSCAPE];
     [_timeLabel setFrame:CGRectMake(-35.0f, 16.0f, 640.0f, 100.0f)];
     
-    // Update timeLabel to show every one second
-    // [self performSelector:@selector(updateTimeLandscape) withObject:self afterDelay:1.0];
-    
-    // Find time in 24 hour format
-    NSDateFormatter *timeFormat = [[NSDateFormatter alloc] init];
-    [timeFormat setDateFormat:@"HH"];
-    NSString *time = [timeFormat stringFromDate:[NSDate date]];
-    int timeVal = [time intValue];
-    
-    // Set night mode or day mode colors
-    if (timeVal <= 7) {
-        _timeLabel.textColor = [UIColor whiteColor];
-    }
-    else if (timeVal <= 19 && timeVal >= 8) {
-        _timeLabel.textColor = [UIColor blackColor];
-    }
-    else if (timeVal >= 20) {
-        _timeLabel.textColor = [UIColor whiteColor];
-    }
-    
-    // Set night or day mode colors for background
-    if (timeVal <= 7) {
-        [_backgroundView setBackgroundColor:[UIColor blackColor]];
-    }
-    else if (timeVal <= 19 && timeVal >= 8) {
-        [_backgroundView setBackgroundColor:[UIColor whiteColor]];
-    }
-    else if (timeVal >= 20) {
-        [_backgroundView setBackgroundColor:[UIColor blackColor]];
-    }
-    
 }
 
+// Update the dayLabel for Landscape view
 -(void)updateDayLandscape {
     
-    /*
-     // Find time in 24 hour format
-     NSDateFormatter *timeFormat = [[NSDateFormatter alloc] init];
-     [timeFormat setDateFormat:@"HH"];
-     NSString *time = [timeFormat stringFromDate:[NSDate date]];
-     // NSLog(@"timeVal: %@", time);
-     int timeVal = [time intValue];
-     
-     // Get day of week.
-     NSDate *today = [NSDate date];
-     NSCalendar *gregorian = [[NSCalendar alloc]
-     initWithCalendarIdentifier:NSGregorianCalendar];
-     NSDateComponents *weekdayComponents =
-     [gregorian components:(NSDayCalendarUnit | NSWeekdayCalendarUnit) fromDate:today];
-     // NSInteger day = [weekdayComponents day];
-     NSInteger weekday = [weekdayComponents weekday];
-     */
-    
-    // NSLog of day
-    // NSLog(@"NSInteger 'day' = %ld\nNSInteger 'weekday' = %ld", (long)day, (long)weekday);
-    
-    // Attributes of dayLabel text
-    
-    /*
-     _dayLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:DAY_DAYMONTH_ALARM_SIZE];
-     
-     // Set night mode or day mode colors
-     if (timeVal <= 7) {
-     _dayLabel.textColor = [UIColor whiteColor];
-     }
-     else if (timeVal <= 19 && timeVal >= 8) {
-     _dayLabel.textColor = [UIColor blackColor];
-     }
-     else if (timeVal >= 20) {
-     _dayLabel.textColor = [UIColor whiteColor];
-     }
-     
-     // Set weekday label based on weekday value
-     if (weekday == 1) {
-     _dayLabel.text = @"Sunday";
-     }
-     else if (weekday == 2) {
-     _dayLabel.text = @"Monday";
-     }
-     else if (weekday == 3) {
-     _dayLabel.text = @"Tuesday";
-     }
-     else if (weekday == 4) {
-     _dayLabel.text = @"Wednesday";
-     }
-     else if (weekday == 5) {
-     _dayLabel.text = @"Thursday";
-     }
-     else if (weekday == 6) {
-     _dayLabel.text = @"Friday";
-     }
-     else if (weekday == 7) {
-     _dayLabel.text = @"Saturday";
-     }
-     
-     // Update timeLabel to show every one second
-     [self performSelector:@selector(updateDay) withObject:self afterDelay:1.0];
-     */
-    
+    // Set label attributes
+    _dayLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:DAY_DAYMONTH_ALARM_SIZE_LANDSCAPE];
+    [_dayLabel setFrame:CGRectMake(0.0f, 0.0f, 300.0f, 80.0f)];
 }
 
+// Update the dayMonthLabel for Landscape view
 -(void)updateMonthDayLandscape {
     
     /*
@@ -919,6 +670,7 @@
      */
 }
 
+// Update the alarmLabel for Landscape view
 -(void)updateAlarmLandscape {
     
     /*
@@ -982,6 +734,7 @@
      */
 }
 
+// Update the amLabel and pmLabel and slashLabel for Landscape view
 -(void)updateAMPMLandscape {
     
     /*
@@ -1045,8 +798,121 @@
      */
 }
 
-/************ Other Miscellaneous ************/
+/******************* Landscape/Portrait Independent *******************/
 
+// Make timeLabel update with time
+-(void)updateClockLabelTime {
+    
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"hh:mm:ss"];
+    _timeLabel.text = [dateFormat stringFromDate:[NSDate date]];
+    
+    // Run every second to constantly update timeLabel with current time
+    [self performSelector:@selector(updateClockLabelTime) withObject:self afterDelay:1.0];
+    
+}
+
+// Update dayLabel with current weekday
+-(void)updateDayLabelDate {
+    
+    // Get day of week.
+    NSDate *today = [NSDate date];
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents *weekdayComponents = [gregorian components:(NSDayCalendarUnit | NSWeekdayCalendarUnit) fromDate:today];
+    NSInteger weekday = [weekdayComponents weekday];
+    
+    // Set weekday label based on weekday value
+    if (weekday == 1) {
+        _dayLabel.text = @"Sunday";
+    }
+    else if (weekday == 2) {
+        _dayLabel.text = @"Monday";
+    }
+    else if (weekday == 3) {
+        _dayLabel.text = @"Tuesday";
+    }
+    else if (weekday == 4) {
+        _dayLabel.text = @"Wednesday";
+    }
+    else if (weekday == 5) {
+        _dayLabel.text = @"Thursday";
+    }
+    else if (weekday == 6) {
+        _dayLabel.text = @"Friday";
+    }
+    else if (weekday == 7) {
+        _dayLabel.text = @"Saturday";
+    }
+    
+    // Run every second to constantly update dayLabel with current weekday
+    [self performSelector:@selector(updateDayLabelDate) withObject:self afterDelay:1.0];
+    
+}
+
+// Update Background Color for Day/Light Mode
+-(void)updateBackgroundColor {
+    
+    // Find time in 24 hour format
+    NSDateFormatter *timeFormat = [[NSDateFormatter alloc] init];
+    [timeFormat setDateFormat:@"HH"];
+    NSString *time = [timeFormat stringFromDate:[NSDate date]];
+    int timeVal = [time intValue];
+    
+    // Set night or day mode colors for background
+    if (timeVal <= 7) {
+        [_backgroundView setBackgroundColor:[UIColor blackColor]];
+    }
+    else if (timeVal <= 19 && timeVal >= 8) {
+        [_backgroundView setBackgroundColor:[UIColor whiteColor]];
+    }
+    else if (timeVal >= 20) {
+            [_backgroundView setBackgroundColor:[UIColor blackColor]];
+    }
+    
+    // Update every second
+    [self performSelector:@selector(updateBackgroundColor) withObject:self afterDelay:1.0];
+    
+}
+
+// Update Label Colors for Day/Night Mode
+-(void)updateLabelColors {
+    
+    // Find time in 24 hour format
+    NSDateFormatter *timeFormat = [[NSDateFormatter alloc] init];
+    [timeFormat setDateFormat:@"HH"];
+    NSString *time = [timeFormat stringFromDate:[NSDate date]];
+    int timeVal = [time intValue];
+    
+    // Set night mode or day mode colors
+    if (timeVal <= 7) {
+        _timeLabel.textColor = [UIColor whiteColor];
+    }
+    else if (timeVal <= 19 && timeVal >= 8) {
+        _timeLabel.textColor = [UIColor blackColor];
+    }
+    else if (timeVal >= 20) {
+        _timeLabel.textColor = [UIColor whiteColor];
+    }
+    
+    // Set night mode or day mode colors
+    if (timeVal <= 7) {
+        _dayLabel.textColor = [UIColor whiteColor];
+    }
+    else if (timeVal <= 19 && timeVal >= 8) {
+        _dayLabel.textColor = [UIColor blackColor];
+    }
+    else if (timeVal >= 20) {
+        _dayLabel.textColor = [UIColor whiteColor];
+    }
+    
+    // Update every second
+    [self performSelector:@selector(updateLabelColors) withObject:self afterDelay:1.0];
+    
+}
+
+/******************* Miscellaneous *******************/
+
+// Shows tutorial if first open
 -(void)showTutorial {
     /*
     UIViewController *view = [[ACTutorialViewController alloc] initWithNibName:@"ACTutorialViewController" bundle:nil];
@@ -1060,11 +926,13 @@
     
 }
 
+// Did Receive Memory Warning
 -(void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+// Action for brightnessButton
 -(IBAction)updateBrightness {
     
     // Find brightness
@@ -1086,6 +954,7 @@
     
 }
 
+// Read Switch
 -(BOOL)readValue {
     NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
     return [preferences boolForKey:@"switchOnOff"];
