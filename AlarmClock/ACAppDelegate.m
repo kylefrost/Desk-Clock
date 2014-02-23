@@ -10,6 +10,7 @@
 #import "MKiCloudSync.h"
 #import "TestFlight.h"
 #import "ACTutorialViewController.h"
+#import "ACViewController.h"
 #import <Crashlytics/Crashlytics.h>
 
 @implementation ACAppDelegate

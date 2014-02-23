@@ -92,6 +92,7 @@
 		27291F0F1823EF6100CB2070 /* ACViewController~ipad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ACViewController~ipad.m"; sourceTree = "<group>"; };
 		27291F111823EF8100CB2070 /* ACInfoViewController~ipad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ACInfoViewController~ipad.h"; sourceTree = "<group>"; };
 		27291F121823EF8100CB2070 /* ACInfoViewController~ipad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ACInfoViewController~ipad.m"; sourceTree = "<group>"; };
+		2729A88218B7205500182ED1 /* Definitions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Definitions.h; sourceTree = "<group>"; };
 		273692C718B53D4A00BC893A /* ACLandscape_Orient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACLandscape_Orient.h; sourceTree = "<group>"; };
 		273692C818B53D4A00BC893A /* ACLandscape_Orient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACLandscape_Orient.m; sourceTree = "<group>"; };
 		274B70C1182AC23900266466 /* BetaSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BetaSettings.plist; sourceTree = "<group>"; };
@@ -287,6 +288,7 @@
 				27642FF21827FB9E007D66CE /* Lauren (Secret) */,
 				270893FF1821C269006E23BA /* Images */,
 				277AFEFD181EA5B80009AE0F /* Images.xcassets */,
+				2729A88218B7205500182ED1 /* Definitions.h */,
 				276901B41820C4D1006B915D /* Digital-7MonoItalic.otf */,
 				277AFEED181EA5B80009AE0F /* AlarmClock-Info.plist */,
 				277AFEEE181EA5B80009AE0F /* InfoPlist.strings */,

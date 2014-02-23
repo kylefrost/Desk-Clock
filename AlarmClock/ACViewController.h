@@ -14,6 +14,7 @@
     NSDate *dateOfInterest;
     NSString *monthName;
     NSString *dayOfMonth;
+    // IBOutlet UILabel *timeLabel;
     // BOOL alarmState;
     // int findWeekDay(int date);
     // int date;
@@ -22,25 +23,38 @@
 
 
 // int findWeekDay(int date);
--(void)updateTime;
--(void)updateDay;
--(void)updateMonthDay;
--(void)updateAlarm;
--(IBAction)updateBrightness;
--(void)updateAMPM;
--(BOOL)readValue;
 
 // First Open
 -(void)loadTutorial;
 -(void)isFirstOpen;
 -(void)showTutorial;
+-(BOOL)readValue;
 
 // Brightness Button
 @property(nonatomic) CGFloat brightness;
 @property (weak, nonatomic) IBOutlet UIButton *brightnessButton;
+-(IBAction)updateBrightness;
 
 // Background
 @property (strong, nonatomic) IBOutlet UIView *backgroundView;
+
+// Check Orientation
+-(void)getOrientation;
+
+// Update Label Time
+-(void)updateClockLabelTime;
+
+// Labels
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+@property (weak, nonatomic) UILabel *dayLabel;
+@property (weak, nonatomic) UILabel *dayMonthLabel;
+@property (weak, nonatomic) UILabel *alarmLabel;
+@property (weak, nonatomic) UILabel *onLabel;
+@property (weak, nonatomic) UILabel *offLabel;
+@property (weak, nonatomic) UILabel *amLabel;
+@property (weak, nonatomic) UILabel *pmLabel;
+@property (weak, nonatomic) UILabel *slashLabel;
+-(void)addAllTheSubviews;
 
 // Portrait Stuff
 @property (strong, nonatomic) UILabel *timeLabelPortrait;
@@ -54,7 +68,12 @@
 @property (strong, nonatomic) UILabel *slashLabelPortrait;
 -(void)loadPortraitLabels;
 -(void)setUpPortraitView;
--(void)refreshPortraitView;
+// Portrait Functions
+-(void)updateTimePortrait;
+-(void)updateDayPortrait;
+-(void)updateMonthDayPortrait;
+-(void)updateAlarmPortrait;
+-(void)updateAMPMPortrait;
 
 
 // Landscape Stuff
@@ -69,6 +88,11 @@
 @property (strong, nonatomic) UILabel *slashLabelLandscape;
 -(void)loadLandscapeLabels;
 -(void)setUpLandscapeView;
--(void)refreshLandscapeView;
+// Landscape Functions
+-(void)updateTimeLandscape;
+-(void)updateDayLandscape;
+-(void)updateMonthDayLandscape;
+-(void)updateAlarmLandscape;
+-(void)updateAMPMLandscape;
 
 @end
