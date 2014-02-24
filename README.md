@@ -17,7 +17,7 @@ Small project I started one day in Starbucks - while waiting on my girlfriend ([
 
 ### Other Features
 - Beta Settings Page
- - Autohide by setting BOOL in `betaSettings.plist` to `FALSE`
+ - Autohide by setting BOOL in [`betaSettings.plist`](AlarmClock/betaSettings.plist) to `FALSE`
 - Uses Crashlytics for diagnostics
 - Uses TestFlight to watch checkpoints as well as for beta testing
  - Apparently Apple just bought this company, so we will see what happens here
