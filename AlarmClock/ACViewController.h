@@ -61,6 +61,9 @@
 // Portrait/Lanscape Independent Functions
 -(void)updateClockLabelTime;
 -(void)updateDayLabelDate;
+-(void)updateDayMonthLabelDate;
+-(void)updateAlarmLabelStatus;
+-(void)updateAMPMLabelStatus;
 -(void)updateLabelColors;
 -(void)updateBackgroundColor;
 
