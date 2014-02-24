@@ -2,11 +2,11 @@
 
 Small project I started one day in Starbucks - while waiting on my girlfriend ([@lauren_alexis](http://www.twitter.com/lauren_alexis)) to take an exam - that has grown into a much larger initiative to make a great desk top application (and learn a lot of new things!).
 
-- [_Current features_](https://github.com/kylefrost/Desk-Clock/tree/orient-fix#about-the-app)
+- [_Features_](https://github.com/kylefrost/Desk-Clock/tree/orient-fix#about-the-app)
 - [_Features in Planning_](https://github.com/kylefrost/Desk-Clock/tree/orient-fix#features-in-planning)
 
 ## About the App
-### Simple features
+### Current Features
 - Portrait and Landscape Orientation Support
  - Using mostly `setFrame:CGRectMake(CGRect)`
 - Day and Night Modes:
@@ -14,6 +14,13 @@ Small project I started one day in Starbucks - while waiting on my girlfriend ([
 ![Night Mode](http://i.imgur.com/3R4wYwb.png)
 - iCloud Syncing
 - Tutorial on First Launch
+
+### Other Features
+- Beta Settings Page
+ - Autohide by setting BOOL in `betaSettings.plist` to `FALSE`
+- Uses Crashlytics for diagnostics
+- Uses TestFlight to watch checkpoints as well as for beta testing
+ - Apparently Apple just bought this company, so we will see what happens here
 
 ### Features in Planning
 - Settings page
