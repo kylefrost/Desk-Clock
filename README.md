@@ -22,7 +22,7 @@ Small project I started one day in Starbucks - while waiting on my girlfriend ([
 - Uses TestFlight to watch checkpoints as well as for beta testing
  - Apparently Apple just bought this company, so we will see what happens here
 
-### Features in Planning
+## Features in Planning
 - Settings page
  - Choose custom Day/Night mode times
  - Set multiple alarms
