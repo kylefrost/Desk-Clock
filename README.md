@@ -2,6 +2,8 @@
 
 Small project I started one day in Starbucks - while waiting on my girlfriend ([@lauren_alexis](http://www.twitter.com/lauren_alexis)) to take an exam - that has grown into a much larger initiative to make a great desk top application (and learn a lot of new things!).
 
+- [_Current features_](https://github.com/kylefrost/Desk-Clock/tree/orient-fix#about-the-app)
+- [_Features in Planning_](https://github.com/kylefrost/Desk-Clock/tree/orient-fix#features-in-planning)
 
 ## About the App
 ### Simple features
