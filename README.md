@@ -29,4 +29,4 @@ Small project I started one day in Starbucks - while waiting on my girlfriend ([
  - e.g. set alarms from Glass
 
 ## License
-Copyright (c) 2013-2014 Kyle Frost. See the [LICENSE.md](LICENSE.md) file for license rights and limitations (GPL).
+Copyright (c) 2013-2014 Kyle Frost. See the [LICENSE](LICENSE) file for license rights and limitations (GPL).
