@@ -8,7 +8,7 @@ Small project I started one day in Starbucks - while waiting on my girlfriend ([
 ## About the App
 ### Current Features
 - Portrait and Landscape Orientation Support
- - Using mostly `setFrame:CGRectMake(CGRect)`
+ - Using mostly `setFrame:CGRectMake(x, y, width, height)`
 - Day and Night Modes:
 ![Day Mode](http://i.imgur.com/lZq0035.png)
 ![Night Mode](http://i.imgur.com/3R4wYwb.png)
