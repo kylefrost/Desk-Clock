@@ -8,7 +8,7 @@
 
 #import "ACBetaViewController.h"
 #import "TestFlight.h"
-// #import <Crashlytics/Crashlytics.h>
+#import <Crashlytics/Crashlytics.h>
 #import <MessageUI/MessageUI.h>
 #import <CoreLocation/CoreLocation.h>
 
@@ -37,7 +37,7 @@
 
 -(CLLocationCoordinate2D) getLocation{
     CLLocationManager *locationManager = [[CLLocationManager alloc] init];
-    locationManager.delegate = self;
+    // locationManager.delegate = self;
     locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     locationManager.distanceFilter = kCLDistanceFilterNone;
     [locationManager startUpdatingLocation];
@@ -193,7 +193,7 @@
     NSArray *toRecipents = [NSArray arrayWithObject:@"8e41b0c0f5e1ab257f20c959c8873563_ijkustcefu3tmnzxguztm@n.testflightapp.com"];
     
     MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
-    mc.mailComposeDelegate = self;
+    // mc.mailComposeDelegate = self;
     [mc setSubject:emailTitle];
     [mc setMessageBody:messageBody isHTML:NO];
     [mc setToRecipients:toRecipents];

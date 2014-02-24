@@ -5,7 +5,6 @@
 //  Created by Kyle Frost on 10/28/13.
 //  Copyright (c) 2013 Kyle Frost. All rights reserved.
 //
-//  Test GitHub Branches
 
 #import <UIKit/UIKit.h>
 
@@ -14,41 +13,55 @@
     NSDate *dateOfInterest;
     NSString *monthName;
     NSString *dayOfMonth;
-    // BOOL alarmState;
-    // int findWeekDay(int date);
-    // int date;
     
 }
-
-// int findWeekDay(int date);
--(void)updateTime;
--(void)updateDay;
--(void)updateMonthDay;
--(void)updateAlarm;
--(IBAction)updateBrightness;
--(void)updateAMPM;
--(BOOL)readValue;
 
 // First Open
 -(void)loadTutorial;
 -(void)isFirstOpen;
 -(void)showTutorial;
+-(BOOL)readValue;
 
+// Brightness Button
+@property(nonatomic) CGFloat brightness;
+@property (weak, nonatomic) IBOutlet UIButton *brightnessButton;
+-(IBAction)updateBrightness;
+
+// Background
 @property (strong, nonatomic) IBOutlet UIView *backgroundView;
-@property (strong, nonatomic) IBOutlet UIView *portraitView;
-@property (strong, nonatomic) IBOutlet UIView *landscapeView;
-@property (strong, nonatomic) IBOutlet UILabel *timeLabel;
+
+// Check Orientation
+-(void)getOrientation;
+
+// Labels
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dayLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dayMonthLabel;
 @property (weak, nonatomic) IBOutlet UILabel *alarmLabel;
 @property (weak, nonatomic) IBOutlet UILabel *onLabel;
 @property (weak, nonatomic) IBOutlet UILabel *offLabel;
-@property(nonatomic) CGFloat brightness;
-@property (weak, nonatomic) IBOutlet UIButton *brightnessButton;
 @property (weak, nonatomic) IBOutlet UILabel *amLabel;
 @property (weak, nonatomic) IBOutlet UILabel *pmLabel;
 @property (weak, nonatomic) IBOutlet UILabel *slashLabel;
 
-@property (nonatomic, strong) UILabel *testLabel;
+// Portrait Functions
+-(void)updateTimePortrait;
+-(void)updateDayPortrait;
+-(void)updateMonthDayPortrait;
+-(void)updateAlarmPortrait;
+-(void)updateAMPMPortrait;
+
+// Landscape Functions
+-(void)updateTimeLandscape;
+-(void)updateDayLandscape;
+-(void)updateMonthDayLandscape;
+-(void)updateAlarmLandscape;
+-(void)updateAMPMLandscape;
+
+// Portrait/Lanscape Independent Functions
+-(void)updateClockLabelTime;
+-(void)updateDayLabelDate;
+-(void)updateLabelColors;
+-(void)updateBackgroundColor;
 
 @end
