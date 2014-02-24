@@ -1,6 +1,6 @@
-# Desk-Clock
+# Desk Clock
 
-Small project I started one day in Starbucks that has grown into a much larger initiative to make a great application (and learn a lot of new things!).
+Small project I started one day in Starbucks - while waiting on my girlfriend ([@lauren_alexis](http://www.twitter.com/lauren_alexis)) to take an exam - that has grown into a much larger initiative to make a great desk top application (and learn a lot of new things!).
 
 
 ## About the App
@@ -20,9 +20,12 @@ Small project I started one day in Starbucks that has grown into a much larger i
  - Choose from pre-made themes
  - In-App Purchases to allow custom themes
  - Custom font choice for labels
-- Pebble push support
+- Weather Information
+ - Custom Location
+ - Disable/Enable (at first, default will be enabled)
+- Pebble support
  - e.g. every morning have weather pushed to Pebble
-- Google Glass push support
+- Google Glass support
  - e.g. set alarms from Glass
 
 ## License
