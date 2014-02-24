@@ -8,7 +8,7 @@
 
 #import "ACBetaViewController~ipad.h"
 #import "TestFlight.h"
-#import <Crashlytics/Crashlytics.h>
+// #import <Crashlytics/Crashlytics.h>
 #import <MessageUI/MessageUI.h>
 
 @interface ACBetaViewController_ipad ()
@@ -79,7 +79,7 @@
 
 -(IBAction)pressCrashButton {
     [TestFlight passCheckpoint:@"Crash Button Pressed"];
-    [[Crashlytics sharedInstance] crash];
+    // [[Crashlytics sharedInstance] crash];
 }
 
 -(IBAction)sendReport:(id)sender {
@@ -92,7 +92,7 @@
     NSArray *toRecipents = [NSArray arrayWithObject:@"8e41b0c0f5e1ab257f20c959c8873563_ijkustcefu3tmnzxguztm@n.testflightapp.com"];
     
     MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
-    mc.mailComposeDelegate = self;
+    // mc.mailComposeDelegate = self;
     [mc setSubject:emailTitle];
     [mc setMessageBody:messageBody isHTML:NO];
     [mc setToRecipients:toRecipents];
