@@ -479,6 +479,8 @@
 // Update the timeLabel for Landscape view
 -(void)updateTimeLandscape {
     
+    NSLog(@"updateTimeLandscape is called");
+    
     // Set label attributes
     _timeLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:TIME_SIZE_LANDSCAPE];
     [_timeLabel setFrame:CGRectMake(-35.0f, 38.0f, 640.0f, 100.0f)];
@@ -487,6 +489,8 @@
 
 // Update the dayLabel for Landscape view
 -(void)updateDayLandscape {
+    
+    NSLog(@"updateDayLandscape is called");
     
     // Set label attributes
     _dayLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:DAY_DAYMONTH_ALARM_SIZE_LANDSCAPE];
