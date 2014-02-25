@@ -6,7 +6,7 @@ Small project I started one day in Starbucks - while waiting on my girlfriend ([
 - [_Features in Planning_](https://github.com/kylefrost/Desk-Clock/tree/orient-fix#features-in-planning)
 - [_License_](https://github.com/kylefrost/Desk-Clock/tree/orient-fix#license)
 
-**Note:** This project is a major work in progress, and isn't anywhere near done. If you build it and are looking at the running application like _"What the hell is this?!"_ that is most likely because you have failed to read this README...which makes the name of the file seem somewhat ironic.
+If you're interested, you can find me on Twitter [@_kylefrost](http://www.twitter.com/_kylefrost). I'm also a writer over on a cool site called [Today's iPhone](www.todaysiphone.com) which is a subdivision of [PhoneDog](www.phonedog.com). 
 
 ## About the App
 ### Current Features
@@ -41,4 +41,4 @@ Small project I started one day in Starbucks - while waiting on my girlfriend ([
  - e.g. set alarms from Glass
 
 ## License
-Copyright (c) 2013-2014 Kyle Frost. See the [LICENSE](LICENSE) file for license rights and limitations (GPL).
+Copyright (c) 2013-2014 Kyle Frost. See the [LICENSE](LICENSE) file for license rights and limitations.
