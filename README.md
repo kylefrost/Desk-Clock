@@ -6,7 +6,7 @@ Small project I started one day in Starbucks - while waiting on my girlfriend ([
 - [_Features in Planning_](https://github.com/kylefrost/Desk-Clock/tree/orient-fix#features-in-planning)
 - [_License_](https://github.com/kylefrost/Desk-Clock/tree/orient-fix#license)
 
-If you're interested, you can find me on Twitter [@_kylefrost](http://www.twitter.com/_kylefrost). I'm also a writer over on a cool site called [Today's iPhone](www.todaysiphone.com) which is a subdivision of [PhoneDog](www.phonedog.com). 
+If you're interested, you can find me on Twitter [@_kylefrost](http://www.twitter.com/_kylefrost). I'm also a writer over on a cool site called [Today's iPhone](www.todaysiphone.com) which is a subdivision of [PhoneDog](www.phonedog.com). My Twitter for that job is found [@TiP_Kyle](http://www.twitter.com/TiP_Kyle). If you're looking for talk about things unrelated to [Today's iPhone](www.todaysiphone.com), definitely contact me through either [@_kylefrost](http://www.twitter.com/_kylefrost) on Twitter, or by visiting my business site, [Kyle Frost Design](http://www.kylefrostdesign.com). I also have a personal blog called [Abstract Minimalism](abstractminimalism.wordpress.com). 
 
 ## About the App
 ### Current Features
