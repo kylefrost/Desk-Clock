@@ -20,7 +20,7 @@ If you're interested, you can find me on Twitter [@_kylefrost](http://www.twitte
 
 ### Other Features
 - Beta Settings Page
- - Enabled by default. Hide by setting the `bool` in [`BetaSettings.plist`](AlarmClock/BetaSettings.plist) to `<false/>` or `NO`
+ - Enabled by default. Hide by setting the `bool` in [`AlarmClock/BetaSettings.plist`](AlarmClock/BetaSettings.plist) to `<false/>` or `NO`
 - Uses Crashlytics for diagnostics
 - Uses TestFlight to watch checkpoints as well as for beta testing
  - Apparently Apple just bought this company, so we will see what happens here
