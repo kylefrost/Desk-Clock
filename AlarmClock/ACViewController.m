@@ -208,13 +208,16 @@
     
     // Set text attributes
     _amLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:AM_PM_SIZE_PORTRAIT];
-    [_amLabel setFrame:CGRectMake(113.0f, 380.0f, 300.0f, 80.0f)];
+    [_amLabel setFrame:CGRectMake(120.0f, 65.0f, 300.0f, 80.0f)];
+    _amLabel.text = @"AM";
     
     _pmLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:AM_PM_SIZE_PORTRAIT];
-    [_pmLabel setFrame:CGRectMake(113.0f, 380.0f, 300.0f, 80.0f)];
+    [_pmLabel setFrame:CGRectMake(170.0f, 65.0f, 300.0f, 80.0f)];
+    _pmLabel.text = @"PM";
     
     _slashLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:SLASH_SIZE_PORTRAIT];
-    [_slashLabel setFrame:CGRectMake(113.0f, 380.0f, 300.0f, 80.0f)];
+    [_slashLabel setFrame:CGRectMake(150.0f, 65.0f, 300.0f, 80.0f)];
+    _slashLabel.text = @"/";
     
 }
 
@@ -227,7 +230,7 @@
     
     // Set label attributes
     _timeLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:TIME_SIZE_LANDSCAPE];
-    [_timeLabel setFrame:CGRectMake(-35.0f, 38.0f, 640.0f, 100.0f)];
+    [_timeLabel setFrame:CGRectMake(-35.0f, 34.0f, 640.0f, 100.0f)];
     
 }
 
@@ -275,13 +278,16 @@
     
     // Set text attributes
     _amLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:AM_PM_SIZE_LANDSCAPE];
-    [_amLabel setFrame:CGRectMake(113.0f, 380.0f, 300.0f, 80.0f)];
+    [_amLabel setFrame:CGRectMake(245.0f, 120.0f, 300.0f, 80.0f)];
+    _amLabel.text = @"AM";
     
     _pmLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:AM_PM_SIZE_LANDSCAPE];
-    [_pmLabel setFrame:CGRectMake(113.0f, 380.0f, 300.0f, 80.0f)];
+    [_pmLabel setFrame:CGRectMake(295.0f, 120.0f, 300.0f, 80.0f)];
+    _pmLabel.text = @"PM";
     
     _slashLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:SLASH_SIZE_LANDSCAPE];
-    [_slashLabel setFrame:CGRectMake(113.0f, 380.0f, 300.0f, 80.0f)];
+    [_slashLabel setFrame:CGRectMake(275.0f, 120.0f, 300.0f, 80.0f)];
+    _slashLabel.text = @"/";
     
 }
 
