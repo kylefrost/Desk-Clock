@@ -4,6 +4,9 @@ Small project I started one day in Starbucks - while waiting on my girlfriend ([
 
 - [_About the App_](https://github.com/kylefrost/Desk-Clock/tree/orient-fix#about-the-app)
 - [_Features in Planning_](https://github.com/kylefrost/Desk-Clock/tree/orient-fix#features-in-planning)
+- [_License_](https://github.com/kylefrost/Desk-Clock/tree/orient-fix#license)
+
+**Note:** This project is a major work in progress, and isn't anywhere near done. If you build it and are looking at the running application like _"What the hell is this?!"_ that is most likely because you have failed to read this README...which makes the name of the file seem somewhat ironic.
 
 ## About the App
 ### Current Features
