@@ -150,6 +150,9 @@
     [self performSelector:@selector(getOrientation) withObject:self afterDelay:0.1];
 }
 
+#pragma mark -
+#pragma mark Portrait Functions
+
 /******************* All Portrait Functions *******************/
 
 // Update the timeLabel for Portrait view
@@ -221,6 +224,9 @@
     
 }
 
+#pragma mark -
+#pragma mark Landscape Functions
+
 /******************* All Landscape Functions *******************/
 
 // Update the timeLabel for Landscape view
@@ -290,6 +296,9 @@
     _slashLabel.text = @"/";
     
 }
+
+#pragma mark -
+#pragma mark Landscape/Portrait Independent Functions
 
 /******************* Landscape/Portrait Independent *******************/
 
@@ -679,16 +688,19 @@
     
 }
 
+#pragma mark -
+#pragma mark Miscellaneous Functions
+
 /******************* Miscellaneous *******************/
 
 // Shows tutorial if first open
 -(void)showTutorial {
-    /*
+    
     UIViewController *view = [[ACTutorialViewController alloc] initWithNibName:@"ACTutorialViewController" bundle:nil];
     view.modalPresentationStyle = UIModalPresentationCurrentContext;
     view.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
     [self presentViewController:view animated:YES completion:NULL];
-    */
+    
     
     // UIView *view = [[UIView alloc] init];
     
