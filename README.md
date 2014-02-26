@@ -2,9 +2,9 @@
 
 Small project I started one day in Starbucks - while waiting on my girlfriend ([@lauren_alexis](http://www.twitter.com/lauren_alexis)) to take an exam - that has grown into a much larger initiative to make a great desk top application (and learn a lot of new things!).
 
-- [_About the App_](https://github.com/kylefrost/Desk-Clock/tree/orient-fix#about-the-app)
-- [_Features in Planning_](https://github.com/kylefrost/Desk-Clock/tree/orient-fix#features-in-planning)
-- [_License_](https://github.com/kylefrost/Desk-Clock/tree/orient-fix#license)
+- [_About the App_](https://github.com/kylefrost/Desk-Clock/tree/beta#about-the-app)
+- [_Features in Planning_](https://github.com/kylefrost/Desk-Clock/tree/beta#features-in-planning)
+- [_License_](https://github.com/kylefrost/Desk-Clock/tree/beta#license)
 
 If you're interested, you can find me on Twitter [@_kylefrost](http://www.twitter.com/_kylefrost). I'm also a writer over on a cool site called [Today's iPhone](http://www.todaysiphone.com) which is a subdivision of [PhoneDog](http://www.phonedog.com). My Twitter for that job is found [@TiP_Kyle](http://www.twitter.com/TiP_Kyle). If you're looking to talk about things unrelated to [Today's iPhone](http://www.todaysiphone.com), definitely contact me through either [@_kylefrost](http://www.twitter.com/_kylefrost) on Twitter, or by visiting my business site, [Kyle Frost Design](http://www.kylefrostdesign.com), which also has an [official blog](http://blog.kylefrostdesign.com). I also have a personal blog called [Abstract Minimalism](http://abstractminimalism.wordpress.com).
 
