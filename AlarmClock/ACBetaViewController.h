@@ -25,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *weather;
 
 -(IBAction)closeBetaSettings;
+-(IBAction)closeTestSettings;
 
 // Beta Settings
 

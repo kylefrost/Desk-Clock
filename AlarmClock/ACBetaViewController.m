@@ -67,7 +67,6 @@
 
 -(IBAction)getWeatherButton {
     [self getWeather];
-    
 }
 
 -(void)getWeather {

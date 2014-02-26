@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2705D4B218BD1A1C002C83D8 /* settingsButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 2705D4B018BD1A1B002C83D8 /* settingsButton.png */; };
+		2705D4B318BD1A1C002C83D8 /* settingsButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2705D4B118BD1A1C002C83D8 /* settingsButton@2x.png */; };
 		2708940A1821C297006E23BA /* AppIcon29x29.png in Resources */ = {isa = PBXBuildFile; fileRef = 270894001821C297006E23BA /* AppIcon29x29.png */; };
 		2708940B1821C297006E23BA /* AppIcon29x29@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 270894011821C297006E23BA /* AppIcon29x29@2x.png */; };
 		2708940C1821C297006E23BA /* AppIcon40x40.png in Resources */ = {isa = PBXBuildFile; fileRef = 270894021821C297006E23BA /* AppIcon40x40.png */; };
@@ -69,6 +71,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2705D4B018BD1A1B002C83D8 /* settingsButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsButton.png; sourceTree = SOURCE_ROOT; };
+		2705D4B118BD1A1C002C83D8 /* settingsButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settingsButton@2x.png"; sourceTree = SOURCE_ROOT; };
 		270894001821C297006E23BA /* AppIcon29x29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = AppIcon29x29.png; path = DeskClockIcons/AppIcon29x29.png; sourceTree = "<group>"; };
 		270894011821C297006E23BA /* AppIcon29x29@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "AppIcon29x29@2x.png"; path = "DeskClockIcons/AppIcon29x29@2x.png"; sourceTree = "<group>"; };
 		270894021821C297006E23BA /* AppIcon40x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = AppIcon40x40.png; path = DeskClockIcons/AppIcon40x40.png; sourceTree = "<group>"; };
@@ -273,6 +277,8 @@
 		277AFEEC181EA5B80009AE0F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2705D4B018BD1A1B002C83D8 /* settingsButton.png */,
+				2705D4B118BD1A1C002C83D8 /* settingsButton@2x.png */,
 				278A5434182B107700A632DE /* TestFlight */,
 				27E01BF31829AACC00DB1132 /* iCloud */,
 				27642FF21827FB9E007D66CE /* Lauren (Secret) */,
@@ -518,6 +524,7 @@
 			files = (
 				2708940B1821C297006E23BA /* AppIcon29x29@2x.png in Resources */,
 				2708940C1821C297006E23BA /* AppIcon40x40.png in Resources */,
+				2705D4B318BD1A1C002C83D8 /* settingsButton@2x.png in Resources */,
 				276901B51820C4F9006B915D /* Digital-7MonoItalic.otf in Resources */,
 				270894131821C297006E23BA /* iTunesArtwork@2x.png in Resources */,
 				270894121821C297006E23BA /* iTunesArtwork.png in Resources */,
@@ -534,6 +541,7 @@
 				278A544A182B56CB00A632DE /* TutorialState.plist in Resources */,
 				277AFEF9181EA5B80009AE0F /* Main.storyboard in Resources */,
 				2708940F1821C297006E23BA /* AppIcon60x60@2x.png in Resources */,
+				2705D4B218BD1A1C002C83D8 /* settingsButton.png in Resources */,
 				270894111821C297006E23BA /* AppIcon76x76@2x.png in Resources */,
 				2708940E1821C297006E23BA /* AppIcon60x60.png in Resources */,
 				274B70C2182AC23900266466 /* BetaSettings.plist in Resources */,

@@ -563,7 +563,6 @@
     NSString *time = [timeFormat stringFromDate:[NSDate date]];
     int timeVal = [time intValue];
     
-    
     // Set if statements for showing AM and PM
     if (timeVal < 12) {
         if (timeVal <= 7) {
