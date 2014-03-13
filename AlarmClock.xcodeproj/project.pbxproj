@@ -47,6 +47,7 @@
 		277AFF11181EA5B80009AE0F /* AlarmClockTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 277AFF10181EA5B80009AE0F /* AlarmClockTests.m */; };
 		277AFF22181EBE510009AE0F /* ACInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 277AFF21181EBE510009AE0F /* ACInfoViewController.m */; };
 		277AFF23181EBE510009AE0F /* ACInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 277AFF21181EBE510009AE0F /* ACInfoViewController.m */; };
+		2785DAFC18D0E53E00B8D39B /* ACNightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2785DAFB18D0E53E00B8D39B /* ACNightViewController.m */; };
 		278A5436182B10C800A632DE /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 278A5435182B10C800A632DE /* libz.dylib */; };
 		278A543E182B40F900A632DE /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 278A543D182B40F900A632DE /* Accelerate.framework */; };
 		278A5447182B4D6C00A632DE /* iPhone5c.png in Resources */ = {isa = PBXBuildFile; fileRef = 278A5445182B4D6C00A632DE /* iPhone5c.png */; };
@@ -120,6 +121,8 @@
 		277AFF10181EA5B80009AE0F /* AlarmClockTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlarmClockTests.m; sourceTree = "<group>"; };
 		277AFF20181EBE510009AE0F /* ACInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACInfoViewController.h; sourceTree = "<group>"; };
 		277AFF21181EBE510009AE0F /* ACInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACInfoViewController.m; sourceTree = "<group>"; };
+		2785DAFA18D0E53E00B8D39B /* ACNightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACNightViewController.h; sourceTree = "<group>"; };
+		2785DAFB18D0E53E00B8D39B /* ACNightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACNightViewController.m; sourceTree = "<group>"; };
 		278A542F182B107100A632DE /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
 		278A5430182B107100A632DE /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		278A5431182B107100A632DE /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
@@ -195,11 +198,10 @@
 		27291F0C1823EF2B00CB2070 /* iPhone */ = {
 			isa = PBXGroup;
 			children = (
+				2785DAF418D0E47200B8D39B /* ViewController */,
+				2785DAF518D0E48A00B8D39B /* InfoViewController */,
+				2785DAF618D0E49D00B8D39B /* NightViewController */,
 				277AFEF7181EA5B80009AE0F /* Main.storyboard */,
-				277AFEFA181EA5B80009AE0F /* ACViewController.h */,
-				277AFEFB181EA5B80009AE0F /* ACViewController.m */,
-				277AFF20181EBE510009AE0F /* ACInfoViewController.h */,
-				277AFF21181EBE510009AE0F /* ACInfoViewController.m */,
 			);
 			name = iPhone;
 			sourceTree = "<group>";
@@ -313,6 +315,33 @@
 				277AFF0D181EA5B80009AE0F /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2785DAF418D0E47200B8D39B /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				277AFEFA181EA5B80009AE0F /* ACViewController.h */,
+				277AFEFB181EA5B80009AE0F /* ACViewController.m */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		2785DAF518D0E48A00B8D39B /* InfoViewController */ = {
+			isa = PBXGroup;
+			children = (
+				277AFF20181EBE510009AE0F /* ACInfoViewController.h */,
+				277AFF21181EBE510009AE0F /* ACInfoViewController.m */,
+			);
+			name = InfoViewController;
+			sourceTree = "<group>";
+		};
+		2785DAF618D0E49D00B8D39B /* NightViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2785DAFA18D0E53E00B8D39B /* ACNightViewController.h */,
+				2785DAFB18D0E53E00B8D39B /* ACNightViewController.m */,
+			);
+			name = NightViewController;
 			sourceTree = "<group>";
 		};
 		278A5434182B107700A632DE /* TestFlight */ = {
@@ -589,6 +618,7 @@
 				27D7FF98182ABB3300A14824 /* ACBetaViewController~ipad.m in Sources */,
 				27208B15182145CC0025FEBD /* ACTutorialViewController.m in Sources */,
 				27D7FF93182ABAF800A14824 /* ACBetaViewController.m in Sources */,
+				2785DAFC18D0E53E00B8D39B /* ACNightViewController.m in Sources */,
 				27642FF11827FB92007D66CE /* ACLaurenViewController.m in Sources */,
 				277AFEF2181EA5B80009AE0F /* main.m in Sources */,
 				27D5CCF218711F1600061B47 /* ACOverlayViewController~ipad.m in Sources */,
