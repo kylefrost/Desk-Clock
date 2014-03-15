@@ -53,12 +53,20 @@
 		278A5447182B4D6C00A632DE /* iPhone5c.png in Resources */ = {isa = PBXBuildFile; fileRef = 278A5445182B4D6C00A632DE /* iPhone5c.png */; };
 		278A5448182B4D6C00A632DE /* iPhone5s.png in Resources */ = {isa = PBXBuildFile; fileRef = 278A5446182B4D6C00A632DE /* iPhone5s.png */; };
 		278A544A182B56CB00A632DE /* TutorialState.plist in Resources */ = {isa = PBXBuildFile; fileRef = 278A5449182B56CB00A632DE /* TutorialState.plist */; };
+		279709A918D419D000B03572 /* ACSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 279709A818D419D000B03572 /* ACSettingsViewController.m */; };
+		279709AB18D420D300B03572 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 279709AA18D420D300B03572 /* Social.framework */; };
+		279709AD18D4247800B03572 /* Alarm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 279709AC18D4247800B03572 /* Alarm.mp3 */; };
+		279709AF18D425A300B03572 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 279709AE18D425A300B03572 /* AVFoundation.framework */; };
 		27D5CCEF18711EFC00061B47 /* ACOverlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D5CCEE18711EFC00061B47 /* ACOverlayViewController.m */; };
 		27D5CCF218711F1600061B47 /* ACOverlayViewController~ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D5CCF118711F1600061B47 /* ACOverlayViewController~ipad.m */; };
 		27D7FF93182ABAF800A14824 /* ACBetaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D7FF92182ABAF800A14824 /* ACBetaViewController.m */; };
 		27D7FF98182ABB3300A14824 /* ACBetaViewController~ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D7FF97182ABB3300A14824 /* ACBetaViewController~ipad.m */; };
 		27DA48D9183DBF1E00E42540 /* InitialSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 27DA48D8183DBF1E00E42540 /* InitialSettings.plist */; };
 		27E01BF21829AAC500DB1132 /* MKiCloudSync.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E01BF11829AAC500DB1132 /* MKiCloudSync.m */; };
+		27EF34A718D3D3F300B7D79C /* ACAlarmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EF34A618D3D3F300B7D79C /* ACAlarmViewController.m */; };
+		27EF34AA18D3D4A200B7D79C /* ACAddEditAlarmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EF34A918D3D4A200B7D79C /* ACAddEditAlarmViewController.m */; };
+		27EF34AD18D3D4DF00B7D79C /* ACAlarmLabelEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EF34AC18D3D4DF00B7D79C /* ACAlarmLabelEditViewController.m */; };
+		27EF34B018D3D53300B7D79C /* ACAlarmObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EF34AF18D3D53300B7D79C /* ACAlarmObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,6 +140,11 @@
 		278A5445182B4D6C00A632DE /* iPhone5c.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhone5c.png; sourceTree = "<group>"; };
 		278A5446182B4D6C00A632DE /* iPhone5s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhone5s.png; sourceTree = "<group>"; };
 		278A5449182B56CB00A632DE /* TutorialState.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TutorialState.plist; sourceTree = "<group>"; };
+		279709A718D419D000B03572 /* ACSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACSettingsViewController.h; sourceTree = "<group>"; };
+		279709A818D419D000B03572 /* ACSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACSettingsViewController.m; sourceTree = "<group>"; };
+		279709AA18D420D300B03572 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		279709AC18D4247800B03572 /* Alarm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Alarm.mp3; sourceTree = "<group>"; };
+		279709AE18D425A300B03572 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		27D5CCED18711EFC00061B47 /* ACOverlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACOverlayViewController.h; sourceTree = "<group>"; };
 		27D5CCEE18711EFC00061B47 /* ACOverlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACOverlayViewController.m; sourceTree = "<group>"; };
 		27D5CCF018711F1600061B47 /* ACOverlayViewController~ipad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ACOverlayViewController~ipad.h"; sourceTree = "<group>"; };
@@ -144,6 +157,14 @@
 		27E01BEF1829A9C700DB1132 /* AlarmClock.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = AlarmClock.entitlements; sourceTree = "<group>"; };
 		27E01BF01829AAC500DB1132 /* MKiCloudSync.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKiCloudSync.h; sourceTree = "<group>"; };
 		27E01BF11829AAC500DB1132 /* MKiCloudSync.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKiCloudSync.m; sourceTree = "<group>"; };
+		27EF34A518D3D3F300B7D79C /* ACAlarmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACAlarmViewController.h; sourceTree = "<group>"; };
+		27EF34A618D3D3F300B7D79C /* ACAlarmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACAlarmViewController.m; sourceTree = "<group>"; };
+		27EF34A818D3D4A200B7D79C /* ACAddEditAlarmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACAddEditAlarmViewController.h; sourceTree = "<group>"; };
+		27EF34A918D3D4A200B7D79C /* ACAddEditAlarmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACAddEditAlarmViewController.m; sourceTree = "<group>"; };
+		27EF34AB18D3D4DF00B7D79C /* ACAlarmLabelEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACAlarmLabelEditViewController.h; sourceTree = "<group>"; };
+		27EF34AC18D3D4DF00B7D79C /* ACAlarmLabelEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACAlarmLabelEditViewController.m; sourceTree = "<group>"; };
+		27EF34AE18D3D53300B7D79C /* ACAlarmObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACAlarmObject.h; sourceTree = "<group>"; };
+		27EF34AF18D3D53300B7D79C /* ACAlarmObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACAlarmObject.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +172,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				279709AF18D425A300B03572 /* AVFoundation.framework in Frameworks */,
+				279709AB18D420D300B03572 /* Social.framework in Frameworks */,
 				276B615618822DE100A8709E /* CoreLocation.framework in Frameworks */,
 				271C36A518A9E1BE00FA8B53 /* Crashlytics.framework in Frameworks */,
 				2767D54C182C3C020012586B /* MessageUI.framework in Frameworks */,
@@ -199,7 +222,9 @@
 			isa = PBXGroup;
 			children = (
 				2785DAF418D0E47200B8D39B /* ViewController */,
-				2785DAF518D0E48A00B8D39B /* InfoViewController */,
+				2785DAF518D0E48A00B8D39B /* Beta Controller */,
+				27EF34A418D3D2EA00B7D79C /* SettingsViewController */,
+				27EF34A318D3D2DE00B7D79C /* Alarm */,
 				2785DAF618D0E49D00B8D39B /* NightViewController */,
 				277AFEF7181EA5B80009AE0F /* Main.storyboard */,
 			);
@@ -249,6 +274,8 @@
 		277AFEE4181EA5B80009AE0F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				279709AE18D425A300B03572 /* AVFoundation.framework */,
+				279709AA18D420D300B03572 /* Social.framework */,
 				271C36A418A9E1BE00FA8B53 /* Crashlytics.framework */,
 				276B615518822DE100A8709E /* CoreLocation.framework */,
 				2767D54B182C3C020012586B /* MessageUI.framework */,
@@ -279,6 +306,7 @@
 		277AFEEC181EA5B80009AE0F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				279709AC18D4247800B03572 /* Alarm.mp3 */,
 				2705D4B018BD1A1B002C83D8 /* settingsButton.png */,
 				2705D4B118BD1A1C002C83D8 /* settingsButton@2x.png */,
 				278A5434182B107700A632DE /* TestFlight */,
@@ -326,13 +354,13 @@
 			name = ViewController;
 			sourceTree = "<group>";
 		};
-		2785DAF518D0E48A00B8D39B /* InfoViewController */ = {
+		2785DAF518D0E48A00B8D39B /* Beta Controller */ = {
 			isa = PBXGroup;
 			children = (
 				277AFF20181EBE510009AE0F /* ACInfoViewController.h */,
 				277AFF21181EBE510009AE0F /* ACInfoViewController.m */,
 			);
-			name = InfoViewController;
+			name = "Beta Controller";
 			sourceTree = "<group>";
 		};
 		2785DAF618D0E49D00B8D39B /* NightViewController */ = {
@@ -462,6 +490,30 @@
 			name = iCloud;
 			sourceTree = "<group>";
 		};
+		27EF34A318D3D2DE00B7D79C /* Alarm */ = {
+			isa = PBXGroup;
+			children = (
+				27EF34A518D3D3F300B7D79C /* ACAlarmViewController.h */,
+				27EF34A618D3D3F300B7D79C /* ACAlarmViewController.m */,
+				27EF34A818D3D4A200B7D79C /* ACAddEditAlarmViewController.h */,
+				27EF34A918D3D4A200B7D79C /* ACAddEditAlarmViewController.m */,
+				27EF34AB18D3D4DF00B7D79C /* ACAlarmLabelEditViewController.h */,
+				27EF34AC18D3D4DF00B7D79C /* ACAlarmLabelEditViewController.m */,
+				27EF34AE18D3D53300B7D79C /* ACAlarmObject.h */,
+				27EF34AF18D3D53300B7D79C /* ACAlarmObject.m */,
+			);
+			name = Alarm;
+			sourceTree = "<group>";
+		};
+		27EF34A418D3D2EA00B7D79C /* SettingsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				279709A718D419D000B03572 /* ACSettingsViewController.h */,
+				279709A818D419D000B03572 /* ACSettingsViewController.m */,
+			);
+			name = SettingsViewController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -508,7 +560,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = AC;
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Kyle Frost";
 				TargetAttributes = {
 					277AFEE1181EA5B80009AE0F = {
@@ -563,6 +615,7 @@
 				278A5448182B4D6C00A632DE /* iPhone5s.png in Resources */,
 				278A5447182B4D6C00A632DE /* iPhone5c.png in Resources */,
 				27DA48D9183DBF1E00E42540 /* InitialSettings.plist in Resources */,
+				279709AD18D4247800B03572 /* Alarm.mp3 in Resources */,
 				277AFEF0181EA5B80009AE0F /* InfoPlist.strings in Resources */,
 				2708940D1821C297006E23BA /* AppIcon40x40@2x.png in Resources */,
 				27291F0B1823E8B200CB2070 /* Main~ipad.storyboard in Resources */,
@@ -611,11 +664,16 @@
 			files = (
 				277AFF22181EBE510009AE0F /* ACInfoViewController.m in Sources */,
 				27E01BF21829AAC500DB1132 /* MKiCloudSync.m in Sources */,
+				27EF34A718D3D3F300B7D79C /* ACAlarmViewController.m in Sources */,
+				27EF34AD18D3D4DF00B7D79C /* ACAlarmLabelEditViewController.m in Sources */,
+				27EF34B018D3D53300B7D79C /* ACAlarmObject.m in Sources */,
 				27291F131823EF8100CB2070 /* ACInfoViewController~ipad.m in Sources */,
 				277AFEF6181EA5B80009AE0F /* ACAppDelegate.m in Sources */,
 				277AFEFC181EA5B80009AE0F /* ACViewController.m in Sources */,
+				279709A918D419D000B03572 /* ACSettingsViewController.m in Sources */,
 				27D5CCEF18711EFC00061B47 /* ACOverlayViewController.m in Sources */,
 				27D7FF98182ABB3300A14824 /* ACBetaViewController~ipad.m in Sources */,
+				27EF34AA18D3D4A200B7D79C /* ACAddEditAlarmViewController.m in Sources */,
 				27208B15182145CC0025FEBD /* ACTutorialViewController.m in Sources */,
 				27D7FF93182ABAF800A14824 /* ACBetaViewController.m in Sources */,
 				2785DAFC18D0E53E00B8D39B /* ACNightViewController.m in Sources */,
@@ -677,7 +735,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -716,7 +773,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -810,7 +866,6 @@
 		277AFF18181EA5B80009AE0F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AlarmClock.app/AlarmClock";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -833,7 +888,6 @@
 		277AFF19181EA5B80009AE0F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AlarmClock.app/AlarmClock";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",

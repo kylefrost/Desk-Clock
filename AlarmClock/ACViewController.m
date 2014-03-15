@@ -11,6 +11,8 @@
 #import "MKiCloudSync.h"
 #import "ACTutorialViewController.h"
 #import "Definitions.h"
+#import "ACAppDelegate.h"
+#import <AVFoundation/AVAudioPlayer.h>
 #import <UIKit/UIScreen.h>
 
 @interface ACViewController ()
@@ -18,6 +20,8 @@
 @end
 
 @implementation ACViewController
+
+@synthesize player;
 
 // Load Tutorial if it is First Open
 -(void)loadTutorial {
@@ -82,6 +86,40 @@
     [self updateLabelColors];
     [self updateBackgroundColor];
     
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    
+    //This checks if the home view is shown because of an alarm firing
+    if(self.alarmGoingOff) {
+        
+        UIAlertView *alarmAlert = [[UIAlertView alloc] initWithTitle:@"Your alarm is sounding!"
+                                                             message:@"Press done to stop, press snooze to continue sleeping."
+                                                            delegate:self
+                                                   cancelButtonTitle:@"Done"
+                                                   otherButtonTitles:nil, nil];
+        [alarmAlert show];
+        
+    }
+    
+    else {
+        
+        nil;
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex == 0) {
+        
+        ACAppDelegate * myAppDelegate = (ACAppDelegate*)[[UIApplication sharedApplication] delegate];
+        [myAppDelegate.player stop];
+        
+    } else {
+        
+        // Well, nothing.
+        
+    }
 }
 
 // Run functions based on orientation

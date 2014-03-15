@@ -7,6 +7,7 @@
 //
 
 #import "ACTutorialViewController.h"
+#import <AVFoundation/AVAudioPlayer.h>
 #import <UIKit/UIKit.h>
 
 @interface ACAppDelegate : UIResponder <UIApplicationDelegate>
@@ -17,6 +18,8 @@
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) ACTutorialViewController *tutorialViewController;
 @property (strong, nonatomic) ACAppDelegate *appViewController;
+
+@property (nonatomic, strong) AVAudioPlayer *player;
 
 
 @end

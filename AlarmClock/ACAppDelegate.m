@@ -15,20 +15,92 @@
 
 @implementation ACAppDelegate
 
+@synthesize player;
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // 3rd Party Tracking Tools
     [Crashlytics startWithAPIKey:@"e6796ec21a8268eef118ce2bffeb5fd9a084bcb1"];
     [TestFlight takeOff:@"d9f92e3b-23a4-4db3-a9a7-afb748461408"];
     
+    //Prevents screen from locking
+    [UIApplication sharedApplication].idleTimerDisabled = YES;
+    
     // Start NSUserDefaults iCloud Sync
     [MKiCloudSync start];
     
     // [self isFirstOpen];
     
+    UILocalNotification *localNotif =
+    [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
+    
+    if (localNotif) {
+        
+        self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        ACViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"ClockView"];
+        viewController.alarmGoingOff = YES;
+        self.window.rootViewController = viewController;
+        [self.window makeKeyAndVisible];
+        
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"Alarm" ofType:@"mp3"];
+        NSURL *file = [[NSURL alloc] initWithString:@"Alarm.mp3"];
+        
+        player = [[AVAudioPlayer alloc] initWithContentsOfURL:file error:nil];
+        // player.numberOfLoops = -1;
+        [player prepareToPlay];
+        [player play];
+        
+    }
+    
     // Override point for customization after application launch.
     return YES;
     
+}
+
+-(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    //u need to change 0 to other value(,1,2,3) if u have more buttons.then u can check which button was pressed.
+    
+    if (buttonIndex == 0) {
+        
+        nil;
+        
+    }
+}
+
+-(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification{
+    
+    NSBundle *path = [[NSBundle mainBundle] pathForResource:@"Alarm" ofType:@"mp3"];
+    NSURL *file = [[NSURL alloc] initWithString:@"Alarm.mp3"];
+    
+    player = [[AVAudioPlayer alloc] initWithContentsOfURL:file error:nil];
+    // player.numberOfLoops = -1;
+    [player prepareToPlay];
+    [player play];
+    
+    UIApplicationState state = [application applicationState];
+    if (state == UIApplicationStateActive) {
+        
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"Alarm" ofType:@"mp3"];
+        NSURL *file = [[NSURL alloc] initWithString:@"Alarm.mp3"];
+        
+        player = [[AVAudioPlayer alloc] initWithContentsOfURL:file error:nil];
+        // player.numberOfLoops = -1;
+        [player prepareToPlay];
+        [player play];
+        
+    }
+    
+
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    ACViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"ClockView"];
+    viewController.alarmGoingOff = YES;
+    self.window.rootViewController = viewController;
+    [self.window makeKeyAndVisible];
+
+
 }
 
 -(void)isFirstOpen {

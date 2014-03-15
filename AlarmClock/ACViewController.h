@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 
 @interface ACViewController : UIViewController {
     
@@ -15,6 +16,10 @@
     NSString *dayOfMonth;
     
 }
+
+// Check for alarm
+@property(nonatomic) BOOL alarmGoingOff;
+@property (nonatomic, strong) AVAudioPlayer *player;
 
 // First Open
 -(void)loadTutorial;
