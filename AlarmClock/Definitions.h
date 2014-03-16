@@ -32,19 +32,27 @@
 // CGRects for Portrait and Landscape
 
 // Portrait CGRects
-// #define TIME_LABEL_RECT_PORTRAIT (30.0f, 170.0f, 300.0f, 80.0f)
-/*
-#define
-#define
-#define
-#define
-#define
-#define
-#define
-#define
-*/
+#define TIME_LABEL_RECT_PORTRAIT CGRectMake(10.0f, 10.0f, 300.0f, 80.0f)
+#define DAY_LABEL_RECT_PORTRAIT CGRectMake(20.0f, 120.0f, 300.0f, 80.0f)
+#define DAYMONTH_LABEL_RECT_PORTRAIT CGRectMake(20.0f, 170.0f, 300.0f, 80.0f)
+#define ALARM_LABEL_RECT_PORTRAIT CGRectMake(113.0f, 380.0f, 300.0f, 80.0f)
+#define ON_LABEL_RECT_PORTRAIT CGRectMake(118.0f, 420.0f, 300.0f, 80.0f)
+#define OFF_LABEL_RECT_PORTRAIT CGRectMake(157.0f, 420.0f, 300.0f, 80.0f)
+#define AM_LABEL_RECT_PORTRAIT CGRectMake(120.0f, 65.0f, 300.0f, 80.0f)
+#define PM_LABEL_RECT_PORTRAIT CGRectMake(170.0f, 65.0f, 300.0f, 80.0f)
+#define SLASH_LABEL_RECT_PORTRAIT CGRectMake(150.0f, 65.0f, 300.0f, 80.0f)
+
 
 // Landscape CGRects
+#define TIME_LABEL_RECT_LANDSCAPE CGRectMake(-35.0f, 34.0f, 640.0f, 100.0f)
+#define DAY_LABEL_RECT_LANDSCAPE CGRectMake(30.0f, 170.0f, 300.0f, 80.0f)
+#define DAYMONTH_LABEL_RECT_LANDSCAPE CGRectMake(30.0f, 215.0f, 300.0f, 80.0f)
+#define ALARM_LABEL_RECT_LANDSCAPE CGRectMake(383.0f, 173.0f, 300.0f, 80.0f)
+#define ON_LABEL_RECT_LANDSCAPE CGRectMake(389.0f, 210.0f, 300.0f, 80.0f)
+#define OFF_LABEL_RECT_LANDSCAPE CGRectMake(426.0f, 210.0f, 300.0f, 80.0f)
+#define AM_LABEL_RECT_LANDSCAPE CGRectMake(245.0f, 120.0f, 300.0f, 80.0f)
+#define PM_LABEL_RECT_LANDSCAPE CGRectMake(295.0f, 120.0f, 300.0f, 80.0f)
+#define SLASH_LABEL_RECT_LANDSCAPE CGRectMake(275.0f, 120.0f, 300.0f, 80.0f)
 
 // Button Size
 #define BRIGHT_BUTTON_SIZE 12

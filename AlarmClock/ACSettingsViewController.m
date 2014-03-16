@@ -27,6 +27,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
     // Do any additional setup after loading the view.
 }
 
@@ -59,7 +60,7 @@
         
         [self presentViewController:tweetSheet animated:YES completion:nil];
         
-        NSLog(@"Twitter Pressed");
+        // NSLog(@"Twitter Pressed");
         
     }
     else if (buttonIndex == 1) {
@@ -69,7 +70,7 @@
         
         [self presentViewController:shareSheet animated:YES completion:nil];
         
-        NSLog(@"Facebook Pressed");
+        // NSLog(@"Facebook Pressed");
         
     }
     

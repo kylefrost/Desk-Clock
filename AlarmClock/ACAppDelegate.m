@@ -11,6 +11,7 @@
 #import "TestFlight.h"
 #import "ACTutorialViewController.h"
 #import "ACViewController.h"
+#import <AudioToolbox/AudioToolbox.h>
 #import <Crashlytics/Crashlytics.h>
 
 @implementation ACAppDelegate
@@ -44,7 +45,7 @@
         [self.window makeKeyAndVisible];
         
         NSString *path = [[NSBundle mainBundle] pathForResource:@"Alarm" ofType:@"mp3"];
-        NSURL *file = [[NSURL alloc] initWithString:@"Alarm.mp3"];
+        NSURL *file = [[NSURL alloc] initFileURLWithPath:path];
         
         player = [[AVAudioPlayer alloc] initWithContentsOfURL:file error:nil];
         // player.numberOfLoops = -1;
@@ -71,8 +72,8 @@
 
 -(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification{
     
-    NSBundle *path = [[NSBundle mainBundle] pathForResource:@"Alarm" ofType:@"mp3"];
-    NSURL *file = [[NSURL alloc] initWithString:@"Alarm.mp3"];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"Alarm" ofType:@"mp3"];
+    NSURL *file = [[NSURL alloc] initFileURLWithPath:path];
     
     player = [[AVAudioPlayer alloc] initWithContentsOfURL:file error:nil];
     // player.numberOfLoops = -1;
@@ -83,7 +84,7 @@
     if (state == UIApplicationStateActive) {
         
         NSString *path = [[NSBundle mainBundle] pathForResource:@"Alarm" ofType:@"mp3"];
-        NSURL *file = [[NSURL alloc] initWithString:@"Alarm.mp3"];
+        NSURL *file = [[NSURL alloc] initFileURLWithPath:path];
         
         player = [[AVAudioPlayer alloc] initWithContentsOfURL:file error:nil];
         // player.numberOfLoops = -1;

@@ -10,7 +10,7 @@
 #import <AVFoundation/AVAudioPlayer.h>
 #import <UIKit/UIKit.h>
 
-@interface ACAppDelegate : UIResponder <UIApplicationDelegate>
+@interface ACAppDelegate : UIResponder <UIApplicationDelegate, UIAlertViewDelegate>
 
 -(void)showTutorial;
 -(void)isFirstOpen;

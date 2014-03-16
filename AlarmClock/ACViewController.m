@@ -12,7 +12,11 @@
 #import "ACTutorialViewController.h"
 #import "Definitions.h"
 #import "ACAppDelegate.h"
+#import "ACAlarmObject.h"
+#import "ACAlarmViewController.h"
+
 #import <AVFoundation/AVAudioPlayer.h>
+#import <AudioToolbox/AudioToolbox.h>
 #import <UIKit/UIScreen.h>
 
 @interface ACViewController ()
@@ -73,6 +77,8 @@
     
     [MKiCloudSync start];
     [MKiCloudSync initialize];
+    
+    [self determineBuild];
 
     // Get Orientation at launch
     [self getOrientation];
@@ -88,6 +94,7 @@
     
 }
 
+// Set code to play alarm if the alarm is going off
 -(void)viewDidAppear:(BOOL)animated {
     
     //This checks if the home view is shown because of an alarm firing
@@ -108,8 +115,8 @@
     }
 }
 
-- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
-{
+// Alart View when song comes on, stop music on exit
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
     if(buttonIndex == 0) {
         
         ACAppDelegate * myAppDelegate = (ACAppDelegate*)[[UIApplication sharedApplication] delegate];
@@ -196,33 +203,33 @@
 // Update the timeLabel for Portrait view
 -(void)updateTimePortrait {
     
-    NSLog(@"updateTimePortrait is called");
+    // NSLog(@"updateTimePortrait is called");
  
     // Set label attributes
     _timeLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:TIME_SIZE_PORTRAIT];
-    [_timeLabel setFrame:CGRectMake(10.0f, 10.0f, 300.0f, 80.0f)];
+    [_timeLabel setFrame:TIME_LABEL_RECT_PORTRAIT];
     
 }
 
 // Update the dayLabel for Portrait view
 -(void)updateDayPortrait {
     
-    NSLog(@"updateDayPortrait is called");
+    // NSLog(@"updateDayPortrait is called");
 
     // Set label attributes
     _dayLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:DAY_LABEL_SIZE_PORTRAIT];
-    [_dayLabel setFrame:CGRectMake(20.0f, 120.0f, 300.0f, 80.0f)];
+    [_dayLabel setFrame:DAY_LABEL_RECT_PORTRAIT];
 
 }
 
 // Update the dayMonthLabel for Portrait view
 -(void)updateMonthDayPortrait {
     
-    NSLog(@"updateMonthDayPortrait is called");
+    // NSLog(@"updateMonthDayPortrait is called");
     
     // Set day of week label attributes
     _dayMonthLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:DAYMONTH_LABEL_SIZE_PORTRAIT];
-    [_dayMonthLabel setFrame:CGRectMake(20.0f, 170.0f, 300.0f, 80.0f)];
+    [_dayMonthLabel setFrame:DAYMONTH_LABEL_RECT_PORTRAIT];
     
 }
 
@@ -231,15 +238,15 @@
     
     // Set text attributes
     _onLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:ON_OFF_SIZE_PORTRAIT];
-    [_onLabel setFrame:CGRectMake(118.0f, 420.0f, 300.0f, 80.0f)];
+    [_onLabel setFrame:ON_LABEL_RECT_PORTRAIT];
     _onLabel.text = @"ON";
     
     _offLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:ON_OFF_SIZE_PORTRAIT];
-    [_offLabel setFrame:CGRectMake(157.0f, 420.0f, 300.0f, 80.0f)];
+    [_offLabel setFrame:OFF_LABEL_RECT_PORTRAIT];
     _offLabel.text = @"OFF";
     
     _alarmLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:ALARM_LABEL_SIZE_PORTRAIT];
-    [_alarmLabel setFrame:CGRectMake(113.0f, 380.0f, 300.0f, 80.0f)];
+    [_alarmLabel setFrame:ALARM_LABEL_RECT_PORTRAIT];
     _alarmLabel.text = @"Alarm";
     
 }
@@ -249,15 +256,15 @@
     
     // Set text attributes
     _amLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:AM_PM_SIZE_PORTRAIT];
-    [_amLabel setFrame:CGRectMake(120.0f, 65.0f, 300.0f, 80.0f)];
+    [_amLabel setFrame:AM_LABEL_RECT_PORTRAIT];
     _amLabel.text = @"AM";
     
     _pmLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:AM_PM_SIZE_PORTRAIT];
-    [_pmLabel setFrame:CGRectMake(170.0f, 65.0f, 300.0f, 80.0f)];
+    [_pmLabel setFrame:PM_LABEL_RECT_PORTRAIT];
     _pmLabel.text = @"PM";
     
     _slashLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:SLASH_SIZE_PORTRAIT];
-    [_slashLabel setFrame:CGRectMake(150.0f, 65.0f, 300.0f, 80.0f)];
+    [_slashLabel setFrame:SLASH_LABEL_RECT_PORTRAIT];
     _slashLabel.text = @"/";
     
 }
@@ -270,32 +277,32 @@
 // Update the timeLabel for Landscape view
 -(void)updateTimeLandscape {
     
-    NSLog(@"updateTimeLandscape is called");
+    // NSLog(@"updateTimeLandscape is called");
     
     // Set label attributes
     _timeLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:TIME_SIZE_LANDSCAPE];
-    [_timeLabel setFrame:CGRectMake(-35.0f, 34.0f, 640.0f, 100.0f)];
+    [_timeLabel setFrame:TIME_LABEL_RECT_LANDSCAPE];
     
 }
 
 // Update the dayLabel for Landscape view
 -(void)updateDayLandscape {
     
-    NSLog(@"updateDayLandscape is called");
+    // NSLog(@"updateDayLandscape is called");
     
     // Set label attributes
     _dayLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:DAY_LABEL_SIZE_LANDSCAPE];
-    [_dayLabel setFrame:CGRectMake(30.0f, 170.0f, 300.0f, 80.0f)];
+    [_dayLabel setFrame:DAY_LABEL_RECT_LANDSCAPE];
 }
 
 // Update the dayMonthLabel for Landscape view
 -(void)updateMonthDayLandscape {
     
-    NSLog(@"updateMonthDayLandscape is called");
+    // NSLog(@"updateMonthDayLandscape is called");
     
     // Set day of week label attributes
     _dayMonthLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:DAYMONTH_LABEL_SIZE_LANDSCAPE];
-    [_dayMonthLabel setFrame:CGRectMake(30.0f, 215.0f, 300.0f, 80.0f)];
+    [_dayMonthLabel setFrame:DAYMONTH_LABEL_RECT_LANDSCAPE];
     
 }
 
@@ -304,15 +311,15 @@
     
      // Set text attributes
      _onLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:ON_OFF_SIZE_LANDSCAPE];
-    [_onLabel setFrame:CGRectMake(389.0f, 210.0f, 300.0f, 80.0f)];
+    [_onLabel setFrame:ON_LABEL_RECT_LANDSCAPE];
     _onLabel.text = @"ON";
     
      _offLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:ON_OFF_SIZE_LANDSCAPE];
-    [_offLabel setFrame:CGRectMake(426.0f, 210.0f, 300.0f, 80.0f)];
+    [_offLabel setFrame:OFF_LABEL_RECT_LANDSCAPE];
     _offLabel.text = @"OFF";
     
      _alarmLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:ALARM_LABEL_SIZE_LANDSCAPE];
-    [_alarmLabel setFrame:CGRectMake(383.0f, 173.0f, 300.0f, 80.0f)];
+    [_alarmLabel setFrame:ALARM_LABEL_RECT_LANDSCAPE];
     _alarmLabel.text = @"Alarm";
      
 }
@@ -322,15 +329,15 @@
     
     // Set text attributes
     _amLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:AM_PM_SIZE_LANDSCAPE];
-    [_amLabel setFrame:CGRectMake(245.0f, 120.0f, 300.0f, 80.0f)];
+    [_amLabel setFrame:AM_LABEL_RECT_LANDSCAPE];
     _amLabel.text = @"AM";
     
     _pmLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:AM_PM_SIZE_LANDSCAPE];
-    [_pmLabel setFrame:CGRectMake(295.0f, 120.0f, 300.0f, 80.0f)];
+    [_pmLabel setFrame:PM_LABEL_RECT_LANDSCAPE];
     _pmLabel.text = @"PM";
     
     _slashLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:SLASH_SIZE_LANDSCAPE];
-    [_slashLabel setFrame:CGRectMake(275.0f, 120.0f, 300.0f, 80.0f)];
+    [_slashLabel setFrame:SLASH_LABEL_RECT_LANDSCAPE];
     _slashLabel.text = @"/";
     
 }
@@ -545,6 +552,52 @@
 // Make Alarm Label show appropriate status of alarm
 -(void)updateAlarmLabelStatus {
     
+    UIApplication *app = [UIApplication sharedApplication];
+    NSArray *eventArray = [app scheduledLocalNotifications];
+    
+    NSLog(@"%lu", (unsigned long)[eventArray count]);
+    
+    NSDateFormatter *timeFormat = [[NSDateFormatter alloc] init];
+    [timeFormat setDateFormat:@"HH"];
+    NSString *time = [timeFormat stringFromDate:[NSDate date]];
+    int timeInt = [time intValue];
+    
+    if ([eventArray count] == 0) {
+        if (timeInt <= 7) {
+            _onLabel.textColor = [UIColor darkGrayColor];
+            _offLabel.textColor = [UIColor whiteColor];
+            _alarmLabel.textColor = [UIColor whiteColor];
+        }
+        else if (timeInt <= 19 && timeInt >= 8) {
+            _onLabel.textColor = [UIColor lightGrayColor];
+            _offLabel.textColor = [UIColor blackColor];
+            _alarmLabel.textColor = [UIColor blackColor];
+        }
+        else if (timeInt >= 20) {
+            _onLabel.textColor = [UIColor darkGrayColor];
+            _offLabel.textColor = [UIColor whiteColor];
+            _alarmLabel.textColor = [UIColor whiteColor];
+        }
+    }
+    else if ([eventArray count] > 0) {
+        if (timeInt <= 7) {
+            _onLabel.textColor = [UIColor whiteColor];
+            _offLabel.textColor = [UIColor darkGrayColor];
+            _alarmLabel.textColor = [UIColor whiteColor];
+        }
+        else if (timeInt <= 19 && timeInt >= 8) {
+            _onLabel.textColor = [UIColor blackColor];
+            _offLabel.textColor = [UIColor lightGrayColor];
+            _alarmLabel.textColor = [UIColor blackColor];
+        }
+        else if (timeInt >= 20) {
+            _onLabel.textColor = [UIColor whiteColor];
+            _offLabel.textColor = [UIColor darkGrayColor];
+            _alarmLabel.textColor = [UIColor whiteColor];
+        }
+    }
+    
+    /*
     // Find time in 24 hour format
     NSDateFormatter *timeFormat = [[NSDateFormatter alloc] init];
     [timeFormat setDateFormat:@"HH"];
@@ -590,6 +643,7 @@
             _alarmLabel.textColor = [UIColor whiteColor];
         }
     }
+    */
     
     // Continuously check status of change
     [self performSelector:@selector(updateAlarmLabelStatus) withObject:self afterDelay:1.0];
@@ -778,5 +832,29 @@
     NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
     return [preferences boolForKey:@"switchOnOff"];
 }
+
+// Determine if Beta
+-(void)determineBuild {
+    
+    // Determine if build is beta or not
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"BetaSettings" ofType:@"plist"];
+    NSDictionary* betaDictionary = [[NSDictionary alloc] initWithContentsOfFile:filePath];
+    BOOL buildBOOL = [[betaDictionary objectForKey:@"isBetaBuildRelease"] boolValue];
+    
+    // If beta, show button, if not, don't show button
+    if (buildBOOL == 1) {
+        [self.betaButton setEnabled:YES];
+        [self.betaButton setAlpha:1.0];
+        // [self.betaButton setUserInteractionEnabled:YES];
+        NSLog(@"Build is a beta build.");
+    }
+    else if (buildBOOL == 0) {
+        [self.betaButton setEnabled:NO];
+        [self.betaButton setAlpha:0.0];
+        // [self.betaButton setUserInteractionEnabled:NO];
+        NSLog(@"Build is NOT a beta build.");
+    }
+}
+
 
 @end

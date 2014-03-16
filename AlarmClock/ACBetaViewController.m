@@ -57,6 +57,8 @@
     
     [TestFlight passCheckpoint:@"Beta Settings Page Opened."];
     
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
+    
     CLLocationCoordinate2D coordinate = [self getLocation];
     NSLog(@"Lat is: %f, and Long is: %f", coordinate.latitude, coordinate.longitude);
     

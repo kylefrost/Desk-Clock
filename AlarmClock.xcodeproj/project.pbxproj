@@ -57,6 +57,10 @@
 		279709AB18D420D300B03572 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 279709AA18D420D300B03572 /* Social.framework */; };
 		279709AD18D4247800B03572 /* Alarm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 279709AC18D4247800B03572 /* Alarm.mp3 */; };
 		279709AF18D425A300B03572 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 279709AE18D425A300B03572 /* AVFoundation.framework */; };
+		27B4861618D4EE91004CA2DD /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27B4861518D4EE91004CA2DD /* AudioToolbox.framework */; };
+		27B4861D18D509DF004CA2DD /* ACAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27B4861C18D509DF004CA2DD /* ACAboutViewController.m */; };
+		27B4862018D554EF004CA2DD /* heart_settings_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 27B4861E18D554EF004CA2DD /* heart_settings_button.png */; };
+		27B4862118D554EF004CA2DD /* heart_settings_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 27B4861F18D554EF004CA2DD /* heart_settings_button@2x.png */; };
 		27D5CCEF18711EFC00061B47 /* ACOverlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D5CCEE18711EFC00061B47 /* ACOverlayViewController.m */; };
 		27D5CCF218711F1600061B47 /* ACOverlayViewController~ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D5CCF118711F1600061B47 /* ACOverlayViewController~ipad.m */; };
 		27D7FF93182ABAF800A14824 /* ACBetaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D7FF92182ABAF800A14824 /* ACBetaViewController.m */; };
@@ -145,6 +149,11 @@
 		279709AA18D420D300B03572 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		279709AC18D4247800B03572 /* Alarm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Alarm.mp3; sourceTree = "<group>"; };
 		279709AE18D425A300B03572 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		27B4861518D4EE91004CA2DD /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		27B4861B18D509DF004CA2DD /* ACAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACAboutViewController.h; sourceTree = "<group>"; };
+		27B4861C18D509DF004CA2DD /* ACAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACAboutViewController.m; sourceTree = "<group>"; };
+		27B4861E18D554EF004CA2DD /* heart_settings_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart_settings_button.png; sourceTree = SOURCE_ROOT; };
+		27B4861F18D554EF004CA2DD /* heart_settings_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "heart_settings_button@2x.png"; sourceTree = SOURCE_ROOT; };
 		27D5CCED18711EFC00061B47 /* ACOverlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACOverlayViewController.h; sourceTree = "<group>"; };
 		27D5CCEE18711EFC00061B47 /* ACOverlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACOverlayViewController.m; sourceTree = "<group>"; };
 		27D5CCF018711F1600061B47 /* ACOverlayViewController~ipad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ACOverlayViewController~ipad.h"; sourceTree = "<group>"; };
@@ -172,6 +181,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27B4861618D4EE91004CA2DD /* AudioToolbox.framework in Frameworks */,
 				279709AF18D425A300B03572 /* AVFoundation.framework in Frameworks */,
 				279709AB18D420D300B03572 /* Social.framework in Frameworks */,
 				276B615618822DE100A8709E /* CoreLocation.framework in Frameworks */,
@@ -224,6 +234,7 @@
 				2785DAF418D0E47200B8D39B /* ViewController */,
 				2785DAF518D0E48A00B8D39B /* Beta Controller */,
 				27EF34A418D3D2EA00B7D79C /* SettingsViewController */,
+				27B4861A18D50971004CA2DD /* AboutViewController */,
 				27EF34A318D3D2DE00B7D79C /* Alarm */,
 				2785DAF618D0E49D00B8D39B /* NightViewController */,
 				277AFEF7181EA5B80009AE0F /* Main.storyboard */,
@@ -274,6 +285,7 @@
 		277AFEE4181EA5B80009AE0F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				27B4861518D4EE91004CA2DD /* AudioToolbox.framework */,
 				279709AE18D425A300B03572 /* AVFoundation.framework */,
 				279709AA18D420D300B03572 /* Social.framework */,
 				271C36A418A9E1BE00FA8B53 /* Crashlytics.framework */,
@@ -309,6 +321,8 @@
 				279709AC18D4247800B03572 /* Alarm.mp3 */,
 				2705D4B018BD1A1B002C83D8 /* settingsButton.png */,
 				2705D4B118BD1A1C002C83D8 /* settingsButton@2x.png */,
+				27B4861E18D554EF004CA2DD /* heart_settings_button.png */,
+				27B4861F18D554EF004CA2DD /* heart_settings_button@2x.png */,
 				278A5434182B107700A632DE /* TestFlight */,
 				27E01BF31829AACC00DB1132 /* iCloud */,
 				27642FF21827FB9E007D66CE /* Lauren (Secret) */,
@@ -424,6 +438,15 @@
 				278A5446182B4D6C00A632DE /* iPhone5s.png */,
 			);
 			name = "Product Images";
+			sourceTree = "<group>";
+		};
+		27B4861A18D50971004CA2DD /* AboutViewController */ = {
+			isa = PBXGroup;
+			children = (
+				27B4861B18D509DF004CA2DD /* ACAboutViewController.h */,
+				27B4861C18D509DF004CA2DD /* ACAboutViewController.m */,
+			);
+			name = AboutViewController;
 			sourceTree = "<group>";
 		};
 		27D5CCEA18711EC600061B47 /* OverlayTutorial */ = {
@@ -607,6 +630,7 @@
 				2708940C1821C297006E23BA /* AppIcon40x40.png in Resources */,
 				2705D4B318BD1A1C002C83D8 /* settingsButton@2x.png in Resources */,
 				276901B51820C4F9006B915D /* Digital-7MonoItalic.otf in Resources */,
+				27B4862118D554EF004CA2DD /* heart_settings_button@2x.png in Resources */,
 				270894131821C297006E23BA /* iTunesArtwork@2x.png in Resources */,
 				270894121821C297006E23BA /* iTunesArtwork.png in Resources */,
 				270894101821C297006E23BA /* AppIcon76x76.png in Resources */,
@@ -623,6 +647,7 @@
 				278A544A182B56CB00A632DE /* TutorialState.plist in Resources */,
 				277AFEF9181EA5B80009AE0F /* Main.storyboard in Resources */,
 				2708940F1821C297006E23BA /* AppIcon60x60@2x.png in Resources */,
+				27B4862018D554EF004CA2DD /* heart_settings_button.png in Resources */,
 				2705D4B218BD1A1C002C83D8 /* settingsButton.png in Resources */,
 				270894111821C297006E23BA /* AppIcon76x76@2x.png in Resources */,
 				2708940E1821C297006E23BA /* AppIcon60x60.png in Resources */,
@@ -670,6 +695,7 @@
 				27291F131823EF8100CB2070 /* ACInfoViewController~ipad.m in Sources */,
 				277AFEF6181EA5B80009AE0F /* ACAppDelegate.m in Sources */,
 				277AFEFC181EA5B80009AE0F /* ACViewController.m in Sources */,
+				27B4861D18D509DF004CA2DD /* ACAboutViewController.m in Sources */,
 				279709A918D419D000B03572 /* ACSettingsViewController.m in Sources */,
 				27D5CCEF18711EFC00061B47 /* ACOverlayViewController.m in Sources */,
 				27D7FF98182ABB3300A14824 /* ACBetaViewController~ipad.m in Sources */,

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 
-@interface ACViewController : UIViewController {
+@interface ACViewController : UIViewController <UIAlertViewDelegate> {
     
     NSDate *dateOfInterest;
     NSString *monthName;
@@ -20,6 +20,9 @@
 // Check for alarm
 @property(nonatomic) BOOL alarmGoingOff;
 @property (nonatomic, strong) AVAudioPlayer *player;
+
+// Alarm Label Determinate
+@property (nonatomic, strong) NSMutableArray *listOfAlarms;
 
 // First Open
 -(void)loadTutorial;
@@ -71,5 +74,9 @@
 -(void)updateAMPMLabelStatus;
 -(void)updateLabelColors;
 -(void)updateBackgroundColor;
+
+// Beta Button
+@property (nonatomic, retain) IBOutlet UIButton *betaButton;
+-(void)determineBuild;
 
 @end
