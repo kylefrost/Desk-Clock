@@ -34,5 +34,7 @@
 -(IBAction)getWeatherButton;
 -(void)getWeather;
 
+-(IBAction)resetAlarmArray;
+
 
 @end

@@ -23,8 +23,8 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
+    
     [super viewDidLoad];
     
     // Uncomment the following line to preserve selection between presentations.
@@ -34,18 +34,23 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
+
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+// Select a specific row
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    // Determine what Twitter apps are installed
     BOOL tweetbotInstalled = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"tweetbot://"]];
     BOOL twitterInstalled = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"twitter://"]];
     BOOL twitterrificInstalled = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"twitterrific://"]];
     
+    // Decide what URL Scheme to follow when @twitter names are selected in
+    
+    // Open Tweetbot
     if (tweetbotInstalled) {
         
         if ([indexPath isEqual:[tableView indexPathForCell:self.kyleFrostTwitterCell]]) {
@@ -64,6 +69,8 @@
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tweetbot:///user_profile/deskclockapp"]];
         }
     }
+    
+    // Open Twitterrific
     else if (twitterrificInstalled) {
         
         if ([indexPath isEqual:[tableView indexPathForCell:self.kyleFrostTwitterCell]]) {
@@ -82,6 +89,8 @@
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"twitterrific:///profile?screen_name=deskclockapp"]];
         }
     }
+    
+    // Open Twitter app
     else if (twitterInstalled) {
         
         if ([indexPath isEqual:[tableView indexPathForCell:self.kyleFrostTwitterCell]]) {
@@ -100,6 +109,8 @@
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"twitter:///user?screen_name=deskclockapp"]];
         }
     }
+    
+    // Open in Safari
     else {
         
         if ([indexPath isEqual:[tableView indexPathForCell:self.kyleFrostTwitterCell]]) {

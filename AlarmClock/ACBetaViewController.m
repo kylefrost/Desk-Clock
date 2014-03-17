@@ -231,6 +231,20 @@
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
+-(IBAction)resetAlarmArray {
+    
+    UIApplication *app = [UIApplication sharedApplication];
+    NSArray *eventArray = [app scheduledLocalNotifications];
+    
+    NSMutableArray *newEventArray;
+    
+    eventArray = newEventArray;
+    
+    [newEventArray removeAllObjects];
+    
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

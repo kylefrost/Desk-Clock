@@ -247,7 +247,7 @@
     localNotification.repeatInterval = NSDayCalendarUnit;
     [localNotification setFireDate:date];
     [localNotification setTimeZone:[NSTimeZone defaultTimeZone]];
-    // Setup alert notification
+    // Setup alert notification    
     [localNotification setAlertBody:@"Your alarm is sounding!"];
     [localNotification setAlertAction:@"Open App"];
     [localNotification setSoundName:@"Alarm.mp3"];
@@ -260,6 +260,7 @@
     NSDictionary *userInfo = [NSDictionary dictionaryWithObject:uidToStore forKey:@"notificationID"];
     localNotification.userInfo = userInfo;
     NSLog(@"Uid Store in userInfo %@", [localNotification.userInfo objectForKey:@"notificationID"]);
+    
     
     // Schedule the notification
     [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];

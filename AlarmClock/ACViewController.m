@@ -100,13 +100,14 @@
     //This checks if the home view is shown because of an alarm firing
     if(self.alarmGoingOff) {
         
-        UIAlertView *alarmAlert = [[UIAlertView alloc] initWithTitle:@"Your alarm is sounding!"
+        UIAlertView *alarmAlert = [[UIAlertView alloc] initWithTitle:@"Your alarm sounding, bruh"
                                                              message:@"Press done to stop, press snooze to continue sleeping."
                                                             delegate:self
                                                    cancelButtonTitle:@"Done"
                                                    otherButtonTitles:nil, nil];
         [alarmAlert show];
         
+        self.alarmGoingOff = NO;
     }
     
     else {
@@ -552,16 +553,23 @@
 // Make Alarm Label show appropriate status of alarm
 -(void)updateAlarmLabelStatus {
     
+    // Make array of local notifications to check
     UIApplication *app = [UIApplication sharedApplication];
     NSArray *eventArray = [app scheduledLocalNotifications];
     
-    NSLog(@"%lu", (unsigned long)[eventArray count]);
     
+    
+    // NSLog(@"%@", eventArray);
+    
+    // NSLog(@"%lu", (unsigned long)[eventArray count]);
+    
+    // Find the time to determine Night/Day mode
     NSDateFormatter *timeFormat = [[NSDateFormatter alloc] init];
     [timeFormat setDateFormat:@"HH"];
     NSString *time = [timeFormat stringFromDate:[NSDate date]];
     int timeInt = [time intValue];
     
+    // Determine on/off lable status based on local notification array count
     if ([eventArray count] == 0) {
         if (timeInt <= 7) {
             _onLabel.textColor = [UIColor darkGrayColor];
@@ -596,54 +604,6 @@
             _alarmLabel.textColor = [UIColor whiteColor];
         }
     }
-    
-    /*
-    // Find time in 24 hour format
-    NSDateFormatter *timeFormat = [[NSDateFormatter alloc] init];
-    [timeFormat setDateFormat:@"HH"];
-    NSString *time = [timeFormat stringFromDate:[NSDate date]];
-    int timeVal = [time intValue];
-    
-    // Find bool for alarm status
-    NSUserDefaults* alarmPreference = [NSUserDefaults standardUserDefaults];
-    BOOL alarmState = [alarmPreference boolForKey:@"switchOnOff"];
-    
-    // Set alarm state
-    if (alarmState == 1) {
-        if (timeVal <= 7) {
-            _onLabel.textColor = [UIColor whiteColor];
-            _offLabel.textColor = [UIColor darkGrayColor];
-            _alarmLabel.textColor = [UIColor whiteColor];
-        }
-        else if (timeVal <= 19 && timeVal >= 8) {
-            _onLabel.textColor = [UIColor blackColor];
-            _offLabel.textColor = [UIColor lightGrayColor];
-            _alarmLabel.textColor = [UIColor blackColor];
-        }
-        else if (timeVal >= 20) {
-            _onLabel.textColor = [UIColor whiteColor];
-            _offLabel.textColor = [UIColor darkGrayColor];
-            _alarmLabel.textColor = [UIColor whiteColor];
-        }
-    }
-    else if (alarmState == 0) {
-        if (timeVal <= 7) {
-            _onLabel.textColor = [UIColor darkGrayColor];
-            _offLabel.textColor = [UIColor whiteColor];
-            _alarmLabel.textColor = [UIColor whiteColor];
-        }
-        else if (timeVal <= 19 && timeVal >= 8) {
-            _onLabel.textColor = [UIColor lightGrayColor];
-            _offLabel.textColor = [UIColor blackColor];
-            _alarmLabel.textColor = [UIColor blackColor];
-        }
-        else if (timeVal >= 20) {
-            _onLabel.textColor = [UIColor darkGrayColor];
-            _offLabel.textColor = [UIColor whiteColor];
-            _alarmLabel.textColor = [UIColor whiteColor];
-        }
-    }
-    */
     
     // Continuously check status of change
     [self performSelector:@selector(updateAlarmLabelStatus) withObject:self afterDelay:1.0];

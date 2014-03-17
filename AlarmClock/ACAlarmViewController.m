@@ -139,14 +139,12 @@
 		//
 		// Create the cell.
 		//
-		cell =[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                     reuseIdentifier:CellIdentifier];
+		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         
 		//
 		// Create the label for the top row of text
 		//
-		topLabel =
-        [[UILabel alloc] initWithFrame:CGRectMake(14,5,170,40)];
+		topLabel = [[UILabel alloc] initWithFrame:CGRectMake(14,5,170,40)];
 		[cell.contentView addSubview:topLabel];
         
 		//
@@ -233,7 +231,7 @@
         [localNotification setFireDate:currentAlarm.timeToSetOff];
         [localNotification setTimeZone:[NSTimeZone defaultTimeZone]];
         // Setup alert notification
-        [localNotification setAlertBody:@"Your alarm is sounding!" ];
+        [localNotification setAlertBody:@"Alarm going off, bitch"];
         [localNotification setAlertAction:@"Open App"];
         [localNotification setHasAction:YES];
         

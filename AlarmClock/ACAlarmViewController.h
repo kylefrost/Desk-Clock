@@ -13,6 +13,7 @@
 @interface ACAlarmViewController : UIViewController {
     
     UITableView *tableView;
+    NSString *alarmBody;
     
 }
 
