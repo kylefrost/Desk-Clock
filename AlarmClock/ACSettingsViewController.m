@@ -56,7 +56,7 @@
     if (buttonIndex == 0) {
         
         SLComposeViewController *tweetSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
-        [tweetSheet setInitialText:@"Test tweet from Test app."];
+        [tweetSheet setInitialText:@"I'm loving @DeskClockApp! Check it out! #deskclockapp"];
         
         [self presentViewController:tweetSheet animated:YES completion:nil];
         
@@ -66,7 +66,7 @@
     else if (buttonIndex == 1) {
         
         SLComposeViewController *shareSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
-        [shareSheet setInitialText:@"Test post from Test app."];
+        [shareSheet setInitialText:@"I'm loving Desk Clock App! Check it out! #deskclockapp"];
         
         [self presentViewController:shareSheet animated:YES completion:nil];
         
