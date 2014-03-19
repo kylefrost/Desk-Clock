@@ -24,9 +24,45 @@
 }
 
 - (void)viewDidLoad {
-    
-    
     [super viewDidLoad];
+    
+    NSUserDefaults* nightViewPreferences = [NSUserDefaults standardUserDefaults];
+    
+    BOOL enabledSwitchState = [nightViewPreferences boolForKey:@"enabledSwitch"];
+    BOOL alwaysOnDaySwitchState = [nightViewPreferences boolForKey:@"alwaysDaySwitch"];
+    BOOL alwaysOnSwitchState = [nightViewPreferences boolForKey:@"alwaysNightSwitch"];
+    BOOL customTimeSwitchState = [nightViewPreferences boolForKey:@"customTimeSwitch"];
+    
+    
+    if (enabledSwitchState == 1) {                        // Enabled Switch is On
+        [self loadAutoOn];
+    }
+    else if (enabledSwitchState == 0) {                   // Enabled Switch is Off
+        [self loadAutoOff];
+    }
+    
+    if (alwaysOnDaySwitchState == 1) {                    // Always Day Switch is On
+        [self loadAlwaysDayOn];
+    }
+    else if (alwaysOnDaySwitchState == 0) {               // Always Day Switch is On
+        [self loadAlwaysDayoff];
+    }
+
+    if (alwaysOnSwitchState == 1) {                       // Always Night Switch is On
+        [self loadAlwaysNightOn];
+    }
+    else if (alwaysOnSwitchState == 0) {                  // Always Night Switch is Off
+        [self loadAlwaysNightOff];
+    }
+
+    if (customTimeSwitchState == 1) {                     // Custom Time Switch is On
+        [self loadCustomOn];
+    }
+    else if (customTimeSwitchState == 0) {                // Custom Time Switch is Off
+        [self loadCustomOff];
+    }
+    
+    [self.tableView reloadData];
 
 }
 
@@ -49,6 +85,25 @@
         [[NSUserDefaults standardUserDefaults] setBool:0 forKey:@"enabledSwitch"];
         [[NSUserDefaults standardUserDefaults] synchronize];
         
+    }
+    
+}
+
+-(IBAction)toggleEnabledForAlwaysDaySwitch:(id)sender {
+    
+    if(self.alwaysDaySwitch.on) {
+        
+        [self alwaysDayOn];
+        
+        [[NSUserDefaults standardUserDefaults] setBool:1 forKey:@"alwaysDaySwitch"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+    } else {
+        
+        [self alwaysDayOff];
+        
+        [[NSUserDefaults standardUserDefaults] setBool:0 forKey:@"alwaysDaySwitch"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
     }
     
 }
@@ -94,38 +149,81 @@
 }
 
 -(void)autoOn {
-  
+    
+    
+    [self customTimeCell].backgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0];
+    [self customTimeCell].contentView.alpha = 1.0;
     [self.customTimeCell setUserInteractionEnabled:YES];
-    [self.customTimeCell setAlpha:1.0];
+    
+    [self.alwaysDaySwitch setOn:NO animated:YES];
+    [self.alwaysNightSwitch setOn:NO animated:YES];
+    
+    [self toggleEnabledForAlwaysDaySwitch:self];
+    [self toggleEnabledForAlwaysNightSwitch:self];
     
 }
 
 -(void)autoOff {
     
+    [self customTimeCell].backgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.5];
+    [self customTimeCell].contentView.alpha = 0.5;
     [self.customTimeCell setUserInteractionEnabled:NO];
-    [self.customTimeCell setAlpha:0.5];
-
+    
     [self.customTimeSwitch setOn:NO animated:YES];
+    
+}
+
+-(void)alwaysDayOn {
+    
+    [self.enableDisableSwitch setOn:NO animated:YES];
+    [self.alwaysNightSwitch setOn:NO animated:YES];
+    
+    [self toggleEnabledForEnableSwitch:self];
+    [self toggleEnabledForAlwaysNightSwitch:self];
+    
+}
+
+-(void)alwaysDayOff {
+    
+    
+}
+
+-(void)alwaysNightOn {
+    
+    [self.enableDisableSwitch setOn:NO animated:YES];
+    [self.alwaysDaySwitch setOn:NO animated:YES];
+    
+    [self toggleEnabledForEnableSwitch:self];
+    [self toggleEnabledForAlwaysDaySwitch:self];
+    
+}
+
+-(void)alwaysNightOff {
+    
     
 }
 
 -(void)customOn {
     
-    [self.morningTimeCell setUserInteractionEnabled:YES];
-    [self.morningTimeCell setAlpha:1.0];
+    [self morningTimeCell].backgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0];
+    [self morningTimeCell].contentView.alpha = 1.0;
+    [self nightTimeCell].backgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0];
+    [self nightTimeCell].contentView.alpha = 1.0;
     
     [self.nightTimeCell setUserInteractionEnabled:YES];
-    [self.nightTimeCell setAlpha:1.0];
-    
+    [self.morningTimeCell setUserInteractionEnabled:YES];
+
 }
 
 -(void)customOff {
     
-    [self.morningTimeCell setUserInteractionEnabled:NO];
-    [self.morningTimeCell setAlpha:0.5];
+    [self morningTimeCell].backgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.5];
+    [self morningTimeCell].contentView.alpha = 0.5;
+    [self nightTimeCell].backgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.5];
+    [self nightTimeCell].contentView.alpha = 0.5;
     
     [self.nightTimeCell setUserInteractionEnabled:NO];
-    [self.nightTimeCell setAlpha:0.5];
+    [self.morningTimeCell setUserInteractionEnabled:NO];
     
     NSDateFormatter *now = [[NSDateFormatter alloc] init];
     [now setDateFormat:@"hh:mm a"];
@@ -137,23 +235,8 @@
     
 }
 
--(void)alwaysNightOn {
-    
-    [self.enabledDisableCell setUserInteractionEnabled:NO];
-    [self.enabledDisableCell setAlpha:0.5];
-    
-    [self.enableDisableSwitch setOn:NO animated:YES];
-    [self toggleEnabledForEnableSwitch:self];
-    
-}
 
--(void)alwaysNightOff {
-    
-    [self.enabledDisableCell setUserInteractionEnabled:YES];
-    [self.enabledDisableCell setAlpha:1.0];
-    
-    
-}
+/******* BETA STUFF *******/
 
 -(IBAction)pressBetaTest:(id)sender {
     
@@ -166,7 +249,10 @@
     NSUserDefaults* customTimeSwitchPreference = [NSUserDefaults standardUserDefaults];
     BOOL customTimeSwitchState = [customTimeSwitchPreference boolForKey:@"customTimeSwitch"];
     
-    NSLog(@"\n\nenabledSwitchState is %d \nalwaysOnSwitchState is %d \ncustomTimeSwitchState is %d", enabledSwitchState, alwaysOnSwitchState, customTimeSwitchState);
+    NSUserDefaults* alwaysDaySwitchPreference = [NSUserDefaults standardUserDefaults];
+    BOOL alwaysDaySwitchState = [alwaysDaySwitchPreference boolForKey:@"alwaysDaySwitch"];
+    
+    NSLog(@"\n\nenabledSwitchState is %d \nalwaysDaySwitchState is %d \nalwaysNightSwitchState is %d \ncustomTimeSwitchState is %d\n\n", enabledSwitchState, alwaysDaySwitchState,  alwaysOnSwitchState, customTimeSwitchState);
     
 }
 
@@ -190,23 +276,89 @@
     }
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+/******* LOAD FROM NSUSERDEFAULTS *******/
 
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: forIndexPath:indexPath];
+-(void)loadAutoOn {
+    NSUserDefaults* nightViewPreferences = [NSUserDefaults standardUserDefaults];
+    BOOL customTimeSwitchState = [nightViewPreferences boolForKey:@"customTimeSwitch"];
     
-    // Configure the cell...
+    NSLog(@"enabledSwitchState is on");
     
-    return cell;
+    self.enableDisableSwitch.on = TRUE;
+    self.alwaysNightSwitch.on = FALSE;
+    
+    if(customTimeSwitchState == 1) {
+        [self customOn];
+    }
+    else if (customTimeSwitchState == 0) {
+        [self customOff];
+    }
+    
 }
-*/
 
+-(void)loadAutoOff {
+    NSUserDefaults* nightViewPreferences = [NSUserDefaults standardUserDefaults];
+    BOOL alwaysOnSwitchState = [nightViewPreferences boolForKey:@"alwaysNightSwitch"];
+    
+    NSLog(@"enabledSwitchState is off");
+    
+    self.enableDisableSwitch.on = FALSE;
+    
+    
+    if (alwaysOnSwitchState == 1) {
+        [self autoOff];
+        [self customOff];
+        [self alwaysNightOn];
+        
+    }
+    else if (alwaysOnSwitchState == 0) {
+        [self autoOff];
+        [self customOff];
+        [self alwaysNightOff];
+        
+    }
+    
+}
+
+-(void)loadAlwaysDayOn {
+    
+    self.alwaysDaySwitch.on = TRUE;
+    
+}
+
+-(void)loadAlwaysDayoff {
+    
+    self.alwaysDaySwitch.on = FALSE;
+    
+}
+
+-(void)loadAlwaysNightOn {
+    
+    self.alwaysNightSwitch.on = TRUE;
+    
+}
+
+-(void)loadAlwaysNightOff {
+    
+    self.alwaysNightSwitch.on = FALSE;
+    
+}
+
+-(void)loadCustomOn {
+    
+    self.customTimeSwitch.on = TRUE;
+    
+}
+
+-(void)loadCustomOff {
+    
+    self.customTimeSwitch.on = FALSE;
+    
+}
 
 @end

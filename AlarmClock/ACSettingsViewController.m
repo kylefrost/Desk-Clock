@@ -45,7 +45,7 @@
 
 -(IBAction)pressShare:(id)sender {
     
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Share This App" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Twitter", @"Facebook", nil];
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Enjoying Desk Clock? Share it with friends!" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Twitter", @"Facebook", nil];
     
     [actionSheet showInView:self.view];
     

@@ -97,6 +97,8 @@
 // Set code to play alarm if the alarm is going off
 -(void)viewDidAppear:(BOOL)animated {
     
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
+    
     //This checks if the home view is shown because of an alarm firing
     if(self.alarmGoingOff) {
         
