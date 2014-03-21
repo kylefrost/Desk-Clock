@@ -18,7 +18,7 @@
 }
 
 @property (weak, nonatomic) IBOutlet UINavigationBar *bar;
-@property(nonatomic,readonly) UIBarPosition barPosition;
+@property (nonatomic, readonly) UIBarPosition barPosition;
 @property (weak, nonatomic) IBOutlet UIButton *crashButton;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (weak, nonatomic) IBOutlet UILabel *temp;
@@ -35,6 +35,7 @@
 -(void)getWeather;
 
 -(IBAction)resetAlarmArray;
+-(IBAction)checkNightViewDefaults:(id)sender;
 
 
 @end

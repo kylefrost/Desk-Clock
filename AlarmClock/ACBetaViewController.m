@@ -142,7 +142,7 @@
     return 1;
 }
 
--(void)viewDidAppear:(BOOL)animated {
+-(void)viewWillAppear:(BOOL)animated {
     UIAlertView *betaView = [[UIAlertView alloc] initWithTitle:@"Proceed with caution."
                                                        message:@"You are now entering the beta settings. Don't report any bugs experienced while in this page.\n\nIf you do, I will find you, and I will...show you how to properly report bugs.\n\nI went there." delegate:self cancelButtonTitle:@"I can handle this." otherButtonTitles:@"Get me out of here!", nil];
     [betaView show];
@@ -243,6 +243,18 @@
     [newEventArray removeAllObjects];
     
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
+}
+
+-(IBAction)checkNightViewDefaults:(id)sender {
+    
+    NSUserDefaults* nightViewPreferences = [NSUserDefaults standardUserDefaults];
+    
+    BOOL enabledSwitchState = [nightViewPreferences boolForKey:@"enabledSwitch"];
+    BOOL alwaysOnDaySwitchState = [nightViewPreferences boolForKey:@"alwaysDaySwitch"];
+    BOOL alwaysOnSwitchState = [nightViewPreferences boolForKey:@"alwaysNightSwitch"];
+    BOOL customTimeSwitchState = [nightViewPreferences boolForKey:@"customTimeSwitch"];
+    
+    NSLog(@"\n\nenabledSwitchState is %d\nalwaysOnDaySwitchState is %d\nalwaysOnNightSwitchState is %d\ncustomTimeSwitchState is %d\n\n", enabledSwitchState, alwaysOnDaySwitchState, alwaysOnSwitchState, customTimeSwitchState);
 }
 
 - (void)didReceiveMemoryWarning

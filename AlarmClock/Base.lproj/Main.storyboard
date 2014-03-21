@@ -321,7 +321,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <nil key="highlightedColor"/>
                             </label>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="UjJ-gP-IbF">
-                                <rect key="frame" x="64" y="84" width="20" height="20"/>
+                                <rect key="frame" x="150" y="318" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="05x-YK-esr">
@@ -332,6 +332,16 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 </state>
                                 <connections>
                                     <action selector="resetAlarmArray" destination="fBt-mO-jAZ" eventType="touchUpInside" id="4L0-t9-5u3"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JQt-Iv-nSz">
+                                <rect key="frame" x="79" y="405" width="162" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Test NightView Defaults">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="checkNightViewDefaults:" destination="fBt-mO-jAZ" eventType="touchUpInside" id="NVw-fn-Gxx"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -856,7 +866,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <string key="footerTitle">Automatic Switching will allow the app to change automatically between Day and Night Mode based on the time. Always Day will make the app stay in Day Mode. Always Night will make the app stay in Night Mode. If Automatic Switching is turned on, you can choose custom switch times below.</string>
                                 <cells/>
                             </tableViewSection>
-                            <tableViewSection headerTitle="ENABLE OR DISABLE" footerTitle="NOTE: One of the three must always be enabled." id="lri-5a-5tD">
+                            <tableViewSection headerTitle="ENABLE OR DISABLE" footerTitle="NOTE: One of the three must always be enabled. If you disable them all, Automatic Switching will be turned on." id="lri-5a-5tD">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="bSk-Tu-ZFW">
                                         <rect key="frame" x="0.0" y="293" width="320" height="44"/>
@@ -947,7 +957,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <tableViewSection headerTitle="CUSTOM SWITCH TIMES" footerTitle="You must enable Automatic Switching to use Custom Times." id="tcM-XI-bSL">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="UP8-r4-o22">
-                                        <rect key="frame" x="0.0" y="517" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="533" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UP8-r4-o22" id="MDx-oR-BXo">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -979,7 +989,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <tableViewSection headerTitle="SET TIMES" footerTitle="You must enable Custom Times in order to set times for Night Mode." id="JAz-ou-jke">
                                 <cells>
                                     <tableViewCell opaque="NO" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="dR2-sy-1HS" detailTextLabel="Y7K-eh-FVi" style="IBUITableViewCellStyleValue1" id="BxT-AT-0O0">
-                                        <rect key="frame" x="0.0" y="653" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="669" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BxT-AT-0O0" id="yfQ-9J-q1N">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
@@ -1006,7 +1016,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell opaque="NO" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="NlW-me-rZC" detailTextLabel="i9f-oP-pXC" style="IBUITableViewCellStyleValue1" id="Z8h-VL-016">
-                                        <rect key="frame" x="0.0" y="697" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="713" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Z8h-VL-016" id="mNz-eT-ent">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>

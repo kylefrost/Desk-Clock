@@ -62,6 +62,12 @@
         [self loadCustomOff];
     }
     
+    if (enabledSwitchState == 0 && alwaysOnDaySwitchState == 0 && alwaysOnSwitchState == 0) {
+        [self loadAutoOn];
+        [[NSUserDefaults standardUserDefaults] setBool:1 forKey:@"enabledSwitch"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    
     [self.tableView reloadData];
 
 }
@@ -290,6 +296,7 @@
     NSLog(@"enabledSwitchState is on");
     
     self.enableDisableSwitch.on = TRUE;
+    self.alwaysDaySwitch.on = FALSE;
     self.alwaysNightSwitch.on = FALSE;
     
     if(customTimeSwitchState == 1) {
@@ -358,6 +365,22 @@
 -(void)loadCustomOff {
     
     self.customTimeSwitch.on = FALSE;
+    
+}
+
+-(void)viewWillDisappear:(BOOL)animated {
+    
+    NSUserDefaults* nightViewPreferences = [NSUserDefaults standardUserDefaults];
+    
+    BOOL enabledSwitchState = [nightViewPreferences boolForKey:@"enabledSwitch"];
+    BOOL alwaysOnDaySwitchState = [nightViewPreferences boolForKey:@"alwaysDaySwitch"];
+    BOOL alwaysOnSwitchState = [nightViewPreferences boolForKey:@"alwaysNightSwitch"];
+    
+    if (enabledSwitchState == 0 && alwaysOnDaySwitchState == 0 && alwaysOnSwitchState == 0) {
+        self.enableDisableSwitch.on = TRUE;
+        [[NSUserDefaults standardUserDefaults] setBool:1 forKey:@"enabledSwitch"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
     
 }
 
