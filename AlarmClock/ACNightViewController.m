@@ -218,6 +218,18 @@
     
     [self.nightTimeCell setUserInteractionEnabled:YES];
     [self.morningTimeCell setUserInteractionEnabled:YES];
+    
+    NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"h:mm a"];
+    
+    NSDate *dayTimeFull = [preferences objectForKey:@"dayTimeFullObject"];
+    NSString *dayTimeDetailedText = [dateFormat stringFromDate:dayTimeFull];
+    self.morningTimeCell.detailTextLabel.text = dayTimeDetailedText;
+    
+    NSDate *nightTimeFull = [preferences objectForKey:@"nightTimeFullObject"];
+    NSString *nightTimeDetailedText = [dateFormat stringFromDate:nightTimeFull];
+    self.nightTimeCell.detailTextLabel.text = nightTimeDetailedText;
 
 }
 
@@ -366,6 +378,10 @@
     
     self.customTimeSwitch.on = FALSE;
     
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    [self viewDidLoad];
 }
 
 -(void)viewWillDisappear:(BOOL)animated {

@@ -57,6 +57,8 @@
 		279709AB18D420D300B03572 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 279709AA18D420D300B03572 /* Social.framework */; };
 		279709AD18D4247800B03572 /* Alarm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 279709AC18D4247800B03572 /* Alarm.mp3 */; };
 		279709AF18D425A300B03572 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 279709AE18D425A300B03572 /* AVFoundation.framework */; };
+		27A8D1FB18DBD8C8003FBA55 /* ACDayTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D1FA18DBD8C8003FBA55 /* ACDayTimeViewController.m */; };
+		27A8D1FE18DBD8F8003FBA55 /* ACNightTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D1FD18DBD8F8003FBA55 /* ACNightTimeViewController.m */; };
 		27B4861618D4EE91004CA2DD /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27B4861518D4EE91004CA2DD /* AudioToolbox.framework */; };
 		27B4861D18D509DF004CA2DD /* ACAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27B4861C18D509DF004CA2DD /* ACAboutViewController.m */; };
 		27B4862018D554EF004CA2DD /* heart_settings_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 27B4861E18D554EF004CA2DD /* heart_settings_button.png */; };
@@ -149,6 +151,10 @@
 		279709AA18D420D300B03572 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		279709AC18D4247800B03572 /* Alarm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Alarm.mp3; sourceTree = "<group>"; };
 		279709AE18D425A300B03572 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		27A8D1F918DBD8C8003FBA55 /* ACDayTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACDayTimeViewController.h; sourceTree = "<group>"; };
+		27A8D1FA18DBD8C8003FBA55 /* ACDayTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACDayTimeViewController.m; sourceTree = "<group>"; };
+		27A8D1FC18DBD8F8003FBA55 /* ACNightTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACNightTimeViewController.h; sourceTree = "<group>"; };
+		27A8D1FD18DBD8F8003FBA55 /* ACNightTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACNightTimeViewController.m; sourceTree = "<group>"; };
 		27B4861518D4EE91004CA2DD /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		27B4861B18D509DF004CA2DD /* ACAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACAboutViewController.h; sourceTree = "<group>"; };
 		27B4861C18D509DF004CA2DD /* ACAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACAboutViewController.m; sourceTree = "<group>"; };
@@ -382,6 +388,10 @@
 			children = (
 				2785DAFA18D0E53E00B8D39B /* ACNightViewController.h */,
 				2785DAFB18D0E53E00B8D39B /* ACNightViewController.m */,
+				27A8D1F918DBD8C8003FBA55 /* ACDayTimeViewController.h */,
+				27A8D1FA18DBD8C8003FBA55 /* ACDayTimeViewController.m */,
+				27A8D1FC18DBD8F8003FBA55 /* ACNightTimeViewController.h */,
+				27A8D1FD18DBD8F8003FBA55 /* ACNightTimeViewController.m */,
 			);
 			name = NightViewController;
 			sourceTree = "<group>";
@@ -695,6 +705,7 @@
 				27291F131823EF8100CB2070 /* ACInfoViewController~ipad.m in Sources */,
 				277AFEF6181EA5B80009AE0F /* ACAppDelegate.m in Sources */,
 				277AFEFC181EA5B80009AE0F /* ACViewController.m in Sources */,
+				27A8D1FE18DBD8F8003FBA55 /* ACNightTimeViewController.m in Sources */,
 				27B4861D18D509DF004CA2DD /* ACAboutViewController.m in Sources */,
 				279709A918D419D000B03572 /* ACSettingsViewController.m in Sources */,
 				27D5CCEF18711EFC00061B47 /* ACOverlayViewController.m in Sources */,
@@ -703,6 +714,7 @@
 				27208B15182145CC0025FEBD /* ACTutorialViewController.m in Sources */,
 				27D7FF93182ABAF800A14824 /* ACBetaViewController.m in Sources */,
 				2785DAFC18D0E53E00B8D39B /* ACNightViewController.m in Sources */,
+				27A8D1FB18DBD8C8003FBA55 /* ACDayTimeViewController.m in Sources */,
 				27642FF11827FB92007D66CE /* ACLaurenViewController.m in Sources */,
 				277AFEF2181EA5B80009AE0F /* main.m in Sources */,
 				27D5CCF218711F1600061B47 /* ACOverlayViewController~ipad.m in Sources */,

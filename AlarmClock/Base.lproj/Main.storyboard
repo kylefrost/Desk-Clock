@@ -742,10 +742,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </objects>
             <point key="canvasLocation" x="163" y="392"/>
         </scene>
-        <!--View Controller - Morning-->
+        <!--Day Time View Controller - Morning-->
         <scene sceneID="viA-cj-00a">
             <objects>
-                <viewController id="E5h-aG-UAX" sceneMemberID="viewController">
+                <viewController id="E5h-aG-UAX" customClass="ACDayTimeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NcQ-dg-ozG"/>
                         <viewControllerLayoutGuide type="bottom" id="2oE-9T-H14"/>
@@ -781,11 +781,14 @@ AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
 AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
 </data>
                                 </timeZone>
+                                <connections>
+                                    <action selector="timePickerDidChange:" destination="E5h-aG-UAX" eventType="valueChanged" id="y1q-y3-qCW"/>
+                                </connections>
                             </datePicker>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CDr-h7-Bfz">
-                                <rect key="frame" x="139" y="121" width="38" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CDr-h7-Bfz">
+                                <rect key="frame" x="54" y="158" width="212" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -793,15 +796,19 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Morning" id="YhI-1O-Nek"/>
+                    <connections>
+                        <outlet property="dayTimePicker" destination="qW7-Of-Dij" id="gTu-fd-WFq"/>
+                        <outlet property="timeLabel" destination="CDr-h7-Bfz" id="Luu-WN-07j"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m81-5y-st3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1116" y="90"/>
         </scene>
-        <!--View Controller - Night-->
+        <!--Night Time View Controller - Night-->
         <scene sceneID="8jG-MZ-up9">
             <objects>
-                <viewController id="JRg-69-JZi" sceneMemberID="viewController">
+                <viewController id="JRg-69-JZi" customClass="ACNightTimeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Shz-aC-lVu"/>
                         <viewControllerLayoutGuide type="bottom" id="qza-a4-25e"/>
@@ -837,17 +844,24 @@ AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
 AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
 </data>
                                 </timeZone>
+                                <connections>
+                                    <action selector="timePickerDidChange:" destination="JRg-69-JZi" eventType="valueChanged" id="6Cv-Ew-pUO"/>
+                                </connections>
                             </datePicker>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WCW-L7-RB8">
-                                <rect key="frame" x="139" y="119" width="38" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WCW-L7-RB8">
+                                <rect key="frame" x="20" y="152" width="275" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Night" id="d6C-Nc-7Yf"/>
+                    <connections>
+                        <outlet property="nightTimePicker" destination="ycl-lU-ha5" id="zji-fD-lFx"/>
+                        <outlet property="timeLabel" destination="WCW-L7-RB8" id="xvN-Ca-GGp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jE1-ai-96N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -986,7 +1000,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="SET TIMES" footerTitle="You must enable Custom Times in order to set times for Night Mode." id="JAz-ou-jke">
+                            <tableViewSection headerTitle="SET TIMES" footerTitle="You must enable Custom Switch Times in order to set times for Automatic Switching." id="JAz-ou-jke">
                                 <cells>
                                     <tableViewCell opaque="NO" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="dR2-sy-1HS" detailTextLabel="Y7K-eh-FVi" style="IBUITableViewCellStyleValue1" id="BxT-AT-0O0">
                                         <rect key="frame" x="0.0" y="669" width="320" height="44"/>

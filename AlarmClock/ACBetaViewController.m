@@ -254,7 +254,15 @@
     BOOL alwaysOnSwitchState = [nightViewPreferences boolForKey:@"alwaysNightSwitch"];
     BOOL customTimeSwitchState = [nightViewPreferences boolForKey:@"customTimeSwitch"];
     
-    NSLog(@"\n\nenabledSwitchState is %d\nalwaysOnDaySwitchState is %d\nalwaysOnNightSwitchState is %d\ncustomTimeSwitchState is %d\n\n", enabledSwitchState, alwaysOnDaySwitchState, alwaysOnSwitchState, customTimeSwitchState);
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"h:mm a"];
+    
+    NSDate *dayTimeFull = [nightViewPreferences objectForKey:@"dayTimeFullObject"];
+    NSString *dayTimeDetailedText = [dateFormat stringFromDate:dayTimeFull];
+    NSDate *nightTimeFull = [nightViewPreferences objectForKey:@"nightTimeFullObject"];
+    NSString *nightTimeDetailedText = [dateFormat stringFromDate:nightTimeFull];
+    
+    NSLog(@"\n\nenabledSwitchState is %d\nalwaysOnDaySwitchState is %d\nalwaysOnNightSwitchState is %d\ncustomTimeSwitchState is %d\ndayTimeFullObject is %@\nnightTimeFullObject is %@\n\n", enabledSwitchState, alwaysOnDaySwitchState, alwaysOnSwitchState, customTimeSwitchState, dayTimeDetailedText, nightTimeDetailedText);
 }
 
 - (void)didReceiveMemoryWarning
