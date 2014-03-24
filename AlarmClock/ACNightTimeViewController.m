@@ -38,8 +38,8 @@
     
     if (pickerDate == NULL) {
         NSLog(@"pickerDate is NULL");
-        self.nightTimePicker.date = [NSDate date];
-        self.timeLabel.text = [dateFormat stringFromDate:[NSDate date]];
+        self.nightTimePicker.date = [dateFormat dateFromString:@"8:00 PM"];
+        self.timeLabel.text = @"8:00 PM";
     }
     else if (pickerDate != NULL) {
         self.nightTimePicker.date = setPickerDate;
@@ -57,8 +57,26 @@
     
     self.timeLabel.text = [dateFormat stringFromDate:pickerDate];
     
+    NSDateFormatter *hourFormat = [[NSDateFormatter alloc] init];
+    [hourFormat setDateFormat:@"h"];
+    
+    NSDate *hourDate = self.nightTimePicker.date;
+    
+    NSDateFormatter *minuteFormat = [[NSDateFormatter alloc] init];
+    [minuteFormat setDateFormat:@"mm"];
+    
+    NSDate *minuteDate = self.nightTimePicker.date;
+    
+    NSDateFormatter *ampmFormat = [[NSDateFormatter alloc] init];
+    [ampmFormat setDateFormat:@"a"];
+    
+    NSDate *dayAMPMDate = self.nightTimePicker.date;
+    
     NSUserDefaults *storePreferences = [NSUserDefaults standardUserDefaults];
     [storePreferences setObject:pickerDate forKey:@"nightTimeFullObject"];
+    [storePreferences setObject:hourDate forKey:@"nightHourObject"];
+    [storePreferences setObject:minuteDate forKey:@"nightMinuteObject"];
+    [storePreferences setObject:dayAMPMDate forKey:@"nightAMPMObject"];
     [storePreferences synchronize];
     
 }

@@ -263,6 +263,33 @@
     NSString *nightTimeDetailedText = [dateFormat stringFromDate:nightTimeFull];
     
     NSLog(@"\n\nenabledSwitchState is %d\nalwaysOnDaySwitchState is %d\nalwaysOnNightSwitchState is %d\ncustomTimeSwitchState is %d\ndayTimeFullObject is %@\nnightTimeFullObject is %@\n\n", enabledSwitchState, alwaysOnDaySwitchState, alwaysOnSwitchState, customTimeSwitchState, dayTimeDetailedText, nightTimeDetailedText);
+    
+    
+    NSDateFormatter *hourFormat = [[NSDateFormatter alloc] init];
+    [hourFormat setDateFormat:@"h"];
+    
+    NSDate *hourDate = [nightViewPreferences objectForKey:@"dayHourObject"];
+    NSString *dayHourObject = [hourFormat stringFromDate:hourDate];
+    NSDate *hourNightDate = [nightViewPreferences objectForKey:@"nightHourObject"];
+    NSString *nightHourObject = [hourFormat stringFromDate:hourNightDate];
+    
+    NSDateFormatter *minuteFormat = [[NSDateFormatter alloc] init];
+    [minuteFormat setDateFormat:@"mm"];
+    
+    NSDate *minuteDate = [nightViewPreferences objectForKey:@"dayMinuteObject"];
+    NSString *dayMinuteObject = [minuteFormat stringFromDate:minuteDate];
+    NSDate *minuteNightDate = [nightViewPreferences objectForKey:@"nightMinuteObject"];
+    NSString *nightMinuteObject = [minuteFormat stringFromDate:minuteNightDate];
+    
+    NSDateFormatter *ampmFormat = [[NSDateFormatter alloc] init];
+    [ampmFormat setDateFormat:@"a"];
+    
+    NSDate *dayAMPMDate = [nightViewPreferences objectForKey:@"dayAMPMObject"];
+    NSString *dayAMPMObject = [ampmFormat stringFromDate:dayAMPMDate];
+    NSDate *nightAMPMDate = [nightViewPreferences objectForKey:@"nightAMPMObject"];
+    NSString *nightAMPMObject = [ampmFormat stringFromDate:nightAMPMDate];
+    
+    NSLog(@"\n\ndayHourObject = %@\ndayMinuteObject = %@\ndayAMPMObject = %@\n\nnightHourObject = %@\nnightMinuteObject = %@\nnightAMPMObject = %@\n\n", dayHourObject, dayMinuteObject, dayAMPMObject, nightHourObject, nightMinuteObject, nightAMPMObject);
 }
 
 - (void)didReceiveMemoryWarning

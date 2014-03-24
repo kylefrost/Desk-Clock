@@ -36,8 +36,15 @@
     
     NSDate *setPickerDate = pickerDate;
     
-    self.dayTimePicker.date = setPickerDate;
-    self.timeLabel.text = [dateFormat stringFromDate:setPickerDate];
+    if (pickerDate == NULL) {
+        NSLog(@"pickerDate is NULL");
+        self.dayTimePicker.date = [dateFormat dateFromString:@"8:00 AM"];
+        self.timeLabel.text = @"8:00 AM";
+    }
+    else if (pickerDate != NULL) {
+        self.dayTimePicker.date = setPickerDate;
+        self.timeLabel.text = [dateFormat stringFromDate:setPickerDate];
+    }
     // Do any additional setup after loading the view.
 }
 
@@ -50,8 +57,26 @@
     
     self.timeLabel.text = [dateFormat stringFromDate:pickerDate];
     
+    NSDateFormatter *hourFormat = [[NSDateFormatter alloc] init];
+    [hourFormat setDateFormat:@"h"];
+    
+    NSDate *hourDate = self.dayTimePicker.date;
+    
+    NSDateFormatter *minuteFormat = [[NSDateFormatter alloc] init];
+    [minuteFormat setDateFormat:@"mm"];
+    
+    NSDate *minuteDate = self.dayTimePicker.date;
+    
+    NSDateFormatter *ampmFormat = [[NSDateFormatter alloc] init];
+    [ampmFormat setDateFormat:@"a"];
+    
+    NSDate *dayAMPMDate = self.dayTimePicker.date;
+    
     NSUserDefaults *storePreferences = [NSUserDefaults standardUserDefaults];
     [storePreferences setObject:pickerDate forKey:@"dayTimeFullObject"];
+    [storePreferences setObject:hourDate forKey:@"dayHourObject"];
+    [storePreferences setObject:minuteDate forKey:@"dayMinuteObject"];
+    [storePreferences setObject:dayAMPMDate forKey:@"dayAMPMObject"];
     [storePreferences synchronize];
     
 }
