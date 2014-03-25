@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MFMailComposeViewController.h>
 
-@interface ACSettingsViewController : UITableViewController <UIActionSheetDelegate>
+@interface ACSettingsViewController : UITableViewController <UIActionSheetDelegate, MFMailComposeViewControllerDelegate>
 
 
 
