@@ -223,13 +223,27 @@
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"h:mm a"];
     
-    NSDate *dayTimeFull = [preferences objectForKey:@"dayTimeFullObject"];
-    NSString *dayTimeDetailedText = [dateFormat stringFromDate:dayTimeFull];
-    self.morningTimeCell.detailTextLabel.text = dayTimeDetailedText;
+    NSDate *dayPickerDate = [preferences objectForKey:@"dayTimeFullObject"];
+    NSDate *nightPickerDate = [preferences objectForKey:@"nightTimeFullObject"];
     
-    NSDate *nightTimeFull = [preferences objectForKey:@"nightTimeFullObject"];
-    NSString *nightTimeDetailedText = [dateFormat stringFromDate:nightTimeFull];
-    self.nightTimeCell.detailTextLabel.text = nightTimeDetailedText;
+    if (dayPickerDate != NULL) {
+        NSDate *dayTimeFull = [preferences objectForKey:@"dayTimeFullObject"];
+        NSString *dayTimeDetailedText = [dateFormat stringFromDate:dayTimeFull];
+        self.morningTimeCell.detailTextLabel.text = dayTimeDetailedText;
+    }
+    else if (dayPickerDate == NULL) {
+        self.nightTimeCell.detailTextLabel.text = @"8:00 AM";
+    }
+    
+    if (nightPickerDate != NULL) {
+        NSDate *nightTimeFull = [preferences objectForKey:@"nightTimeFullObject"];
+        NSString *nightTimeDetailedText = [dateFormat stringFromDate:nightTimeFull];
+        self.nightTimeCell.detailTextLabel.text = nightTimeDetailedText;
+
+    }
+    else if (nightPickerDate == NULL) {
+        self.nightTimeCell.detailTextLabel.text = @"8:00 PM";
+    }
 
 }
 
@@ -396,6 +410,10 @@
         self.enableDisableSwitch.on = TRUE;
         [[NSUserDefaults standardUserDefaults] setBool:1 forKey:@"enabledSwitch"];
         [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Warning!" message:@"You did not choose one of the three Night Mode options, therefore Automatic Switching with Custom Times turned off has been automatically enabled. If you wish to change this, go to the Night Mode settings and select what you prefer." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+        
+        [alertView show];
     }
     
 }

@@ -79,6 +79,34 @@
     [storePreferences setObject:dayAMPMDate forKey:@"dayAMPMObject"];
     [storePreferences synchronize];
     
+    NSString *dayAMPMString = [ampmFormat stringFromDate:dayAMPMDate];
+    
+    if ([dayAMPMString isEqual:@"PM"]) {
+        [self showWarning];
+    }
+}
+
+-(void)showWarning {
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Warning!" message:@"Morning should start during an AM time, and you have set it to PM." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+    [alertView show];
+    
+    NSDateFormatter *ampmFormat = [[NSDateFormatter alloc] init];
+    [ampmFormat setDateFormat:@"a"];
+    
+    NSDate *dayAMPMDate = self.dayTimePicker.date;
+    
+    dayAMPMDate = [ampmFormat dateFromString:@"AM"];
+    self.dayTimePicker.date = dayAMPMDate;
+    
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"h:mm a"];
+    
+    NSDate *pickerDate = self.dayTimePicker.date;
+    
+    self.timeLabel.text = [dateFormat stringFromDate:pickerDate];
+    
+    NSUserDefaults *storePreferences = [NSUserDefaults standardUserDefaults];
+    [storePreferences setObject:pickerDate forKey:@"dayTimeFullObject"];
 }
 
 - (void)didReceiveMemoryWarning {

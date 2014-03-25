@@ -15,4 +15,6 @@
 
 -(IBAction)timePickerDidChange:(id)sender;
 
+-(void)showWarning;
+
 @end

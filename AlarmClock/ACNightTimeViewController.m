@@ -70,15 +70,43 @@
     NSDateFormatter *ampmFormat = [[NSDateFormatter alloc] init];
     [ampmFormat setDateFormat:@"a"];
     
-    NSDate *dayAMPMDate = self.nightTimePicker.date;
+    NSDate *nightAMPMDate = self.nightTimePicker.date;
     
     NSUserDefaults *storePreferences = [NSUserDefaults standardUserDefaults];
     [storePreferences setObject:pickerDate forKey:@"nightTimeFullObject"];
     [storePreferences setObject:hourDate forKey:@"nightHourObject"];
     [storePreferences setObject:minuteDate forKey:@"nightMinuteObject"];
-    [storePreferences setObject:dayAMPMDate forKey:@"nightAMPMObject"];
+    [storePreferences setObject:nightAMPMDate forKey:@"nightAMPMObject"];
     [storePreferences synchronize];
     
+    NSString *nightAMPMString = [ampmFormat stringFromDate:nightAMPMDate];
+    
+    if ([nightAMPMString isEqual:@"AM"]) {
+        [self showWarning];
+    }
+}
+
+-(void)showWarning {
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Warning!" message:@"Night should start during a PM time, and you have set it to AM." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+    [alertView show];
+    
+    NSDateFormatter *ampmFormat = [[NSDateFormatter alloc] init];
+    [ampmFormat setDateFormat:@"a"];
+    
+    NSDate *nightAMPMDate = self.nightTimePicker.date;
+    
+    nightAMPMDate = [ampmFormat dateFromString:@"PM"];
+    self.nightTimePicker.date = nightAMPMDate;
+    
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"h:mm a"];
+    
+    NSDate *pickerDate = self.nightTimePicker.date;
+    
+    self.timeLabel.text = [dateFormat stringFromDate:pickerDate];
+    
+    NSUserDefaults *storePreferences = [NSUserDefaults standardUserDefaults];
+    [storePreferences setObject:pickerDate forKey:@"nightTimeFullObject"];
 }
 
 - (void)didReceiveMemoryWarning {
