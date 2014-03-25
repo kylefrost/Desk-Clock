@@ -45,35 +45,60 @@
 
 -(IBAction)pressShare:(id)sender {
     
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Enjoying Desk Clock? Share it with friends!" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Twitter", @"Facebook", nil];
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"How are you liking Desk Clock?" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"I love it!", @"I like it.", @"It could be better.", @"I hate it.", nil];
     
+    [actionSheet setTag:1];
     [actionSheet showInView:self.view];
     
 }
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     
-    if (buttonIndex == 0) {
-        
-        SLComposeViewController *tweetSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
-        [tweetSheet setInitialText:@"I'm loving @DeskClockApp! Check it out! #deskclockapp"];
-        
-        [self presentViewController:tweetSheet animated:YES completion:nil];
-        
-        // NSLog(@"Twitter Pressed");
-        
-    }
-    else if (buttonIndex == 1) {
-        
-        SLComposeViewController *shareSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
-        [shareSheet setInitialText:@"I'm loving Desk Clock App! Check it out! #deskclockapp"];
-        
-        [self presentViewController:shareSheet animated:YES completion:nil];
-        
-        // NSLog(@"Facebook Pressed");
-        
+    if ([actionSheet tag] == 1) {
+        if (buttonIndex == 0) {
+            // I love it!
+            UIActionSheet *loveActionSheet = [[UIActionSheet alloc] initWithTitle:@"We're glad to hear that!" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Share to Twitter", @"Share to Facebook", @"Rate on App Store", nil];
+            [loveActionSheet setTag:2];
+            [loveActionSheet showInView:self.view];
+        }
+        else if (buttonIndex == 1) {
+            // I like it. I love it. I want some more of it.
+            // I mean, just "I like it."
+            
+        }
+        else if (buttonIndex == 2) {
+            // It could be better.
+            
+        }
+        else if (buttonIndex == 3) {
+            // I hate it.
+            
+        }
     }
     
+    else if ([actionSheet tag] == 2) {
+        
+        if (buttonIndex == 0) {
+            
+            SLComposeViewController *tweetSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+            [tweetSheet setInitialText:@"I'm loving @DeskClockApp! Check it out! #deskclockapp"];
+            
+            [self presentViewController:tweetSheet animated:YES completion:nil];
+            
+            
+        }
+        else if (buttonIndex == 1) {
+            
+            SLComposeViewController *shareSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+            [shareSheet setInitialText:@"I'm loving Desk Clock App! Check it out! #deskclockapp"];
+            
+            [self presentViewController:shareSheet animated:YES completion:nil];
+            
+        }
+        else if (buttonIndex == 2) {
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://itunes.com/apps/deskclock"]];
+        }
+    }
 }
 
 
