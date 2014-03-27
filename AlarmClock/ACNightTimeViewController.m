@@ -58,7 +58,7 @@
     self.timeLabel.text = [dateFormat stringFromDate:pickerDate];
     
     NSDateFormatter *hourFormat = [[NSDateFormatter alloc] init];
-    [hourFormat setDateFormat:@"h"];
+    [hourFormat setDateFormat:@"HH"];
     
     NSDate *hourDate = self.nightTimePicker.date;
     

@@ -35,7 +35,12 @@
 @property (weak, nonatomic) IBOutlet UIButton *brightnessButton;
 -(IBAction)updateBrightness;
 
-// Background
+// Night Mode
+-(void)checkNightMode;
+-(void)dayMode;
+-(void)nightMode;
+-(void)customIsOn;
+-(void)customIsOff;
 @property (strong, nonatomic) IBOutlet UIView *backgroundView;
 
 // Check Orientation
@@ -70,10 +75,6 @@
 -(void)updateClockLabelTime;
 -(void)updateDayLabelDate;
 -(void)updateDayMonthLabelDate;
--(void)updateAlarmLabelStatus;
--(void)updateAMPMLabelStatus;
--(void)updateLabelColors;
--(void)updateBackgroundColor;
 
 // Beta Button
 @property (nonatomic, retain) IBOutlet UIButton *betaButton;

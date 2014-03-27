@@ -87,10 +87,11 @@
     [self updateClockLabelTime];
     [self updateDayLabelDate];
     [self updateDayMonthLabelDate];
-    [self updateAlarmLabelStatus];
-    [self updateAMPMLabelStatus];
-    [self updateLabelColors];
-    [self updateBackgroundColor];
+    [self checkNightMode];
+    // [self updateAlarmLabelStatus];
+    // [self updateAMPMLabelStatus];
+    // [self updateLabelColors];
+    // [self updateBackgroundColor];
     
 }
 
@@ -552,195 +553,393 @@
     
 }
 
-// Make Alarm Label show appropriate status of alarm
--(void)updateAlarmLabelStatus {
-    
-    // Make array of local notifications to check
-    UIApplication *app = [UIApplication sharedApplication];
-    NSArray *eventArray = [app scheduledLocalNotifications];
-    
-    
-    
-    // NSLog(@"%@", eventArray);
-    
-    // NSLog(@"%lu", (unsigned long)[eventArray count]);
-    
-    // Find the time to determine Night/Day mode
-    NSDateFormatter *timeFormat = [[NSDateFormatter alloc] init];
-    [timeFormat setDateFormat:@"HH"];
-    NSString *time = [timeFormat stringFromDate:[NSDate date]];
-    int timeInt = [time intValue];
-    
-    // Determine on/off lable status based on local notification array count
-    if ([eventArray count] == 0) {
-        if (timeInt <= 7) {
-            _onLabel.textColor = [UIColor darkGrayColor];
-            _offLabel.textColor = [UIColor whiteColor];
-            _alarmLabel.textColor = [UIColor whiteColor];
-        }
-        else if (timeInt <= 19 && timeInt >= 8) {
-            _onLabel.textColor = [UIColor lightGrayColor];
-            _offLabel.textColor = [UIColor blackColor];
-            _alarmLabel.textColor = [UIColor blackColor];
-        }
-        else if (timeInt >= 20) {
-            _onLabel.textColor = [UIColor darkGrayColor];
-            _offLabel.textColor = [UIColor whiteColor];
-            _alarmLabel.textColor = [UIColor whiteColor];
-        }
-    }
-    else if ([eventArray count] > 0) {
-        if (timeInt <= 7) {
-            _onLabel.textColor = [UIColor whiteColor];
-            _offLabel.textColor = [UIColor darkGrayColor];
-            _alarmLabel.textColor = [UIColor whiteColor];
-        }
-        else if (timeInt <= 19 && timeInt >= 8) {
-            _onLabel.textColor = [UIColor blackColor];
-            _offLabel.textColor = [UIColor lightGrayColor];
-            _alarmLabel.textColor = [UIColor blackColor];
-        }
-        else if (timeInt >= 20) {
-            _onLabel.textColor = [UIColor whiteColor];
-            _offLabel.textColor = [UIColor darkGrayColor];
-            _alarmLabel.textColor = [UIColor whiteColor];
-        }
-    }
-    
-    // Continuously check status of change
-    [self performSelector:@selector(updateAlarmLabelStatus) withObject:self afterDelay:1.0];
-    
+
+#pragma mark -
+#pragma mark Night Mode Methods
+
+/******************* Night Mode Methods *******************/
+
+// Check which Night Mode setting is enabled and run methods appropriately
+-(void)checkNightMode {
+	
+	// Load Defaults to check Switches state from Night Mode Settings page
+	NSUserDefaults* nightViewPreferences = [NSUserDefaults standardUserDefaults];
+	
+	BOOL enabledSwitchState = [nightViewPreferences boolForKey:@"enabledSwitch"];
+	BOOL alwaysOnDaySwitchState = [nightViewPreferences boolForKey:@"alwaysDaySwitch"];
+	BOOL alwaysOnNightSwitchState = [nightViewPreferences boolForKey:@"alwaysNightSwitch"];
+	BOOL customTimeSwitchState = [nightViewPreferences boolForKey:@"customTimeSwitch"];
+	
+	// Automatic Switching is Enabled
+	if (enabledSwitchState == 1) {
+		
+		// Custom Time Switch is Enabled
+		if (customTimeSwitchState == 1) {
+			[self customIsOn];
+		}
+		
+		// Custom Time Switch is Disabled
+		else if (customTimeSwitchState == 0) {
+			[self customIsOff];
+		}
+	}
+	
+	// Always Day Mode is Enabled
+	if (alwaysOnDaySwitchState == 1) {
+		[self dayMode];
+		NSLog(@"dayMode is being called from checkNightMode.");
+	}
+	
+	// Always Night Mode is Enabled
+	if (alwaysOnNightSwitchState == 1) {
+		[self nightMode];
+		NSLog(@"nightMode is being called from checkNightMode.");
+	}
+	
+	[self performSelector:@selector(checkNightMode) withObject:self afterDelay:1.0];
 }
 
-// Update AM and PM labels
--(void)updateAMPMLabelStatus {
-    
-    // Set text
-    _amLabel.text = @"AM";
-    _pmLabel.text = @"PM";
-    _slashLabel.text = @"/";
-    
-    // Find time in 24 hour format
-    NSDateFormatter *timeFormat = [[NSDateFormatter alloc] init];
-    [timeFormat setDateFormat:@"HH"];
-    NSString *time = [timeFormat stringFromDate:[NSDate date]];
-    int timeVal = [time intValue];
-    
-    // Set if statements for showing AM and PM
-    if (timeVal < 12) {
-        if (timeVal <= 7) {
-            _amLabel.textColor = [UIColor whiteColor];
-            _pmLabel.textColor = [UIColor darkGrayColor];
-            _slashLabel.textColor = [UIColor whiteColor];
-        }
-        else if (timeVal <= 19 && timeVal >= 8) {
-            _amLabel.textColor = [UIColor blackColor];
-            _pmLabel.textColor = [UIColor lightGrayColor];
-            _slashLabel.textColor = [UIColor blackColor];
-        }
-        else if (timeVal >= 20) {
-            _amLabel.textColor = [UIColor whiteColor];
-            _pmLabel.textColor = [UIColor darkGrayColor];
-            _slashLabel.textColor = [UIColor whiteColor];
-        }
-    }
-    else if (timeVal >= 12) {
-        if (timeVal <= 7) {
-            _amLabel.textColor = [UIColor darkGrayColor];
-            _pmLabel.textColor = [UIColor whiteColor];
-            _slashLabel.textColor = [UIColor whiteColor];
-        }
-        else if (timeVal <= 19 && timeVal >= 8) {
-            _amLabel.textColor = [UIColor lightGrayColor];
-            _pmLabel.textColor = [UIColor blackColor];
-            _slashLabel.textColor = [UIColor blackColor];
-        }
-        else if (timeVal >= 20) {
-            _amLabel.textColor = [UIColor darkGrayColor];
-            _pmLabel.textColor = [UIColor whiteColor];
-            _slashLabel.textColor = [UIColor whiteColor];
-        }
-    }
-    
-    // Update every second to be accurate
-    [self performSelector:@selector(updateAMPMLabelStatus) withObject:self afterDelay:1.0];
-    
+// Always Day Mode is Enabled
+-(void)dayMode {
+	
+	// Alarm Label Status
+	UIApplication *app = [UIApplication sharedApplication];
+	NSArray *eventArray = [app scheduledLocalNotifications];
+	
+	// If there are 0 local notifications
+	if ([eventArray count] == 0) {
+		self.onLabel.textColor = [UIColor lightGrayColor];
+		self.offLabel.textColor = [UIColor blackColor];
+		self.alarmLabel.textColor = [UIColor blackColor];
+	}
+	// If there are more than 0 local notifications
+	else if ([eventArray count] > 0) {
+		self.onLabel.textColor = [UIColor blackColor];
+		self.offLabel.textColor = [UIColor lightGrayColor];
+		self.alarmLabel.textColor = [UIColor blackColor];
+	}
+	
+	// AM/PM Label Status
+	// Find time in 24 hour format
+	NSDateFormatter *timeFormat = [[NSDateFormatter alloc] init];
+	[timeFormat setDateFormat:@"HH"];
+	NSString *time = [timeFormat stringFromDate:[NSDate date]];
+	int timeVal = [time intValue];
+	
+	// If it is AM
+	if (timeVal < 12) {
+		self.amLabel.textColor = [UIColor blackColor];
+		self.pmLabel.textColor = [UIColor lightGrayColor];
+		self.slashLabel.textColor = [UIColor blackColor];
+	}
+	// If it is PM
+	else if (timeVal >= 12) {
+		self.amLabel.textColor = [UIColor lightGrayColor];
+		self.pmLabel.textColor = [UIColor blackColor];
+		self.slashLabel.textColor = [UIColor blackColor];
+	}
+	
+	// Background Color
+	[self.backgroundView setBackgroundColor:[UIColor whiteColor]];
+	
+	// Clock Label
+	self.timeLabel.textColor = [UIColor blackColor];
+	
+	// Day Label
+	self.dayLabel.textColor = [UIColor blackColor];
+	
+	// Day and Month Label
+	self.dayMonthLabel.textColor = [UIColor blackColor];
 }
 
-// Update Background Color for Day/Light Mode
--(void)updateBackgroundColor {
-    
-    // Find time in 24 hour format
-    NSDateFormatter *timeFormat = [[NSDateFormatter alloc] init];
-    [timeFormat setDateFormat:@"HH"];
-    NSString *time = [timeFormat stringFromDate:[NSDate date]];
-    int timeVal = [time intValue];
-    
-    // Set night or day mode colors for background
-    if (timeVal <= 7) {
-        [_backgroundView setBackgroundColor:[UIColor blackColor]];
-    }
-    else if (timeVal <= 19 && timeVal >= 8) {
-        [_backgroundView setBackgroundColor:[UIColor whiteColor]];
-    }
-    else if (timeVal >= 20) {
-            [_backgroundView setBackgroundColor:[UIColor blackColor]];
-    }
-    
-    // Update every second
-    [self performSelector:@selector(updateBackgroundColor) withObject:self afterDelay:1.0];
-    
+// Always Night Mode is Enabled
+-(void)nightMode {
+	
+	// Alarm Label Status
+	UIApplication *app = [UIApplication sharedApplication];
+	NSArray *eventArray = [app scheduledLocalNotifications];
+	
+	// If there are 0 local notifications
+	if ([eventArray count] == 0) {
+		self.onLabel.textColor = [UIColor darkGrayColor];
+		self.offLabel.textColor = [UIColor whiteColor];
+		self.alarmLabel.textColor = [UIColor whiteColor];
+	}
+	// If there are more than 0 local notifications
+	else if ([eventArray count] > 0) {
+		self.onLabel.textColor = [UIColor whiteColor];
+		self.offLabel.textColor = [UIColor darkGrayColor];
+		self.alarmLabel.textColor = [UIColor whiteColor];
+	}
+	
+	// AM/PM Label Status
+	// Find time in 24 hour format
+	NSDateFormatter *timeFormat = [[NSDateFormatter alloc] init];
+	[timeFormat setDateFormat:@"HH"];
+	NSString *time = [timeFormat stringFromDate:[NSDate date]];
+	int timeVal = [time intValue];
+	
+	// If it is AM
+	if (timeVal < 12) {
+		self.amLabel.textColor = [UIColor whiteColor];
+		self.pmLabel.textColor = [UIColor darkGrayColor];
+		self.slashLabel.textColor = [UIColor whiteColor];
+	}
+	// If it is PM
+	else if (timeVal >= 12) {
+		self.amLabel.textColor = [UIColor darkGrayColor];
+		self.pmLabel.textColor = [UIColor whiteColor];
+		self.slashLabel.textColor = [UIColor whiteColor];
+	}
+	
+	// Background Color
+	[self.backgroundView setBackgroundColor:[UIColor blackColor]];
+	
+	// Clock Label
+	self.timeLabel.textColor = [UIColor whiteColor];
+	
+	// Day Label
+	self.dayLabel.textColor = [UIColor whiteColor];
+	
+	// Day and Month Label
+	self.dayMonthLabel.textColor = [UIColor whiteColor];
 }
 
-// Update Label Colors for Day/Night Mode
--(void)updateLabelColors {
-    
-    // Button Size
-    _brightnessButton.titleLabel.font = [UIFont systemFontOfSize:BRIGHT_BUTTON_SIZE];
-    
-    // Find time in 24 hour format
-    NSDateFormatter *timeFormat = [[NSDateFormatter alloc] init];
-    [timeFormat setDateFormat:@"HH"];
-    NSString *time = [timeFormat stringFromDate:[NSDate date]];
-    int timeVal = [time intValue];
-    
-    // Set night mode or day mode colors for timeLabel
-    if (timeVal <= 7) {
-        _timeLabel.textColor = [UIColor whiteColor];
-    }
-    else if (timeVal <= 19 && timeVal >= 8) {
-        _timeLabel.textColor = [UIColor blackColor];
-    }
-    else if (timeVal >= 20) {
-        _timeLabel.textColor = [UIColor whiteColor];
-    }
-    
-    // Set night mode or day mode colors for dayLabel
-    if (timeVal <= 7) {
-        _dayLabel.textColor = [UIColor whiteColor];
-    }
-    else if (timeVal <= 19 && timeVal >= 8) {
-        _dayLabel.textColor = [UIColor blackColor];
-    }
-    else if (timeVal >= 20) {
-        _dayLabel.textColor = [UIColor whiteColor];
-    }
-    
-    // Set night mode or day mode colors for dayMonthLabel
-    if (timeVal <= 7) {
-        _dayMonthLabel.textColor = [UIColor whiteColor];
-    }
-    else if (timeVal <= 19 && timeVal >= 8) {
-        _dayMonthLabel.textColor = [UIColor blackColor];
-    }
-    else if (timeVal >= 20) {
-        _dayMonthLabel.textColor = [UIColor whiteColor];
-    }
-    
-    // Update every second
-    [self performSelector:@selector(updateLabelColors) withObject:self afterDelay:1.0];
-    
+// Automatic Switching is Enabled and Custom Times are On - Times are based on Custom Times settings
+-(void)customIsOn {
+	
+	NSLog(@"customIsOn is being called.");
+	
+	// Load time objects
+	NSUserDefaults *customTimePreferences = [NSUserDefaults standardUserDefaults];
+	
+	// Load the Hour Objects
+	NSDateFormatter *hourFormat = [[NSDateFormatter alloc] init];
+	[hourFormat setDateFormat:@"HH"];
+	
+	NSDate *hourDate = [customTimePreferences objectForKey:@"dayHourObject"];
+	NSString *dayHourObject = [hourFormat stringFromDate:hourDate];
+	int dayHour = [dayHourObject intValue];
+	NSDate *hourNightDate = [customTimePreferences objectForKey:@"nightHourObject"];
+	NSString *nightHourObject = [hourFormat stringFromDate:hourNightDate];
+	int nightHour = [nightHourObject intValue];
+	
+	// Load the Minute Objects
+	NSDateFormatter *minuteFormat = [[NSDateFormatter alloc] init];
+	[minuteFormat setDateFormat:@"mm"];
+	
+	NSDate *minuteDate = [customTimePreferences objectForKey:@"dayMinuteObject"];
+	NSString *dayMinuteObject = [minuteFormat stringFromDate:minuteDate];
+	int dayMinute = [dayMinuteObject intValue];
+	NSDate *minuteNightDate = [customTimePreferences objectForKey:@"nightMinuteObject"];
+	NSString *nightMinuteObject = [minuteFormat stringFromDate:minuteNightDate];
+	int nightMinute = [nightMinuteObject intValue];
+	
+    /*
+	// Load the AM and PM Objects
+	// May not use these, still unsure if necessary, but have them just in case
+	NSDateFormatter *ampmFormat = [[NSDateFormatter alloc] init];
+	[ampmFormat setDateFormat:@"a"];
+	
+	NSDate *dayAMPMDate = [customTimePreferences objectForKey:@"dayAMPMObject"];
+	NSString *dayAMPMObject = [ampmFormat stringFromDate:dayAMPMDate];
+	NSDate *nightAMPMDate = [customTimePreferences objectForKey:@"nightAMPMObject"];
+	NSString *nightAMPMObject = [ampmFormat stringFromDate:nightAMPMDate];
+    */
+	
+	// Find current Hour in 24 hour format
+	NSDateFormatter *currentHourFormat = [[NSDateFormatter alloc] init];
+	[currentHourFormat setDateFormat:@"HH"];
+	NSString *hour = [currentHourFormat stringFromDate:[NSDate date]];
+	int currentHour = [hour intValue];
+	
+	// Find current Minute
+	NSDateFormatter *currentMinuteFormat = [[NSDateFormatter alloc] init];
+	[currentMinuteFormat setDateFormat:@"mm"];
+	NSString *minute = [currentMinuteFormat stringFromDate:[NSDate date]];
+	int currentMinute = [minute intValue];
+	
+	// Load Day or Night mode based on Custom Times
+	if (currentHour < dayHour) {
+		[self nightMode];
+	}
+	// Get minute-to-minute updates if current time is within an hour from switch time
+	// It's early morning
+	else if (currentHour == dayHour) {
+		if (currentMinute < dayMinute) {
+			[self nightMode];
+		}
+		else if (currentMinute >= dayMinute) {
+			[self dayMode];
+		}
+	}
+	// During the day between switches
+	else if (currentHour < nightHour && currentHour > dayHour) {
+		[self dayMode];
+	}
+	// Get minute-to-minute updates if current time is within an hour from switch time
+	else if (currentHour == nightHour) {
+		if (currentMinute < nightMinute) {
+			[self dayMode];
+		}
+		else if (currentMinute >= nightMinute) {
+			[self nightMode];
+		}
+	}
+	// It's late night
+	else if (currentHour > nightHour) {
+		[self nightMode];
+	}
 }
+
+// Automatic Switching is Enabled and Custom Times are Off - Times switch at 8AM and 8PM
+-(void)customIsOff {
+    
+	NSLog(@"customIsOff is being called.");
+	
+	// Find time in 24 hour format
+	NSDateFormatter *timeFormat = [[NSDateFormatter alloc] init];
+	[timeFormat setDateFormat:@"HH"];
+	NSString *time = [timeFormat stringFromDate:[NSDate date]];
+	int timeVal = [time intValue];
+	
+	// Set night mode or day mode colors for timeLabel
+	if (timeVal <= 7) {
+		self.timeLabel.textColor = [UIColor whiteColor];
+	}
+	else if (timeVal <= 19 && timeVal >= 8) {
+		self.timeLabel.textColor = [UIColor blackColor];
+	}
+	else if (timeVal >= 20) {
+		self.timeLabel.textColor = [UIColor whiteColor];
+	}
+	
+	// Set night mode or day mode colors for dayLabel
+	if (timeVal <= 7) {
+		self.dayLabel.textColor = [UIColor whiteColor];
+	}
+	else if (timeVal <= 19 && timeVal >= 8) {
+		self.dayLabel.textColor = [UIColor blackColor];
+	}
+	else if (timeVal >= 20) {
+		self.dayLabel.textColor = [UIColor whiteColor];
+	}
+	
+	// Set night mode or day mode colors for dayMonthLabel
+	if (timeVal <= 7) {
+		self.dayMonthLabel.textColor = [UIColor whiteColor];
+	}
+	else if (timeVal <= 19 && timeVal >= 8) {
+		self.dayMonthLabel.textColor = [UIColor blackColor];
+	}
+	else if (timeVal >= 20) {
+		self.dayMonthLabel.textColor = [UIColor whiteColor];
+	}
+	
+	// Set night or day mode colors for background
+	if (timeVal <= 7) {
+		[self.backgroundView setBackgroundColor:[UIColor blackColor]];
+	}
+	else if (timeVal <= 19 && timeVal >= 8) {
+		[self.backgroundView setBackgroundColor:[UIColor whiteColor]];
+	}
+	else if (timeVal >= 20) {
+		[self.backgroundView setBackgroundColor:[UIColor blackColor]];
+	}
+	
+	// AM and PM Labels
+	// If it is AM
+	if (timeVal < 12) {
+		// It's Night
+		if (timeVal <= 7) {
+			self.amLabel.textColor = [UIColor whiteColor];
+			self.pmLabel.textColor = [UIColor darkGrayColor];
+			self.slashLabel.textColor = [UIColor whiteColor];
+		}
+		// It's Day
+		else if (timeVal <= 19 && timeVal >= 8) {
+			self.amLabel.textColor = [UIColor blackColor];
+			self.pmLabel.textColor = [UIColor lightGrayColor];
+			self.slashLabel.textColor = [UIColor blackColor];
+		}
+		// It's Night
+		else if (timeVal >= 20) {
+			self.amLabel.textColor = [UIColor whiteColor];
+			self.pmLabel.textColor = [UIColor darkGrayColor];
+			self.slashLabel.textColor = [UIColor whiteColor];
+		}
+	}
+	// If it is PM
+	else if (timeVal >= 12) {
+		// It's Night
+		if (timeVal <= 7) {
+			self.amLabel.textColor = [UIColor darkGrayColor];
+			self.pmLabel.textColor = [UIColor whiteColor];
+			self.slashLabel.textColor = [UIColor whiteColor];
+		}
+		// It's Day
+		else if (timeVal <= 19 && timeVal >= 8) {
+			self.amLabel.textColor = [UIColor lightGrayColor];
+			self.pmLabel.textColor = [UIColor blackColor];
+			self.slashLabel.textColor = [UIColor blackColor];
+		}
+		// It's Night
+		else if (timeVal >= 20) {
+			self.amLabel.textColor = [UIColor darkGrayColor];
+			self.pmLabel.textColor = [UIColor whiteColor];
+			self.slashLabel.textColor = [UIColor whiteColor];
+		}
+	}
+	
+	// Check local notification count
+	UIApplication *app = [UIApplication sharedApplication];
+	NSArray *eventArray = [app scheduledLocalNotifications];
+	
+	// Change Alarm On/Off State based on [eventArray count]
+	// If no alarms turn it OFF
+	if ([eventArray count] == 0) {
+		// It's Night
+		if (timeVal <= 7) {
+			self.onLabel.textColor = [UIColor darkGrayColor];
+			self.offLabel.textColor = [UIColor whiteColor];
+			self.alarmLabel.textColor = [UIColor whiteColor];
+		}
+		// It's Day
+		else if (timeVal <= 19 && timeVal >= 8) {
+			self.onLabel.textColor = [UIColor lightGrayColor];
+			self.offLabel.textColor = [UIColor blackColor];
+			self.alarmLabel.textColor = [UIColor blackColor];
+		}
+		// It's Night
+		else if (timeVal >= 20) {
+			self.onLabel.textColor = [UIColor darkGrayColor];
+			self.offLabel.textColor = [UIColor whiteColor];
+			self.alarmLabel.textColor = [UIColor whiteColor];
+		}
+	}
+	// If alarms present turn it ON
+	else if ([eventArray count] > 0) {
+		// It's Night
+		if (timeVal <= 7) {
+			self.onLabel.textColor = [UIColor whiteColor];
+			self.offLabel.textColor = [UIColor darkGrayColor];
+			self.alarmLabel.textColor = [UIColor whiteColor];
+		}
+		// It's Day
+		else if (timeVal <= 19 && timeVal >= 8) {
+			self.onLabel.textColor = [UIColor blackColor];
+			self.offLabel.textColor = [UIColor lightGrayColor];
+			self.alarmLabel.textColor = [UIColor blackColor];
+		}
+		// It's Night
+		else if (timeVal >= 20) {
+			self.onLabel.textColor = [UIColor whiteColor];
+			self.offLabel.textColor = [UIColor darkGrayColor];
+			self.alarmLabel.textColor = [UIColor whiteColor];
+		}
+	}
+}
+
 
 #pragma mark -
 #pragma mark Miscellaneous Functions
