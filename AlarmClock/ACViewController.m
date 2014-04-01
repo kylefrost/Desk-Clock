@@ -14,16 +14,21 @@
 #import "ACAppDelegate.h"
 #import "ACAlarmObject.h"
 #import "ACAlarmViewController.h"
+#import "OWMWeatherAPI.h"
 
 #import <AVFoundation/AVAudioPlayer.h>
 #import <AudioToolbox/AudioToolbox.h>
 #import <UIKit/UIScreen.h>
+#import <CoreLocation/CoreLocation.h>
 
 @interface ACViewController ()
 
 @end
 
-@implementation ACViewController
+@implementation ACViewController {
+    CLLocationManager *_locationManager;
+    CLLocationManager *weatherLocationManager;
+}
 
 @synthesize player;
 
@@ -50,6 +55,20 @@
     else {
         nil;
     }
+}
+
+// Get current location
+-(CLLocationCoordinate2D)getLocation {
+    
+    CLLocationManager *locationManager = [[CLLocationManager alloc] init];
+    // locationManager.delegate = self;
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    locationManager.distanceFilter = kCLDistanceFilterNone;
+    [locationManager startUpdatingLocation];
+    CLLocation *location = [locationManager location];
+    CLLocationCoordinate2D coordinate = [location coordinate];
+    
+    return coordinate;
 }
 
 // View Did Load
@@ -88,6 +107,22 @@
     [self updateDayLabelDate];
     [self updateDayMonthLabelDate];
     [self checkNightMode];
+    
+    // Weather Information
+    CLLocationCoordinate2D coordinate = [self getLocation];
+    NSLog(@"Lat is: %f, and Long is: %f", coordinate.latitude, coordinate.longitude);
+    
+    weatherLocationManager = [[CLLocationManager alloc] init];
+    
+    OWMWeatherAPI *weatherAPI = [[OWMWeatherAPI alloc] initWithAPIKey:@"82195186406a95aa715896dcc20e054f"];
+    [weatherAPI setTemperatureFormat:kOWMTempFahrenheit];
+    
+    [weatherAPI currentWeatherByCoordinate:coordinate withCallback:^(NSError *error, NSDictionary *result) {
+        NSString *tempString = [NSString stringWithFormat:@"%.1f℃", [result[@"main"][@"temp"] floatValue]];
+        NSLog(@"tempString is %@", tempString);
+        
+    }];
+    [self getWeather];
 }
 
 // Set code to play alarm if the alarm is going off
@@ -268,6 +303,11 @@
     
 }
 
+// Update the weather labels for Portrait view
+-(void)updateWeatherPortrait {
+    
+}
+
 #pragma mark -
 #pragma mark Landscape Functions
 
@@ -338,6 +378,11 @@
     _slashLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:SLASH_SIZE_LANDSCAPE];
     [_slashLabel setFrame:SLASH_LABEL_RECT_LANDSCAPE];
     _slashLabel.text = @"/";
+    
+}
+
+// Update the weather labels for Portrait view
+-(void)updateWeatherLandscape {
     
 }
 
@@ -645,6 +690,10 @@
 	
 	// Day and Month Label
 	self.dayMonthLabel.textColor = [UIColor blackColor];
+    
+    // Weather Labels
+    self.weatherTempLabel.textColor = [UIColor blackColor];
+    self.weatherCondLabel.textColor = [UIColor blackColor];
 }
 
 // Always Night Mode is Enabled
@@ -698,6 +747,10 @@
 	
 	// Day and Month Label
 	self.dayMonthLabel.textColor = [UIColor whiteColor];
+    
+    // Weather Labels
+    self.weatherTempLabel.textColor = [UIColor whiteColor];
+    self.weatherCondLabel.textColor = [UIColor whiteColor];
 }
 
 // Automatic Switching is Enabled and Custom Times are On - Times are based on Custom Times settings
@@ -786,15 +839,24 @@
 	NSString *time = [timeFormat stringFromDate:[NSDate date]];
 	int timeVal = [time intValue];
 	
-	// Set night mode or day mode colors for timeLabel
+	// Set night mode or day mode colors for timeLabel and weather labels
 	if (timeVal <= 7) {
 		self.timeLabel.textColor = [UIColor whiteColor];
+        // Weather Labels
+        self.weatherTempLabel.textColor = [UIColor whiteColor];
+        self.weatherCondLabel.textColor = [UIColor whiteColor];
 	}
 	else if (timeVal <= 19 && timeVal >= 8) {
 		self.timeLabel.textColor = [UIColor blackColor];
+        // Weather Labels
+        self.weatherTempLabel.textColor = [UIColor blackColor];
+        self.weatherCondLabel.textColor = [UIColor blackColor];
 	}
 	else if (timeVal >= 20) {
 		self.timeLabel.textColor = [UIColor whiteColor];
+        // Weather Labels
+        self.weatherTempLabel.textColor = [UIColor whiteColor];
+        self.weatherCondLabel.textColor = [UIColor whiteColor];
 	}
 	
 	// Set night mode or day mode colors for dayLabel
@@ -921,6 +983,81 @@
 			self.alarmLabel.textColor = [UIColor whiteColor];
 		}
 	}
+}
+
+
+#pragma mark -
+#pragma mark Weather Functions
+
+/******************* Weather *******************/
+
+// Refresh weather button
+-(IBAction)updateWeather:(id)sender {
+    [self getWeather];
+}
+
+// Get and Show Weather Information
+-(void)getWeather {
+    
+    self.weatherTempLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:TEMP_SIZE_PORTRAIT];
+    self.weatherCondLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:COND_SIZE_PORTRAIT];
+    
+    weatherLocationManager.delegate = self;
+    weatherLocationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    
+    [weatherLocationManager startUpdatingLocation];
+    
+    CLLocationCoordinate2D coordinate = [self getLocation];
+    NSLog(@"Lat is: %f, and Long is: %f", coordinate.latitude, coordinate.longitude);
+    
+    OWMWeatherAPI *weatherAPI = [[OWMWeatherAPI alloc] initWithAPIKey:@"82195186406a95aa715896dcc20e054f"];
+    [weatherAPI setTemperatureFormat:kOWMTempFahrenheit];
+    
+    [weatherAPI currentWeatherByCoordinate:coordinate withCallback:^(NSError *error, NSDictionary *result) {
+        
+        int tempString = [result[@"main"][@"temp"] floatValue];
+        NSString *weatherDescription = result[@"weather"][0][@"description"];
+        NSLog(@"tempString is %d and weatherDescription = %@", tempString, weatherDescription);
+        
+        self.weatherTempLabel.text = [NSString stringWithFormat:@"%dº", tempString];
+        self.weatherCondLabel.text = [[NSString stringWithFormat:@"%@", weatherDescription] uppercaseString];
+    }];
+}
+
+/*
+// Get current location
+-(CLLocationCoordinate2D)getLocation {
+    
+    CLLocationManager *locationManager = [[CLLocationManager alloc] init];
+    // locationManager.delegate = self;
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    locationManager.distanceFilter = kCLDistanceFilterNone;
+    [locationManager startUpdatingLocation];
+    CLLocation *location = [locationManager location];
+    CLLocationCoordinate2D coordinate = [location coordinate];
+    
+    return coordinate;
+}
+*/
+
+- (void)weatherLocationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    NSLog(@"didFailWithError: %@", error);
+    UIAlertView *errorAlert = [[UIAlertView alloc]
+                               initWithTitle:@"Error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [errorAlert show];
+}
+
+- (void)weatherLocationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+{
+    NSLog(@"didUpdateToLocation: %@", newLocation);
+    CLLocation *currentLocation = newLocation;
+    
+    if (currentLocation != nil) {
+        NSString *longitude = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.longitude];
+        NSString *latitude = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.latitude];
+        NSLog(@"\n\nLONG is %@\n\nLAT is %@\n\n", longitude, latitude);
+    }
 }
 
 

@@ -37,9 +37,9 @@
  */
 
 
--(CLLocationCoordinate2D) getLocation{
+-(CLLocationCoordinate2D)getLocation {
     CLLocationManager *locationManager = [[CLLocationManager alloc] init];
-    // locationManager.delegate = self;
+    locationManager.delegate = self;
     locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     locationManager.distanceFilter = kCLDistanceFilterNone;
     [locationManager startUpdatingLocation];
@@ -101,23 +101,22 @@
     
     downloadCount = 0;
     [self.activityIndicator startAnimating];
+    [self.view addSubview:self.activityIndicator];
     
     OWMWeatherAPI *weatherAPI = [[OWMWeatherAPI alloc] initWithAPIKey:@"82195186406a95aa715896dcc20e054f"];
     [weatherAPI setTemperatureFormat:kOWMTempFahrenheit];
     
     [weatherAPI currentWeatherByCoordinate:coordinate withCallback:^(NSError *error, NSDictionary *result) {
         downloadCount++;
-        if (downloadCount > 1) [self.activityIndicator stopAnimating];
         
         int tempString = [result[@"main"][@"temp"] floatValue];
         NSString *weatherDescription = result[@"weather"][0][@"description"];
         NSLog(@"tempString is %d and weatherDescription = %@", tempString, weatherDescription);
         
         self.temp.text = [NSString stringWithFormat:@"%dº", tempString];
-        self.weather.text = [NSString stringWithFormat:@"%@", weatherDescription];
-        
-        [self.activityIndicator performSelector:@selector(removeFromSuperview) withObject:nil afterDelay:1.0];
+        self.weather.text = [[NSString stringWithFormat:@"%@", weatherDescription] uppercaseString];
     }];
+    [self.activityIndicator performSelector:@selector(removeFromSuperview) withObject:nil afterDelay:1.0];
 }
 
 - (void)weatherLocationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
@@ -143,7 +142,7 @@
 -(void)getWeather {
     
     CLLocationCoordinate2D coordinate = [self getLocation];
-    NSLog(@"Lat is: %f, and Long is: %f", coordinate.latitude, coordinate.longitude);
+    // NSLog(@"Lat is: %f, and Long is: %f", coordinate.latitude, coordinate.longitude);
     
     NSString *apiURLString = [NSString stringWithFormat:@"http://api.openweathermap.org/data/2.1/find/city?lat=%f&lon=%f&cnt=1", coordinate.latitude, coordinate.longitude];
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:apiURLString]];

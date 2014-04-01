@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface ACViewController : UIViewController <UIAlertViewDelegate> {
+@interface ACViewController : UIViewController <UIAlertViewDelegate, CLLocationManagerDelegate> {
     
     NSDate *dateOfInterest;
     NSString *monthName;
@@ -43,6 +44,12 @@
 -(void)customIsOff;
 @property (strong, nonatomic) IBOutlet UIView *backgroundView;
 
+// Weather
+@property (weak, nonatomic) IBOutlet UILabel *weatherTempLabel;
+@property (weak, nonatomic) IBOutlet UILabel *weatherCondLabel;
+-(void)getWeather;
+-(IBAction)updateWeather:(id)sender;
+
 // Check Orientation
 -(void)getOrientation;
 
@@ -63,6 +70,7 @@
 -(void)updateMonthDayPortrait;
 -(void)updateAlarmPortrait;
 -(void)updateAMPMPortrait;
+-(void)updateWeatherPortrait;
 
 // Landscape Functions
 -(void)updateTimeLandscape;
@@ -70,6 +78,7 @@
 -(void)updateMonthDayLandscape;
 -(void)updateAlarmLandscape;
 -(void)updateAMPMLandscape;
+-(void)updateWeatherLandscape;
 
 // Portrait/Lanscape Independent Functions
 -(void)updateClockLabelTime;
