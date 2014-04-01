@@ -186,7 +186,7 @@
                 
                 // NSLog(@"ftemp: %d", ftemp);
             
-                NSString *curTemp = [NSString stringWithFormat:@"%dº", ftemp];
+                // NSString *curTemp = [NSString stringWithFormat:@"%dº", ftemp];
                 // NSLog(@"curTemp: %@", curTemp);
                 currentTemp = [NSString stringWithFormat:@"%dº", ftemp];
                 _temp.text = [NSString stringWithFormat:@"%@", currentTemp];

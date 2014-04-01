@@ -114,7 +114,7 @@
     }
 }
 
-// Alart View when song comes on, stop music on exit
+// Alart View when alarm comes on, stop alarm on exit
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
     if(buttonIndex == 0) {
         
@@ -730,18 +730,6 @@
 	NSString *nightMinuteObject = [minuteFormat stringFromDate:minuteNightDate];
 	int nightMinute = [nightMinuteObject intValue];
 	
-    /*
-	// Load the AM and PM Objects
-	// May not use these, still unsure if necessary, but have them just in case
-	NSDateFormatter *ampmFormat = [[NSDateFormatter alloc] init];
-	[ampmFormat setDateFormat:@"a"];
-	
-	NSDate *dayAMPMDate = [customTimePreferences objectForKey:@"dayAMPMObject"];
-	NSString *dayAMPMObject = [ampmFormat stringFromDate:dayAMPMDate];
-	NSDate *nightAMPMDate = [customTimePreferences objectForKey:@"nightAMPMObject"];
-	NSString *nightAMPMObject = [ampmFormat stringFromDate:nightAMPMDate];
-    */
-	
 	// Find current Hour in 24 hour format
 	NSDateFormatter *currentHourFormat = [[NSDateFormatter alloc] init];
 	[currentHourFormat setDateFormat:@"HH"];
@@ -968,6 +956,11 @@
     UIScreen *mainScreen = [UIScreen mainScreen];
     // mainScreen.brightness = 0.5;
     
+    float brightness = mainScreen.brightness;
+    NSUserDefaults *brightnessDefault = [NSUserDefaults standardUserDefaults];
+    [brightnessDefault setFloat:brightness forKey:@"brightness"];
+    [brightnessDefault synchronize];
+    
     // If button is pressed, night mode turned on, and if again, day mode turned on
     if (mainScreen.brightness > 0.1) {
         [_brightnessButton setTitle:@"View Mode" forState:UIControlStateNormal];
@@ -978,7 +971,7 @@
     else if (mainScreen.brightness <= 0.1) {
         
         [_brightnessButton setTitle:@"Night Mode" forState:UIControlStateNormal];
-        [[UIScreen mainScreen] setBrightness:0.5];
+        [[UIScreen mainScreen] setBrightness:brightness];
     }
     
 }
@@ -1011,6 +1004,5 @@
         NSLog(@"Build is NOT a beta build.");
     }
 }
-
 
 @end
