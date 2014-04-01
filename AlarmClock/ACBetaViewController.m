@@ -11,6 +11,7 @@
 #import <Crashlytics/Crashlytics.h>
 #import <MessageUI/MessageUI.h>
 #import <CoreLocation/CoreLocation.h>
+#import "OWMWeatherAPI.h"
 
 @interface ACBetaViewController ()
 
@@ -18,7 +19,8 @@
 
 @implementation ACBetaViewController {
     CLLocationManager *_locationManager;
-    
+    CLLocationManager *weatherLocationManager;
+    int downloadCount;
 }
 
 @synthesize crashButton;
@@ -62,13 +64,80 @@
     CLLocationCoordinate2D coordinate = [self getLocation];
     NSLog(@"Lat is: %f, and Long is: %f", coordinate.latitude, coordinate.longitude);
     
+    weatherLocationManager = [[CLLocationManager alloc] init];
+    
+    
     [self getWeather];
+    
+    OWMWeatherAPI *weatherAPI = [[OWMWeatherAPI alloc] initWithAPIKey:@"82195186406a95aa715896dcc20e054f"];
+    [weatherAPI setTemperatureFormat:kOWMTempFahrenheit];
+    
+    [weatherAPI currentWeatherByCoordinate:coordinate withCallback:^(NSError *error, NSDictionary *result) {
+        NSString *tempString = [NSString stringWithFormat:@"%.1f℃", [result[@"main"][@"temp"] floatValue]];
+        NSLog(@"tempString is %@", tempString);
+        
+    }];
+}
+
+-(void) currentWeatherByCoordinate:(CLLocationCoordinate2D)coordinate withCallback:(void(^)(NSError* error, NSDictionary *result))callback {
+    
+    
+    
 }
 
 // Beta settings for weather information
 
 -(IBAction)getWeatherButton {
-    [self getWeather];
+    
+    // [self getWeather];
+    
+    weatherLocationManager.delegate = self;
+    weatherLocationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    
+    [weatherLocationManager startUpdatingLocation];
+
+    CLLocationCoordinate2D coordinate = [self getLocation];
+    NSLog(@"Lat is: %f, and Long is: %f", coordinate.latitude, coordinate.longitude);
+    
+    downloadCount = 0;
+    [self.activityIndicator startAnimating];
+    
+    OWMWeatherAPI *weatherAPI = [[OWMWeatherAPI alloc] initWithAPIKey:@"82195186406a95aa715896dcc20e054f"];
+    [weatherAPI setTemperatureFormat:kOWMTempFahrenheit];
+    
+    [weatherAPI currentWeatherByCoordinate:coordinate withCallback:^(NSError *error, NSDictionary *result) {
+        downloadCount++;
+        if (downloadCount > 1) [self.activityIndicator stopAnimating];
+        
+        int tempString = [result[@"main"][@"temp"] floatValue];
+        NSString *weatherDescription = result[@"weather"][0][@"description"];
+        NSLog(@"tempString is %d and weatherDescription = %@", tempString, weatherDescription);
+        
+        self.temp.text = [NSString stringWithFormat:@"%dº", tempString];
+        self.weather.text = [NSString stringWithFormat:@"%@", weatherDescription];
+        
+        [self.activityIndicator performSelector:@selector(removeFromSuperview) withObject:nil afterDelay:1.0];
+    }];
+}
+
+- (void)weatherLocationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    NSLog(@"didFailWithError: %@", error);
+    UIAlertView *errorAlert = [[UIAlertView alloc]
+                               initWithTitle:@"Error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [errorAlert show];
+}
+
+- (void)weatherLocationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+{
+    NSLog(@"didUpdateToLocation: %@", newLocation);
+    CLLocation *currentLocation = newLocation;
+    
+    if (currentLocation != nil) {
+        NSString *longitude = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.longitude];
+        NSString *latitude = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.latitude];
+        NSLog(@"\n\nLONG is %@\n\nLAT is %@\n\n", longitude, latitude);
+    }
 }
 
 -(void)getWeather {
@@ -115,10 +184,10 @@
                 int temperature = [temperatureNumber integerValue] - 273.15;
                 int ftemp = (((temperature*9)/5)+32);
                 
-                NSLog(@"ftemp: %d", ftemp);
+                // NSLog(@"ftemp: %d", ftemp);
             
                 NSString *curTemp = [NSString stringWithFormat:@"%dº", ftemp];
-                NSLog(@"curTemp: %@", curTemp);
+                // NSLog(@"curTemp: %@", curTemp);
                 currentTemp = [NSString stringWithFormat:@"%dº", ftemp];
                 _temp.text = [NSString stringWithFormat:@"%@", currentTemp];
                 
@@ -140,6 +209,11 @@
 -(int)getTemp {
     
     return 1;
+}
+
+-(void)showLocation {
+    
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated {

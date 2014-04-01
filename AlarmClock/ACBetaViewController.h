@@ -11,7 +11,7 @@
 #import <MessageUI/MessageUI.h>
 #import <CoreLocation/CoreLocation.h>
 
-@interface ACBetaViewController : UIViewController {
+@interface ACBetaViewController : UIViewController <CLLocationManagerDelegate> {
     
     NSString *currentTemp;
     

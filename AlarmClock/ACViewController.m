@@ -88,11 +88,6 @@
     [self updateDayLabelDate];
     [self updateDayMonthLabelDate];
     [self checkNightMode];
-    // [self updateAlarmLabelStatus];
-    // [self updateAMPMLabelStatus];
-    // [self updateLabelColors];
-    // [self updateBackgroundColor];
-    
 }
 
 // Set code to play alarm if the alarm is going off
@@ -196,7 +191,7 @@
      at around 1% - 2%.
      */
     
-    [self performSelector:@selector(getOrientation) withObject:self afterDelay:0.1];
+    [self performSelector:@selector(getOrientation) withObject:self afterDelay:0.05];
 }
 
 #pragma mark -
@@ -587,13 +582,13 @@
 	// Always Day Mode is Enabled
 	if (alwaysOnDaySwitchState == 1) {
 		[self dayMode];
-		NSLog(@"dayMode is being called from checkNightMode.");
+		// NSLog(@"dayMode is being called from checkNightMode.");
 	}
 	
 	// Always Night Mode is Enabled
 	if (alwaysOnNightSwitchState == 1) {
 		[self nightMode];
-		NSLog(@"nightMode is being called from checkNightMode.");
+		// NSLog(@"nightMode is being called from checkNightMode.");
 	}
 	
 	[self performSelector:@selector(checkNightMode) withObject:self afterDelay:1.0];
@@ -708,7 +703,7 @@
 // Automatic Switching is Enabled and Custom Times are On - Times are based on Custom Times settings
 -(void)customIsOn {
 	
-	NSLog(@"customIsOn is being called.");
+	// NSLog(@"customIsOn is being called.");
 	
 	// Load time objects
 	NSUserDefaults *customTimePreferences = [NSUserDefaults standardUserDefaults];
@@ -795,7 +790,7 @@
 // Automatic Switching is Enabled and Custom Times are Off - Times switch at 8AM and 8PM
 -(void)customIsOff {
     
-	NSLog(@"customIsOff is being called.");
+	// NSLog(@"customIsOff is being called.");
 	
 	// Find time in 24 hour format
 	NSDateFormatter *timeFormat = [[NSDateFormatter alloc] init];
