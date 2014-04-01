@@ -8,9 +8,6 @@
       location = "group:Orlando, FL.gpx">
    </FileRef>
    <FileRef
-      location = "group:Orlando.gpx">
-   </FileRef>
-   <FileRef
       location = "group:AlarmClock.xcodeproj">
    </FileRef>
    <FileRef
