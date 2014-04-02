@@ -61,7 +61,7 @@
 -(CLLocationCoordinate2D)getLocation {
     
     CLLocationManager *locationManager = [[CLLocationManager alloc] init];
-    // locationManager.delegate = self;
+    locationManager.delegate = self;
     locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     locationManager.distanceFilter = kCLDistanceFilterNone;
     [locationManager startUpdatingLocation];
@@ -118,7 +118,7 @@
     [weatherAPI setTemperatureFormat:kOWMTempFahrenheit];
     
     [weatherAPI currentWeatherByCoordinate:coordinate withCallback:^(NSError *error, NSDictionary *result) {
-        NSString *tempString = [NSString stringWithFormat:@"%.1f℃", [result[@"main"][@"temp"] floatValue]];
+        NSString *tempString = [NSString stringWithFormat:@"%.1f", [result[@"main"][@"temp"] floatValue]];
         NSLog(@"tempString is %@", tempString);
         
     }];
@@ -176,6 +176,7 @@
         [self updateMonthDayPortrait];
         [self updateAlarmPortrait];
         [self updateAMPMPortrait];
+        [self updateWeatherPortrait];
         
     }
     // Portrait
@@ -186,6 +187,7 @@
         [self updateMonthDayPortrait];
         [self updateAlarmPortrait];
         [self updateAMPMPortrait];
+        [self updateWeatherPortrait];
         
     }
     // Portrait
@@ -196,6 +198,7 @@
         [self updateMonthDayPortrait];
         [self updateAlarmPortrait];
         [self updateAMPMPortrait];
+        [self updateWeatherPortrait];
         
     }
     // Landscape
@@ -206,6 +209,7 @@
         [self updateMonthDayLandscape];
         [self updateAlarmLandscape];
         [self updateAMPMLandscape];
+        [self updateWeatherLandscape];
         
     }
     // Landscape
@@ -216,6 +220,7 @@
         [self updateMonthDayLandscape];
         [self updateAlarmLandscape];
         [self updateAMPMLandscape];
+        [self updateWeatherLandscape];
         
     }
     
@@ -306,6 +311,13 @@
 // Update the weather labels for Portrait view
 -(void)updateWeatherPortrait {
     
+    self.weatherTempLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:TEMP_SIZE_PORTRAIT];
+    self.weatherCondLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:COND_SIZE_PORTRAIT];
+    self.weatherCondLabel.textAlignment = NSTextAlignmentLeft;
+    
+    self.weatherTempLabel.frame = TEMP_RECT_PORTRAIT;
+    self.weatherCondLabel.frame = COND_RECT_PORTRAIT;
+    self.refreshButton.frame = REFRESH_BUTTON_RECT_PORTRAIT;
 }
 
 #pragma mark -
@@ -384,6 +396,13 @@
 // Update the weather labels for Portrait view
 -(void)updateWeatherLandscape {
     
+    self.weatherTempLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:TEMP_SIZE_LANDSCAPE];
+    self.weatherCondLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:COND_SIZE_LANDSCAPE];
+    self.weatherCondLabel.textAlignment = NSTextAlignmentRight;
+    
+    self.weatherTempLabel.frame = TEMP_RECT_LANDSCAPE;
+    self.weatherCondLabel.frame = COND_RECT_LANDSCAPE;
+    self.refreshButton.frame = REFRESH_BUTTON_RECT_LANDSCAPE;
 }
 
 #pragma mark -
@@ -999,9 +1018,6 @@
 // Get and Show Weather Information
 -(void)getWeather {
     
-    self.weatherTempLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:TEMP_SIZE_PORTRAIT];
-    self.weatherCondLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:COND_SIZE_PORTRAIT];
-    
     weatherLocationManager.delegate = self;
     weatherLocationManager.desiredAccuracy = kCLLocationAccuracyBest;
     
@@ -1019,37 +1035,23 @@
         NSString *weatherDescription = result[@"weather"][0][@"description"];
         NSLog(@"tempString is %d and weatherDescription = %@", tempString, weatherDescription);
         
-        self.weatherTempLabel.text = [NSString stringWithFormat:@"%dº", tempString];
+        self.weatherTempLabel.text = [NSString stringWithFormat:@"%dºF", tempString];
         self.weatherCondLabel.text = [[NSString stringWithFormat:@"%@", weatherDescription] uppercaseString];
     }];
 }
 
-/*
-// Get current location
--(CLLocationCoordinate2D)getLocation {
+// If location manager fails to get location
+- (void)weatherLocationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
     
-    CLLocationManager *locationManager = [[CLLocationManager alloc] init];
-    // locationManager.delegate = self;
-    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    locationManager.distanceFilter = kCLDistanceFilterNone;
-    [locationManager startUpdatingLocation];
-    CLLocation *location = [locationManager location];
-    CLLocationCoordinate2D coordinate = [location coordinate];
-    
-    return coordinate;
-}
-*/
-
-- (void)weatherLocationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
-{
     NSLog(@"didFailWithError: %@", error);
     UIAlertView *errorAlert = [[UIAlertView alloc]
                                initWithTitle:@"Error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [errorAlert show];
 }
 
-- (void)weatherLocationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
-{
+// Location updates
+- (void)weatherLocationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
+    
     NSLog(@"didUpdateToLocation: %@", newLocation);
     CLLocation *currentLocation = newLocation;
     
@@ -1080,6 +1082,10 @@
     
 }
 
+-(void)viewDidDisappear:(BOOL)animated {
+    [self getOrientation];
+}
+
 // Did Receive Memory Warning
 -(void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -1100,10 +1106,9 @@
     
     // If button is pressed, night mode turned on, and if again, day mode turned on
     if (mainScreen.brightness > 0.1) {
+        
         [_brightnessButton setTitle:@"View Mode" forState:UIControlStateNormal];
         [[UIScreen mainScreen] setBrightness:0.0];
-        // UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Night Mode Enabled" message: @"Night Mode has been enabled, and brightness has been turned down. Press View Mode to turn brightness back up." delegate: nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
-        // [alert show];
     }
     else if (mainScreen.brightness <= 0.1) {
         
@@ -1131,12 +1136,16 @@
     if (buildBOOL == 1) {
         [self.betaButton setEnabled:YES];
         [self.betaButton setAlpha:1.0];
+        [self.refreshButton setEnabled:YES];
+        [self.refreshButton setAlpha:1.0];
         // [self.betaButton setUserInteractionEnabled:YES];
         NSLog(@"Build is a beta build.");
     }
     else if (buildBOOL == 0) {
         [self.betaButton setEnabled:NO];
         [self.betaButton setAlpha:0.0];
+        [self.refreshButton setEnabled:NO];
+        [self.refreshButton setAlpha:0.0];
         // [self.betaButton setUserInteractionEnabled:NO];
         NSLog(@"Build is NOT a beta build.");
     }

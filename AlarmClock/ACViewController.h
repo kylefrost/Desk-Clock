@@ -49,6 +49,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *weatherCondLabel;
 -(void)getWeather;
 -(IBAction)updateWeather:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *refreshButton;
 
 // Check Orientation
 -(void)getOrientation;
