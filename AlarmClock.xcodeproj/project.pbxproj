@@ -27,6 +27,8 @@
 		27291F101823EF6100CB2070 /* ACViewController~ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 27291F0F1823EF6100CB2070 /* ACViewController~ipad.m */; };
 		27291F131823EF8100CB2070 /* ACInfoViewController~ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 27291F121823EF8100CB2070 /* ACInfoViewController~ipad.m */; };
 		274B70C2182AC23900266466 /* BetaSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 274B70C1182AC23900266466 /* BetaSettings.plist */; };
+		276182A418EB1B18000E2C31 /* ACWeatherSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 276182A318EB1B18000E2C31 /* ACWeatherSettingsViewController.m */; };
+		276182A618EB2C6F000E2C31 /* IFIHADONE.png in Resources */ = {isa = PBXBuildFile; fileRef = 276182A518EB2C6F000E2C31 /* IFIHADONE.png */; };
 		27642FF11827FB92007D66CE /* ACLaurenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27642FF01827FB92007D66CE /* ACLaurenViewController.m */; };
 		2767D54C182C3C020012586B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2767D54B182C3C020012586B /* MessageUI.framework */; };
 		276901B51820C4F9006B915D /* Digital-7MonoItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 276901B41820C4D1006B915D /* Digital-7MonoItalic.otf */; };
@@ -73,6 +75,8 @@
 		27EF34AA18D3D4A200B7D79C /* ACAddEditAlarmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EF34A918D3D4A200B7D79C /* ACAddEditAlarmViewController.m */; };
 		27EF34AD18D3D4DF00B7D79C /* ACAlarmLabelEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EF34AC18D3D4DF00B7D79C /* ACAlarmLabelEditViewController.m */; };
 		27EF34B018D3D53300B7D79C /* ACAlarmObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EF34AF18D3D53300B7D79C /* ACAlarmObject.m */; };
+		27EF4A2E18ECFC4300C9D72F /* ACWeatherRefreshIntervalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EF4A2D18ECFC4300C9D72F /* ACWeatherRefreshIntervalViewController.m */; };
+		AB6CC89BCE644DC0AACB5133 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C71414EA618468AA018A9AB /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +113,9 @@
 		27291F121823EF8100CB2070 /* ACInfoViewController~ipad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ACInfoViewController~ipad.m"; sourceTree = "<group>"; };
 		2729A88218B7205500182ED1 /* Definitions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Definitions.h; sourceTree = "<group>"; };
 		274B70C1182AC23900266466 /* BetaSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BetaSettings.plist; sourceTree = "<group>"; };
+		276182A218EB1B18000E2C31 /* ACWeatherSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACWeatherSettingsViewController.h; sourceTree = "<group>"; };
+		276182A318EB1B18000E2C31 /* ACWeatherSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACWeatherSettingsViewController.m; sourceTree = "<group>"; };
+		276182A518EB2C6F000E2C31 /* IFIHADONE.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IFIHADONE.png; sourceTree = "<group>"; };
 		27642FEF1827FB92007D66CE /* ACLaurenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACLaurenViewController.h; sourceTree = "<group>"; };
 		27642FF01827FB92007D66CE /* ACLaurenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACLaurenViewController.m; sourceTree = "<group>"; };
 		2767D54B182C3C020012586B /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -180,6 +187,10 @@
 		27EF34AC18D3D4DF00B7D79C /* ACAlarmLabelEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACAlarmLabelEditViewController.m; sourceTree = "<group>"; };
 		27EF34AE18D3D53300B7D79C /* ACAlarmObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACAlarmObject.h; sourceTree = "<group>"; };
 		27EF34AF18D3D53300B7D79C /* ACAlarmObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACAlarmObject.m; sourceTree = "<group>"; };
+		27EF4A2C18ECFC4300C9D72F /* ACWeatherRefreshIntervalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACWeatherRefreshIntervalViewController.h; sourceTree = "<group>"; };
+		27EF4A2D18ECFC4300C9D72F /* ACWeatherRefreshIntervalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACWeatherRefreshIntervalViewController.m; sourceTree = "<group>"; };
+		9BF5BECAF8E149C1A7C66531 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		9C71414EA618468AA018A9AB /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +210,7 @@
 				277AFEE8181EA5B80009AE0F /* CoreGraphics.framework in Frameworks */,
 				277AFEEA181EA5B80009AE0F /* UIKit.framework in Frameworks */,
 				277AFEE6181EA5B80009AE0F /* Foundation.framework in Frameworks */,
+				AB6CC89BCE644DC0AACB5133 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,6 +255,7 @@
 				27B4861A18D50971004CA2DD /* AboutViewController */,
 				27EF34A318D3D2DE00B7D79C /* Alarm */,
 				2785DAF618D0E49D00B8D39B /* NightViewController */,
+				276182A118EB1AE7000E2C31 /* WeatherSettingsViewController */,
 				277AFEF7181EA5B80009AE0F /* Main.storyboard */,
 			);
 			name = iPhone;
@@ -258,6 +271,17 @@
 				27291F121823EF8100CB2070 /* ACInfoViewController~ipad.m */,
 			);
 			name = iPad;
+			sourceTree = "<group>";
+		};
+		276182A118EB1AE7000E2C31 /* WeatherSettingsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				276182A218EB1B18000E2C31 /* ACWeatherSettingsViewController.h */,
+				276182A318EB1B18000E2C31 /* ACWeatherSettingsViewController.m */,
+				27EF4A2C18ECFC4300C9D72F /* ACWeatherRefreshIntervalViewController.h */,
+				27EF4A2D18ECFC4300C9D72F /* ACWeatherRefreshIntervalViewController.m */,
+			);
+			name = WeatherSettingsViewController;
 			sourceTree = "<group>";
 		};
 		27642FF21827FB9E007D66CE /* Lauren (Secret) */ = {
@@ -276,6 +300,7 @@
 				277AFF0A181EA5B80009AE0F /* AlarmClockTests */,
 				277AFEE4181EA5B80009AE0F /* Frameworks */,
 				277AFEE3181EA5B80009AE0F /* Products */,
+				9BF5BECAF8E149C1A7C66531 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -303,6 +328,7 @@
 				277AFEE7181EA5B80009AE0F /* CoreGraphics.framework */,
 				277AFEE9181EA5B80009AE0F /* UIKit.framework */,
 				277AFF04181EA5B80009AE0F /* XCTest.framework */,
+				9C71414EA618468AA018A9AB /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -334,6 +360,7 @@
 				27642FF21827FB9E007D66CE /* Lauren (Secret) */,
 				270893FF1821C269006E23BA /* Images */,
 				277AFEFD181EA5B80009AE0F /* Images.xcassets */,
+				276182A518EB2C6F000E2C31 /* IFIHADONE.png */,
 				2729A88218B7205500182ED1 /* Definitions.h */,
 				276901B41820C4D1006B915D /* Digital-7MonoItalic.otf */,
 				277AFEED181EA5B80009AE0F /* AlarmClock-Info.plist */,
@@ -554,10 +581,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 277AFF14181EA5B80009AE0F /* Build configuration list for PBXNativeTarget "AlarmClock" */;
 			buildPhases = (
+				152AD5BFA5944471BA784718 /* Check Pods Manifest.lock */,
 				277AFEDE181EA5B80009AE0F /* Sources */,
 				277AFEDF181EA5B80009AE0F /* Frameworks */,
 				277AFEE0181EA5B80009AE0F /* Resources */,
 				27D7FF8D182AB8A200A14824 /* ShellScript */,
+				92EC8F42B8554AC3BB35B2F3 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -642,6 +671,7 @@
 				276901B51820C4F9006B915D /* Digital-7MonoItalic.otf in Resources */,
 				27B4862118D554EF004CA2DD /* heart_settings_button@2x.png in Resources */,
 				270894131821C297006E23BA /* iTunesArtwork@2x.png in Resources */,
+				276182A618EB2C6F000E2C31 /* IFIHADONE.png in Resources */,
 				270894121821C297006E23BA /* iTunesArtwork.png in Resources */,
 				270894101821C297006E23BA /* AppIcon76x76.png in Resources */,
 				277AFEFE181EA5B80009AE0F /* Images.xcassets in Resources */,
@@ -676,6 +706,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		152AD5BFA5944471BA784718 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		27D7FF8D182AB8A200A14824 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 12;
@@ -690,6 +735,21 @@
 			shellScript = "./Crashlytics.framework/run e6796ec21a8268eef118ce2bffeb5fd9a084bcb1 a12dedb951e246404c4da4a62cdfdc987980947d1e39583cb86f9f54d4c38dd5";
 			showEnvVarsInLog = 0;
 		};
+		92EC8F42B8554AC3BB35B2F3 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -699,6 +759,7 @@
 			files = (
 				277AFF22181EBE510009AE0F /* ACInfoViewController.m in Sources */,
 				27E01BF21829AAC500DB1132 /* MKiCloudSync.m in Sources */,
+				27EF4A2E18ECFC4300C9D72F /* ACWeatherRefreshIntervalViewController.m in Sources */,
 				27EF34A718D3D3F300B7D79C /* ACAlarmViewController.m in Sources */,
 				27EF34AD18D3D4DF00B7D79C /* ACAlarmLabelEditViewController.m in Sources */,
 				27EF34B018D3D53300B7D79C /* ACAlarmObject.m in Sources */,
@@ -711,6 +772,7 @@
 				27D5CCEF18711EFC00061B47 /* ACOverlayViewController.m in Sources */,
 				27D7FF98182ABB3300A14824 /* ACBetaViewController~ipad.m in Sources */,
 				27EF34AA18D3D4A200B7D79C /* ACAddEditAlarmViewController.m in Sources */,
+				276182A418EB1B18000E2C31 /* ACWeatherSettingsViewController.m in Sources */,
 				27208B15182145CC0025FEBD /* ACTutorialViewController.m in Sources */,
 				27D7FF93182ABAF800A14824 /* ACBetaViewController.m in Sources */,
 				2785DAFC18D0E53E00B8D39B /* ACNightViewController.m in Sources */,
@@ -841,6 +903,7 @@
 		};
 		277AFF15181EA5B80009AE0F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9BF5BECAF8E149C1A7C66531 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -872,6 +935,7 @@
 		};
 		277AFF16181EA5B80009AE0F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9BF5BECAF8E149C1A7C66531 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;

@@ -11,6 +11,7 @@
 #import <Crashlytics/Crashlytics.h>
 #import <MessageUI/MessageUI.h>
 #import <CoreLocation/CoreLocation.h>
+#import "OWMWeatherAPI.h"
 
 @interface ACBetaViewController ()
 
@@ -18,7 +19,8 @@
 
 @implementation ACBetaViewController {
     CLLocationManager *_locationManager;
-    
+    CLLocationManager *weatherLocationManager;
+    int downloadCount;
 }
 
 @synthesize crashButton;
@@ -35,9 +37,9 @@
  */
 
 
--(CLLocationCoordinate2D) getLocation{
+-(CLLocationCoordinate2D)getLocation {
     CLLocationManager *locationManager = [[CLLocationManager alloc] init];
-    // locationManager.delegate = self;
+    locationManager.delegate = self;
     locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     locationManager.distanceFilter = kCLDistanceFilterNone;
     [locationManager startUpdatingLocation];
@@ -62,19 +64,85 @@
     CLLocationCoordinate2D coordinate = [self getLocation];
     NSLog(@"Lat is: %f, and Long is: %f", coordinate.latitude, coordinate.longitude);
     
+    weatherLocationManager = [[CLLocationManager alloc] init];
+    
+    
     [self getWeather];
+    
+    OWMWeatherAPI *weatherAPI = [[OWMWeatherAPI alloc] initWithAPIKey:@"82195186406a95aa715896dcc20e054f"];
+    [weatherAPI setTemperatureFormat:kOWMTempFahrenheit];
+    
+    [weatherAPI currentWeatherByCoordinate:coordinate withCallback:^(NSError *error, NSDictionary *result) {
+        NSString *tempString = [NSString stringWithFormat:@"%.1f℃", [result[@"main"][@"temp"] floatValue]];
+        NSLog(@"tempString is %@", tempString);
+        
+    }];
+}
+
+-(void) currentWeatherByCoordinate:(CLLocationCoordinate2D)coordinate withCallback:(void(^)(NSError* error, NSDictionary *result))callback {
+    
+    
+    
 }
 
 // Beta settings for weather information
 
 -(IBAction)getWeatherButton {
-    [self getWeather];
+    
+    // [self getWeather];
+    
+    weatherLocationManager.delegate = self;
+    weatherLocationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    
+    [weatherLocationManager startUpdatingLocation];
+
+    CLLocationCoordinate2D coordinate = [self getLocation];
+    NSLog(@"Lat is: %f, and Long is: %f", coordinate.latitude, coordinate.longitude);
+    
+    downloadCount = 0;
+    [self.activityIndicator startAnimating];
+    [self.view addSubview:self.activityIndicator];
+    
+    OWMWeatherAPI *weatherAPI = [[OWMWeatherAPI alloc] initWithAPIKey:@"82195186406a95aa715896dcc20e054f"];
+    [weatherAPI setTemperatureFormat:kOWMTempFahrenheit];
+    
+    [weatherAPI currentWeatherByCoordinate:coordinate withCallback:^(NSError *error, NSDictionary *result) {
+        downloadCount++;
+        
+        int tempString = [result[@"main"][@"temp"] floatValue];
+        NSString *weatherDescription = result[@"weather"][0][@"main"];
+        NSLog(@"tempString is %d and weatherDescription = %@", tempString, weatherDescription);
+        
+        self.temp.text = [NSString stringWithFormat:@"%dº", tempString];
+        self.weather.text = [[NSString stringWithFormat:@"%@", weatherDescription] uppercaseString];
+    }];
+    [self.activityIndicator performSelector:@selector(removeFromSuperview) withObject:nil afterDelay:1.0];
+}
+
+- (void)weatherLocationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    NSLog(@"didFailWithError: %@", error);
+    UIAlertView *errorAlert = [[UIAlertView alloc]
+                               initWithTitle:@"Error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [errorAlert show];
+}
+
+- (void)weatherLocationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+{
+    NSLog(@"didUpdateToLocation: %@", newLocation);
+    CLLocation *currentLocation = newLocation;
+    
+    if (currentLocation != nil) {
+        NSString *longitude = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.longitude];
+        NSString *latitude = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.latitude];
+        NSLog(@"\n\nLONG is %@\n\nLAT is %@\n\n", longitude, latitude);
+    }
 }
 
 -(void)getWeather {
     
     CLLocationCoordinate2D coordinate = [self getLocation];
-    NSLog(@"Lat is: %f, and Long is: %f", coordinate.latitude, coordinate.longitude);
+    // NSLog(@"Lat is: %f, and Long is: %f", coordinate.latitude, coordinate.longitude);
     
     NSString *apiURLString = [NSString stringWithFormat:@"http://api.openweathermap.org/data/2.1/find/city?lat=%f&lon=%f&cnt=1", coordinate.latitude, coordinate.longitude];
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:apiURLString]];
@@ -115,10 +183,10 @@
                 int temperature = [temperatureNumber integerValue] - 273.15;
                 int ftemp = (((temperature*9)/5)+32);
                 
-                NSLog(@"ftemp: %d", ftemp);
+                // NSLog(@"ftemp: %d", ftemp);
             
-                NSString *curTemp = [NSString stringWithFormat:@"%dº", ftemp];
-                NSLog(@"curTemp: %@", curTemp);
+                // NSString *curTemp = [NSString stringWithFormat:@"%dº", ftemp];
+                // NSLog(@"curTemp: %@", curTemp);
                 currentTemp = [NSString stringWithFormat:@"%dº", ftemp];
                 _temp.text = [NSString stringWithFormat:@"%@", currentTemp];
                 
@@ -140,6 +208,11 @@
 -(int)getTemp {
     
     return 1;
+}
+
+-(void)showLocation {
+    
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -181,7 +254,7 @@
 
 -(IBAction)pressCrashButton {
     [TestFlight passCheckpoint:@"Crash Button Pressed"];
-    // [[Crashlytics sharedInstance] crash];
+    [[Crashlytics sharedInstance] crash];
 }
 
 -(IBAction)sendReport:(id)sender {
@@ -191,7 +264,7 @@
     // Email Content
     NSString *messageBody = @"List feedback or feature requests below.";
     // To address
-    NSArray *toRecipents = [NSArray arrayWithObject:@"8e41b0c0f5e1ab257f20c959c8873563_ijkustcefu3tmnzxguztm@n.testflightapp.com"];
+    NSArray *toRecipents = [NSArray arrayWithObject:@"support@kylefrostdesign.com"];
     
     MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
     // mc.mailComposeDelegate = self;
@@ -243,6 +316,11 @@
     [newEventArray removeAllObjects];
     
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    
+    NSString *message = [NSString stringWithFormat:@"Alarm Count Array Reset\neventArray count is %lu", (unsigned long)[eventArray count]];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Reset" message:message delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+    [alert show];
 }
 
 -(IBAction)checkNightViewDefaults:(id)sender {
@@ -290,6 +368,11 @@
     NSString *nightAMPMObject = [ampmFormat stringFromDate:nightAMPMDate];
     
     NSLog(@"\n\ndayHourObject = %@\ndayMinuteObject = %@\ndayAMPMObject = %@\n\nnightHourObject = %@\nnightMinuteObject = %@\nnightAMPMObject = %@\n\n", dayHourObject, dayMinuteObject, dayAMPMObject, nightHourObject, nightMinuteObject, nightAMPMObject);
+    
+    NSString *defaults = [NSString stringWithFormat:@"enabledSwitchState is %d\nalwaysOnDaySwitchState is %d\nalwaysOnNightSwitchState is %d\ncustomTimeSwitchState is %d\ndayTimeFullObject is %@\nnightTimeFullObject is %@\ndayHourObject = %@\ndayMinuteObject = %@\ndayAMPMObject = %@\n\nnightHourObject = %@\nnightMinuteObject = %@\nnightAMPMObject = %@", enabledSwitchState, alwaysOnDaySwitchState, alwaysOnSwitchState, customTimeSwitchState, dayTimeDetailedText, nightTimeDetailedText, dayHourObject, dayMinuteObject, dayAMPMObject, nightHourObject, nightMinuteObject, nightAMPMObject];
+    
+    UIAlertView *defaultsAlert = [[UIAlertView alloc] initWithTitle:@"NightView Defaults" message:defaults delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+    [defaultsAlert show];
 }
 
 - (void)didReceiveMemoryWarning
