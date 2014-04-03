@@ -26,7 +26,6 @@
 @end
 
 @implementation ACViewController {
-    CLLocationManager *_locationManager;
     CLLocationManager *weatherLocationManager;
 }
 
@@ -108,25 +107,23 @@
     [self updateDayMonthLabelDate];
     [self checkNightMode];
     
-    // Weather Information
+    weatherLocationManager.delegate = self;
+    weatherLocationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    
+    [weatherLocationManager startUpdatingLocation];
+    
     CLLocationCoordinate2D coordinate = [self getLocation];
     NSLog(@"Lat is: %f, and Long is: %f", coordinate.latitude, coordinate.longitude);
     
     weatherLocationManager = [[CLLocationManager alloc] init];
-    
-    OWMWeatherAPI *weatherAPI = [[OWMWeatherAPI alloc] initWithAPIKey:@"82195186406a95aa715896dcc20e054f"];
-    [weatherAPI setTemperatureFormat:kOWMTempFahrenheit];
-    
-    [weatherAPI currentWeatherByCoordinate:coordinate withCallback:^(NSError *error, NSDictionary *result) {
-        NSString *tempString = [NSString stringWithFormat:@"%.1f", [result[@"main"][@"temp"] floatValue]];
-        NSLog(@"tempString is %@", tempString);
-        
-    }];
+
     [self getWeather];
 }
 
 // Set code to play alarm if the alarm is going off
 -(void)viewDidAppear:(BOOL)animated {
+    
+    [self getWeather];
     
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
     
@@ -1018,26 +1015,25 @@
 // Get and Show Weather Information
 -(void)getWeather {
     
-    weatherLocationManager.delegate = self;
-    weatherLocationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    NSUserDefaults *weatherDefaults = [NSUserDefaults standardUserDefaults];
     
-    [weatherLocationManager startUpdatingLocation];
+    BOOL currentLocation = [weatherDefaults boolForKey:@"currentLocationSwitch"];
     
-    CLLocationCoordinate2D coordinate = [self getLocation];
-    NSLog(@"Lat is: %f, and Long is: %f", coordinate.latitude, coordinate.longitude);
+    if (currentLocation == 1) {
+        [self useCurrentLocation];
+    }
+    else if (currentLocation == 0) {
+        [self useCustomLocation];
+    }
     
-    OWMWeatherAPI *weatherAPI = [[OWMWeatherAPI alloc] initWithAPIKey:@"82195186406a95aa715896dcc20e054f"];
-    [weatherAPI setTemperatureFormat:kOWMTempFahrenheit];
+    float refreshTime = [weatherDefaults floatForKey:@"refreshTime"];
     
-    [weatherAPI currentWeatherByCoordinate:coordinate withCallback:^(NSError *error, NSDictionary *result) {
-        
-        int tempString = [result[@"main"][@"temp"] floatValue];
-        NSString *weatherDescription = result[@"weather"][0][@"description"];
-        NSLog(@"tempString is %d and weatherDescription = %@", tempString, weatherDescription);
-        
-        self.weatherTempLabel.text = [NSString stringWithFormat:@"%dºF", tempString];
-        self.weatherCondLabel.text = [[NSString stringWithFormat:@"%@", weatherDescription] uppercaseString];
-    }];
+    if (refreshTime < 900.0) {
+        [self performSelector:@selector(getWeather) withObject:self afterDelay:900.0];
+    }
+    else {
+        [self performSelector:@selector(getWeather) withObject:self afterDelay:refreshTime];
+    }
 }
 
 // If location manager fails to get location
@@ -1062,6 +1058,131 @@
     }
 }
 
+// If Weather is in Celsius for Current Location
+-(void)weatherIsCelsiusCurrentLocation {
+    
+    weatherLocationManager.delegate = self;
+    weatherLocationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    
+    [weatherLocationManager startUpdatingLocation];
+    
+    CLLocationCoordinate2D coordinate = [self getLocation];
+    NSLog(@"Lat is: %f, and Long is: %f", coordinate.latitude, coordinate.longitude);
+    
+    OWMWeatherAPI *weatherAPI = [[OWMWeatherAPI alloc] initWithAPIKey:@"82195186406a95aa715896dcc20e054f"];
+    [weatherAPI setTemperatureFormat:kOWMTempCelcius];
+    
+    [weatherAPI currentWeatherByCoordinate:coordinate withCallback:^(NSError *error, NSDictionary *result) {
+        
+        int tempString = [result[@"main"][@"temp"] floatValue];
+        NSString *weatherDescription = result[@"weather"][0][@"main"];
+        NSLog(@"tempString is %d and weatherDescription = %@", tempString, weatherDescription);
+        
+        self.weatherTempLabel.text = [NSString stringWithFormat:@"%dºC", tempString];
+        self.weatherCondLabel.text = [[NSString stringWithFormat:@"%@", weatherDescription] uppercaseString];
+    }];
+}
+
+// Weather is in Celsius for Custom Location
+-(void)weatherIsCelsiusCustomLocation {
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *customLocation = [defaults objectForKey:@"customLocationField"];
+    
+    OWMWeatherAPI *weatherAPI = [[OWMWeatherAPI alloc] initWithAPIKey:@"82195186406a95aa715896dcc20e054f"];
+    [weatherAPI setTemperatureFormat:kOWMTempCelcius];
+    
+    NSString *customLocationNoSpace = [customLocation stringByReplacingOccurrencesOfString:@" " withString:@""];
+    
+    [weatherAPI currentWeatherByCityName:customLocationNoSpace withCallback:^(NSError *error, NSDictionary *result) {
+        
+        int tempString = [result[@"main"][@"temp"] floatValue];
+        NSString *weatherDescription = result[@"weather"][0][@"main"];
+        NSLog(@"tempString is %d and weatherDescription = %@", tempString, weatherDescription);
+        
+        self.weatherTempLabel.text = [NSString stringWithFormat:@"%dºC", tempString];
+        self.weatherCondLabel.text = [[NSString stringWithFormat:@"%@", weatherDescription] uppercaseString];
+    }];
+}
+
+// If Weather is in Fahrenheit for Current Location
+-(void)weatherIsFahrenheitCurrentLocation {
+    
+    weatherLocationManager.delegate = self;
+    weatherLocationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    
+    [weatherLocationManager startUpdatingLocation];
+    
+    CLLocationCoordinate2D coordinate = [self getLocation];
+    NSLog(@"Lat is: %f, and Long is: %f", coordinate.latitude, coordinate.longitude);
+    
+    OWMWeatherAPI *weatherAPI = [[OWMWeatherAPI alloc] initWithAPIKey:@"82195186406a95aa715896dcc20e054f"];
+    [weatherAPI setTemperatureFormat:kOWMTempFahrenheit];
+    
+    [weatherAPI currentWeatherByCoordinate:coordinate withCallback:^(NSError *error, NSDictionary *result) {
+        
+        int tempString = [result[@"main"][@"temp"] floatValue];
+        NSString *weatherDescription = result[@"weather"][0][@"main"];
+        NSLog(@"tempString is %d and weatherDescription = %@", tempString, weatherDescription);
+        
+        self.weatherTempLabel.text = [NSString stringWithFormat:@"%dºF", tempString];
+        self.weatherCondLabel.text = [[NSString stringWithFormat:@"%@", weatherDescription] uppercaseString];
+    }];
+}
+
+// If Weather is in Fahrenheit for Custom Location
+-(void)weatherIsFahrenheitCustomLocation {
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *customLocation = [defaults objectForKey:@"customLocationField"];
+    
+    OWMWeatherAPI *weatherAPI = [[OWMWeatherAPI alloc] initWithAPIKey:@"82195186406a95aa715896dcc20e054f"];
+    [weatherAPI setTemperatureFormat:kOWMTempFahrenheit];
+    
+    NSString *customLocationNoSpace = [customLocation stringByReplacingOccurrencesOfString:@" " withString:@""];
+    
+    NSLog(@"%@", customLocationNoSpace);
+    
+    [weatherAPI currentWeatherByCityName:customLocationNoSpace withCallback:^(NSError *error, NSDictionary *result) {
+        
+        int tempString = [result[@"main"][@"temp"] floatValue];
+        NSString *weatherDescription = result[@"weather"][0][@"main"];
+        NSLog(@"tempString is %d and weatherDescription = %@", tempString, weatherDescription);
+        
+        self.weatherTempLabel.text = [NSString stringWithFormat:@"%dºF", tempString];
+        self.weatherCondLabel.text = [[NSString stringWithFormat:@"%@", weatherDescription] uppercaseString];
+    }];
+}
+
+// If Weather is custom location
+-(void)useCustomLocation {
+    
+    NSUserDefaults *weatherDefaults = [NSUserDefaults standardUserDefaults];
+    
+    BOOL celsius = [weatherDefaults boolForKey:@"celsiusSwitch"];
+    
+    if (celsius == 1) {
+        [self weatherIsCelsiusCustomLocation];
+    }
+    else if (celsius == 0) {
+        [self weatherIsFahrenheitCustomLocation];
+    }
+}
+
+// If Weather is current location
+-(void)useCurrentLocation {
+    
+    NSUserDefaults *weatherDefaults = [NSUserDefaults standardUserDefaults];
+    
+    BOOL celsius = [weatherDefaults boolForKey:@"celsiusSwitch"];
+    
+    if (celsius == 1) {
+        [self weatherIsCelsiusCurrentLocation];
+    }
+    else if (celsius == 0) {
+        [self weatherIsFahrenheitCurrentLocation];
+    }
+}
 
 #pragma mark -
 #pragma mark Miscellaneous Functions

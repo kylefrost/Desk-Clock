@@ -47,9 +47,15 @@
 // Weather
 @property (weak, nonatomic) IBOutlet UILabel *weatherTempLabel;
 @property (weak, nonatomic) IBOutlet UILabel *weatherCondLabel;
+@property (weak, nonatomic) IBOutlet UIButton *refreshButton;
 -(void)getWeather;
 -(IBAction)updateWeather:(id)sender;
-@property (weak, nonatomic) IBOutlet UIButton *refreshButton;
+-(void)weatherIsCelsiusCurrentLocation;
+-(void)weatherIsCelsiusCustomLocation;
+-(void)weatherIsFahrenheitCurrentLocation;
+-(void)weatherIsFahrenheitCustomLocation;
+-(void)useCustomLocation;
+-(void)useCurrentLocation;
 
 // Check Orientation
 -(void)getOrientation;

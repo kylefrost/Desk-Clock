@@ -75,6 +75,7 @@
 		27EF34AA18D3D4A200B7D79C /* ACAddEditAlarmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EF34A918D3D4A200B7D79C /* ACAddEditAlarmViewController.m */; };
 		27EF34AD18D3D4DF00B7D79C /* ACAlarmLabelEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EF34AC18D3D4DF00B7D79C /* ACAlarmLabelEditViewController.m */; };
 		27EF34B018D3D53300B7D79C /* ACAlarmObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EF34AF18D3D53300B7D79C /* ACAlarmObject.m */; };
+		27EF4A2E18ECFC4300C9D72F /* ACWeatherRefreshIntervalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EF4A2D18ECFC4300C9D72F /* ACWeatherRefreshIntervalViewController.m */; };
 		AB6CC89BCE644DC0AACB5133 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C71414EA618468AA018A9AB /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -186,6 +187,8 @@
 		27EF34AC18D3D4DF00B7D79C /* ACAlarmLabelEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACAlarmLabelEditViewController.m; sourceTree = "<group>"; };
 		27EF34AE18D3D53300B7D79C /* ACAlarmObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACAlarmObject.h; sourceTree = "<group>"; };
 		27EF34AF18D3D53300B7D79C /* ACAlarmObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACAlarmObject.m; sourceTree = "<group>"; };
+		27EF4A2C18ECFC4300C9D72F /* ACWeatherRefreshIntervalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACWeatherRefreshIntervalViewController.h; sourceTree = "<group>"; };
+		27EF4A2D18ECFC4300C9D72F /* ACWeatherRefreshIntervalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACWeatherRefreshIntervalViewController.m; sourceTree = "<group>"; };
 		9BF5BECAF8E149C1A7C66531 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		9C71414EA618468AA018A9AB /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -275,6 +278,8 @@
 			children = (
 				276182A218EB1B18000E2C31 /* ACWeatherSettingsViewController.h */,
 				276182A318EB1B18000E2C31 /* ACWeatherSettingsViewController.m */,
+				27EF4A2C18ECFC4300C9D72F /* ACWeatherRefreshIntervalViewController.h */,
+				27EF4A2D18ECFC4300C9D72F /* ACWeatherRefreshIntervalViewController.m */,
 			);
 			name = WeatherSettingsViewController;
 			sourceTree = "<group>";
@@ -754,6 +759,7 @@
 			files = (
 				277AFF22181EBE510009AE0F /* ACInfoViewController.m in Sources */,
 				27E01BF21829AAC500DB1132 /* MKiCloudSync.m in Sources */,
+				27EF4A2E18ECFC4300C9D72F /* ACWeatherRefreshIntervalViewController.m in Sources */,
 				27EF34A718D3D3F300B7D79C /* ACAlarmViewController.m in Sources */,
 				27EF34AD18D3D4DF00B7D79C /* ACAlarmLabelEditViewController.m in Sources */,
 				27EF34B018D3D53300B7D79C /* ACAlarmObject.m in Sources */,

@@ -272,24 +272,26 @@
 
 -(IBAction)pressBetaTest:(id)sender {
     
-    NSUserDefaults* enabledSwitchPreference = [NSUserDefaults standardUserDefaults];
-    BOOL enabledSwitchState = [enabledSwitchPreference boolForKey:@"enabledSwitch"];
+    NSUserDefaults* nightViewPreferences = [NSUserDefaults standardUserDefaults];
     
-    NSUserDefaults* alwaysOnSwitchPreference = [NSUserDefaults standardUserDefaults];
-    BOOL alwaysOnSwitchState = [alwaysOnSwitchPreference boolForKey:@"alwaysNightSwitch"];
+    BOOL enabledSwitchState = [nightViewPreferences boolForKey:@"enabledSwitch"];
+    BOOL alwaysOnDaySwitchState = [nightViewPreferences boolForKey:@"alwaysDaySwitch"];
+    BOOL alwaysOnSwitchState = [nightViewPreferences boolForKey:@"alwaysNightSwitch"];
+    BOOL customTimeSwitchState = [nightViewPreferences boolForKey:@"customTimeSwitch"];
     
-    NSUserDefaults* customTimeSwitchPreference = [NSUserDefaults standardUserDefaults];
-    BOOL customTimeSwitchState = [customTimeSwitchPreference boolForKey:@"customTimeSwitch"];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"h:mm a"];
     
-    NSUserDefaults* alwaysDaySwitchPreference = [NSUserDefaults standardUserDefaults];
-    BOOL alwaysDaySwitchState = [alwaysDaySwitchPreference boolForKey:@"alwaysDaySwitch"];
+    NSDate *dayTimeFull = [nightViewPreferences objectForKey:@"dayTimeFullObject"];
+    NSString *dayTimeDetailedText = [dateFormat stringFromDate:dayTimeFull];
+    NSDate *nightTimeFull = [nightViewPreferences objectForKey:@"nightTimeFullObject"];
+    NSString *nightTimeDetailedText = [dateFormat stringFromDate:nightTimeFull];
     
-    NSLog(@"\n\nenabledSwitchState is %d \nalwaysDaySwitchState is %d \nalwaysNightSwitchState is %d \ncustomTimeSwitchState is %d\n\n", enabledSwitchState, alwaysDaySwitchState,  alwaysOnSwitchState, customTimeSwitchState);
+    NSLog(@"\n\nenabledSwitchState is %d\nalwaysOnDaySwitchState is %d\nalwaysOnNightSwitchState is %d\ncustomTimeSwitchState is %d\ndayTimeFullObject is %@\nnightTimeFullObject is %@\n\n", enabledSwitchState, alwaysOnDaySwitchState, alwaysOnSwitchState, customTimeSwitchState, dayTimeDetailedText, nightTimeDetailedText);
     
-    NSUserDefaults *nightViewPreferences = [NSUserDefaults standardUserDefaults];
     
     NSDateFormatter *hourFormat = [[NSDateFormatter alloc] init];
-    [hourFormat setDateFormat:@"HH"];
+    [hourFormat setDateFormat:@"h"];
     
     NSDate *hourDate = [nightViewPreferences objectForKey:@"dayHourObject"];
     NSString *dayHourObject = [hourFormat stringFromDate:hourDate];
@@ -314,8 +316,10 @@
     
     NSLog(@"\n\ndayHourObject = %@\ndayMinuteObject = %@\ndayAMPMObject = %@\n\nnightHourObject = %@\nnightMinuteObject = %@\nnightAMPMObject = %@\n\n", dayHourObject, dayMinuteObject, dayAMPMObject, nightHourObject, nightMinuteObject, nightAMPMObject);
     
+    NSString *defaults = [NSString stringWithFormat:@"enabledSwitchState is %d\nalwaysOnDaySwitchState is %d\nalwaysOnNightSwitchState is %d\n\ncustomTimeSwitchState is %d\n\ndayTimeFullObject is %@\nnightTimeFullObject is %@\n\ndayHourObject = %@\ndayMinuteObject = %@\ndayAMPMObject = %@\n\nnightHourObject = %@\nnightMinuteObject = %@\nnightAMPMObject = %@", enabledSwitchState, alwaysOnDaySwitchState, alwaysOnSwitchState, customTimeSwitchState, dayTimeDetailedText, nightTimeDetailedText, dayHourObject, dayMinuteObject, dayAMPMObject, nightHourObject, nightMinuteObject, nightAMPMObject];
     
-    
+    UIAlertView *defaultsAlert = [[UIAlertView alloc] initWithTitle:@"NightView Defaults" message:defaults delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+    [defaultsAlert show];
 }
 
 -(void)determineBuild {

@@ -110,7 +110,7 @@
         downloadCount++;
         
         int tempString = [result[@"main"][@"temp"] floatValue];
-        NSString *weatherDescription = result[@"weather"][0][@"description"];
+        NSString *weatherDescription = result[@"weather"][0][@"main"];
         NSLog(@"tempString is %d and weatherDescription = %@", tempString, weatherDescription);
         
         self.temp.text = [NSString stringWithFormat:@"%dº", tempString];
@@ -254,7 +254,7 @@
 
 -(IBAction)pressCrashButton {
     [TestFlight passCheckpoint:@"Crash Button Pressed"];
-    // [[Crashlytics sharedInstance] crash];
+    [[Crashlytics sharedInstance] crash];
 }
 
 -(IBAction)sendReport:(id)sender {
@@ -264,7 +264,7 @@
     // Email Content
     NSString *messageBody = @"List feedback or feature requests below.";
     // To address
-    NSArray *toRecipents = [NSArray arrayWithObject:@"8e41b0c0f5e1ab257f20c959c8873563_ijkustcefu3tmnzxguztm@n.testflightapp.com"];
+    NSArray *toRecipents = [NSArray arrayWithObject:@"support@kylefrostdesign.com"];
     
     MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
     // mc.mailComposeDelegate = self;
@@ -316,6 +316,11 @@
     [newEventArray removeAllObjects];
     
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    
+    NSString *message = [NSString stringWithFormat:@"Alarm Count Array Reset\neventArray count is %lu", (unsigned long)[eventArray count]];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Reset" message:message delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+    [alert show];
 }
 
 -(IBAction)checkNightViewDefaults:(id)sender {
@@ -363,6 +368,11 @@
     NSString *nightAMPMObject = [ampmFormat stringFromDate:nightAMPMDate];
     
     NSLog(@"\n\ndayHourObject = %@\ndayMinuteObject = %@\ndayAMPMObject = %@\n\nnightHourObject = %@\nnightMinuteObject = %@\nnightAMPMObject = %@\n\n", dayHourObject, dayMinuteObject, dayAMPMObject, nightHourObject, nightMinuteObject, nightAMPMObject);
+    
+    NSString *defaults = [NSString stringWithFormat:@"enabledSwitchState is %d\nalwaysOnDaySwitchState is %d\nalwaysOnNightSwitchState is %d\ncustomTimeSwitchState is %d\ndayTimeFullObject is %@\nnightTimeFullObject is %@\ndayHourObject = %@\ndayMinuteObject = %@\ndayAMPMObject = %@\n\nnightHourObject = %@\nnightMinuteObject = %@\nnightAMPMObject = %@", enabledSwitchState, alwaysOnDaySwitchState, alwaysOnSwitchState, customTimeSwitchState, dayTimeDetailedText, nightTimeDetailedText, dayHourObject, dayMinuteObject, dayAMPMObject, nightHourObject, nightMinuteObject, nightAMPMObject];
+    
+    UIAlertView *defaultsAlert = [[UIAlertView alloc] initWithTitle:@"NightView Defaults" message:defaults delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+    [defaultsAlert show];
 }
 
 - (void)didReceiveMemoryWarning
