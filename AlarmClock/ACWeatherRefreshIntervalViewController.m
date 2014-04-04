@@ -47,6 +47,7 @@
     else if (indexPath == 4) {
         self.fiveHours.accessoryType = UITableViewCellAccessoryCheckmark;
     }
+    
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -103,6 +104,23 @@
         [defaults setFloat:180000.0 forKey:@"refreshTime"];
         [defaults setInteger:4 forKey:@"refreshSetting"];
     }
+    
+    if (indexPathInt != 0) {
+        self.fifteen.accessoryType = UITableViewCellAccessoryNone;
+    }
+    if (indexPathInt != 1) {
+        self.thirty.accessoryType = UITableViewCellAccessoryNone;
+    }
+    if (indexPathInt != 2) {
+        self.hour.accessoryType = UITableViewCellAccessoryNone;
+    }
+    if (indexPathInt != 3) {
+        self.twoHours.accessoryType = UITableViewCellAccessoryNone;
+    }
+    if (indexPathInt != 4) {
+        self.fiveHours.accessoryType = UITableViewCellAccessoryNone;
+    }
+    
 }
 
 -(void)didReceiveMemoryWarning {
