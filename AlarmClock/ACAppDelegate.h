@@ -10,7 +10,10 @@
 #import <AVFoundation/AVAudioPlayer.h>
 #import <UIKit/UIKit.h>
 
-@interface ACAppDelegate : UIResponder <UIApplicationDelegate, UIAlertViewDelegate>
+@interface ACAppDelegate : UIResponder <UIApplicationDelegate, UIAlertViewDelegate> {
+    
+    float brightness;
+}
 
 -(void)showTutorial;
 -(void)isFirstOpen;

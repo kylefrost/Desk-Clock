@@ -16,7 +16,11 @@
     NSString *monthName;
     NSString *dayOfMonth;
     
+    float brightness;
 }
+
+// Fade in view
+@property (weak, nonatomic) IBOutlet UIView *fadeView;
 
 // Check for alarm
 @property(nonatomic) BOOL alarmGoingOff;
@@ -45,8 +49,8 @@
 @property (strong, nonatomic) IBOutlet UIView *backgroundView;
 
 // Weather
-@property (weak, nonatomic) IBOutlet UILabel *weatherTempLabel;
-@property (weak, nonatomic) IBOutlet UILabel *weatherCondLabel;
+@property (retain, nonatomic) UILabel *weatherTempLabel;
+@property (retain, nonatomic) UILabel *weatherCondLabel;
 @property (weak, nonatomic) IBOutlet UIButton *refreshButton;
 -(void)getWeather;
 -(IBAction)updateWeather:(id)sender;
@@ -59,17 +63,18 @@
 
 // Check Orientation
 -(void)getOrientation;
+-(IBAction)rotatePortrait:(id)sender;
 
 // Labels
-@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *dayLabel;
-@property (weak, nonatomic) IBOutlet UILabel *dayMonthLabel;
-@property (weak, nonatomic) IBOutlet UILabel *alarmLabel;
-@property (weak, nonatomic) IBOutlet UILabel *onLabel;
-@property (weak, nonatomic) IBOutlet UILabel *offLabel;
-@property (weak, nonatomic) IBOutlet UILabel *amLabel;
-@property (weak, nonatomic) IBOutlet UILabel *pmLabel;
-@property (weak, nonatomic) IBOutlet UILabel *slashLabel;
+@property (retain, nonatomic) UILabel *timeLabel;
+@property (retain, nonatomic) UILabel *dayLabel;
+@property (retain, nonatomic) UILabel *dayMonthLabel;
+@property (retain, nonatomic) UILabel *alarmLabel;
+@property (retain, nonatomic) UILabel *onLabel;
+@property (retain, nonatomic) UILabel *offLabel;
+@property (retain, nonatomic) UILabel *amLabel;
+@property (retain, nonatomic) UILabel *pmLabel;
+@property (retain, nonatomic) UILabel *slashLabel;
 
 // Portrait Functions
 -(void)updateTimePortrait;

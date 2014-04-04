@@ -7,6 +7,7 @@
 //
 
 #import "ACSettingsViewController.h"
+#import <objc/message.h>
 #import <MessageUI/MFMailComposeViewController.h>
 #import <Social/Social.h>
 
@@ -25,12 +26,17 @@
     return self;
 }
 
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
-    [UIApplication sharedApplication].statusBarOrientation = UIInterfaceOrientationPortrait;
     // Do any additional setup after loading the view.
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    // objc_msgSend([UIDevice currentDevice], @selector(setOrientation:), UIInterfaceOrientationPortrait );
 }
 
 - (void)didReceiveMemoryWarning

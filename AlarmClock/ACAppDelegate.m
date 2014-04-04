@@ -32,6 +32,10 @@
     
     // [self isFirstOpen];
     
+    brightness = [UIScreen mainScreen].brightness;
+    
+    NSLog(@"%f", brightness);
+    
     UILocalNotification *localNotif =
     [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
     
@@ -52,7 +56,10 @@
         [player prepareToPlay];
         [player play];
         
+        
     }
+    
+    [[NSUserDefaults standardUserDefaults]setFloat:[UIScreen mainScreen].brightness forKey:@"BrightnessValue"];
     
     // Override point for customization after application launch.
     return YES;
@@ -100,8 +107,6 @@
     viewController.alarmGoingOff = YES;
     self.window.rootViewController = viewController;
     [self.window makeKeyAndVisible];
-
-
 }
 
 -(void)isFirstOpen {
@@ -128,8 +133,7 @@
 							
 - (void)applicationWillResignActive:(UIApplication *)application
 {
-    NSUserDefaults *brightnessDefault = [NSUserDefaults standardUserDefaults];
-    float brightness = [brightnessDefault floatForKey:@"brightness"];
+    
     [[UIScreen mainScreen] setBrightness:brightness];
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
@@ -137,9 +141,10 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    NSUserDefaults *brightnessDefault = [NSUserDefaults standardUserDefaults];
-    float brightness = [brightnessDefault floatForKey:@"brightness"];
     [[UIScreen mainScreen] setBrightness:brightness];
+    sleep(0.5);
+    NSLog(@"Entering background.");
+    NSLog(@"brightness is %f", brightness);
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }

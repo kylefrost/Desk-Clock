@@ -16,6 +16,7 @@
 #import "ACAlarmViewController.h"
 #import "OWMWeatherAPI.h"
 
+#import <objc/message.h>
 #import <AVFoundation/AVAudioPlayer.h>
 #import <AudioToolbox/AudioToolbox.h>
 #import <UIKit/UIScreen.h>
@@ -75,6 +76,19 @@
     
     [super viewDidLoad];
     
+    NSUserDefaults* nightViewPreferences = [NSUserDefaults standardUserDefaults];
+    
+    BOOL enabledSwitchState = [nightViewPreferences boolForKey:@"enabledSwitch"];
+    BOOL alwaysOnDaySwitchState = [nightViewPreferences boolForKey:@"alwaysDaySwitch"];
+    BOOL alwaysOnSwitchState = [nightViewPreferences boolForKey:@"alwaysNightSwitch"];
+    BOOL customTimeSwitchState = [nightViewPreferences boolForKey:@"customTimeSwitch"];
+    
+    if (enabledSwitchState == 0 && alwaysOnDaySwitchState == 0 && alwaysOnSwitchState == 0 && customTimeSwitchState == 0) {
+        [nightViewPreferences setBool:1 forKey:@"enabledSwitch"];
+    }
+    
+    [self addAllTheSubViews];
+    
     // Slide Status Bar out of view when this View loads
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
     
@@ -97,7 +111,7 @@
     [MKiCloudSync initialize];
     
     [self determineBuild];
-
+    
     // Get Orientation at launch
     [self getOrientation];
     
@@ -118,6 +132,62 @@
     weatherLocationManager = [[CLLocationManager alloc] init];
 
     [self getWeather];
+    // [self addAllTheSubViews];
+    
+    [UIView beginAnimations:nil context:nil];
+    
+    [UIView setAnimationDuration:0.5];
+    
+    [self.fadeView setAlpha:0.0];
+    // [banner setUserInteractionEnabled:YES];
+    
+    [UIView commitAnimations];
+    
+    // Find brightness
+    UIScreen *mainScreen = [UIScreen mainScreen];
+    // mainScreen.brightness = 0.5;
+    
+    self.brightness = mainScreen.brightness;
+}
+
+-(void)addAllTheSubViews {
+    // Add Main Labels
+    self.timeLabel = [[UILabel alloc] init];
+    [self.view addSubview:self.timeLabel];
+    self.dayLabel = [[UILabel alloc] init];
+    [self.view addSubview:self.dayLabel];
+    self.dayMonthLabel = [[UILabel alloc] init];
+    [self.view addSubview:self.dayMonthLabel];
+    
+    // Add Alarm Labels
+    self.alarmLabel = [[UILabel alloc] init];
+    [self.view addSubview:self.alarmLabel];
+    self.onLabel = [[UILabel alloc] init];
+    [self.view addSubview:self.onLabel];
+    self.offLabel = [[UILabel alloc] init];
+    [self.view addSubview:self.offLabel];
+    
+    // Add AM / PM labels
+    self.amLabel = [[UILabel alloc] init];
+    [self.view addSubview:self.amLabel];
+    self.pmLabel = [[UILabel alloc] init];
+    [self.view addSubview:self.pmLabel];
+    self.slashLabel = [[UILabel alloc] init];
+    [self.view addSubview:self.slashLabel];
+    
+    // Add Weather Labels
+    self.weatherTempLabel = [[UILabel alloc] init];
+    [self.view addSubview:self.weatherTempLabel];
+    self.weatherCondLabel = [[UILabel alloc] init];
+    [self.view addSubview:self.weatherCondLabel];
+    
+    [self getOrientation];
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
+    
 }
 
 // Set code to play alarm if the alarm is going off
@@ -125,7 +195,7 @@
     
     [self getWeather];
     
-    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
+    // [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
     
     //This checks if the home view is shown because of an alarm firing
     if(self.alarmGoingOff) {
@@ -242,8 +312,8 @@
     // NSLog(@"updateTimePortrait is called");
  
     // Set label attributes
-    _timeLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:TIME_SIZE_PORTRAIT];
-    [_timeLabel setFrame:TIME_LABEL_RECT_PORTRAIT];
+    self.timeLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:TIME_SIZE_PORTRAIT];
+    [self.timeLabel setFrame:TIME_LABEL_RECT_PORTRAIT];
     
 }
 
@@ -253,8 +323,8 @@
     // NSLog(@"updateDayPortrait is called");
 
     // Set label attributes
-    _dayLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:DAY_LABEL_SIZE_PORTRAIT];
-    [_dayLabel setFrame:DAY_LABEL_RECT_PORTRAIT];
+    self.dayLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:DAY_LABEL_SIZE_PORTRAIT];
+    [self.dayLabel setFrame:DAY_LABEL_RECT_PORTRAIT];
 
 }
 
@@ -273,17 +343,17 @@
 -(void)updateAlarmPortrait {
     
     // Set text attributes
-    _onLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:ON_OFF_SIZE_PORTRAIT];
-    [_onLabel setFrame:ON_LABEL_RECT_PORTRAIT];
-    _onLabel.text = @"ON";
+    self.onLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:ON_OFF_SIZE_PORTRAIT];
+    [self.onLabel setFrame:ON_LABEL_RECT_PORTRAIT];
+    self.onLabel.text = @"ON";
     
-    _offLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:ON_OFF_SIZE_PORTRAIT];
-    [_offLabel setFrame:OFF_LABEL_RECT_PORTRAIT];
-    _offLabel.text = @"OFF";
+    self.offLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:ON_OFF_SIZE_PORTRAIT];
+    [self.offLabel setFrame:OFF_LABEL_RECT_PORTRAIT];
+    self.offLabel.text = @"OFF";
     
-    _alarmLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:ALARM_LABEL_SIZE_PORTRAIT];
-    [_alarmLabel setFrame:ALARM_LABEL_RECT_PORTRAIT];
-    _alarmLabel.text = @"Alarm";
+    self.alarmLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:ALARM_LABEL_SIZE_PORTRAIT];
+    [self.alarmLabel setFrame:ALARM_LABEL_RECT_PORTRAIT];
+    self.alarmLabel.text = @"Alarm";
     
 }
 
@@ -291,17 +361,17 @@
 -(void)updateAMPMPortrait {
     
     // Set text attributes
-    _amLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:AM_PM_SIZE_PORTRAIT];
-    [_amLabel setFrame:AM_LABEL_RECT_PORTRAIT];
-    _amLabel.text = @"AM";
+    self.amLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:AM_PM_SIZE_PORTRAIT];
+    [self.amLabel setFrame:AM_LABEL_RECT_PORTRAIT];
+    self.amLabel.text = @"AM";
     
-    _pmLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:AM_PM_SIZE_PORTRAIT];
-    [_pmLabel setFrame:PM_LABEL_RECT_PORTRAIT];
-    _pmLabel.text = @"PM";
+    self.pmLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:AM_PM_SIZE_PORTRAIT];
+    [self.pmLabel setFrame:PM_LABEL_RECT_PORTRAIT];
+    self.pmLabel.text = @"PM";
     
-    _slashLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:SLASH_SIZE_PORTRAIT];
-    [_slashLabel setFrame:SLASH_LABEL_RECT_PORTRAIT];
-    _slashLabel.text = @"/";
+    self.slashLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:SLASH_SIZE_PORTRAIT];
+    [self.slashLabel setFrame:SLASH_LABEL_RECT_PORTRAIT];
+    self.slashLabel.text = @"/";
     
 }
 
@@ -328,8 +398,8 @@
     // NSLog(@"updateTimeLandscape is called");
     
     // Set label attributes
-    _timeLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:TIME_SIZE_LANDSCAPE];
-    [_timeLabel setFrame:TIME_LABEL_RECT_LANDSCAPE];
+    self.timeLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:TIME_SIZE_LANDSCAPE];
+    [self.timeLabel setFrame:TIME_LABEL_RECT_LANDSCAPE];
     
 }
 
@@ -339,8 +409,8 @@
     // NSLog(@"updateDayLandscape is called");
     
     // Set label attributes
-    _dayLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:DAY_LABEL_SIZE_LANDSCAPE];
-    [_dayLabel setFrame:DAY_LABEL_RECT_LANDSCAPE];
+    self.dayLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:DAY_LABEL_SIZE_LANDSCAPE];
+    [self.dayLabel setFrame:DAY_LABEL_RECT_LANDSCAPE];
 }
 
 // Update the dayMonthLabel for Landscape view
@@ -358,17 +428,17 @@
 -(void)updateAlarmLandscape {
     
      // Set text attributes
-     _onLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:ON_OFF_SIZE_LANDSCAPE];
-    [_onLabel setFrame:ON_LABEL_RECT_LANDSCAPE];
-    _onLabel.text = @"ON";
+     self.onLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:ON_OFF_SIZE_LANDSCAPE];
+    [self.onLabel setFrame:ON_LABEL_RECT_LANDSCAPE];
+    self.onLabel.text = @"ON";
     
-     _offLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:ON_OFF_SIZE_LANDSCAPE];
-    [_offLabel setFrame:OFF_LABEL_RECT_LANDSCAPE];
-    _offLabel.text = @"OFF";
+     self.offLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:ON_OFF_SIZE_LANDSCAPE];
+    [self.offLabel setFrame:OFF_LABEL_RECT_LANDSCAPE];
+    self.offLabel.text = @"OFF";
     
-     _alarmLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:ALARM_LABEL_SIZE_LANDSCAPE];
-    [_alarmLabel setFrame:ALARM_LABEL_RECT_LANDSCAPE];
-    _alarmLabel.text = @"Alarm";
+     self.alarmLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:ALARM_LABEL_SIZE_LANDSCAPE];
+    [self.alarmLabel setFrame:ALARM_LABEL_RECT_LANDSCAPE];
+    self.alarmLabel.text = @"Alarm";
      
 }
 
@@ -376,17 +446,17 @@
 -(void)updateAMPMLandscape {
     
     // Set text attributes
-    _amLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:AM_PM_SIZE_LANDSCAPE];
-    [_amLabel setFrame:AM_LABEL_RECT_LANDSCAPE];
-    _amLabel.text = @"AM";
+    self.amLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:AM_PM_SIZE_LANDSCAPE];
+    [self.amLabel setFrame:AM_LABEL_RECT_LANDSCAPE];
+    self.amLabel.text = @"AM";
     
-    _pmLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:AM_PM_SIZE_LANDSCAPE];
-    [_pmLabel setFrame:PM_LABEL_RECT_LANDSCAPE];
-    _pmLabel.text = @"PM";
+    self.pmLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:AM_PM_SIZE_LANDSCAPE];
+    [self.pmLabel setFrame:PM_LABEL_RECT_LANDSCAPE];
+    self.pmLabel.text = @"PM";
     
-    _slashLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:SLASH_SIZE_LANDSCAPE];
-    [_slashLabel setFrame:SLASH_LABEL_RECT_LANDSCAPE];
-    _slashLabel.text = @"/";
+    self.slashLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:SLASH_SIZE_LANDSCAPE];
+    [self.slashLabel setFrame:SLASH_LABEL_RECT_LANDSCAPE];
+    self.slashLabel.text = @"/";
     
 }
 
@@ -412,7 +482,7 @@
     
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"hh:mm:ss"];
-    _timeLabel.text = [dateFormat stringFromDate:[NSDate date]];
+    self.timeLabel.text = [dateFormat stringFromDate:[NSDate date]];
     
     // Run every second to constantly update timeLabel with current time
     [self performSelector:@selector(updateClockLabelTime) withObject:self afterDelay:1.0];
@@ -430,25 +500,25 @@
     
     // Set weekday label based on weekday value
     if (weekday == 1) {
-        _dayLabel.text = @"Sunday";
+        self.dayLabel.text = @"Sunday";
     }
     else if (weekday == 2) {
-        _dayLabel.text = @"Monday";
+        self.dayLabel.text = @"Monday";
     }
     else if (weekday == 3) {
-        _dayLabel.text = @"Tuesday";
+        self.dayLabel.text = @"Tuesday";
     }
     else if (weekday == 4) {
-        _dayLabel.text = @"Wednesday";
+        self.dayLabel.text = @"Wednesday";
     }
     else if (weekday == 5) {
-        _dayLabel.text = @"Thursday";
+        self.dayLabel.text = @"Thursday";
     }
     else if (weekday == 6) {
-        _dayLabel.text = @"Friday";
+        self.dayLabel.text = @"Friday";
     }
     else if (weekday == 7) {
-        _dayLabel.text = @"Saturday";
+        self.dayLabel.text = @"Saturday";
     }
     
     // Run every second to constantly update dayLabel with current weekday
@@ -1199,13 +1269,21 @@
     
     
     // UIView *view = [[UIView alloc] init];
+}
+
+-(void)viewWillDisappear:(BOOL)animated {
     
-    
+    [[UIScreen mainScreen] setBrightness:self.brightness];
 }
 
 -(void)viewDidDisappear:(BOOL)animated {
     // [self getOrientation];
-    [UIApplication sharedApplication].statusBarOrientation = UIInterfaceOrientationPortrait;
+    
+}
+
+-(IBAction)rotatePortrait:(id)sender {
+
+    // objc_msgSend([UIDevice currentDevice], @selector(setOrientation:), UIInterfaceOrientationPortrait);
 }
 
 // Did Receive Memory Warning
@@ -1217,27 +1295,21 @@
 // Action for brightnessButton
 -(IBAction)updateBrightness {
     
-    // Find brightness
-    UIScreen *mainScreen = [UIScreen mainScreen];
-    // mainScreen.brightness = 0.5;
-    
-    float brightness = mainScreen.brightness;
-    NSUserDefaults *brightnessDefault = [NSUserDefaults standardUserDefaults];
-    [brightnessDefault setFloat:brightness forKey:@"brightness"];
-    [brightnessDefault synchronize];
+    [UIScreen mainScreen].wantsSoftwareDimming = YES;
     
     // If button is pressed, night mode turned on, and if again, day mode turned on
-    if (mainScreen.brightness > 0.1) {
+    if ([UIScreen mainScreen].brightness > 0.1) {
         
-        [_brightnessButton setTitle:@"View Mode" forState:UIControlStateNormal];
+        [self.brightnessButton setTitle:@"Normal Mode" forState:UIControlStateNormal];
         [[UIScreen mainScreen] setBrightness:0.0];
     }
-    else if (mainScreen.brightness <= 0.1) {
+    else if ([UIScreen mainScreen].brightness <= 0.1) {
         
-        [_brightnessButton setTitle:@"Night Mode" forState:UIControlStateNormal];
-        [[UIScreen mainScreen] setBrightness:brightness];
+        [self.brightnessButton setTitle:@"Lower Power Mode" forState:UIControlStateNormal];
+        [[UIScreen mainScreen] setBrightness:self.brightness];
     }
     
+    NSLog(@"%f", self.brightness);
 }
 
 // Read Switch
