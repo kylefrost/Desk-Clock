@@ -29,6 +29,7 @@
 {
     [super viewDidLoad];
     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
+    [UIApplication sharedApplication].statusBarOrientation = UIInterfaceOrientationPortrait;
     // Do any additional setup after loading the view.
 }
 

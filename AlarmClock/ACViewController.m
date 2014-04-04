@@ -228,7 +228,7 @@
      at around 1% - 2%.
      */
     
-    [self performSelector:@selector(getOrientation) withObject:self afterDelay:0.05];
+    [self performSelector:@selector(getOrientation) withObject:self afterDelay:0.1];
 }
 
 #pragma mark -
@@ -1204,7 +1204,8 @@
 }
 
 -(void)viewDidDisappear:(BOOL)animated {
-    [self getOrientation];
+    // [self getOrientation];
+    [UIApplication sharedApplication].statusBarOrientation = UIInterfaceOrientationPortrait;
 }
 
 // Did Receive Memory Warning
