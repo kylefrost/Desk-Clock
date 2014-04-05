@@ -297,10 +297,11 @@
 // Update the timeLabel for Portrait view
 -(void)updateTimePortrait {
     
-    // NSLog(@"updateTimePortrait is called");
- 
+    NSUserDefaults *themeDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *themeFont = [themeDefaults objectForKey:@"themeFont"];
+    
     // Set label attributes
-    self.timeLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:TIME_SIZE_PORTRAIT];
+    self.timeLabel.font = [UIFont fontWithName:themeFont size:TIME_SIZE_PORTRAIT];
     [self.timeLabel setFrame:TIME_LABEL_RECT_PORTRAIT];
     
 }
@@ -308,10 +309,11 @@
 // Update the dayLabel for Portrait view
 -(void)updateDayPortrait {
     
-    // NSLog(@"updateDayPortrait is called");
+    NSUserDefaults *themeDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *themeFont = [themeDefaults objectForKey:@"themeFont"];
 
     // Set label attributes
-    self.dayLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:DAY_LABEL_SIZE_PORTRAIT];
+    self.dayLabel.font = [UIFont fontWithName:themeFont size:DAY_LABEL_SIZE_PORTRAIT];
     [self.dayLabel setFrame:DAY_LABEL_RECT_PORTRAIT];
 
 }
@@ -319,10 +321,11 @@
 // Update the dayMonthLabel for Portrait view
 -(void)updateMonthDayPortrait {
     
-    // NSLog(@"updateMonthDayPortrait is called");
+    NSUserDefaults *themeDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *themeFont = [themeDefaults objectForKey:@"themeFont"];
     
     // Set day of week label attributes
-    _dayMonthLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:DAYMONTH_LABEL_SIZE_PORTRAIT];
+    _dayMonthLabel.font = [UIFont fontWithName:themeFont size:DAYMONTH_LABEL_SIZE_PORTRAIT];
     [_dayMonthLabel setFrame:DAYMONTH_LABEL_RECT_PORTRAIT];
     
 }
@@ -330,16 +333,19 @@
 // Update the alarmLabel for Portrait view
 -(void)updateAlarmPortrait {
     
+    NSUserDefaults *themeDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *themeFont = [themeDefaults objectForKey:@"themeFont"];
+    
     // Set text attributes
-    self.onLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:ON_OFF_SIZE_PORTRAIT];
+    self.onLabel.font = [UIFont fontWithName:themeFont size:ON_OFF_SIZE_PORTRAIT];
     [self.onLabel setFrame:ON_LABEL_RECT_PORTRAIT];
     self.onLabel.text = @"ON";
     
-    self.offLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:ON_OFF_SIZE_PORTRAIT];
+    self.offLabel.font = [UIFont fontWithName:themeFont size:ON_OFF_SIZE_PORTRAIT];
     [self.offLabel setFrame:OFF_LABEL_RECT_PORTRAIT];
     self.offLabel.text = @"OFF";
     
-    self.alarmLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:ALARM_LABEL_SIZE_PORTRAIT];
+    self.alarmLabel.font = [UIFont fontWithName:themeFont size:ALARM_LABEL_SIZE_PORTRAIT];
     [self.alarmLabel setFrame:ALARM_LABEL_RECT_PORTRAIT];
     self.alarmLabel.text = @"Alarm";
     
@@ -348,16 +354,19 @@
 // Update the amLabel and pmLabel and slashLabel for Portrait view
 -(void)updateAMPMPortrait {
     
+    NSUserDefaults *themeDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *themeFont = [themeDefaults objectForKey:@"themeFont"];
+    
     // Set text attributes
-    self.amLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:AM_PM_SIZE_PORTRAIT];
+    self.amLabel.font = [UIFont fontWithName:themeFont size:AM_PM_SIZE_PORTRAIT];
     [self.amLabel setFrame:AM_LABEL_RECT_PORTRAIT];
     self.amLabel.text = @"AM";
     
-    self.pmLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:AM_PM_SIZE_PORTRAIT];
+    self.pmLabel.font = [UIFont fontWithName:themeFont size:AM_PM_SIZE_PORTRAIT];
     [self.pmLabel setFrame:PM_LABEL_RECT_PORTRAIT];
     self.pmLabel.text = @"PM";
     
-    self.slashLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:SLASH_SIZE_PORTRAIT];
+    self.slashLabel.font = [UIFont fontWithName:themeFont size:SLASH_SIZE_PORTRAIT];
     [self.slashLabel setFrame:SLASH_LABEL_RECT_PORTRAIT];
     self.slashLabel.text = @"/";
     
@@ -366,8 +375,11 @@
 // Update the weather labels for Portrait view
 -(void)updateWeatherPortrait {
     
-    self.weatherTempLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:TEMP_SIZE_PORTRAIT];
-    self.weatherCondLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:COND_SIZE_PORTRAIT];
+    NSUserDefaults *themeDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *themeFont = [themeDefaults objectForKey:@"themeFont"];
+    
+    self.weatherTempLabel.font = [UIFont fontWithName:themeFont size:TEMP_SIZE_PORTRAIT];
+    self.weatherCondLabel.font = [UIFont fontWithName:themeFont size:COND_SIZE_PORTRAIT];
     self.weatherCondLabel.textAlignment = NSTextAlignmentLeft;
     
     self.weatherTempLabel.frame = TEMP_RECT_PORTRAIT;
@@ -383,10 +395,11 @@
 // Update the timeLabel for Landscape view
 -(void)updateTimeLandscape {
     
-    // NSLog(@"updateTimeLandscape is called");
+    NSUserDefaults *themeDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *themeFont = [themeDefaults objectForKey:@"themeFont"];
     
     // Set label attributes
-    self.timeLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:TIME_SIZE_LANDSCAPE];
+    self.timeLabel.font = [UIFont fontWithName:themeFont size:TIME_SIZE_LANDSCAPE];
     [self.timeLabel setFrame:TIME_LABEL_RECT_LANDSCAPE];
     
 }
@@ -394,20 +407,22 @@
 // Update the dayLabel for Landscape view
 -(void)updateDayLandscape {
     
-    // NSLog(@"updateDayLandscape is called");
+    NSUserDefaults *themeDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *themeFont = [themeDefaults objectForKey:@"themeFont"];
     
     // Set label attributes
-    self.dayLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:DAY_LABEL_SIZE_LANDSCAPE];
+    self.dayLabel.font = [UIFont fontWithName:themeFont size:DAY_LABEL_SIZE_LANDSCAPE];
     [self.dayLabel setFrame:DAY_LABEL_RECT_LANDSCAPE];
 }
 
 // Update the dayMonthLabel for Landscape view
 -(void)updateMonthDayLandscape {
     
-    // NSLog(@"updateMonthDayLandscape is called");
+    NSUserDefaults *themeDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *themeFont = [themeDefaults objectForKey:@"themeFont"];
     
     // Set day of week label attributes
-    _dayMonthLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:DAYMONTH_LABEL_SIZE_LANDSCAPE];
+    _dayMonthLabel.font = [UIFont fontWithName:themeFont size:DAYMONTH_LABEL_SIZE_LANDSCAPE];
     [_dayMonthLabel setFrame:DAYMONTH_LABEL_RECT_LANDSCAPE];
     
 }
@@ -415,16 +430,19 @@
 // Update the alarmLabel for Landscape view
 -(void)updateAlarmLandscape {
     
+    NSUserDefaults *themeDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *themeFont = [themeDefaults objectForKey:@"themeFont"];
+    
      // Set text attributes
-     self.onLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:ON_OFF_SIZE_LANDSCAPE];
+     self.onLabel.font = [UIFont fontWithName:themeFont size:ON_OFF_SIZE_LANDSCAPE];
     [self.onLabel setFrame:ON_LABEL_RECT_LANDSCAPE];
     self.onLabel.text = @"ON";
     
-     self.offLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:ON_OFF_SIZE_LANDSCAPE];
+     self.offLabel.font = [UIFont fontWithName:themeFont size:ON_OFF_SIZE_LANDSCAPE];
     [self.offLabel setFrame:OFF_LABEL_RECT_LANDSCAPE];
     self.offLabel.text = @"OFF";
     
-     self.alarmLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:ALARM_LABEL_SIZE_LANDSCAPE];
+     self.alarmLabel.font = [UIFont fontWithName:themeFont size:ALARM_LABEL_SIZE_LANDSCAPE];
     [self.alarmLabel setFrame:ALARM_LABEL_RECT_LANDSCAPE];
     self.alarmLabel.text = @"Alarm";
      
@@ -433,16 +451,19 @@
 // Update the amLabel and pmLabel and slashLabel for Landscape view
 -(void)updateAMPMLandscape {
     
+    NSUserDefaults *themeDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *themeFont = [themeDefaults objectForKey:@"themeFont"];
+    
     // Set text attributes
-    self.amLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:AM_PM_SIZE_LANDSCAPE];
+    self.amLabel.font = [UIFont fontWithName:themeFont size:AM_PM_SIZE_LANDSCAPE];
     [self.amLabel setFrame:AM_LABEL_RECT_LANDSCAPE];
     self.amLabel.text = @"AM";
     
-    self.pmLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:AM_PM_SIZE_LANDSCAPE];
+    self.pmLabel.font = [UIFont fontWithName:themeFont size:AM_PM_SIZE_LANDSCAPE];
     [self.pmLabel setFrame:PM_LABEL_RECT_LANDSCAPE];
     self.pmLabel.text = @"PM";
     
-    self.slashLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:SLASH_SIZE_LANDSCAPE];
+    self.slashLabel.font = [UIFont fontWithName:themeFont size:SLASH_SIZE_LANDSCAPE];
     [self.slashLabel setFrame:SLASH_LABEL_RECT_LANDSCAPE];
     self.slashLabel.text = @"/";
     
@@ -451,8 +472,11 @@
 // Update the weather labels for Portrait view
 -(void)updateWeatherLandscape {
     
-    self.weatherTempLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:TEMP_SIZE_LANDSCAPE];
-    self.weatherCondLabel.font = [UIFont fontWithName:@"Digital-7 Mono" size:COND_SIZE_LANDSCAPE];
+    NSUserDefaults *themeDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *themeFont = [themeDefaults objectForKey:@"themeFont"];
+    
+    self.weatherTempLabel.font = [UIFont fontWithName:themeFont size:TEMP_SIZE_LANDSCAPE];
+    self.weatherCondLabel.font = [UIFont fontWithName:themeFont size:COND_SIZE_LANDSCAPE];
     self.weatherCondLabel.textAlignment = NSTextAlignmentRight;
     
     self.weatherTempLabel.frame = TEMP_RECT_LANDSCAPE;
@@ -716,21 +740,33 @@
 // Always Day Mode is Enabled
 -(void)dayMode {
 	
+    NSData *dayTextColorData = [[NSUserDefaults standardUserDefaults] objectForKey:@"dayTextColor"];
+    UIColor *dayTextColor = [NSKeyedUnarchiver unarchiveObjectWithData:dayTextColorData];
+    
+    NSData *dayBackgroundColorData = [[NSUserDefaults standardUserDefaults] objectForKey:@"dayBackgroundColor"];
+    UIColor *dayBackgroundColor = [NSKeyedUnarchiver unarchiveObjectWithData:dayBackgroundColorData];
+    
+    NSData *dayLabelOffColorData = [[NSUserDefaults standardUserDefaults] objectForKey:@"dayLabelOffColor"];
+    UIColor *dayLabelOffColor = [NSKeyedUnarchiver unarchiveObjectWithData:dayLabelOffColorData];
+    
+    NSData *themeTintData = [[NSUserDefaults standardUserDefaults] objectForKey:@"themeTintColor"];
+    UIColor *themeTint = [NSKeyedUnarchiver unarchiveObjectWithData:themeTintData];
+    
 	// Alarm Label Status
 	UIApplication *app = [UIApplication sharedApplication];
 	NSArray *eventArray = [app scheduledLocalNotifications];
 	
 	// If there are 0 local notifications
 	if ([eventArray count] == 0) {
-		self.onLabel.textColor = [UIColor lightGrayColor];
-		self.offLabel.textColor = [UIColor blackColor];
-		self.alarmLabel.textColor = [UIColor blackColor];
+		self.onLabel.textColor = dayLabelOffColor;
+		self.offLabel.textColor = dayTextColor;
+		self.alarmLabel.textColor = dayTextColor;
 	}
 	// If there are more than 0 local notifications
 	else if ([eventArray count] > 0) {
-		self.onLabel.textColor = [UIColor blackColor];
-		self.offLabel.textColor = [UIColor lightGrayColor];
-		self.alarmLabel.textColor = [UIColor blackColor];
+		self.onLabel.textColor = dayTextColor;
+		self.offLabel.textColor = dayLabelOffColor;
+		self.alarmLabel.textColor = dayTextColor;
 	}
 	
 	// AM/PM Label Status
@@ -742,45 +778,57 @@
 	
 	// If it is AM
 	if (timeVal < 12) {
-		self.amLabel.textColor = [UIColor blackColor];
-		self.pmLabel.textColor = [UIColor lightGrayColor];
-		self.slashLabel.textColor = [UIColor blackColor];
+		self.amLabel.textColor = dayTextColor;
+		self.pmLabel.textColor = dayLabelOffColor;
+		self.slashLabel.textColor = dayTextColor;
 	}
 	// If it is PM
 	else if (timeVal >= 12) {
-		self.amLabel.textColor = [UIColor lightGrayColor];
-		self.pmLabel.textColor = [UIColor blackColor];
-		self.slashLabel.textColor = [UIColor blackColor];
+		self.amLabel.textColor = dayLabelOffColor;
+		self.pmLabel.textColor = dayTextColor;
+		self.slashLabel.textColor = dayTextColor;
 	}
 	
 	// Background Color
-	[self.backgroundView setBackgroundColor:[UIColor whiteColor]];
+	[self.backgroundView setBackgroundColor:dayBackgroundColor];
 	
 	// Clock Label
-	self.timeLabel.textColor = [UIColor blackColor];
+	self.timeLabel.textColor = dayTextColor;
 	
 	// Day Label
-	self.dayLabel.textColor = [UIColor blackColor];
+	self.dayLabel.textColor = dayTextColor;
 	
 	// Day and Month Label
-	self.dayMonthLabel.textColor = [UIColor blackColor];
+	self.dayMonthLabel.textColor = dayTextColor;
     
     // Weather Labels
-    self.weatherTempLabel.textColor = [UIColor blackColor];
-    self.weatherCondLabel.textColor = [UIColor blackColor];
+    self.weatherTempLabel.textColor = dayTextColor;
+    self.weatherCondLabel.textColor = dayTextColor;
     
     // Set App Tint Color
-    [[UIView appearance] setTintColor:[UIColor blueColor]];
+    [[UIView appearance] setTintColor:themeTint];
     
     // Set Button Tint
     UIImage *image = [UIImage imageNamed:@"settingsButton"];
     UIImage *templateImage = [image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     [self.settingsButton setImage:templateImage forState:UIControlStateNormal];
-    self.settingsButton.tintColor = [UIColor blueColor];
+    self.settingsButton.tintColor = themeTint;
 }
 
 // Always Night Mode is Enabled
 -(void)nightMode {
+    
+    NSData *nightTextColorData = [[NSUserDefaults standardUserDefaults] objectForKey:@"nightTextColor"];
+    UIColor *nightTextColor = [NSKeyedUnarchiver unarchiveObjectWithData:nightTextColorData];
+    
+    NSData *nightBackgroundColorData = [[NSUserDefaults standardUserDefaults] objectForKey:@"nightBackgroundColor"];
+    UIColor *nightBackgroundColor = [NSKeyedUnarchiver unarchiveObjectWithData:nightBackgroundColorData];
+    
+    NSData *nightLabelOffColorData = [[NSUserDefaults standardUserDefaults] objectForKey:@"nightLabelOffColor"];
+    UIColor *nightLabelOffColor = [NSKeyedUnarchiver unarchiveObjectWithData:nightLabelOffColorData];
+    
+    NSData *themeTintData = [[NSUserDefaults standardUserDefaults] objectForKey:@"themeTintColor"];
+    UIColor *themeTint = [NSKeyedUnarchiver unarchiveObjectWithData:themeTintData];
 	
 	// Alarm Label Status
 	UIApplication *app = [UIApplication sharedApplication];
@@ -788,15 +836,15 @@
 	
 	// If there are 0 local notifications
 	if ([eventArray count] == 0) {
-		self.onLabel.textColor = [UIColor darkGrayColor];
-		self.offLabel.textColor = [UIColor whiteColor];
-		self.alarmLabel.textColor = [UIColor whiteColor];
+		self.onLabel.textColor = nightLabelOffColor;
+		self.offLabel.textColor = nightTextColor;
+		self.alarmLabel.textColor = nightTextColor;
 	}
 	// If there are more than 0 local notifications
 	else if ([eventArray count] > 0) {
-		self.onLabel.textColor = [UIColor whiteColor];
-		self.offLabel.textColor = [UIColor darkGrayColor];
-		self.alarmLabel.textColor = [UIColor whiteColor];
+		self.onLabel.textColor = nightTextColor;
+		self.offLabel.textColor = nightLabelOffColor;
+		self.alarmLabel.textColor = nightTextColor;
 	}
 	
 	// AM/PM Label Status
@@ -808,41 +856,41 @@
 	
 	// If it is AM
 	if (timeVal < 12) {
-		self.amLabel.textColor = [UIColor whiteColor];
-		self.pmLabel.textColor = [UIColor darkGrayColor];
-		self.slashLabel.textColor = [UIColor whiteColor];
+		self.amLabel.textColor = nightTextColor;
+		self.pmLabel.textColor = nightLabelOffColor;
+		self.slashLabel.textColor = nightTextColor;
 	}
 	// If it is PM
 	else if (timeVal >= 12) {
-		self.amLabel.textColor = [UIColor darkGrayColor];
-		self.pmLabel.textColor = [UIColor whiteColor];
-		self.slashLabel.textColor = [UIColor whiteColor];
+		self.amLabel.textColor = nightLabelOffColor;
+		self.pmLabel.textColor = nightTextColor;
+		self.slashLabel.textColor = nightTextColor;
 	}
 	
 	// Background Color
-	[self.backgroundView setBackgroundColor:[UIColor blackColor]];
+	[self.backgroundView setBackgroundColor:nightBackgroundColor];
 	
 	// Clock Label
-	self.timeLabel.textColor = [UIColor whiteColor];
+	self.timeLabel.textColor = nightTextColor;
 	
 	// Day Label
-	self.dayLabel.textColor = [UIColor whiteColor];
+	self.dayLabel.textColor = nightTextColor;
 	
 	// Day and Month Label
-	self.dayMonthLabel.textColor = [UIColor whiteColor];
+	self.dayMonthLabel.textColor = nightTextColor;
     
     // Weather Labels
-    self.weatherTempLabel.textColor = [UIColor whiteColor];
-    self.weatherCondLabel.textColor = [UIColor whiteColor];
+    self.weatherTempLabel.textColor = nightTextColor;
+    self.weatherCondLabel.textColor = nightTextColor;
     
     // Set App Tint Color
-    [[UIView appearance] setTintColor:[UIColor blueColor]];
+    [[UIView appearance] setTintColor:themeTint];
     
     // Set Button Tint
-    UIImage *image = [UIImage imageNamed:@"Dots"];
+    UIImage *image = [UIImage imageNamed:@"settingsButton"];
     UIImage *templateImage = [image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     [self.settingsButton setImage:templateImage forState:UIControlStateNormal];
-    self.settingsButton.tintColor = [UIColor blueColor];
+    self.settingsButton.tintColor = themeTint;
 }
 
 // Automatic Switching is Enabled and Custom Times are On - Times are based on Custom Times settings
@@ -950,9 +998,6 @@
 // Refresh weather button
 -(IBAction)updateWeather:(id)sender {
     [self getWeather];
-    NSUserDefaults *themeDefaults = [NSUserDefaults standardUserDefaults];
-    NSString *dayTextColor = [themeDefaults objectForKey:@"dayTextColor"];
-    NSLog(@"dayTextColor is %@", dayTextColor);
 }
 
 // Get and Show Weather Information
@@ -1250,10 +1295,26 @@
         [userDefaults synchronize];
     }
     
-    NSString *dayTextColor = [NSString stringWithFormat:@"customBlackColor"];
+    // Set Default Theme On First Launch
+    NSData *dayTextColorData = [NSKeyedArchiver archivedDataWithRootObject:[UIColor customBlackColor]];
+    NSData *dayBackgroundColorData = [NSKeyedArchiver archivedDataWithRootObject:[UIColor customWhiteColor]];
+    NSData *dayLabelOffColorData = [NSKeyedArchiver archivedDataWithRootObject:[UIColor customLightGrayColor]];
+    NSData *nightTextColorData = [NSKeyedArchiver archivedDataWithRootObject:[UIColor customWhiteColor]];
+    NSData *nightBackgroundColorData = [NSKeyedArchiver archivedDataWithRootObject:[UIColor customBlackColor]];
+    NSData *nightLabelOffColorData = [NSKeyedArchiver archivedDataWithRootObject:[UIColor customDarkGrayColor]];
+    
+    NSString *themeFont = @"Digital-7 Mono";
+    NSData *themeTintColorData = [NSKeyedArchiver archivedDataWithRootObject:[UIColor customDarkRedColor]];
     
     NSUserDefaults *themeDefaults = [NSUserDefaults standardUserDefaults];
-    [themeDefaults setObject:dayTextColor forKey:@"dayTextColor"];
+    [themeDefaults setObject:dayTextColorData forKey:@"dayTextColor"];
+    [themeDefaults setObject:dayBackgroundColorData forKey:@"dayBackgroundColor"];
+    [themeDefaults setObject:dayLabelOffColorData forKey:@"dayLabelOffColor"];
+    [themeDefaults setObject:nightTextColorData forKey:@"nightTextColor"];
+    [themeDefaults setObject:nightBackgroundColorData forKey:@"nightBackgroundColor"];
+    [themeDefaults setObject:nightLabelOffColorData forKey:@"nightLabelOffColor"];
+    [themeDefaults setObject:themeFont forKey:@"themeFont"];
+    [themeDefaults setObject:themeTintColorData forKey:@"themeTintColor"];
     
     [themeDefaults synchronize];
 }

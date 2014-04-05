@@ -66,6 +66,7 @@
 		27B4861D18D509DF004CA2DD /* ACAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27B4861C18D509DF004CA2DD /* ACAboutViewController.m */; };
 		27B4862018D554EF004CA2DD /* heart_settings_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 27B4861E18D554EF004CA2DD /* heart_settings_button.png */; };
 		27B4862118D554EF004CA2DD /* heart_settings_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 27B4861F18D554EF004CA2DD /* heart_settings_button@2x.png */; };
+		27C6D47F18EFAEB20026A2E9 /* ACThemesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C6D47E18EFAEB20026A2E9 /* ACThemesViewController.m */; };
 		27D5CCEF18711EFC00061B47 /* ACOverlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D5CCEE18711EFC00061B47 /* ACOverlayViewController.m */; };
 		27D5CCF218711F1600061B47 /* ACOverlayViewController~ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D5CCF118711F1600061B47 /* ACOverlayViewController~ipad.m */; };
 		27D7FF93182ABAF800A14824 /* ACBetaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D7FF92182ABAF800A14824 /* ACBetaViewController.m */; };
@@ -170,6 +171,8 @@
 		27B4861C18D509DF004CA2DD /* ACAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACAboutViewController.m; sourceTree = "<group>"; };
 		27B4861E18D554EF004CA2DD /* heart_settings_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart_settings_button.png; sourceTree = SOURCE_ROOT; };
 		27B4861F18D554EF004CA2DD /* heart_settings_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "heart_settings_button@2x.png"; sourceTree = SOURCE_ROOT; };
+		27C6D47D18EFAEB20026A2E9 /* ACThemesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACThemesViewController.h; sourceTree = "<group>"; };
+		27C6D47E18EFAEB20026A2E9 /* ACThemesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACThemesViewController.m; sourceTree = "<group>"; };
 		27D5CCED18711EFC00061B47 /* ACOverlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACOverlayViewController.h; sourceTree = "<group>"; };
 		27D5CCEE18711EFC00061B47 /* ACOverlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACOverlayViewController.m; sourceTree = "<group>"; };
 		27D5CCF018711F1600061B47 /* ACOverlayViewController~ipad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ACOverlayViewController~ipad.h"; sourceTree = "<group>"; };
@@ -259,6 +262,7 @@
 				27EF34A318D3D2DE00B7D79C /* Alarm */,
 				2785DAF618D0E49D00B8D39B /* NightViewController */,
 				276182A118EB1AE7000E2C31 /* WeatherSettingsViewController */,
+				27C6D47C18EFAE940026A2E9 /* ThemesViewController */,
 				277AFEF7181EA5B80009AE0F /* Main.storyboard */,
 			);
 			name = iPhone;
@@ -497,6 +501,15 @@
 				27B4861C18D509DF004CA2DD /* ACAboutViewController.m */,
 			);
 			name = AboutViewController;
+			sourceTree = "<group>";
+		};
+		27C6D47C18EFAE940026A2E9 /* ThemesViewController */ = {
+			isa = PBXGroup;
+			children = (
+				27C6D47D18EFAEB20026A2E9 /* ACThemesViewController.h */,
+				27C6D47E18EFAEB20026A2E9 /* ACThemesViewController.m */,
+			);
+			name = ThemesViewController;
 			sourceTree = "<group>";
 		};
 		27D5CCEA18711EC600061B47 /* OverlayTutorial */ = {
@@ -774,6 +787,7 @@
 				27E01BF21829AAC500DB1132 /* MKiCloudSync.m in Sources */,
 				27EF4A2E18ECFC4300C9D72F /* ACWeatherRefreshIntervalViewController.m in Sources */,
 				27EF34A718D3D3F300B7D79C /* ACAlarmViewController.m in Sources */,
+				27C6D47F18EFAEB20026A2E9 /* ACThemesViewController.m in Sources */,
 				275B1EF418EF9A3F00B27899 /* UIColor+Custom.m in Sources */,
 				27EF34AD18D3D4DF00B7D79C /* ACAlarmLabelEditViewController.m in Sources */,
 				27EF34B018D3D53300B7D79C /* ACAlarmObject.m in Sources */,
