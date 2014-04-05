@@ -244,6 +244,7 @@
     
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     [defaults setBool:NO forKey:@"firstLoad"];
+    [defaults setBool:NO forKey:@"notFirstRun"];
     [defaults synchronize];
     [TestFlight passCheckpoint:@"Tutorial Default Reset to NO."];
 }

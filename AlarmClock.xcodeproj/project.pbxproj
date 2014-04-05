@@ -27,6 +27,7 @@
 		27291F101823EF6100CB2070 /* ACViewController~ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 27291F0F1823EF6100CB2070 /* ACViewController~ipad.m */; };
 		27291F131823EF8100CB2070 /* ACInfoViewController~ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 27291F121823EF8100CB2070 /* ACInfoViewController~ipad.m */; };
 		274B70C2182AC23900266466 /* BetaSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 274B70C1182AC23900266466 /* BetaSettings.plist */; };
+		275B1EF418EF9A3F00B27899 /* UIColor+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 275B1EF318EF9A3F00B27899 /* UIColor+Custom.m */; };
 		276182A418EB1B18000E2C31 /* ACWeatherSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 276182A318EB1B18000E2C31 /* ACWeatherSettingsViewController.m */; };
 		276182A618EB2C6F000E2C31 /* IFIHADONE.png in Resources */ = {isa = PBXBuildFile; fileRef = 276182A518EB2C6F000E2C31 /* IFIHADONE.png */; };
 		27642FF11827FB92007D66CE /* ACLaurenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27642FF01827FB92007D66CE /* ACLaurenViewController.m */; };
@@ -113,6 +114,8 @@
 		27291F121823EF8100CB2070 /* ACInfoViewController~ipad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ACInfoViewController~ipad.m"; sourceTree = "<group>"; };
 		2729A88218B7205500182ED1 /* Definitions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Definitions.h; sourceTree = "<group>"; };
 		274B70C1182AC23900266466 /* BetaSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BetaSettings.plist; sourceTree = "<group>"; };
+		275B1EF218EF9A3F00B27899 /* UIColor+Custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Custom.h"; sourceTree = "<group>"; };
+		275B1EF318EF9A3F00B27899 /* UIColor+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Custom.m"; sourceTree = "<group>"; };
 		276182A218EB1B18000E2C31 /* ACWeatherSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACWeatherSettingsViewController.h; sourceTree = "<group>"; };
 		276182A318EB1B18000E2C31 /* ACWeatherSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACWeatherSettingsViewController.m; sourceTree = "<group>"; };
 		276182A518EB2C6F000E2C31 /* IFIHADONE.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IFIHADONE.png; sourceTree = "<group>"; };
@@ -273,6 +276,16 @@
 			name = iPad;
 			sourceTree = "<group>";
 		};
+		275B1EE518EF973400B27899 /* Custom Files */ = {
+			isa = PBXGroup;
+			children = (
+				2729A88218B7205500182ED1 /* Definitions.h */,
+				275B1EF218EF9A3F00B27899 /* UIColor+Custom.h */,
+				275B1EF318EF9A3F00B27899 /* UIColor+Custom.m */,
+			);
+			name = "Custom Files";
+			sourceTree = "<group>";
+		};
 		276182A118EB1AE7000E2C31 /* WeatherSettingsViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -350,6 +363,7 @@
 		277AFEEC181EA5B80009AE0F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				275B1EE518EF973400B27899 /* Custom Files */,
 				279709AC18D4247800B03572 /* Alarm.mp3 */,
 				2705D4B018BD1A1B002C83D8 /* settingsButton.png */,
 				2705D4B118BD1A1C002C83D8 /* settingsButton@2x.png */,
@@ -361,7 +375,6 @@
 				270893FF1821C269006E23BA /* Images */,
 				277AFEFD181EA5B80009AE0F /* Images.xcassets */,
 				276182A518EB2C6F000E2C31 /* IFIHADONE.png */,
-				2729A88218B7205500182ED1 /* Definitions.h */,
 				276901B41820C4D1006B915D /* Digital-7MonoItalic.otf */,
 				277AFEED181EA5B80009AE0F /* AlarmClock-Info.plist */,
 				277AFEEE181EA5B80009AE0F /* InfoPlist.strings */,
@@ -761,6 +774,7 @@
 				27E01BF21829AAC500DB1132 /* MKiCloudSync.m in Sources */,
 				27EF4A2E18ECFC4300C9D72F /* ACWeatherRefreshIntervalViewController.m in Sources */,
 				27EF34A718D3D3F300B7D79C /* ACAlarmViewController.m in Sources */,
+				275B1EF418EF9A3F00B27899 /* UIColor+Custom.m in Sources */,
 				27EF34AD18D3D4DF00B7D79C /* ACAlarmLabelEditViewController.m in Sources */,
 				27EF34B018D3D53300B7D79C /* ACAlarmObject.m in Sources */,
 				27291F131823EF8100CB2070 /* ACInfoViewController~ipad.m in Sources */,

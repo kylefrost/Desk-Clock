@@ -16,7 +16,8 @@
 #import "ACAlarmViewController.h"
 #import "OWMWeatherAPI.h"
 
-#import <objc/message.h>
+#import "UIColor+Custom.h"
+
 #import <AVFoundation/AVAudioPlayer.h>
 #import <AudioToolbox/AudioToolbox.h>
 #import <UIKit/UIScreen.h>
@@ -31,24 +32,14 @@
 }
 
 @synthesize player;
-
-// Load Tutorial if it is First Open
--(void)loadTutorial {
-    
-    NSUserDefaults *tutorialDefaults = [NSUserDefaults standardUserDefaults];
-    
-    if (![tutorialDefaults boolForKey:@"firstLoad"]) {
-        [self showTutorial];
-        [tutorialDefaults setBool:YES forKey:@"firstLoad"];
-    }
-}
+@synthesize brightness = _brightness;
 
 // Load Tutorial if it is First Open
 -(void)isFirstOpen {
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     // [defaults setBool:NO forKey:@"notFirstRun"];
     if (![defaults boolForKey:@"notFirstRun"]) {
-        [self showTutorial];
+        [self isFirstRun];
         [defaults setBool:YES forKey:@"notFirstRun"];
         [defaults synchronize];
     }
@@ -76,6 +67,8 @@
     
     [super viewDidLoad];
     
+    [self determineBuild];
+    
     NSUserDefaults* nightViewPreferences = [NSUserDefaults standardUserDefaults];
     
     BOOL enabledSwitchState = [nightViewPreferences boolForKey:@"enabledSwitch"];
@@ -94,8 +87,6 @@
     
     // Load tutorial if it is the first open
     [self isFirstOpen];
-    [self loadTutorial];
-    [self performSelector:@selector(loadTutorial) withObject:nil afterDelay:0.0];
     
     // iCloud syncing
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -109,8 +100,6 @@
     
     [MKiCloudSync start];
     [MKiCloudSync initialize];
-    
-    [self determineBuild];
     
     // Get Orientation at launch
     [self getOrientation];
@@ -132,7 +121,6 @@
     weatherLocationManager = [[CLLocationManager alloc] init];
 
     [self getWeather];
-    // [self addAllTheSubViews];
     
     [UIView beginAnimations:nil context:nil];
     
@@ -780,6 +768,15 @@
     // Weather Labels
     self.weatherTempLabel.textColor = [UIColor blackColor];
     self.weatherCondLabel.textColor = [UIColor blackColor];
+    
+    // Set App Tint Color
+    [[UIView appearance] setTintColor:[UIColor blueColor]];
+    
+    // Set Button Tint
+    UIImage *image = [UIImage imageNamed:@"settingsButton"];
+    UIImage *templateImage = [image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    [self.settingsButton setImage:templateImage forState:UIControlStateNormal];
+    self.settingsButton.tintColor = [UIColor blueColor];
 }
 
 // Always Night Mode is Enabled
@@ -837,6 +834,15 @@
     // Weather Labels
     self.weatherTempLabel.textColor = [UIColor whiteColor];
     self.weatherCondLabel.textColor = [UIColor whiteColor];
+    
+    // Set App Tint Color
+    [[UIView appearance] setTintColor:[UIColor blueColor]];
+    
+    // Set Button Tint
+    UIImage *image = [UIImage imageNamed:@"Dots"];
+    UIImage *templateImage = [image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    [self.settingsButton setImage:templateImage forState:UIControlStateNormal];
+    self.settingsButton.tintColor = [UIColor blueColor];
 }
 
 // Automatic Switching is Enabled and Custom Times are On - Times are based on Custom Times settings
@@ -917,8 +923,6 @@
 // Automatic Switching is Enabled and Custom Times are Off - Times switch at 8AM and 8PM
 -(void)customIsOff {
     
-	// NSLog(@"customIsOff is being called.");
-	
 	// Find time in 24 hour format
 	NSDateFormatter *timeFormat = [[NSDateFormatter alloc] init];
 	[timeFormat setDateFormat:@"HH"];
@@ -927,147 +931,13 @@
 	
 	// Set night mode or day mode colors for timeLabel and weather labels
 	if (timeVal <= 7) {
-		self.timeLabel.textColor = [UIColor whiteColor];
-        // Weather Labels
-        self.weatherTempLabel.textColor = [UIColor whiteColor];
-        self.weatherCondLabel.textColor = [UIColor whiteColor];
+        [self nightMode];
 	}
 	else if (timeVal <= 19 && timeVal >= 8) {
-		self.timeLabel.textColor = [UIColor blackColor];
-        // Weather Labels
-        self.weatherTempLabel.textColor = [UIColor blackColor];
-        self.weatherCondLabel.textColor = [UIColor blackColor];
+        [self dayMode];
 	}
 	else if (timeVal >= 20) {
-		self.timeLabel.textColor = [UIColor whiteColor];
-        // Weather Labels
-        self.weatherTempLabel.textColor = [UIColor whiteColor];
-        self.weatherCondLabel.textColor = [UIColor whiteColor];
-	}
-	
-	// Set night mode or day mode colors for dayLabel
-	if (timeVal <= 7) {
-		self.dayLabel.textColor = [UIColor whiteColor];
-	}
-	else if (timeVal <= 19 && timeVal >= 8) {
-		self.dayLabel.textColor = [UIColor blackColor];
-	}
-	else if (timeVal >= 20) {
-		self.dayLabel.textColor = [UIColor whiteColor];
-	}
-	
-	// Set night mode or day mode colors for dayMonthLabel
-	if (timeVal <= 7) {
-		self.dayMonthLabel.textColor = [UIColor whiteColor];
-	}
-	else if (timeVal <= 19 && timeVal >= 8) {
-		self.dayMonthLabel.textColor = [UIColor blackColor];
-	}
-	else if (timeVal >= 20) {
-		self.dayMonthLabel.textColor = [UIColor whiteColor];
-	}
-	
-	// Set night or day mode colors for background
-	if (timeVal <= 7) {
-		[self.backgroundView setBackgroundColor:[UIColor blackColor]];
-	}
-	else if (timeVal <= 19 && timeVal >= 8) {
-		[self.backgroundView setBackgroundColor:[UIColor whiteColor]];
-	}
-	else if (timeVal >= 20) {
-		[self.backgroundView setBackgroundColor:[UIColor blackColor]];
-	}
-	
-	// AM and PM Labels
-	// If it is AM
-	if (timeVal < 12) {
-		// It's Night
-		if (timeVal <= 7) {
-			self.amLabel.textColor = [UIColor whiteColor];
-			self.pmLabel.textColor = [UIColor darkGrayColor];
-			self.slashLabel.textColor = [UIColor whiteColor];
-		}
-		// It's Day
-		else if (timeVal <= 19 && timeVal >= 8) {
-			self.amLabel.textColor = [UIColor blackColor];
-			self.pmLabel.textColor = [UIColor lightGrayColor];
-			self.slashLabel.textColor = [UIColor blackColor];
-		}
-		// It's Night
-		else if (timeVal >= 20) {
-			self.amLabel.textColor = [UIColor whiteColor];
-			self.pmLabel.textColor = [UIColor darkGrayColor];
-			self.slashLabel.textColor = [UIColor whiteColor];
-		}
-	}
-	// If it is PM
-	else if (timeVal >= 12) {
-		// It's Night
-		if (timeVal <= 7) {
-			self.amLabel.textColor = [UIColor darkGrayColor];
-			self.pmLabel.textColor = [UIColor whiteColor];
-			self.slashLabel.textColor = [UIColor whiteColor];
-		}
-		// It's Day
-		else if (timeVal <= 19 && timeVal >= 8) {
-			self.amLabel.textColor = [UIColor lightGrayColor];
-			self.pmLabel.textColor = [UIColor blackColor];
-			self.slashLabel.textColor = [UIColor blackColor];
-		}
-		// It's Night
-		else if (timeVal >= 20) {
-			self.amLabel.textColor = [UIColor darkGrayColor];
-			self.pmLabel.textColor = [UIColor whiteColor];
-			self.slashLabel.textColor = [UIColor whiteColor];
-		}
-	}
-	
-	// Check local notification count
-	UIApplication *app = [UIApplication sharedApplication];
-	NSArray *eventArray = [app scheduledLocalNotifications];
-	
-	// Change Alarm On/Off State based on [eventArray count]
-	// If no alarms turn it OFF
-	if ([eventArray count] == 0) {
-		// It's Night
-		if (timeVal <= 7) {
-			self.onLabel.textColor = [UIColor darkGrayColor];
-			self.offLabel.textColor = [UIColor whiteColor];
-			self.alarmLabel.textColor = [UIColor whiteColor];
-		}
-		// It's Day
-		else if (timeVal <= 19 && timeVal >= 8) {
-			self.onLabel.textColor = [UIColor lightGrayColor];
-			self.offLabel.textColor = [UIColor blackColor];
-			self.alarmLabel.textColor = [UIColor blackColor];
-		}
-		// It's Night
-		else if (timeVal >= 20) {
-			self.onLabel.textColor = [UIColor darkGrayColor];
-			self.offLabel.textColor = [UIColor whiteColor];
-			self.alarmLabel.textColor = [UIColor whiteColor];
-		}
-	}
-	// If alarms present turn it ON
-	else if ([eventArray count] > 0) {
-		// It's Night
-		if (timeVal <= 7) {
-			self.onLabel.textColor = [UIColor whiteColor];
-			self.offLabel.textColor = [UIColor darkGrayColor];
-			self.alarmLabel.textColor = [UIColor whiteColor];
-		}
-		// It's Day
-		else if (timeVal <= 19 && timeVal >= 8) {
-			self.onLabel.textColor = [UIColor blackColor];
-			self.offLabel.textColor = [UIColor lightGrayColor];
-			self.alarmLabel.textColor = [UIColor blackColor];
-		}
-		// It's Night
-		else if (timeVal >= 20) {
-			self.onLabel.textColor = [UIColor whiteColor];
-			self.offLabel.textColor = [UIColor darkGrayColor];
-			self.alarmLabel.textColor = [UIColor whiteColor];
-		}
+        [self nightMode];
 	}
 }
 
@@ -1080,6 +950,9 @@
 // Refresh weather button
 -(IBAction)updateWeather:(id)sender {
     [self getWeather];
+    NSUserDefaults *themeDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *dayTextColor = [themeDefaults objectForKey:@"dayTextColor"];
+    NSLog(@"dayTextColor is %@", dayTextColor);
 }
 
 // Get and Show Weather Information
@@ -1260,15 +1133,129 @@
 /******************* Miscellaneous *******************/
 
 // Shows tutorial if first open
--(void)showTutorial {
+-(void)isFirstRun {
     
-    UIViewController *view = [[ACTutorialViewController alloc] initWithNibName:@"ACTutorialViewController" bundle:nil];
-    view.modalPresentationStyle = UIModalPresentationCurrentContext;
-    view.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-    [self presentViewController:view animated:YES completion:NULL];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"First Load" message:@"This is your first time opening this app" delegate:nil cancelButtonTitle:@"Thanks" otherButtonTitles:nil];
+    [alertView show];
     
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setLocale:[NSLocale currentLocale]];
+    [formatter setDateStyle:NSDateFormatterNoStyle];
+    [formatter setTimeStyle:NSDateFormatterShortStyle];
+    NSString *dateString = [formatter stringFromDate:[NSDate date]];
+    NSRange amRange = [dateString rangeOfString:[formatter AMSymbol]];
+    NSRange pmRange = [dateString rangeOfString:[formatter PMSymbol]];
+    BOOL is24h = (amRange.location == NSNotFound && pmRange.location == NSNotFound);
     
-    // UIView *view = [[UIView alloc] init];
+    if (is24h == 1) {
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        [userDefaults setBool:1 forKey:@"enabledSwitch"];
+        [userDefaults setBool:0 forKey:@"alwaysDaySwitch"];
+        [userDefaults setBool:0 forKey:@"alwaysNightSwitch"];
+        [userDefaults setBool:0 forKey:@"customTimeSwitch"];
+        
+        [userDefaults setBool:1 forKey:@"currentLocationSwitch"];
+        [userDefaults setBool:0 forKey:@"celsiusSwitch"];
+        
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setDateFormat:@"HH:mm a"];
+        
+        NSDate *morning = [dateFormat dateFromString:@"08:00"];
+        NSDate *night = [dateFormat dateFromString:@"20:00"];
+        
+        [userDefaults setObject:morning forKey:@"dayTimeFullObject"];
+        [userDefaults setObject:night forKey:@"nightTimeFullObject"];
+        
+        // HOUR
+        NSDateFormatter *hourFormat = [[NSDateFormatter alloc] init];
+        [hourFormat setDateFormat:@"HH"];
+        
+        NSDate *hourMorning = morning;
+        NSDate *hourNight = night;
+        
+        [userDefaults setObject:hourMorning forKey:@"dayHourObject"];
+        [userDefaults setObject:hourNight forKey:@"nightHourObject"];
+        
+        // MINUTE
+        NSDateFormatter *minuteFormat = [[NSDateFormatter alloc] init];
+        [minuteFormat setDateFormat:@"mm"];
+        
+        NSDate *minuteMorning = morning;
+        NSDate *minuteNight = night;
+        
+        [userDefaults setObject:minuteMorning forKey:@"dayMinuteObject"];
+        [userDefaults setObject:minuteNight forKey:@"nightMinuteObject"];
+        
+        // AM PM
+        NSDateFormatter *ampmFormat = [[NSDateFormatter alloc] init];
+        [ampmFormat setDateFormat:@"a"];
+        
+        NSDate *dayAM = morning;
+        NSDate *nightPM = night;
+        
+        [userDefaults setObject:dayAM forKey:@"dayAMPMObject"];
+        [userDefaults setObject:nightPM forKey:@"nightAMPMObject"];
+        
+        [userDefaults synchronize];
+    }
+    else if (is24h == 0) {
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        [userDefaults setBool:1 forKey:@"enabledSwitch"];
+        [userDefaults setBool:0 forKey:@"alwaysDaySwitch"];
+        [userDefaults setBool:0 forKey:@"alwaysNightSwitch"];
+        [userDefaults setBool:0 forKey:@"customTimeSwitch"];
+        
+        [userDefaults setBool:1 forKey:@"currentLocationSwitch"];
+        [userDefaults setBool:0 forKey:@"celsiusSwitch"];
+        
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setDateFormat:@"h:mm a"];
+        
+        NSDate *morning = [dateFormat dateFromString:@"8:00 AM"];
+        NSDate *night = [dateFormat dateFromString:@"8:00 PM"];
+        
+        [userDefaults setObject:morning forKey:@"dayTimeFullObject"];
+        [userDefaults setObject:night forKey:@"nightTimeFullObject"];
+        
+        // HOUR
+        NSDateFormatter *hourFormat = [[NSDateFormatter alloc] init];
+        [hourFormat setDateFormat:@"h"];
+        
+        NSDate *hourMorning = morning;
+        NSDate *hourNight = night;
+        
+        [userDefaults setObject:hourMorning forKey:@"dayHourObject"];
+        [userDefaults setObject:hourNight forKey:@"nightHourObject"];
+        
+        // MINUTE
+        NSDateFormatter *minuteFormat = [[NSDateFormatter alloc] init];
+        [minuteFormat setDateFormat:@"mm"];
+        
+        NSDate *minuteMorning = morning;
+        NSDate *minuteNight = night;
+        
+        [userDefaults setObject:minuteMorning forKey:@"dayMinuteObject"];
+        [userDefaults setObject:minuteNight forKey:@"nightMinuteObject"];
+        
+        // AM PM
+        NSDateFormatter *ampmFormat = [[NSDateFormatter alloc] init];
+        [ampmFormat setDateFormat:@"a"];
+        
+        NSDate *dayAM = morning;
+        NSDate *nightPM = night;
+        
+        [userDefaults setObject:dayAM forKey:@"dayAMPMObject"];
+        [userDefaults setObject:nightPM forKey:@"nightAMPMObject"];
+        
+        [userDefaults synchronize];
+    }
+    
+    NSString *dayTextColor = [NSString stringWithFormat:@"customBlackColor"];
+    
+    NSUserDefaults *themeDefaults = [NSUserDefaults standardUserDefaults];
+    [themeDefaults setObject:dayTextColor forKey:@"dayTextColor"];
+    
+    [themeDefaults synchronize];
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
@@ -1277,13 +1264,11 @@
 }
 
 -(void)viewDidDisappear:(BOOL)animated {
-    // [self getOrientation];
     
 }
 
 -(IBAction)rotatePortrait:(id)sender {
 
-    // objc_msgSend([UIDevice currentDevice], @selector(setOrientation:), UIInterfaceOrientationPortrait);
 }
 
 // Did Receive Memory Warning

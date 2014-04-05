@@ -30,14 +30,14 @@
 @property (nonatomic, strong) NSMutableArray *listOfAlarms;
 
 // First Open
--(void)loadTutorial;
 -(void)isFirstOpen;
--(void)showTutorial;
+-(void)isFirstRun;
 -(BOOL)readValue;
 
-// Brightness Button
+// Brightness and Settings Button
 @property(nonatomic) CGFloat brightness;
 @property (weak, nonatomic) IBOutlet UIButton *brightnessButton;
+@property (weak, nonatomic) IBOutlet UIButton *settingsButton;
 -(IBAction)updateBrightness;
 
 // Night Mode
