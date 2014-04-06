@@ -34,6 +34,8 @@
 -(IBAction)getWeatherButton;
 -(void)getWeather;
 
+-(IBAction)resetTo12Hour;
+
 -(IBAction)resetAlarmArray;
 -(IBAction)checkNightViewDefaults:(id)sender;
 

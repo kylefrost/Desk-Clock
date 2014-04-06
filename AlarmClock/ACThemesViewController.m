@@ -160,7 +160,7 @@
     else if (indexPathInt == 4) {
 
     }
-    // Mono
+    // Monochrome
     else if (indexPathInt == 5) {
         
     }

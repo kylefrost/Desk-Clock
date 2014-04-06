@@ -1190,7 +1190,14 @@
     NSString *dateString = [formatter stringFromDate:[NSDate date]];
     NSRange amRange = [dateString rangeOfString:[formatter AMSymbol]];
     NSRange pmRange = [dateString rangeOfString:[formatter PMSymbol]];
-    BOOL is24h = (amRange.location == NSNotFound && pmRange.location == NSNotFound);
+    BOOL is24h = 0;
+    
+    if (amRange.location == NSNotFound && pmRange.location == NSNotFound) {
+        is24h = 1;
+    }
+    else if (amRange.location != NSNotFound && pmRange.location != NSNotFound) {
+        is24h = 0;
+    }
     
     if (is24h == 1) {
         NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];

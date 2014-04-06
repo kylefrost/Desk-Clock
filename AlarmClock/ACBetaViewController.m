@@ -376,6 +376,59 @@
     [defaultsAlert show];
 }
 
+-(IBAction)resetTo12Hour {
+    
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setBool:1 forKey:@"enabledSwitch"];
+    [userDefaults setBool:0 forKey:@"alwaysDaySwitch"];
+    [userDefaults setBool:0 forKey:@"alwaysNightSwitch"];
+    [userDefaults setBool:0 forKey:@"customTimeSwitch"];
+    
+    [userDefaults setBool:1 forKey:@"currentLocationSwitch"];
+    [userDefaults setBool:0 forKey:@"celsiusSwitch"];
+    
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"h:mm a"];
+    
+    NSDate *morning = [dateFormat dateFromString:@"8:00 AM"];
+    NSDate *night = [dateFormat dateFromString:@"8:00 PM"];
+    
+    [userDefaults setObject:morning forKey:@"dayTimeFullObject"];
+    [userDefaults setObject:night forKey:@"nightTimeFullObject"];
+    
+    // HOUR
+    NSDateFormatter *hourFormat = [[NSDateFormatter alloc] init];
+    [hourFormat setDateFormat:@"h"];
+    
+    NSDate *hourMorning = morning;
+    NSDate *hourNight = night;
+    
+    [userDefaults setObject:hourMorning forKey:@"dayHourObject"];
+    [userDefaults setObject:hourNight forKey:@"nightHourObject"];
+    
+    // MINUTE
+    NSDateFormatter *minuteFormat = [[NSDateFormatter alloc] init];
+    [minuteFormat setDateFormat:@"mm"];
+    
+    NSDate *minuteMorning = morning;
+    NSDate *minuteNight = night;
+    
+    [userDefaults setObject:minuteMorning forKey:@"dayMinuteObject"];
+    [userDefaults setObject:minuteNight forKey:@"nightMinuteObject"];
+    
+    // AM PM
+    NSDateFormatter *ampmFormat = [[NSDateFormatter alloc] init];
+    [ampmFormat setDateFormat:@"a"];
+    
+    NSDate *dayAM = morning;
+    NSDate *nightPM = night;
+    
+    [userDefaults setObject:dayAM forKey:@"dayAMPMObject"];
+    [userDefaults setObject:nightPM forKey:@"nightAMPMObject"];
+    
+    [userDefaults synchronize];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
