@@ -102,15 +102,15 @@
     }
     // Gold Is Best
     else if (indexPathInt == 1) {
-        NSData *dayTextColorData = [NSKeyedArchiver archivedDataWithRootObject:[UIColor customGoldColor]];
-        NSData *dayBackgroundColorData = [NSKeyedArchiver archivedDataWithRootObject:[UIColor customWhiteColor]];
+        NSData *dayTextColorData = [NSKeyedArchiver archivedDataWithRootObject:[UIColor customWhiteColor]];
+        NSData *dayBackgroundColorData = [NSKeyedArchiver archivedDataWithRootObject:[UIColor customGoldColor]];
         NSData *dayLabelOffColorData = [NSKeyedArchiver archivedDataWithRootObject:[UIColor customLightGrayColor]];
-        NSData *nightTextColorData = [NSKeyedArchiver archivedDataWithRootObject:[UIColor customWhiteColor]];
+        NSData *nightTextColorData = [NSKeyedArchiver archivedDataWithRootObject:[UIColor customGoldColor]];
         NSData *nightBackgroundColorData = [NSKeyedArchiver archivedDataWithRootObject:[UIColor customBlackColor]];
         NSData *nightLabelOffColorData = [NSKeyedArchiver archivedDataWithRootObject:[UIColor customDarkGrayColor]];
         
         NSString *themeFont = @"Digital-7 Mono";
-        NSData *themeTintColorData = [NSKeyedArchiver archivedDataWithRootObject:[UIColor customDarkRedColor]];
+        NSData *themeTintColorData = [NSKeyedArchiver archivedDataWithRootObject:[UIColor customDarkGrayColor]];
         
         NSUserDefaults *themeDefaults = [NSUserDefaults standardUserDefaults];
         [themeDefaults setObject:dayTextColorData forKey:@"dayTextColor"];
@@ -126,17 +126,43 @@
         
         [themeDefaults synchronize];
     }
-    // Classic (iOS 6)
+    // Warm
     else if (indexPathInt == 2) {
-
+        NSData *dayTextColorData = [NSKeyedArchiver archivedDataWithRootObject:[UIColor customWhiteColor]];
+        NSData *dayBackgroundColorData = [NSKeyedArchiver archivedDataWithRootObject:[UIColor customGoldColor]];
+        NSData *dayLabelOffColorData = [NSKeyedArchiver archivedDataWithRootObject:[UIColor customLightGrayColor]];
+        NSData *nightTextColorData = [NSKeyedArchiver archivedDataWithRootObject:[UIColor customGoldColor]];
+        NSData *nightBackgroundColorData = [NSKeyedArchiver archivedDataWithRootObject:[UIColor customBlackColor]];
+        NSData *nightLabelOffColorData = [NSKeyedArchiver archivedDataWithRootObject:[UIColor customDarkGrayColor]];
+        
+        NSString *themeFont = @"Digital-7 Mono";
+        NSData *themeTintColorData = [NSKeyedArchiver archivedDataWithRootObject:[UIColor customDarkGrayColor]];
+        
+        NSUserDefaults *themeDefaults = [NSUserDefaults standardUserDefaults];
+        [themeDefaults setObject:dayTextColorData forKey:@"dayTextColor"];
+        [themeDefaults setObject:dayBackgroundColorData forKey:@"dayBackgroundColor"];
+        [themeDefaults setObject:dayLabelOffColorData forKey:@"dayLabelOffColor"];
+        [themeDefaults setObject:nightTextColorData forKey:@"nightTextColor"];
+        [themeDefaults setObject:nightBackgroundColorData forKey:@"nightBackgroundColor"];
+        [themeDefaults setObject:nightLabelOffColorData forKey:@"nightLabelOffColor"];
+        [themeDefaults setObject:themeFont forKey:@"themeFont"];
+        [themeDefaults setObject:themeTintColorData forKey:@"themeTintColor"];
+        
+        [themeDefaults setInteger:1 forKey:@"themeSetting"];
+        
+        [themeDefaults synchronize];
     }
-    // 2 hours
+    // Cool
     else if (indexPathInt == 3) {
 
     }
-    // 5 hours
+    // Spring
     else if (indexPathInt == 4) {
 
+    }
+    // Mono
+    else if (indexPathInt == 5) {
+        
     }
     
     if (indexPathInt != 0) {
