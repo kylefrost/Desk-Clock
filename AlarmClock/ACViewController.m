@@ -7,9 +7,7 @@
 //
 
 #import "ACViewController.h"
-#import "ACInfoViewController.h"
 #import "MKiCloudSync.h"
-#import "ACTutorialViewController.h"
 #import "Definitions.h"
 #import "ACAppDelegate.h"
 #import "ACAlarmObject.h"

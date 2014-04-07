@@ -1,18 +1,18 @@
 //
-//  ACAboutViewController.m
+//  ACAboutViewController~ipad.m
 //  AlarmClock
 //
-//  Created by Kyle Frost on 3/15/14.
+//  Created by Kyle Frost on 4/6/14.
 //  Copyright (c) 2014 Kyle Frost. All rights reserved.
 //
 
-#import "ACAboutViewController.h"
+#import "ACAboutViewController~ipad.h"
 
-@interface ACAboutViewController ()
+@interface ACAboutViewController_ipad ()
 
 @end
 
-@implementation ACAboutViewController
+@implementation ACAboutViewController_ipad
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -46,7 +46,7 @@
 }
 
 - (void)didReceiveMemoryWarning {
-
+    
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -141,6 +141,5 @@
         }
     }
 }
-
 
 @end

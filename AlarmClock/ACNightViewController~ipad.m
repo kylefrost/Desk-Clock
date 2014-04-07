@@ -1,18 +1,18 @@
 //
-//  ACNightViewController.m
+//  ACNightViewController~ipad.m
 //  AlarmClock
 //
-//  Created by Kyle Frost on 3/12/14.
+//  Created by Kyle Frost on 4/6/14.
 //  Copyright (c) 2014 Kyle Frost. All rights reserved.
 //
 
-#import "ACNightViewController.h"
+#import "ACNightViewController~ipad.h"
 
-@interface ACNightViewController ()
+@interface ACNightViewController_ipad ()
 
 @end
 
-@implementation ACNightViewController
+@implementation ACNightViewController_ipad
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -47,14 +47,14 @@
     else if (alwaysOnDaySwitchState == 0) {               // Always Day Switch is On
         [self loadAlwaysDayoff];
     }
-
+    
     if (alwaysOnSwitchState == 1) {                       // Always Night Switch is On
         [self loadAlwaysNightOn];
     }
     else if (alwaysOnSwitchState == 0) {                  // Always Night Switch is Off
         [self loadAlwaysNightOff];
     }
-
+    
     if (customTimeSwitchState == 1) {                     // Custom Time Switch is On
         [self loadCustomOn];
     }
@@ -69,7 +69,7 @@
     }
     
     [self.tableView reloadData];
-
+    
 }
 
 -(IBAction)toggleEnabledForEnableSwitch:(id)sender {
@@ -239,12 +239,12 @@
         NSDate *nightTimeFull = [preferences objectForKey:@"nightTimeFullObject"];
         NSString *nightTimeDetailedText = [dateFormat stringFromDate:nightTimeFull];
         self.nightTimeCell.detailTextLabel.text = nightTimeDetailedText;
-
+        
     }
     else if (nightPickerDate == NULL) {
         self.nightTimeCell.detailTextLabel.text = @"8:00 PM";
     }
-
+    
 }
 
 -(void)customOff {

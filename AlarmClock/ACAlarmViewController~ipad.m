@@ -1,26 +1,23 @@
 //
-//  ACAlarmViewController.m
+//  ACAlarmViewController~ipad.m
 //  AlarmClock
 //
-//  Created by Kyle Frost on 3/14/14.
+//  Created by Kyle Frost on 4/6/14.
 //  Copyright (c) 2014 Kyle Frost. All rights reserved.
 //
 
-// AlarmListTableController Equivalent
+#import "ACAlarmViewController~ipad.h"
+#import "ACAlarmObject~ipad.h"
+#import "ACAddEditAlarmViewController~ipad.h"
 
-#import "ACAlarmViewController.h"
-#import "ACAlarmObject.h"
-#import "ACAddEditAlarmViewController.h"
-
-@interface ACAlarmViewController ()
+@interface ACAlarmViewController_ipad ()
 
 @end
 
-@implementation ACAlarmViewController
+@implementation ACAlarmViewController_ipad
 
 @synthesize tableView;
 @synthesize listOfAlarms;
-
 
 - (void)viewDidLoad {
     
@@ -119,7 +116,7 @@
     
     if([segue.identifier isEqualToString:@"AlarmListToEditAlarm"])
     {
-        ACAddEditAlarmViewController *controller = (ACAddEditAlarmViewController *)segue.destinationViewController;
+        ACAddEditAlarmViewController_ipad *controller = (ACAddEditAlarmViewController_ipad *)segue.destinationViewController;
         controller.indexOfAlarmToEdit = tableView.indexPathForSelectedRow.row;
         controller.editMode = YES;
     }
@@ -130,7 +127,7 @@
     
     NSDateFormatter * dateReader = [[NSDateFormatter alloc] init];
     [dateReader setDateFormat:@"hh:mm a"];
-    ACAlarmObject *currentAlarm = [self.listOfAlarms objectAtIndex:indexPath.row];
+    ACAlarmObject_ipad *currentAlarm = [self.listOfAlarms objectAtIndex:indexPath.row];
     
     NSString *label = currentAlarm.label;
     BOOL enabled = currentAlarm.enabled;
@@ -212,7 +209,7 @@
     {
         UIApplication *app = [UIApplication sharedApplication];
         NSArray *eventArray = [app scheduledLocalNotifications];
-        ACAlarmObject *currentAlarm = [self.listOfAlarms objectAtIndex:mySwitch.tag];
+        ACAlarmObject_ipad *currentAlarm = [self.listOfAlarms objectAtIndex:mySwitch.tag];
         currentAlarm.enabled = NO;
         for (int i=0; i<[eventArray count]; i++)
         {
@@ -231,7 +228,7 @@
     else if(mySwitch.isOn == YES)
     {
         UILocalNotification *localNotification = [[UILocalNotification alloc] init];
-        ACAlarmObject *currentAlarm = [self.listOfAlarms objectAtIndex:mySwitch.tag];
+        ACAlarmObject_ipad *currentAlarm = [self.listOfAlarms objectAtIndex:mySwitch.tag];
         currentAlarm.enabled = YES;
         if (!localNotification)
             return;

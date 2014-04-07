@@ -1,19 +1,19 @@
 //
-//  ACThemesViewController.m
+//  ACThemesViewController~ipad.m
 //  AlarmClock
 //
-//  Created by Kyle Frost on 4/4/14.
+//  Created by Kyle Frost on 4/6/14.
 //  Copyright (c) 2014 Kyle Frost. All rights reserved.
 //
 
-#import "ACThemesViewController.h"
+#import "ACThemesViewController~ipad.h"
 #import "UIColor+Custom.h"
 
-@interface ACThemesViewController ()
+@interface ACThemesViewController_ipad ()
 
 @end
 
-@implementation ACThemesViewController
+@implementation ACThemesViewController_ipad
 
 @synthesize checkedIndexPath;
 
@@ -154,11 +154,11 @@
     }
     // Cool
     else if (indexPathInt == 3) {
-
+        
     }
     // Spring
     else if (indexPathInt == 4) {
-
+        
     }
     // Monochrome
     else if (indexPathInt == 5) {

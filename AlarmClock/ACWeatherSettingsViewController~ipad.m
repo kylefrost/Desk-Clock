@@ -1,18 +1,18 @@
 //
-//  ACWeatherSettingsViewController.m
+//  ACWeatherSettingsViewController~ipad.m
 //  AlarmClock
 //
-//  Created by Kyle Frost on 4/1/14.
+//  Created by Kyle Frost on 4/6/14.
 //  Copyright (c) 2014 Kyle Frost. All rights reserved.
 //
 
-#import "ACWeatherSettingsViewController.h"
+#import "ACWeatherSettingsViewController~ipad.h"
 
-@interface ACWeatherSettingsViewController ()
+@interface ACWeatherSettingsViewController_ipad ()
 
 @end
 
-@implementation ACWeatherSettingsViewController
+@implementation ACWeatherSettingsViewController_ipad
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];

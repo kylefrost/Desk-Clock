@@ -1,20 +1,20 @@
 //
-//  ACSettingsViewController.m
+//  ACSettingsViewController~ipad.m
 //  AlarmClock
 //
-//  Created by Kyle Frost on 3/15/14.
+//  Created by Kyle Frost on 4/6/14.
 //  Copyright (c) 2014 Kyle Frost. All rights reserved.
 //
 
-#import "ACSettingsViewController.h"
+#import "ACSettingsViewController~ipad.h"
 #import <MessageUI/MFMailComposeViewController.h>
 #import <Social/Social.h>
 
-@interface ACSettingsViewController ()
+@interface ACSettingsViewController_ipad ()
 
 @end
 
-@implementation ACSettingsViewController
+@implementation ACSettingsViewController_ipad
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,7 +30,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
     // Do any additional setup after loading the view.
 }
 
@@ -55,6 +54,7 @@
 -(IBAction)pressBack:(id)sender {
     
     [self dismissViewControllerAnimated:YES completion:nil];
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
     
 }
 
@@ -203,16 +203,5 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
