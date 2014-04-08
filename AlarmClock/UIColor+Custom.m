@@ -82,7 +82,7 @@
 
 // Spring Theme
 + (instancetype)customSpringTintColor {
-    return [[self class] customColorWithRed:249/255.0f green:122/255.0f blue:164/255.0f alpha:1.0f];
+    return [[self class] customColorWithRed:255/255.0f green:138/255.0f blue:234/255.0f alpha:1.0f];
 }
 + (instancetype)customSpringDayTextColor {
     return [[self class] customColorWithRed:44/255.0f green:222/255.0f blue:177/255.0f alpha:1.0f];
@@ -91,7 +91,7 @@
     return [[self class] customColorWithRed:241/255.0f green:240/255.0f blue:181/255.0f alpha:1.0f];
 }
 + (instancetype)customSpringDayBackgroundColor {
-    return [[self class] customColorWithRed:249/255.0f green:122/255.0f blue:164/255.0f alpha:1.0f];
+    return [[self class] customColorWithRed:255/255.0f green:255/255.0f blue:217/255.0f alpha:1.0f];
 }
 + (instancetype)customSpringNightTextColor {
     return [[self class] customColorWithRed:108/255.0f green:204/255.0f blue:249/255.0f alpha:1.0f];

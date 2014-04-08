@@ -9,7 +9,6 @@
 #import "ACAppDelegate.h"
 #import "MKiCloudSync.h"
 #import "TestFlight.h"
-#import "ACTutorialViewController.h"
 #import "ACViewController.h"
 #import <AudioToolbox/AudioToolbox.h>
 #import <Crashlytics/Crashlytics.h>

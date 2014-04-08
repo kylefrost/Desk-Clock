@@ -7,7 +7,6 @@
 //
 
 #import "ACViewController~ipad.h"
-#import "MKiCloudSync.h"
 #import "Definitions~ipad.h"
 #import "ACAppDelegate.h"
 #import "ACAlarmObject~ipad.h"
@@ -88,18 +87,18 @@
     // Load tutorial if it is the first open
     [self isFirstOpen];
     
-    // iCloud syncing
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(updateAlarmPortrait)
-                                                 name:kMKiCloudSyncNotification
-                                               object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(updateAlarmLandscape)
-                                                 name:kMKiCloudSyncNotification
-                                               object:nil];
-    
-    [MKiCloudSync start];
-    [MKiCloudSync initialize];
+//    // iCloud syncing
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(updateAlarmPortrait)
+//                                                 name:kMKiCloudSyncNotification
+//                                               object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(updateAlarmLandscape)
+//                                                 name:kMKiCloudSyncNotification
+//                                               object:nil];
+//    
+//    [MKiCloudSync start];
+//    [MKiCloudSync initialize];
     
     // Get Orientation at launch
     [self getOrientation];
