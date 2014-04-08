@@ -8,7 +8,7 @@
         <!--View Controller ipad-->
         <scene sceneID="ObN-il-koE">
             <objects>
-                <viewController id="Anh-fb-hOA" customClass="ACViewController_ipad" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ClockView" id="Anh-fb-hOA" customClass="ACViewController_ipad" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SGO-D5-PHB"/>
                         <viewControllerLayoutGuide type="bottom" id="bK8-ND-AdD"/>
@@ -81,10 +81,10 @@
             </objects>
             <point key="canvasLocation" x="-497" y="-477"/>
         </scene>
-        <!--Settings View Controller - Settings-->
+        <!--Settings View Controller ipad - Settings-->
         <scene sceneID="miO-iU-jiI">
             <objects>
-                <tableViewController id="Zay-Sb-msb" customClass="ACSettingsViewController" sceneMemberID="viewController">
+                <tableViewController id="Zay-Sb-msb" customClass="ACSettingsViewController_ipad" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="lgW-14-M75">
                         <rect key="frame" x="0.0" y="0.0" width="540" height="620"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -212,12 +212,12 @@
                     <navigationItem key="navigationItem" title="Settings" id="T8z-11-Bxp">
                         <barButtonItem key="leftBarButtonItem" title="Back" id="ami-BP-D4l">
                             <connections>
-                                <action selector="pressBack:" destination="Zay-Sb-msb" id="90g-1r-Tly"/>
+                                <action selector="pressBack:" destination="Zay-Sb-msb" id="nU3-xx-F4l"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="heart_settings_button.png" id="uVq-CJ-zRA">
                             <connections>
-                                <action selector="pressShare:" destination="Zay-Sb-msb" id="ri3-fy-PVt"/>
+                                <action selector="pressShare:" destination="Zay-Sb-msb" id="EzU-Tr-r4s"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -227,10 +227,10 @@
             </objects>
             <point key="canvasLocation" x="160" y="672"/>
         </scene>
-        <!--About View Controller - About-->
+        <!--About View Controller ipad - About-->
         <scene sceneID="MxC-HQ-LkL">
             <objects>
-                <tableViewController id="ttH-VV-q1n" customClass="ACAboutViewController" sceneMemberID="viewController">
+                <tableViewController id="ttH-VV-q1n" customClass="ACAboutViewController_ipad" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="ban-23-wQK">
                         <rect key="frame" x="0.0" y="0.0" width="540" height="620"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -239,7 +239,7 @@
                         <sections>
                             <tableViewSection headerTitle="Info" id="ucq-Jn-KTb">
                                 <cells>
-                                    <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="ahE-Ri-ddz" detailTextLabel="EeJ-tD-Z7p" style="IBUITableViewCellStyleValue1" id="Gz9-Gm-bB9">
+                                    <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="ahE-Ri-ddz" detailTextLabel="EeJ-tD-Z7p" style="IBUITableViewCellStyleValue1" id="Gz9-Gm-bB9">
                                         <rect key="frame" x="0.0" y="99" width="540" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Gz9-Gm-bB9" id="dba-GB-Wze">
@@ -263,7 +263,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="hCx-Rw-YoQ" detailTextLabel="iE9-lN-Iuz" style="IBUITableViewCellStyleValue1" id="TBQ-wr-XDu">
+                                    <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="hCx-Rw-YoQ" detailTextLabel="iE9-lN-Iuz" style="IBUITableViewCellStyleValue1" id="TBQ-wr-XDu">
                                         <rect key="frame" x="0.0" y="143" width="540" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TBQ-wr-XDu" id="7qJ-yH-YYP">
@@ -425,11 +425,11 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="About" id="48U-32-zMG"/>
                     <connections>
-                        <outlet property="adamOramTwitterCell" destination="gMe-IY-LUz" id="09g-QN-tsD"/>
-                        <outlet property="deskClockTwitterCell" destination="GYB-3A-sTs" id="r98-kf-sqo"/>
-                        <outlet property="griffinKoupalTwitterCell" destination="065-OQ-4Gm" id="KgR-TM-iQR"/>
-                        <outlet property="kyleFrostTwitterCell" destination="1CL-m6-4P6" id="2vN-i9-Tk0"/>
-                        <outlet property="laurenWhiteTwitterCell" destination="NtT-Un-DK1" id="NFo-pi-cq5"/>
+                        <outlet property="adamOramTwitterCell" destination="gMe-IY-LUz" id="yfC-BP-Oa5"/>
+                        <outlet property="deskClockTwitterCell" destination="GYB-3A-sTs" id="cTF-IP-4sl"/>
+                        <outlet property="griffinKoupalTwitterCell" destination="065-OQ-4Gm" id="ian-Dp-Du1"/>
+                        <outlet property="kyleFrostTwitterCell" destination="1CL-m6-4P6" id="pjG-KB-d7C"/>
+                        <outlet property="laurenWhiteTwitterCell" destination="NtT-Un-DK1" id="SpW-03-mrT"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CHT-9q-Plc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -516,10 +516,10 @@
             </objects>
             <point key="canvasLocation" x="1054" y="-403"/>
         </scene>
-        <!--Alarm View Controller - Alarms-->
+        <!--Alarm View Controller ipad - Alarms-->
         <scene sceneID="nZb-13-hwl">
             <objects>
-                <viewController id="ez4-z6-IQF" customClass="ACAlarmViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AlarmListView" id="ez4-z6-IQF" customClass="ACAlarmViewController_ipad" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="26n-Nj-iAT"/>
                         <viewControllerLayoutGuide type="bottom" id="10l-4P-OF7"/>
@@ -533,8 +533,8 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <outlet property="dataSource" destination="ez4-z6-IQF" id="2TI-EK-cSs"/>
-                                    <outlet property="delegate" destination="ez4-z6-IQF" id="28g-aP-jld"/>
+                                    <outlet property="dataSource" destination="ez4-z6-IQF" id="oe9-hT-E31"/>
+                                    <outlet property="delegate" destination="ez4-z6-IQF" id="6sF-jw-Xia"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -544,23 +544,23 @@
                     <navigationItem key="navigationItem" title="Alarms" id="Sde-V9-6Mi">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="2kN-tx-Igk">
                             <connections>
-                                <segue destination="ptl-7R-Gpl" kind="modal" id="Sgb-nv-yhT"/>
+                                <segue destination="ptl-7R-Gpl" kind="modal" modalPresentationStyle="currentContext" id="Sgb-nv-yhT"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="tableView" destination="WrF-F5-Tbv" id="0WB-VO-Xfu"/>
-                        <segue destination="ptl-7R-Gpl" kind="modal" identifier="AlarmListToEditAlarm" id="T5N-jA-ZFo"/>
+                        <outlet property="tableView" destination="WrF-F5-Tbv" id="R0D-ft-xSc"/>
+                        <segue destination="ptl-7R-Gpl" kind="modal" identifier="AlarmListToEditAlarm" modalPresentationStyle="currentContext" id="T5N-jA-ZFo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sQD-K1-9tI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1013" y="338"/>
         </scene>
-        <!--Themes View Controller - Themes-->
+        <!--Themes View Controller ipad - Themes-->
         <scene sceneID="XTj-UV-SwF">
             <objects>
-                <tableViewController id="Hcq-NJ-eic" customClass="ACThemesViewController" sceneMemberID="viewController">
+                <tableViewController id="Hcq-NJ-eic" customClass="ACThemesViewController_ipad" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="dec-7J-8c1">
                         <rect key="frame" x="0.0" y="0.0" width="540" height="620"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -569,7 +569,7 @@
                         <sections>
                             <tableViewSection id="YOs-hS-WRs">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Ycg-tw-1xG" style="IBUITableViewCellStyleDefault" id="efc-pQ-LVG">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Ycg-tw-1xG" style="IBUITableViewCellStyleDefault" id="efc-pQ-LVG">
                                         <rect key="frame" x="0.0" y="79" width="540" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="efc-pQ-LVG" id="z8R-Yj-uLQ">
@@ -586,7 +586,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="hEn-v2-GU9" style="IBUITableViewCellStyleDefault" id="dYT-MK-IsA">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="hEn-v2-GU9" style="IBUITableViewCellStyleDefault" id="dYT-MK-IsA">
                                         <rect key="frame" x="0.0" y="123" width="540" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dYT-MK-IsA" id="fPT-sd-vyi">
@@ -603,7 +603,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="dkz-mE-mkE" style="IBUITableViewCellStyleDefault" id="chh-r1-1sw">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="dkz-mE-mkE" style="IBUITableViewCellStyleDefault" id="chh-r1-1sw">
                                         <rect key="frame" x="0.0" y="167" width="540" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="chh-r1-1sw" id="X68-mg-fc1">
@@ -611,6 +611,57 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Warm" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dkz-mE-mkE">
+                                                    <rect key="frame" x="15" y="0.0" width="510" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="BTq-jh-RbC" style="IBUITableViewCellStyleDefault" id="2yH-i8-yBt">
+                                        <rect key="frame" x="0.0" y="211" width="540" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2yH-i8-yBt" id="fpi-eM-odV">
+                                            <rect key="frame" x="0.0" y="0.0" width="540" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Cool" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BTq-jh-RbC">
+                                                    <rect key="frame" x="15" y="0.0" width="510" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="unK-tx-rve" style="IBUITableViewCellStyleDefault" id="chZ-jI-i6i">
+                                        <rect key="frame" x="0.0" y="255" width="540" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="chZ-jI-i6i" id="7UL-Kp-UBd">
+                                            <rect key="frame" x="0.0" y="0.0" width="540" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Spring" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="unK-tx-rve">
+                                                    <rect key="frame" x="15" y="0.0" width="510" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="3EC-Hc-YlW" style="IBUITableViewCellStyleDefault" id="LdR-4B-V4g">
+                                        <rect key="frame" x="0.0" y="299" width="540" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LdR-4B-V4g" id="vbV-E6-ie5">
+                                            <rect key="frame" x="0.0" y="0.0" width="540" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Monochrome" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3EC-Hc-YlW">
                                                     <rect key="frame" x="15" y="0.0" width="510" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -630,19 +681,22 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Themes" id="zqA-ov-moF"/>
                     <connections>
-                        <outlet property="classic" destination="chh-r1-1sw" id="bjt-z5-1SX"/>
-                        <outlet property="deskClock" destination="efc-pQ-LVG" id="Jg5-fZ-N0i"/>
-                        <outlet property="goldIsBest" destination="dYT-MK-IsA" id="oMp-bM-5hH"/>
+                        <outlet property="cool" destination="2yH-i8-yBt" id="dBr-WO-ypx"/>
+                        <outlet property="deskClock" destination="efc-pQ-LVG" id="G1G-dK-FKw"/>
+                        <outlet property="goldIsBest" destination="dYT-MK-IsA" id="m1U-yX-pas"/>
+                        <outlet property="mono" destination="LdR-4B-V4g" id="td8-sF-nt2"/>
+                        <outlet property="spring" destination="chZ-jI-i6i" id="Gjl-2S-COE"/>
+                        <outlet property="warm" destination="chh-r1-1sw" id="JwA-Md-fMc"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Md-lG-sXK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1013" y="1068"/>
         </scene>
-        <!--Add Edit Alarm View Controller-->
+        <!--Add Edit Alarm View Controller ipad-->
         <scene sceneID="cdi-me-ePX">
             <objects>
-                <viewController id="ptl-7R-Gpl" customClass="ACAddEditAlarmViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewAlarmView" id="ptl-7R-Gpl" customClass="ACAddEditAlarmViewController_ipad" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="AOQ-PC-OBW"/>
                         <viewControllerLayoutGuide type="bottom" id="DUX-Mf-TwY"/>
@@ -651,13 +705,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="540" height="620"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="e0X-GW-caH">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="e0X-GW-caH">
                                 <rect key="frame" x="0.0" y="44" width="540" height="576"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <connections>
-                                    <outlet property="dataSource" destination="ptl-7R-Gpl" id="sOr-XM-13r"/>
-                                    <outlet property="delegate" destination="ptl-7R-Gpl" id="0YT-6l-Z65"/>
+                                    <outlet property="dataSource" destination="ptl-7R-Gpl" id="2cj-Yy-EpZ"/>
+                                    <outlet property="delegate" destination="ptl-7R-Gpl" id="Sp8-St-Afo"/>
                                 </connections>
                             </tableView>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mo5-LV-KNp">
@@ -667,12 +721,12 @@
                                     <navigationItem title="Alarm" id="Zeo-4U-L2B">
                                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="jZP-Sz-RHK">
                                             <connections>
-                                                <action selector="pressCancel" destination="ptl-7R-Gpl" id="feo-nO-NLY"/>
+                                                <action selector="pressCancel" destination="ptl-7R-Gpl" id="e3I-tB-3fL"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="NxR-YE-Ibt">
                                             <connections>
-                                                <action selector="saveAlarm:" destination="ptl-7R-Gpl" id="Ukt-By-84n"/>
+                                                <action selector="saveAlarm:" destination="ptl-7R-Gpl" id="Oox-Vf-B77"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -685,7 +739,7 @@
                                     <!--2014-04-07 00:11:39 +0000-->
                                 </date>
                                 <timeZone key="timeZone" name="America/Los_Angeles">
-                                    <mutableData key="data">
+                                    <data key="data">
 VFppZgAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAC5AAAABAAAABCepkign7sVkKCGKqChmveQ
 y4kaoNIj9HDSYSYQ1v50INiArZDa/tGg28CQENzes6DdqayQ3r6VoN+JjpDgnneg4WlwkOJ+WaDjSVKQ
 5F47oOUpNJDmR1gg5xJREOgnOiDo8jMQ6gccIOrSFRDr5v4g7LH3EO3G4CDukdkQ76/8oPBxuxDxj96g
@@ -703,7 +757,7 @@ f5gqkAABAAECAwEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
 AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
 AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
 AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
-</mutableData>
+</data>
                                 </timeZone>
                             </datePicker>
                         </subviews>
@@ -711,19 +765,19 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <connections>
-                        <outlet property="tableView" destination="e0X-GW-caH" id="PnH-Xo-Cdk"/>
-                        <outlet property="timeToSetOff" destination="QTi-D0-cGB" id="0G6-oD-jcn"/>
-                        <segue destination="yMx-rl-jgB" kind="modal" identifier="NewAlarmToLabelEdit" id="kiC-wD-bIc"/>
+                        <outlet property="tableView" destination="e0X-GW-caH" id="CXx-Ju-qmI"/>
+                        <outlet property="timeToSetOff" destination="QTi-D0-cGB" id="wuN-C4-iwP"/>
+                        <segue destination="yMx-rl-jgB" kind="modal" identifier="NewAlarmToLabelEdit" modalPresentationStyle="currentContext" id="kiC-wD-bIc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c3g-we-sFI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1632" y="338"/>
         </scene>
-        <!--Night View Controller - Night Mode-->
+        <!--Night View Controller ipad - Night Mode-->
         <scene sceneID="F2O-Uy-lBU">
             <objects>
-                <tableViewController id="UhE-o0-MgK" customClass="ACNightViewController" sceneMemberID="viewController">
+                <tableViewController id="UhE-o0-MgK" customClass="ACNightViewController_ipad" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="inO-CN-L9U">
                         <rect key="frame" x="0.0" y="0.0" width="540" height="620"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -754,7 +808,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                     <rect key="frame" x="471" y="6" width="51" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <connections>
-                                                        <action selector="toggleEnabledForEnableSwitch:" destination="UhE-o0-MgK" eventType="valueChanged" id="ygT-EE-OGC"/>
+                                                        <action selector="toggleEnabledForEnableSwitch:" destination="UhE-o0-MgK" eventType="valueChanged" id="83q-3c-r57"/>
                                                     </connections>
                                                 </switch>
                                             </subviews>
@@ -777,7 +831,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                     <rect key="frame" x="471" y="6" width="51" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <connections>
-                                                        <action selector="toggleEnabledForAlwaysDaySwitch:" destination="UhE-o0-MgK" eventType="valueChanged" id="zIo-ez-8em"/>
+                                                        <action selector="toggleEnabledForAlwaysDaySwitch:" destination="UhE-o0-MgK" eventType="valueChanged" id="MOf-0g-BrV"/>
                                                     </connections>
                                                 </switch>
                                             </subviews>
@@ -800,7 +854,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                     <rect key="frame" x="471" y="6" width="51" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <connections>
-                                                        <action selector="toggleEnabledForAlwaysNightSwitch:" destination="UhE-o0-MgK" eventType="valueChanged" id="MoH-cU-inC"/>
+                                                        <action selector="toggleEnabledForAlwaysNightSwitch:" destination="UhE-o0-MgK" eventType="valueChanged" id="o2U-Y6-g2l"/>
                                                     </connections>
                                                 </switch>
                                             </subviews>
@@ -821,7 +875,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                     <rect key="frame" x="471" y="6" width="51" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <connections>
-                                                        <action selector="toggleEnabledForCustomTimeSwitch:" destination="UhE-o0-MgK" eventType="valueChanged" id="BSd-Y7-X05"/>
+                                                        <action selector="toggleEnabledForCustomTimeSwitch:" destination="UhE-o0-MgK" eventType="valueChanged" id="giY-g9-DeX"/>
                                                     </connections>
                                                 </switch>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enabled" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YIo-XG-8PJ">
@@ -902,32 +956,32 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     <navigationItem key="navigationItem" title="Night Mode" id="C5r-4g-dVu">
                         <barButtonItem key="rightBarButtonItem" title="LogDefaults" id="frS-cr-Al8">
                             <connections>
-                                <action selector="pressBetaTest:" destination="UhE-o0-MgK" id="4kg-Gy-sjJ"/>
+                                <action selector="pressBetaTest:" destination="UhE-o0-MgK" id="m7D-I6-Y6L"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="alwaysDayCell" destination="G2E-zq-IDH" id="9AR-wK-2cv"/>
-                        <outlet property="alwaysDaySwitch" destination="AYf-Da-U32" id="7jQ-Re-INR"/>
-                        <outlet property="alwaysNightCell" destination="h0x-5O-eL4" id="4KX-Tg-a6m"/>
-                        <outlet property="alwaysNightSwitch" destination="bMK-2C-VUQ" id="5d1-WH-fTc"/>
-                        <outlet property="betaButton" destination="frS-cr-Al8" id="cCC-TH-vtj"/>
-                        <outlet property="customTimeCell" destination="bT7-Pb-yfd" id="G74-96-Sw2"/>
-                        <outlet property="customTimeSwitch" destination="dDG-zC-q3Q" id="v3D-ny-tDN"/>
-                        <outlet property="enableDisableSwitch" destination="1do-MC-J3i" id="Lbm-to-ceX"/>
-                        <outlet property="enabledDisableCell" destination="gO7-ZR-q5x" id="gGv-E2-rv7"/>
-                        <outlet property="morningTimeCell" destination="Va2-9j-TdP" id="XaG-7X-b3n"/>
-                        <outlet property="nightTimeCell" destination="4FN-m1-Pkm" id="Xqm-wg-j87"/>
+                        <outlet property="alwaysDayCell" destination="G2E-zq-IDH" id="V3r-KN-G1e"/>
+                        <outlet property="alwaysDaySwitch" destination="AYf-Da-U32" id="fC7-h9-D3z"/>
+                        <outlet property="alwaysNightCell" destination="h0x-5O-eL4" id="Fct-r6-7Xr"/>
+                        <outlet property="alwaysNightSwitch" destination="bMK-2C-VUQ" id="bzQ-Ab-tGF"/>
+                        <outlet property="betaButton" destination="frS-cr-Al8" id="n0B-Q5-No3"/>
+                        <outlet property="customTimeCell" destination="bT7-Pb-yfd" id="RVt-dj-ksk"/>
+                        <outlet property="customTimeSwitch" destination="dDG-zC-q3Q" id="q6r-Jj-XTY"/>
+                        <outlet property="enableDisableSwitch" destination="1do-MC-J3i" id="sUn-DT-rVB"/>
+                        <outlet property="enabledDisableCell" destination="gO7-ZR-q5x" id="7B0-OJ-p06"/>
+                        <outlet property="morningTimeCell" destination="Va2-9j-TdP" id="GcK-FA-JYX"/>
+                        <outlet property="nightTimeCell" destination="4FN-m1-Pkm" id="tau-lu-FH5"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wec-Iy-9m4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1632" y="1068"/>
         </scene>
-        <!--Day Time View Controller - Morning Begins-->
+        <!--Day Time View Controller ipad - Morning Begins-->
         <scene sceneID="rRT-A1-6z3">
             <objects>
-                <viewController id="cjm-2r-BtO" customClass="ACDayTimeViewController" sceneMemberID="viewController">
+                <viewController id="cjm-2r-BtO" customClass="ACDayTimeViewController_ipad" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="D5j-ZN-Hsq"/>
                         <viewControllerLayoutGuide type="bottom" id="uql-B6-eWp"/>
@@ -943,7 +997,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <!--2014-04-07 00:35:46 +0000-->
                                 </date>
                                 <timeZone key="timeZone" name="America/Los_Angeles">
-                                    <mutableData key="data">
+                                    <data key="data">
 VFppZgAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAC5AAAABAAAABCepkign7sVkKCGKqChmveQ
 y4kaoNIj9HDSYSYQ1v50INiArZDa/tGg28CQENzes6DdqayQ3r6VoN+JjpDgnneg4WlwkOJ+WaDjSVKQ
 5F47oOUpNJDmR1gg5xJREOgnOiDo8jMQ6gccIOrSFRDr5v4g7LH3EO3G4CDukdkQ76/8oPBxuxDxj96g
@@ -961,10 +1015,10 @@ f5gqkAABAAECAwEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
 AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
 AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
 AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
-</mutableData>
+</data>
                                 </timeZone>
                                 <connections>
-                                    <action selector="timePickerDidChange:" destination="cjm-2r-BtO" eventType="valueChanged" id="Eow-7w-4mF"/>
+                                    <action selector="timePickerDidChange:" destination="cjm-2r-BtO" eventType="valueChanged" id="nac-n1-BfC"/>
                                 </connections>
                             </datePicker>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00 AM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KGx-PY-Ek8">
@@ -979,18 +1033,18 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     </view>
                     <navigationItem key="navigationItem" title="Morning Begins" id="pau-Ri-kxo"/>
                     <connections>
-                        <outlet property="dayTimePicker" destination="ypK-fJ-xrw" id="ofe-F4-1g1"/>
-                        <outlet property="timeLabel" destination="KGx-PY-Ek8" id="CNa-lx-P4m"/>
+                        <outlet property="dayTimePicker" destination="ypK-fJ-xrw" id="RCa-Do-Sle"/>
+                        <outlet property="timeLabel" destination="KGx-PY-Ek8" id="wUj-Eu-78A"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1zd-OQ-4OK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1632" y="1814"/>
         </scene>
-        <!--Night Time View Controller - Night Begins-->
+        <!--Night Time View Controller ipad - Night Begins-->
         <scene sceneID="ciu-mP-lMK">
             <objects>
-                <viewController id="Z6B-vq-jFW" customClass="ACNightTimeViewController" sceneMemberID="viewController">
+                <viewController id="Z6B-vq-jFW" customClass="ACNightTimeViewController_ipad" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Eec-s5-CYR"/>
                         <viewControllerLayoutGuide type="bottom" id="L8N-wo-fj5"/>
@@ -1006,7 +1060,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <!--2014-04-07 00:35:51 +0000-->
                                 </date>
                                 <timeZone key="timeZone" name="America/Los_Angeles">
-                                    <mutableData key="data">
+                                    <data key="data">
 VFppZgAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAC5AAAABAAAABCepkign7sVkKCGKqChmveQ
 y4kaoNIj9HDSYSYQ1v50INiArZDa/tGg28CQENzes6DdqayQ3r6VoN+JjpDgnneg4WlwkOJ+WaDjSVKQ
 5F47oOUpNJDmR1gg5xJREOgnOiDo8jMQ6gccIOrSFRDr5v4g7LH3EO3G4CDukdkQ76/8oPBxuxDxj96g
@@ -1024,10 +1078,10 @@ f5gqkAABAAECAwEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
 AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
 AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
 AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
-</mutableData>
+</data>
                                 </timeZone>
                                 <connections>
-                                    <action selector="timePickerDidChange:" destination="Z6B-vq-jFW" eventType="valueChanged" id="YNC-8W-Nlj"/>
+                                    <action selector="timePickerDidChange:" destination="Z6B-vq-jFW" eventType="valueChanged" id="RjE-fD-rDt"/>
                                 </connections>
                             </datePicker>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00 PM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ns-z5-xl4">
@@ -1042,18 +1096,18 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     </view>
                     <navigationItem key="navigationItem" title="Night Begins" id="Ug5-nn-pIL"/>
                     <connections>
-                        <outlet property="nightTimePicker" destination="ZTY-mP-siS" id="dxR-ty-LOB"/>
-                        <outlet property="timeLabel" destination="6Ns-z5-xl4" id="koG-IS-lqo"/>
+                        <outlet property="nightTimePicker" destination="ZTY-mP-siS" id="gvR-oG-amU"/>
+                        <outlet property="timeLabel" destination="6Ns-z5-xl4" id="Aap-AK-Y4s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="glT-3j-SMd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2235" y="1814"/>
         </scene>
-        <!--Weather Settings View Controller - Weather-->
+        <!--Weather Settings View Controller ipad - Weather-->
         <scene sceneID="DgC-MX-bm1">
             <objects>
-                <tableViewController id="zFX-D0-2OA" customClass="ACWeatherSettingsViewController" sceneMemberID="viewController">
+                <tableViewController id="zFX-D0-2OA" customClass="ACWeatherSettingsViewController_ipad" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="q41-lp-gQV">
                         <rect key="frame" x="0.0" y="0.0" width="540" height="620"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1080,7 +1134,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                     <rect key="frame" x="471" y="6" width="51" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <connections>
-                                                        <action selector="toggleEnabledForCurrentLocationSwitch:" destination="zFX-D0-2OA" eventType="valueChanged" id="Sxd-Ni-Smy"/>
+                                                        <action selector="toggleEnabledForCurrentLocationSwitch:" destination="zFX-D0-2OA" eventType="valueChanged" id="pcx-JU-8nR"/>
                                                     </connections>
                                                 </switch>
                                             </subviews>
@@ -1129,7 +1183,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                     <rect key="frame" x="471" y="6" width="51" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <connections>
-                                                        <action selector="toggleEnabledForCelsiusSwitch:" destination="zFX-D0-2OA" eventType="valueChanged" id="wsB-iK-fL6"/>
+                                                        <action selector="toggleEnabledForCelsiusSwitch:" destination="zFX-D0-2OA" eventType="valueChanged" id="Lhg-8J-VfO"/>
                                                     </connections>
                                                 </switch>
                                             </subviews>
@@ -1176,21 +1230,21 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     </tableView>
                     <navigationItem key="navigationItem" title="Weather" id="IfF-Nx-fjh"/>
                     <connections>
-                        <outlet property="celsiusSwitch" destination="4WI-p4-LLM" id="89S-oV-lXi"/>
-                        <outlet property="currentLocationSwitch" destination="k1e-ng-3Sk" id="ipJ-oP-6yu"/>
-                        <outlet property="customLocationCell" destination="bCd-hp-7Sw" id="saa-iI-Nv6"/>
-                        <outlet property="customLocationField" destination="ech-de-pGP" id="8Me-QB-Byg"/>
-                        <outlet property="refreshRateCell" destination="7AP-fK-un8" id="c42-EI-fdb"/>
+                        <outlet property="celsiusSwitch" destination="4WI-p4-LLM" id="J0T-NC-G0X"/>
+                        <outlet property="currentLocationSwitch" destination="k1e-ng-3Sk" id="aEB-Rq-oRe"/>
+                        <outlet property="customLocationCell" destination="bCd-hp-7Sw" id="oEE-oo-ISA"/>
+                        <outlet property="customLocationField" destination="ech-de-pGP" id="Syn-LY-qRz"/>
+                        <outlet property="refreshRateCell" destination="7AP-fK-un8" id="kZI-iS-PtH"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tam-ax-vvn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2235" y="1068"/>
         </scene>
-        <!--Weather Refresh Interval View Controller - Refresh Rate-->
+        <!--Weather Refresh Interval View Controller ipad - Refresh Rate-->
         <scene sceneID="X5R-4j-GKp">
             <objects>
-                <tableViewController id="uNe-1L-qoU" customClass="ACWeatherRefreshIntervalViewController" sceneMemberID="viewController">
+                <tableViewController id="uNe-1L-qoU" customClass="ACWeatherRefreshIntervalViewController_ipad" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="T2w-ab-Qsd">
                         <rect key="frame" x="0.0" y="0.0" width="540" height="620"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1294,21 +1348,21 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     </tableView>
                     <navigationItem key="navigationItem" title="Refresh Rate" id="ue1-hS-coO"/>
                     <connections>
-                        <outlet property="fifteen" destination="Q4f-AJ-hk6" id="R5l-97-9tH"/>
-                        <outlet property="fiveHours" destination="ddI-90-Fqg" id="594-yR-Crn"/>
-                        <outlet property="hour" destination="xas-B0-E1n" id="sI7-3K-Vqf"/>
-                        <outlet property="thirty" destination="aWf-p9-1vF" id="Bhn-Lx-Vos"/>
-                        <outlet property="twoHours" destination="Xgl-vS-Y7K" id="1iv-OT-sXq"/>
+                        <outlet property="fifteen" destination="Q4f-AJ-hk6" id="5gl-Vg-HN3"/>
+                        <outlet property="fiveHours" destination="ddI-90-Fqg" id="OUZ-HA-jH0"/>
+                        <outlet property="hour" destination="xas-B0-E1n" id="2zf-WO-P60"/>
+                        <outlet property="thirty" destination="aWf-p9-1vF" id="eef-Zy-5qk"/>
+                        <outlet property="twoHours" destination="Xgl-vS-Y7K" id="RHr-Vh-G5C"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MyL-eZ-GYp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2886" y="1068"/>
         </scene>
-        <!--Alarm Label Edit View Controller-->
+        <!--Alarm Label Edit View Controller ipad-->
         <scene sceneID="0Ie-eT-cEp">
             <objects>
-                <viewController id="yMx-rl-jgB" customClass="ACAlarmLabelEditViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LabelEditView" modalPresentationStyle="currentContext" id="yMx-rl-jgB" customClass="ACAlarmLabelEditViewController_ipad" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hF6-cf-2pz"/>
                         <viewControllerLayoutGuide type="bottom" id="4OH-yt-oL8"/>
@@ -1317,13 +1371,13 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <rect key="frame" x="0.0" y="0.0" width="540" height="620"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="sO1-uv-Vpg">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="sO1-uv-Vpg">
                                 <rect key="frame" x="0.0" y="44" width="540" height="576"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <connections>
-                                    <outlet property="dataSource" destination="yMx-rl-jgB" id="xHr-BG-I7Q"/>
-                                    <outlet property="delegate" destination="yMx-rl-jgB" id="i0T-C5-hM4"/>
+                                    <outlet property="dataSource" destination="yMx-rl-jgB" id="e7D-D5-sqj"/>
+                                    <outlet property="delegate" destination="yMx-rl-jgB" id="8cf-AR-ZzX"/>
                                 </connections>
                             </tableView>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6ZT-Nl-CtS">
@@ -1333,12 +1387,12 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <navigationItem title="Alarm Name" id="Ghm-fZ-0ey">
                                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="1Yz-Rp-Dsn">
                                             <connections>
-                                                <action selector="pressCancel" destination="yMx-rl-jgB" id="knd-sy-RVf"/>
+                                                <action selector="pressCancel" destination="yMx-rl-jgB" id="KyR-0l-2Hz"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="ds9-Ed-dkq">
                                             <connections>
-                                                <action selector="saveAlarmLabel:" destination="yMx-rl-jgB" id="8db-GX-K37"/>
+                                                <action selector="saveAlarmLabel:" destination="yMx-rl-jgB" id="4jo-si-Y0J"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -1349,7 +1403,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <connections>
-                        <outlet property="tableView" destination="sO1-uv-Vpg" id="VjY-Wn-Vbn"/>
+                        <outlet property="tableView" destination="sO1-uv-Vpg" id="0kB-s4-2Z1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7To-96-UaM" userLabel="First Responder" sceneMemberID="firstResponder"/>

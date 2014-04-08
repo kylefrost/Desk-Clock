@@ -16,6 +16,9 @@
 
 @property (strong, nonatomic) IBOutlet UITableViewCell *deskClock;
 @property (strong, nonatomic) IBOutlet UITableViewCell *goldIsBest;
-@property (strong, nonatomic) IBOutlet UITableViewCell *classic;
+@property (strong, nonatomic) IBOutlet UITableViewCell *warm;
+@property (strong, nonatomic) IBOutlet UITableViewCell *cool;
+@property (strong, nonatomic) IBOutlet UITableViewCell *spring;
+@property (strong, nonatomic) IBOutlet UITableViewCell *mono;
 
 @end

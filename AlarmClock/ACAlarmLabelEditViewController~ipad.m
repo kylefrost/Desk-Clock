@@ -102,6 +102,8 @@
         [self.delegate updateLabelText:labelField.text];
     }
     
+    [self.delegate updateLabelText:labelField.text];
+    
     [self dismissViewControllerAnimated:YES completion:nil];
     
 }

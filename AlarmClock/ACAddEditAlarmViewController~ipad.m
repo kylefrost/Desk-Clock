@@ -78,7 +78,7 @@
     if(indexPath.section == 0) {
         
         // Set up the cell...
-        UILabel *labelTextField = [[UILabel alloc] initWithFrame:CGRectMake(180, 4, 280, 35)];
+        UILabel *labelTextField = [[UILabel alloc] initWithFrame:CGRectMake(180, 4, 500, 35)];
         labelTextField.adjustsFontSizeToFitWidth = YES;
         labelTextField.textColor = [UIColor grayColor];
         labelTextField.backgroundColor = [UIColor clearColor];
@@ -92,7 +92,11 @@
             labelTextField.font = [UIFont systemFontOfSize:20];
             
             UIView *myBackView = [[UIView alloc] initWithFrame:cell.frame];
-            myBackView.backgroundColor = [UIColor colorWithRed:0.6 green:0.141 blue:0.141 alpha:1];
+            
+            NSData *themeTintData = [[NSUserDefaults standardUserDefaults] objectForKey:@"themeTintColor"];
+            UIColor *themeTint = [NSKeyedUnarchiver unarchiveObjectWithData:themeTintData];
+            
+            myBackView.backgroundColor = themeTint;
             cell.selectedBackgroundView = myBackView;
         }
         
@@ -102,14 +106,14 @@
     
     if(indexPath.section == 1) {
         
-        cell.backgroundColor = [UIColor colorWithRed:0.6 green:0.141 blue:0.141 alpha:1];
-        cell.textLabel.textColor = [UIColor whiteColor];
+        cell.backgroundColor = [UIColor colorWithRed:255/255.0f green:237/255.0f blue:237/255.0f alpha:1.0f];;
+        cell.textLabel.textColor = [UIColor redColor];
         cell.textLabel.textAlignment = NSTextAlignmentCenter;
         cell.textLabel.text = @"Delete Alarm";
         cell.textLabel.font = [UIFont systemFontOfSize:20];
         
         UIView *myBackView = [[UIView alloc] initWithFrame:cell.frame];
-        myBackView.backgroundColor = [UIColor colorWithRed:0.7 green:0.141 blue:0.141 alpha:1];
+        myBackView.backgroundColor = [UIColor colorWithRed:255/255.0f green:153/255.0f blue:153/255.0f alpha:1.0f];
         cell.selectedBackgroundView = myBackView;
     }
     
@@ -122,7 +126,7 @@
         
         if(indexPath.row == 0) {
             
-            UIStoryboard *mystoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            UIStoryboard *mystoryboard = [UIStoryboard storyboardWithName:@"Main~ipad" bundle:nil];
             
             ACAlarmLabelEditViewController_ipad *labelEditController = [mystoryboard instantiateViewControllerWithIdentifier:@"LabelEditView"];
             
