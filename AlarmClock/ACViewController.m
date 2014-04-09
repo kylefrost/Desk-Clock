@@ -55,9 +55,6 @@
     [firstAlert setTag:2];
     [firstAlert show];
     
-    NSLog(@"isFirstRun is loaded");
-    [self performSegueWithIdentifier:@"LoadTutorialView" sender:self];
-    
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setLocale:[NSLocale currentLocale]];
     [formatter setDateStyle:NSDateFormatterNoStyle];
@@ -292,10 +289,6 @@
     self.weatherTempLabel.text = @"00º";
     self.weatherCondLabel.text = @"Loading...";
     
-    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-    BOOL firstLoadBool = [defaults boolForKey:@"notFirstLoad"];
-    NSLog(@"First Load Bool is %d", firstLoadBool);
-    
     [self viewDidAppear:NO];
 }
 
@@ -470,94 +463,189 @@
 // Update the timeLabel for Portrait view
 -(void)updateTimePortrait {
     
-    NSUserDefaults *themeDefaults = [NSUserDefaults standardUserDefaults];
-    NSString *themeFont = [themeDefaults objectForKey:@"themeFont"];
-    
-    // Set label attributes
-    self.timeLabel.font = [UIFont fontWithName:themeFont size:TIME_SIZE_PORTRAIT];
-    [self.timeLabel setFrame:TIME_LABEL_RECT_PORTRAIT];
-    
+    if([UIScreen mainScreen].bounds.size.height == 568) {
+        
+        NSUserDefaults *themeDefaults = [NSUserDefaults standardUserDefaults];
+        NSString *themeFont = [themeDefaults objectForKey:@"themeFont"];
+        
+        // Set label attributes
+        self.timeLabel.font = [UIFont fontWithName:themeFont size:TIME_SIZE_PORTRAIT];
+        [self.timeLabel setFrame:TIME_LABEL_RECT_PORTRAIT];
+        
+    }
+    else {
+        
+        NSUserDefaults *themeDefaults = [NSUserDefaults standardUserDefaults];
+        NSString *themeFont = [themeDefaults objectForKey:@"themeFont"];
+        
+        // Set label attributes
+        self.timeLabel.font = [UIFont fontWithName:themeFont size:TIME_SIZE_PORTRAIT_IPHONE_SHORT];
+        [self.timeLabel setFrame:TIME_LABEL_RECT_PORTRAIT_IPHONE_SHORT];
+        
+    }
 }
 
 // Update the dayLabel for Portrait view
 -(void)updateDayPortrait {
     
-    NSUserDefaults *themeDefaults = [NSUserDefaults standardUserDefaults];
-    NSString *themeFont = [themeDefaults objectForKey:@"themeFont"];
-
-    // Set label attributes
-    self.dayLabel.font = [UIFont fontWithName:themeFont size:DAY_LABEL_SIZE_PORTRAIT];
-    [self.dayLabel setFrame:DAY_LABEL_RECT_PORTRAIT];
-
+    if([UIScreen mainScreen].bounds.size.height == 568) {
+        
+        NSUserDefaults *themeDefaults = [NSUserDefaults standardUserDefaults];
+        NSString *themeFont = [themeDefaults objectForKey:@"themeFont"];
+        
+        // Set label attributes
+        self.dayLabel.font = [UIFont fontWithName:themeFont size:DAY_LABEL_SIZE_PORTRAIT];
+        [self.dayLabel setFrame:DAY_LABEL_RECT_PORTRAIT];
+    }
+    else {
+        
+        NSUserDefaults *themeDefaults = [NSUserDefaults standardUserDefaults];
+        NSString *themeFont = [themeDefaults objectForKey:@"themeFont"];
+        
+        // Set label attributes
+        self.dayLabel.font = [UIFont fontWithName:themeFont size:DAY_LABEL_SIZE_PORTRAIT_IPHONE_SHORT];
+        [self.dayLabel setFrame:DAY_LABEL_RECT_PORTRAIT_IPHONE_SHORT];
+    }
 }
 
 // Update the dayMonthLabel for Portrait view
 -(void)updateMonthDayPortrait {
     
-    NSUserDefaults *themeDefaults = [NSUserDefaults standardUserDefaults];
-    NSString *themeFont = [themeDefaults objectForKey:@"themeFont"];
-    
-    // Set day of week label attributes
-    _dayMonthLabel.font = [UIFont fontWithName:themeFont size:DAYMONTH_LABEL_SIZE_PORTRAIT];
-    [_dayMonthLabel setFrame:DAYMONTH_LABEL_RECT_PORTRAIT];
-    
+    if([UIScreen mainScreen].bounds.size.height == 568) {
+        
+        NSUserDefaults *themeDefaults = [NSUserDefaults standardUserDefaults];
+        NSString *themeFont = [themeDefaults objectForKey:@"themeFont"];
+        
+        // Set day of week label attributes
+        self.dayMonthLabel.font = [UIFont fontWithName:themeFont size:DAYMONTH_LABEL_SIZE_PORTRAIT];
+        [self.dayMonthLabel setFrame:DAYMONTH_LABEL_RECT_PORTRAIT];
+        
+    }
+    else {
+        
+        NSUserDefaults *themeDefaults = [NSUserDefaults standardUserDefaults];
+        NSString *themeFont = [themeDefaults objectForKey:@"themeFont"];
+        
+        // Set day of week label attributes
+        self.dayMonthLabel.font = [UIFont fontWithName:themeFont size:DAYMONTH_LABEL_SIZE_PORTRAIT_IPHONE_SHORT];
+        [self.dayMonthLabel setFrame:DAYMONTH_LABEL_RECT_PORTRAIT_IPHONE_SHORT];
+        
+    }
 }
 
 // Update the alarmLabel for Portrait view
 -(void)updateAlarmPortrait {
     
-    NSUserDefaults *themeDefaults = [NSUserDefaults standardUserDefaults];
-    NSString *themeFont = [themeDefaults objectForKey:@"themeFont"];
-    
-    // Set text attributes
-    self.onLabel.font = [UIFont fontWithName:themeFont size:ON_OFF_SIZE_PORTRAIT];
-    [self.onLabel setFrame:ON_LABEL_RECT_PORTRAIT];
-    self.onLabel.text = @"ON";
-    
-    self.offLabel.font = [UIFont fontWithName:themeFont size:ON_OFF_SIZE_PORTRAIT];
-    [self.offLabel setFrame:OFF_LABEL_RECT_PORTRAIT];
-    self.offLabel.text = @"OFF";
-    
-    self.alarmLabel.font = [UIFont fontWithName:themeFont size:ALARM_LABEL_SIZE_PORTRAIT];
-    [self.alarmLabel setFrame:ALARM_LABEL_RECT_PORTRAIT];
-    self.alarmLabel.text = @"Alarm";
-    
+    if([UIScreen mainScreen].bounds.size.height == 568) {
+        
+        NSUserDefaults *themeDefaults = [NSUserDefaults standardUserDefaults];
+        NSString *themeFont = [themeDefaults objectForKey:@"themeFont"];
+        
+        // Set text attributes
+        self.onLabel.font = [UIFont fontWithName:themeFont size:ON_OFF_SIZE_PORTRAIT];
+        [self.onLabel setFrame:ON_LABEL_RECT_PORTRAIT];
+        self.onLabel.text = @"ON";
+        
+        self.offLabel.font = [UIFont fontWithName:themeFont size:ON_OFF_SIZE_PORTRAIT];
+        [self.offLabel setFrame:OFF_LABEL_RECT_PORTRAIT];
+        self.offLabel.text = @"OFF";
+        
+        self.alarmLabel.font = [UIFont fontWithName:themeFont size:ALARM_LABEL_SIZE_PORTRAIT];
+        [self.alarmLabel setFrame:ALARM_LABEL_RECT_PORTRAIT];
+        self.alarmLabel.text = @"Alarm";
+    }
+    else {
+        
+        NSUserDefaults *themeDefaults = [NSUserDefaults standardUserDefaults];
+        NSString *themeFont = [themeDefaults objectForKey:@"themeFont"];
+        
+        // Set text attributes
+        self.onLabel.font = [UIFont fontWithName:themeFont size:ON_OFF_SIZE_PORTRAIT_IPHONE_SHORT];
+        [self.onLabel setFrame:ON_LABEL_RECT_PORTRAIT_IPHONE_SHORT];
+        self.onLabel.text = @"ON";
+        
+        self.offLabel.font = [UIFont fontWithName:themeFont size:ON_OFF_SIZE_PORTRAIT_IPHONE_SHORT];
+        [self.offLabel setFrame:OFF_LABEL_RECT_PORTRAIT_IPHONE_SHORT];
+        self.offLabel.text = @"OFF";
+        
+        self.alarmLabel.font = [UIFont fontWithName:themeFont size:ALARM_LABEL_SIZE_PORTRAIT_IPHONE_SHORT];
+        [self.alarmLabel setFrame:ALARM_LABEL_RECT_PORTRAIT_IPHONE_SHORT];
+        self.alarmLabel.text = @"Alarm";
+    }
 }
 
 // Update the amLabel and pmLabel and slashLabel for Portrait view
 -(void)updateAMPMPortrait {
     
-    NSUserDefaults *themeDefaults = [NSUserDefaults standardUserDefaults];
-    NSString *themeFont = [themeDefaults objectForKey:@"themeFont"];
-    
-    // Set text attributes
-    self.amLabel.font = [UIFont fontWithName:themeFont size:AM_PM_SIZE_PORTRAIT];
-    [self.amLabel setFrame:AM_LABEL_RECT_PORTRAIT];
-    self.amLabel.text = @"AM";
-    
-    self.pmLabel.font = [UIFont fontWithName:themeFont size:AM_PM_SIZE_PORTRAIT];
-    [self.pmLabel setFrame:PM_LABEL_RECT_PORTRAIT];
-    self.pmLabel.text = @"PM";
-    
-    self.slashLabel.font = [UIFont fontWithName:themeFont size:SLASH_SIZE_PORTRAIT];
-    [self.slashLabel setFrame:SLASH_LABEL_RECT_PORTRAIT];
-    self.slashLabel.text = @"/";
-    
+    if([UIScreen mainScreen].bounds.size.height == 568) {
+        
+        NSUserDefaults *themeDefaults = [NSUserDefaults standardUserDefaults];
+        NSString *themeFont = [themeDefaults objectForKey:@"themeFont"];
+        
+        // Set text attributes
+        self.amLabel.font = [UIFont fontWithName:themeFont size:AM_PM_SIZE_PORTRAIT];
+        [self.amLabel setFrame:AM_LABEL_RECT_PORTRAIT];
+        self.amLabel.text = @"AM";
+        
+        self.pmLabel.font = [UIFont fontWithName:themeFont size:AM_PM_SIZE_PORTRAIT];
+        [self.pmLabel setFrame:PM_LABEL_RECT_PORTRAIT];
+        self.pmLabel.text = @"PM";
+        
+        self.slashLabel.font = [UIFont fontWithName:themeFont size:SLASH_SIZE_PORTRAIT];
+        [self.slashLabel setFrame:SLASH_LABEL_RECT_PORTRAIT];
+        self.slashLabel.text = @"/";
+        
+    }
+    else {
+        
+        NSUserDefaults *themeDefaults = [NSUserDefaults standardUserDefaults];
+        NSString *themeFont = [themeDefaults objectForKey:@"themeFont"];
+        
+        // Set text attributes
+        self.amLabel.font = [UIFont fontWithName:themeFont size:AM_PM_SIZE_PORTRAIT_IPHONE_SHORT];
+        [self.amLabel setFrame:AM_LABEL_RECT_PORTRAIT_IPHONE_SHORT];
+        self.amLabel.text = @"AM";
+        
+        self.pmLabel.font = [UIFont fontWithName:themeFont size:AM_PM_SIZE_PORTRAIT_IPHONE_SHORT];
+        [self.pmLabel setFrame:PM_LABEL_RECT_PORTRAIT_IPHONE_SHORT];
+        self.pmLabel.text = @"PM";
+        
+        self.slashLabel.font = [UIFont fontWithName:themeFont size:SLASH_SIZE_PORTRAIT_IPHONE_SHORT];
+        [self.slashLabel setFrame:SLASH_LABEL_RECT_PORTRAIT_IPHONE_SHORT];
+        self.slashLabel.text = @"/";
+        
+    }
 }
 
 // Update the weather labels for Portrait view
 -(void)updateWeatherPortrait {
     
-    NSUserDefaults *themeDefaults = [NSUserDefaults standardUserDefaults];
-    NSString *themeFont = [themeDefaults objectForKey:@"themeFont"];
-    
-    self.weatherTempLabel.font = [UIFont fontWithName:themeFont size:TEMP_SIZE_PORTRAIT];
-    self.weatherCondLabel.font = [UIFont fontWithName:themeFont size:COND_SIZE_PORTRAIT];
-    self.weatherCondLabel.textAlignment = NSTextAlignmentLeft;
-    
-    self.weatherTempLabel.frame = TEMP_RECT_PORTRAIT;
-    self.weatherCondLabel.frame = COND_RECT_PORTRAIT;
-    self.refreshButton.frame = REFRESH_BUTTON_RECT_PORTRAIT;
+    if([UIScreen mainScreen].bounds.size.height == 568) {
+        
+        NSUserDefaults *themeDefaults = [NSUserDefaults standardUserDefaults];
+        NSString *themeFont = [themeDefaults objectForKey:@"themeFont"];
+        
+        self.weatherTempLabel.font = [UIFont fontWithName:themeFont size:TEMP_SIZE_PORTRAIT];
+        self.weatherCondLabel.font = [UIFont fontWithName:themeFont size:COND_SIZE_PORTRAIT];
+        self.weatherCondLabel.textAlignment = NSTextAlignmentLeft;
+        
+        self.weatherTempLabel.frame = TEMP_RECT_PORTRAIT;
+        self.weatherCondLabel.frame = COND_RECT_PORTRAIT;
+        self.refreshButton.frame = REFRESH_BUTTON_RECT_PORTRAIT;
+    }
+    else {
+        
+        NSUserDefaults *themeDefaults = [NSUserDefaults standardUserDefaults];
+        NSString *themeFont = [themeDefaults objectForKey:@"themeFont"];
+        
+        self.weatherTempLabel.font = [UIFont fontWithName:themeFont size:TEMP_SIZE_PORTRAIT_IPHONE_SHORT];
+        self.weatherCondLabel.font = [UIFont fontWithName:themeFont size:COND_SIZE_PORTRAIT_IPHONE_SHORT];
+        self.weatherCondLabel.textAlignment = NSTextAlignmentLeft;
+        
+        self.weatherTempLabel.frame = TEMP_RECT_PORTRAIT_IPHONE_SHORT;
+        self.weatherCondLabel.frame = COND_RECT_PORTRAIT_IPHONE_SHORT;
+        self.refreshButton.frame = REFRESH_BUTTON_RECT_PORTRAIT_IPHONE_SHORT;
+    }
 }
 
 #pragma mark -
@@ -568,93 +656,183 @@
 // Update the timeLabel for Landscape view
 -(void)updateTimeLandscape {
     
-    NSUserDefaults *themeDefaults = [NSUserDefaults standardUserDefaults];
-    NSString *themeFont = [themeDefaults objectForKey:@"themeFont"];
-    
-    // Set label attributes
-    self.timeLabel.font = [UIFont fontWithName:themeFont size:TIME_SIZE_LANDSCAPE];
-    [self.timeLabel setFrame:TIME_LABEL_RECT_LANDSCAPE];
-    
+    if([UIScreen mainScreen].bounds.size.height == 568) {
+        
+        NSUserDefaults *themeDefaults = [NSUserDefaults standardUserDefaults];
+        NSString *themeFont = [themeDefaults objectForKey:@"themeFont"];
+        
+        // Set label attributes
+        self.timeLabel.font = [UIFont fontWithName:themeFont size:TIME_SIZE_LANDSCAPE];
+        [self.timeLabel setFrame:TIME_LABEL_RECT_LANDSCAPE];
+    }
+    else {
+        
+        NSUserDefaults *themeDefaults = [NSUserDefaults standardUserDefaults];
+        NSString *themeFont = [themeDefaults objectForKey:@"themeFont"];
+        
+        // Set label attributes
+        self.timeLabel.font = [UIFont fontWithName:themeFont size:TIME_SIZE_LANDSCAPE_IPHONE_SHORT];
+        [self.timeLabel setFrame:TIME_LABEL_RECT_LANDSCAPE_IPHONE_SHORT];
+    }
 }
 
 // Update the dayLabel for Landscape view
 -(void)updateDayLandscape {
     
-    NSUserDefaults *themeDefaults = [NSUserDefaults standardUserDefaults];
-    NSString *themeFont = [themeDefaults objectForKey:@"themeFont"];
-    
-    // Set label attributes
-    self.dayLabel.font = [UIFont fontWithName:themeFont size:DAY_LABEL_SIZE_LANDSCAPE];
-    [self.dayLabel setFrame:DAY_LABEL_RECT_LANDSCAPE];
+    if([UIScreen mainScreen].bounds.size.height == 568) {
+        
+        NSUserDefaults *themeDefaults = [NSUserDefaults standardUserDefaults];
+        NSString *themeFont = [themeDefaults objectForKey:@"themeFont"];
+        
+        // Set label attributes
+        self.dayLabel.font = [UIFont fontWithName:themeFont size:DAY_LABEL_SIZE_LANDSCAPE];
+        [self.dayLabel setFrame:DAY_LABEL_RECT_LANDSCAPE];
+    }
+    else {
+        
+        NSUserDefaults *themeDefaults = [NSUserDefaults standardUserDefaults];
+        NSString *themeFont = [themeDefaults objectForKey:@"themeFont"];
+        
+        // Set label attributes
+        self.dayLabel.font = [UIFont fontWithName:themeFont size:DAY_LABEL_SIZE_LANDSCAPE_IPHONE_SHORT];
+        [self.dayLabel setFrame:DAY_LABEL_RECT_LANDSCAPE_IPHONE_SHORT];
+    }
 }
 
 // Update the dayMonthLabel for Landscape view
 -(void)updateMonthDayLandscape {
     
-    NSUserDefaults *themeDefaults = [NSUserDefaults standardUserDefaults];
-    NSString *themeFont = [themeDefaults objectForKey:@"themeFont"];
-    
-    // Set day of week label attributes
-    _dayMonthLabel.font = [UIFont fontWithName:themeFont size:DAYMONTH_LABEL_SIZE_LANDSCAPE];
-    [_dayMonthLabel setFrame:DAYMONTH_LABEL_RECT_LANDSCAPE];
-    
+    if([UIScreen mainScreen].bounds.size.height == 568) {
+        
+        NSUserDefaults *themeDefaults = [NSUserDefaults standardUserDefaults];
+        NSString *themeFont = [themeDefaults objectForKey:@"themeFont"];
+        
+        // Set day of week label attributes
+        self.dayMonthLabel.font = [UIFont fontWithName:themeFont size:DAYMONTH_LABEL_SIZE_LANDSCAPE];
+        [self.dayMonthLabel setFrame:DAYMONTH_LABEL_RECT_LANDSCAPE];
+    }
+    else {
+        
+        NSUserDefaults *themeDefaults = [NSUserDefaults standardUserDefaults];
+        NSString *themeFont = [themeDefaults objectForKey:@"themeFont"];
+        
+        // Set day of week label attributes
+        self.dayMonthLabel.font = [UIFont fontWithName:themeFont size:DAYMONTH_LABEL_SIZE_LANDSCAPE_IPHONE_SHORT];
+        [self.dayMonthLabel setFrame:DAYMONTH_LABEL_RECT_LANDSCAPE_IPHONE_SHORT];
+    }
 }
 
 // Update the alarmLabel for Landscape view
 -(void)updateAlarmLandscape {
     
-    NSUserDefaults *themeDefaults = [NSUserDefaults standardUserDefaults];
-    NSString *themeFont = [themeDefaults objectForKey:@"themeFont"];
-    
-     // Set text attributes
-     self.onLabel.font = [UIFont fontWithName:themeFont size:ON_OFF_SIZE_LANDSCAPE];
-    [self.onLabel setFrame:ON_LABEL_RECT_LANDSCAPE];
-    self.onLabel.text = @"ON";
-    
-     self.offLabel.font = [UIFont fontWithName:themeFont size:ON_OFF_SIZE_LANDSCAPE];
-    [self.offLabel setFrame:OFF_LABEL_RECT_LANDSCAPE];
-    self.offLabel.text = @"OFF";
-    
-     self.alarmLabel.font = [UIFont fontWithName:themeFont size:ALARM_LABEL_SIZE_LANDSCAPE];
-    [self.alarmLabel setFrame:ALARM_LABEL_RECT_LANDSCAPE];
-    self.alarmLabel.text = @"Alarm";
-     
+    if([UIScreen mainScreen].bounds.size.height == 568) {
+        
+        NSUserDefaults *themeDefaults = [NSUserDefaults standardUserDefaults];
+        NSString *themeFont = [themeDefaults objectForKey:@"themeFont"];
+        
+        // Set text attributes
+        self.onLabel.font = [UIFont fontWithName:themeFont size:ON_OFF_SIZE_LANDSCAPE];
+        [self.onLabel setFrame:ON_LABEL_RECT_LANDSCAPE];
+        self.onLabel.text = @"ON";
+        
+        self.offLabel.font = [UIFont fontWithName:themeFont size:ON_OFF_SIZE_LANDSCAPE];
+        [self.offLabel setFrame:OFF_LABEL_RECT_LANDSCAPE];
+        self.offLabel.text = @"OFF";
+        
+        self.alarmLabel.font = [UIFont fontWithName:themeFont size:ALARM_LABEL_SIZE_LANDSCAPE];
+        [self.alarmLabel setFrame:ALARM_LABEL_RECT_LANDSCAPE];
+        self.alarmLabel.text = @"Alarm";
+    }
+    else {
+        
+        NSUserDefaults *themeDefaults = [NSUserDefaults standardUserDefaults];
+        NSString *themeFont = [themeDefaults objectForKey:@"themeFont"];
+        
+        // Set text attributes
+        self.onLabel.font = [UIFont fontWithName:themeFont size:ON_OFF_SIZE_LANDSCAPE_IPHONE_SHORT];
+        [self.onLabel setFrame:ON_LABEL_RECT_LANDSCAPE_IPHONE_SHORT];
+        self.onLabel.text = @"ON";
+        
+        self.offLabel.font = [UIFont fontWithName:themeFont size:ON_OFF_SIZE_LANDSCAPE_IPHONE_SHORT];
+        [self.offLabel setFrame:OFF_LABEL_RECT_LANDSCAPE_IPHONE_SHORT];
+        self.offLabel.text = @"OFF";
+        
+        self.alarmLabel.font = [UIFont fontWithName:themeFont size:ALARM_LABEL_SIZE_LANDSCAPE_IPHONE_SHORT];
+        [self.alarmLabel setFrame:ALARM_LABEL_RECT_LANDSCAPE_IPHONE_SHORT];
+        self.alarmLabel.text = @"Alarm";
+    }
 }
 
 // Update the amLabel and pmLabel and slashLabel for Landscape view
 -(void)updateAMPMLandscape {
     
-    NSUserDefaults *themeDefaults = [NSUserDefaults standardUserDefaults];
-    NSString *themeFont = [themeDefaults objectForKey:@"themeFont"];
-    
-    // Set text attributes
-    self.amLabel.font = [UIFont fontWithName:themeFont size:AM_PM_SIZE_LANDSCAPE];
-    [self.amLabel setFrame:AM_LABEL_RECT_LANDSCAPE];
-    self.amLabel.text = @"AM";
-    
-    self.pmLabel.font = [UIFont fontWithName:themeFont size:AM_PM_SIZE_LANDSCAPE];
-    [self.pmLabel setFrame:PM_LABEL_RECT_LANDSCAPE];
-    self.pmLabel.text = @"PM";
-    
-    self.slashLabel.font = [UIFont fontWithName:themeFont size:SLASH_SIZE_LANDSCAPE];
-    [self.slashLabel setFrame:SLASH_LABEL_RECT_LANDSCAPE];
-    self.slashLabel.text = @"/";
-    
+    if([UIScreen mainScreen].bounds.size.height == 568) {
+        
+        NSUserDefaults *themeDefaults = [NSUserDefaults standardUserDefaults];
+        NSString *themeFont = [themeDefaults objectForKey:@"themeFont"];
+        
+        // Set text attributes
+        self.amLabel.font = [UIFont fontWithName:themeFont size:AM_PM_SIZE_LANDSCAPE];
+        [self.amLabel setFrame:AM_LABEL_RECT_LANDSCAPE];
+        self.amLabel.text = @"AM";
+        
+        self.pmLabel.font = [UIFont fontWithName:themeFont size:AM_PM_SIZE_LANDSCAPE];
+        [self.pmLabel setFrame:PM_LABEL_RECT_LANDSCAPE];
+        self.pmLabel.text = @"PM";
+        
+        self.slashLabel.font = [UIFont fontWithName:themeFont size:SLASH_SIZE_LANDSCAPE];
+        [self.slashLabel setFrame:SLASH_LABEL_RECT_LANDSCAPE];
+        self.slashLabel.text = @"/";
+    }
+    else {
+        
+        NSUserDefaults *themeDefaults = [NSUserDefaults standardUserDefaults];
+        NSString *themeFont = [themeDefaults objectForKey:@"themeFont"];
+        
+        // Set text attributes
+        self.amLabel.font = [UIFont fontWithName:themeFont size:AM_PM_SIZE_LANDSCAPE_IPHONE_SHORT];
+        [self.amLabel setFrame:AM_LABEL_RECT_LANDSCAPE_IPHONE_SHORT];
+        self.amLabel.text = @"AM";
+        
+        self.pmLabel.font = [UIFont fontWithName:themeFont size:AM_PM_SIZE_LANDSCAPE_IPHONE_SHORT];
+        [self.pmLabel setFrame:PM_LABEL_RECT_LANDSCAPE_IPHONE_SHORT];
+        self.pmLabel.text = @"PM";
+        
+        self.slashLabel.font = [UIFont fontWithName:themeFont size:SLASH_SIZE_LANDSCAPE_IPHONE_SHORT];
+        [self.slashLabel setFrame:SLASH_LABEL_RECT_LANDSCAPE_IPHONE_SHORT];
+        self.slashLabel.text = @"/";
+    }
 }
 
 // Update the weather labels for Portrait view
 -(void)updateWeatherLandscape {
     
-    NSUserDefaults *themeDefaults = [NSUserDefaults standardUserDefaults];
-    NSString *themeFont = [themeDefaults objectForKey:@"themeFont"];
-    
-    self.weatherTempLabel.font = [UIFont fontWithName:themeFont size:TEMP_SIZE_LANDSCAPE];
-    self.weatherCondLabel.font = [UIFont fontWithName:themeFont size:COND_SIZE_LANDSCAPE];
-    self.weatherCondLabel.textAlignment = NSTextAlignmentRight;
-    
-    self.weatherTempLabel.frame = TEMP_RECT_LANDSCAPE;
-    self.weatherCondLabel.frame = COND_RECT_LANDSCAPE;
-    self.refreshButton.frame = REFRESH_BUTTON_RECT_LANDSCAPE;
+    if([UIScreen mainScreen].bounds.size.height == 568) {
+        
+        NSUserDefaults *themeDefaults = [NSUserDefaults standardUserDefaults];
+        NSString *themeFont = [themeDefaults objectForKey:@"themeFont"];
+        
+        self.weatherTempLabel.font = [UIFont fontWithName:themeFont size:TEMP_SIZE_LANDSCAPE];
+        self.weatherCondLabel.font = [UIFont fontWithName:themeFont size:COND_SIZE_LANDSCAPE];
+        self.weatherCondLabel.textAlignment = NSTextAlignmentRight;
+        
+        self.weatherTempLabel.frame = TEMP_RECT_LANDSCAPE;
+        self.weatherCondLabel.frame = COND_RECT_LANDSCAPE;
+        self.refreshButton.frame = REFRESH_BUTTON_RECT_LANDSCAPE;
+    }
+    else {
+        
+        NSUserDefaults *themeDefaults = [NSUserDefaults standardUserDefaults];
+        NSString *themeFont = [themeDefaults objectForKey:@"themeFont"];
+        
+        self.weatherTempLabel.font = [UIFont fontWithName:themeFont size:TEMP_SIZE_LANDSCAPE_IPHONE_SHORT];
+        self.weatherCondLabel.font = [UIFont fontWithName:themeFont size:COND_SIZE_LANDSCAPE_IPHONE_SHORT];
+        self.weatherCondLabel.textAlignment = NSTextAlignmentRight;
+        
+        self.weatherTempLabel.frame = TEMP_RECT_LANDSCAPE_IPHONE_SHORT;
+        self.weatherCondLabel.frame = COND_RECT_LANDSCAPE_IPHONE_SHORT;
+        self.refreshButton.frame = REFRESH_BUTTON_RECT_LANDSCAPE_IPHONE_SHORT;
+    }
 }
 
 #pragma mark -

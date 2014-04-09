@@ -36,8 +36,7 @@
 // Load Tutorial if it is First Open
 -(void)isFirstOpen {
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-    // [defaults setBool:NO forKey:@"notFirstRun"];
-    if (![defaults boolForKey:@"notFirstRun"]) {
+    if ([defaults boolForKey:@"notFirstRun"] != YES || [defaults boolForKey:@"notFirstRun"] == 0) {
         [self isFirstRun];
         [defaults setBool:YES forKey:@"notFirstRun"];
         [defaults synchronize];
@@ -45,6 +44,159 @@
     else {
         nil;
     }
+}
+
+-(void)isFirstRun {
+    
+    UIAlertView *firstAlert = [[UIAlertView alloc] initWithTitle:@"Welcome!"
+                                                         message:@"We noticed this is your first time opening Desk Clock. We recommend you take a look around Settings in order to get Desk Clock just how you like it. Set custom Night Mode times, change your weather preferences, and even pick a theme. Thank you for buying Desk Clock!"
+                                                        delegate:self
+                                               cancelButtonTitle:@"No thanks"
+                                               otherButtonTitles:@"Open Settings...", nil];
+    [firstAlert setTag:2];
+    [firstAlert show];
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setLocale:[NSLocale currentLocale]];
+    [formatter setDateStyle:NSDateFormatterNoStyle];
+    [formatter setTimeStyle:NSDateFormatterShortStyle];
+    NSString *dateString = [formatter stringFromDate:[NSDate date]];
+    NSRange amRange = [dateString rangeOfString:[formatter AMSymbol]];
+    NSRange pmRange = [dateString rangeOfString:[formatter PMSymbol]];
+    BOOL is24h = 0;
+    
+    if (amRange.location == NSNotFound && pmRange.location == NSNotFound) {
+        is24h = 1;
+    }
+    else if (amRange.location != NSNotFound && pmRange.location != NSNotFound) {
+        is24h = 0;
+    }
+    
+    if (is24h == 1) {
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        [userDefaults setBool:1 forKey:@"enabledSwitch"];
+        [userDefaults setBool:0 forKey:@"alwaysDaySwitch"];
+        [userDefaults setBool:0 forKey:@"alwaysNightSwitch"];
+        [userDefaults setBool:0 forKey:@"customTimeSwitch"];
+        
+        [userDefaults setBool:1 forKey:@"currentLocationSwitch"];
+        [userDefaults setBool:0 forKey:@"celsiusSwitch"];
+        
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setDateFormat:@"HH:mm a"];
+        
+        NSDate *morning = [dateFormat dateFromString:@"08:00"];
+        NSDate *night = [dateFormat dateFromString:@"20:00"];
+        
+        [userDefaults setObject:morning forKey:@"dayTimeFullObject"];
+        [userDefaults setObject:night forKey:@"nightTimeFullObject"];
+        
+        // HOUR
+        NSDateFormatter *hourFormat = [[NSDateFormatter alloc] init];
+        [hourFormat setDateFormat:@"HH"];
+        
+        NSDate *hourMorning = morning;
+        NSDate *hourNight = night;
+        
+        [userDefaults setObject:hourMorning forKey:@"dayHourObject"];
+        [userDefaults setObject:hourNight forKey:@"nightHourObject"];
+        
+        // MINUTE
+        NSDateFormatter *minuteFormat = [[NSDateFormatter alloc] init];
+        [minuteFormat setDateFormat:@"mm"];
+        
+        NSDate *minuteMorning = morning;
+        NSDate *minuteNight = night;
+        
+        [userDefaults setObject:minuteMorning forKey:@"dayMinuteObject"];
+        [userDefaults setObject:minuteNight forKey:@"nightMinuteObject"];
+        
+        // AM PM
+        NSDateFormatter *ampmFormat = [[NSDateFormatter alloc] init];
+        [ampmFormat setDateFormat:@"a"];
+        
+        NSDate *dayAM = morning;
+        NSDate *nightPM = night;
+        
+        [userDefaults setObject:dayAM forKey:@"dayAMPMObject"];
+        [userDefaults setObject:nightPM forKey:@"nightAMPMObject"];
+        
+        [userDefaults synchronize];
+    }
+    else if (is24h == 0) {
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        [userDefaults setBool:1 forKey:@"enabledSwitch"];
+        [userDefaults setBool:0 forKey:@"alwaysDaySwitch"];
+        [userDefaults setBool:0 forKey:@"alwaysNightSwitch"];
+        [userDefaults setBool:0 forKey:@"customTimeSwitch"];
+        
+        [userDefaults setBool:1 forKey:@"currentLocationSwitch"];
+        [userDefaults setBool:0 forKey:@"celsiusSwitch"];
+        
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setDateFormat:@"h:mm a"];
+        
+        NSDate *morning = [dateFormat dateFromString:@"8:00 AM"];
+        NSDate *night = [dateFormat dateFromString:@"8:00 PM"];
+        
+        [userDefaults setObject:morning forKey:@"dayTimeFullObject"];
+        [userDefaults setObject:night forKey:@"nightTimeFullObject"];
+        
+        // HOUR
+        NSDateFormatter *hourFormat = [[NSDateFormatter alloc] init];
+        [hourFormat setDateFormat:@"h"];
+        
+        NSDate *hourMorning = morning;
+        NSDate *hourNight = night;
+        
+        [userDefaults setObject:hourMorning forKey:@"dayHourObject"];
+        [userDefaults setObject:hourNight forKey:@"nightHourObject"];
+        
+        // MINUTE
+        NSDateFormatter *minuteFormat = [[NSDateFormatter alloc] init];
+        [minuteFormat setDateFormat:@"mm"];
+        
+        NSDate *minuteMorning = morning;
+        NSDate *minuteNight = night;
+        
+        [userDefaults setObject:minuteMorning forKey:@"dayMinuteObject"];
+        [userDefaults setObject:minuteNight forKey:@"nightMinuteObject"];
+        
+        // AM PM
+        NSDateFormatter *ampmFormat = [[NSDateFormatter alloc] init];
+        [ampmFormat setDateFormat:@"a"];
+        
+        NSDate *dayAM = morning;
+        NSDate *nightPM = night;
+        
+        [userDefaults setObject:dayAM forKey:@"dayAMPMObject"];
+        [userDefaults setObject:nightPM forKey:@"nightAMPMObject"];
+        
+        [userDefaults synchronize];
+    }
+    
+    // Set Default Theme On First Launch
+    NSData *dayTextColorData = [NSKeyedArchiver archivedDataWithRootObject:[UIColor customBlackColor]];
+    NSData *dayBackgroundColorData = [NSKeyedArchiver archivedDataWithRootObject:[UIColor customWhiteColor]];
+    NSData *dayLabelOffColorData = [NSKeyedArchiver archivedDataWithRootObject:[UIColor customLightGrayColor]];
+    NSData *nightTextColorData = [NSKeyedArchiver archivedDataWithRootObject:[UIColor customWhiteColor]];
+    NSData *nightBackgroundColorData = [NSKeyedArchiver archivedDataWithRootObject:[UIColor customBlackColor]];
+    NSData *nightLabelOffColorData = [NSKeyedArchiver archivedDataWithRootObject:[UIColor customDarkGrayColor]];
+    
+    NSString *themeFont = @"Digital-7 Mono";
+    NSData *themeTintColorData = [NSKeyedArchiver archivedDataWithRootObject:[UIColor customDarkRedColor]];
+    
+    NSUserDefaults *themeDefaults = [NSUserDefaults standardUserDefaults];
+    [themeDefaults setObject:dayTextColorData forKey:@"dayTextColor"];
+    [themeDefaults setObject:dayBackgroundColorData forKey:@"dayBackgroundColor"];
+    [themeDefaults setObject:dayLabelOffColorData forKey:@"dayLabelOffColor"];
+    [themeDefaults setObject:nightTextColorData forKey:@"nightTextColor"];
+    [themeDefaults setObject:nightBackgroundColorData forKey:@"nightBackgroundColor"];
+    [themeDefaults setObject:nightLabelOffColorData forKey:@"nightLabelOffColor"];
+    [themeDefaults setObject:themeFont forKey:@"themeFont"];
+    [themeDefaults setObject:themeTintColorData forKey:@"themeTintColor"];
+    
+    [themeDefaults synchronize];
 }
 
 // Get current location
@@ -205,16 +357,28 @@
 
 // Alart View when alarm comes on, stop alarm on exit
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
-    if(buttonIndex == 0) {
-        
-        ACAppDelegate * myAppDelegate = (ACAppDelegate*)[[UIApplication sharedApplication] delegate];
-        [myAppDelegate.player stop];
-        
-    } else {
-        
-        // Well, nothing.
-        
+    
+    if ([alertView tag] == 1) {
+        if(buttonIndex == 0) {
+            
+            NSLog(@"Button pressed");
+            ACAppDelegate * myAppDelegate = (ACAppDelegate*)[[UIApplication sharedApplication] delegate];
+            [myAppDelegate.player stop];
+            
+        } else {
+            
+            // Well, nothing.
+            
+        }
     }
+    
+    if ([alertView tag] == 2) {
+        
+        if (buttonIndex == 1) {
+            [self performSegueWithIdentifier:@"LoadSettingsView" sender:self];
+        }
+    }
+    
 }
 
 // Run functions based on orientation
@@ -1176,155 +1340,6 @@
 #pragma mark Miscellaneous Functions
 
 /******************* Miscellaneous *******************/
-
-// Shows tutorial if first open
--(void)isFirstRun {
-    
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"First Load" message:@"This is your first time opening this app" delegate:nil cancelButtonTitle:@"Thanks" otherButtonTitles:nil];
-    [alertView show];
-    
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setLocale:[NSLocale currentLocale]];
-    [formatter setDateStyle:NSDateFormatterNoStyle];
-    [formatter setTimeStyle:NSDateFormatterShortStyle];
-    NSString *dateString = [formatter stringFromDate:[NSDate date]];
-    NSRange amRange = [dateString rangeOfString:[formatter AMSymbol]];
-    NSRange pmRange = [dateString rangeOfString:[formatter PMSymbol]];
-    BOOL is24h = 0;
-    
-    if (amRange.location == NSNotFound && pmRange.location == NSNotFound) {
-        is24h = 1;
-    }
-    else if (amRange.location != NSNotFound && pmRange.location != NSNotFound) {
-        is24h = 0;
-    }
-    
-    if (is24h == 1) {
-        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-        [userDefaults setBool:1 forKey:@"enabledSwitch"];
-        [userDefaults setBool:0 forKey:@"alwaysDaySwitch"];
-        [userDefaults setBool:0 forKey:@"alwaysNightSwitch"];
-        [userDefaults setBool:0 forKey:@"customTimeSwitch"];
-        
-        [userDefaults setBool:1 forKey:@"currentLocationSwitch"];
-        [userDefaults setBool:0 forKey:@"celsiusSwitch"];
-        
-        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-        [dateFormat setDateFormat:@"HH:mm a"];
-        
-        NSDate *morning = [dateFormat dateFromString:@"08:00"];
-        NSDate *night = [dateFormat dateFromString:@"20:00"];
-        
-        [userDefaults setObject:morning forKey:@"dayTimeFullObject"];
-        [userDefaults setObject:night forKey:@"nightTimeFullObject"];
-        
-        // HOUR
-        NSDateFormatter *hourFormat = [[NSDateFormatter alloc] init];
-        [hourFormat setDateFormat:@"HH"];
-        
-        NSDate *hourMorning = morning;
-        NSDate *hourNight = night;
-        
-        [userDefaults setObject:hourMorning forKey:@"dayHourObject"];
-        [userDefaults setObject:hourNight forKey:@"nightHourObject"];
-        
-        // MINUTE
-        NSDateFormatter *minuteFormat = [[NSDateFormatter alloc] init];
-        [minuteFormat setDateFormat:@"mm"];
-        
-        NSDate *minuteMorning = morning;
-        NSDate *minuteNight = night;
-        
-        [userDefaults setObject:minuteMorning forKey:@"dayMinuteObject"];
-        [userDefaults setObject:minuteNight forKey:@"nightMinuteObject"];
-        
-        // AM PM
-        NSDateFormatter *ampmFormat = [[NSDateFormatter alloc] init];
-        [ampmFormat setDateFormat:@"a"];
-        
-        NSDate *dayAM = morning;
-        NSDate *nightPM = night;
-        
-        [userDefaults setObject:dayAM forKey:@"dayAMPMObject"];
-        [userDefaults setObject:nightPM forKey:@"nightAMPMObject"];
-        
-        [userDefaults synchronize];
-    }
-    else if (is24h == 0) {
-        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-        [userDefaults setBool:1 forKey:@"enabledSwitch"];
-        [userDefaults setBool:0 forKey:@"alwaysDaySwitch"];
-        [userDefaults setBool:0 forKey:@"alwaysNightSwitch"];
-        [userDefaults setBool:0 forKey:@"customTimeSwitch"];
-        
-        [userDefaults setBool:1 forKey:@"currentLocationSwitch"];
-        [userDefaults setBool:0 forKey:@"celsiusSwitch"];
-        
-        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-        [dateFormat setDateFormat:@"h:mm a"];
-        
-        NSDate *morning = [dateFormat dateFromString:@"8:00 AM"];
-        NSDate *night = [dateFormat dateFromString:@"8:00 PM"];
-        
-        [userDefaults setObject:morning forKey:@"dayTimeFullObject"];
-        [userDefaults setObject:night forKey:@"nightTimeFullObject"];
-        
-        // HOUR
-        NSDateFormatter *hourFormat = [[NSDateFormatter alloc] init];
-        [hourFormat setDateFormat:@"h"];
-        
-        NSDate *hourMorning = morning;
-        NSDate *hourNight = night;
-        
-        [userDefaults setObject:hourMorning forKey:@"dayHourObject"];
-        [userDefaults setObject:hourNight forKey:@"nightHourObject"];
-        
-        // MINUTE
-        NSDateFormatter *minuteFormat = [[NSDateFormatter alloc] init];
-        [minuteFormat setDateFormat:@"mm"];
-        
-        NSDate *minuteMorning = morning;
-        NSDate *minuteNight = night;
-        
-        [userDefaults setObject:minuteMorning forKey:@"dayMinuteObject"];
-        [userDefaults setObject:minuteNight forKey:@"nightMinuteObject"];
-        
-        // AM PM
-        NSDateFormatter *ampmFormat = [[NSDateFormatter alloc] init];
-        [ampmFormat setDateFormat:@"a"];
-        
-        NSDate *dayAM = morning;
-        NSDate *nightPM = night;
-        
-        [userDefaults setObject:dayAM forKey:@"dayAMPMObject"];
-        [userDefaults setObject:nightPM forKey:@"nightAMPMObject"];
-        
-        [userDefaults synchronize];
-    }
-    
-    // Set Default Theme On First Launch
-    NSData *dayTextColorData = [NSKeyedArchiver archivedDataWithRootObject:[UIColor customBlackColor]];
-    NSData *dayBackgroundColorData = [NSKeyedArchiver archivedDataWithRootObject:[UIColor customWhiteColor]];
-    NSData *dayLabelOffColorData = [NSKeyedArchiver archivedDataWithRootObject:[UIColor customLightGrayColor]];
-    NSData *nightTextColorData = [NSKeyedArchiver archivedDataWithRootObject:[UIColor customWhiteColor]];
-    NSData *nightBackgroundColorData = [NSKeyedArchiver archivedDataWithRootObject:[UIColor customBlackColor]];
-    NSData *nightLabelOffColorData = [NSKeyedArchiver archivedDataWithRootObject:[UIColor customDarkGrayColor]];
-    
-    NSString *themeFont = @"Digital-7 Mono";
-    NSData *themeTintColorData = [NSKeyedArchiver archivedDataWithRootObject:[UIColor customDarkRedColor]];
-    
-    NSUserDefaults *themeDefaults = [NSUserDefaults standardUserDefaults];
-    [themeDefaults setObject:dayTextColorData forKey:@"dayTextColor"];
-    [themeDefaults setObject:dayBackgroundColorData forKey:@"dayBackgroundColor"];
-    [themeDefaults setObject:dayLabelOffColorData forKey:@"dayLabelOffColor"];
-    [themeDefaults setObject:nightTextColorData forKey:@"nightTextColor"];
-    [themeDefaults setObject:nightBackgroundColorData forKey:@"nightBackgroundColor"];
-    [themeDefaults setObject:nightLabelOffColorData forKey:@"nightLabelOffColor"];
-    [themeDefaults setObject:themeFont forKey:@"themeFont"];
-    [themeDefaults setObject:themeTintColorData forKey:@"themeTintColor"];
-    
-    [themeDefaults synchronize];
-}
 
 -(void)viewWillDisappear:(BOOL)animated {
     

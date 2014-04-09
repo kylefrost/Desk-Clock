@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ACNightTimeViewController_ipad : UITableViewController
+@interface ACNightTimeViewController_ipad : UIViewController
 
 @property (strong, nonatomic) IBOutlet UIDatePicker *nightTimePicker;
 @property (strong, nonatomic) IBOutlet UILabel *timeLabel;
