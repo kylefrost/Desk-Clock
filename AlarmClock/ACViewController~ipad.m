@@ -373,7 +373,7 @@
     if ([alertView tag] == 2) {
         
         if (buttonIndex == 1) {
-            [self performSegueWithIdentifier:@"LoadSettingsView_ipad" sender:self];
+            [self performSegueWithIdentifier:@"LoadTutorialView_ipad" sender:self];
         }
     }
     

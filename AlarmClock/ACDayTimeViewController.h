@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ACDayTimeViewController : UIViewController
+@interface ACDayTimeViewController : UITableViewController
 
 @property (strong, nonatomic) IBOutlet UIDatePicker *dayTimePicker;
 @property (strong, nonatomic) IBOutlet UILabel *timeLabel;
