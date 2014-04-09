@@ -25,7 +25,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="5aO-dO-kUh" kind="modal" identifier="LoadTutorialView" modalPresentationStyle="formSheet" id="SnA-q7-AH3"/>
+                                    <segue destination="5aO-dO-kUh" kind="modal" identifier="LoadTutorialView_ipad" modalPresentationStyle="formSheet" id="SnA-q7-AH3"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kgp-GN-FNf">

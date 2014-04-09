@@ -15,8 +15,6 @@
 
 #import "UIColor+Custom.h"
 
-#import "MKiCloudSync.h"
-
 #import <AVFoundation/AVAudioPlayer.h>
 #import <AudioToolbox/AudioToolbox.h>
 #import <UIKit/UIScreen.h>
@@ -375,7 +373,7 @@
     if ([alertView tag] == 2) {
         
         if (buttonIndex == 1) {
-            [self performSegueWithIdentifier:@"LoadSettingsView" sender:self];
+            [self performSegueWithIdentifier:@"LoadSettingsView_ipad" sender:self];
         }
     }
     
