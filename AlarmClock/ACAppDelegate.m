@@ -7,9 +7,9 @@
 //
 
 #import "ACAppDelegate.h"
-#import "MKiCloudSync.h"
 #import "TestFlight.h"
 #import "ACViewController.h"
+#import "ACViewController~ipad.h"
 #import <AudioToolbox/AudioToolbox.h>
 #import <Crashlytics/Crashlytics.h>
 
@@ -26,9 +26,6 @@
     //Prevents screen from locking
     [UIApplication sharedApplication].idleTimerDisabled = YES;
     
-    // Start NSUserDefaults iCloud Sync
-    [MKiCloudSync start];
-    
     // [self isFirstOpen];
     
     brightness = [UIScreen mainScreen].brightness;
@@ -44,7 +41,7 @@
             
             self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main~ipad" bundle:nil];
-            ACViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"ClockView_ipad"];
+            ACViewController_ipad *viewController = [storyboard instantiateViewControllerWithIdentifier:@"ClockView_ipad"];
             viewController.alarmGoingOff = YES;
             self.window.rootViewController = viewController;
             [self.window makeKeyAndVisible];
@@ -56,6 +53,7 @@
             // player.numberOfLoops = -1;
             [player prepareToPlay];
             [player play];
+            
         } else {
             
             self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -72,6 +70,7 @@
             // player.numberOfLoops = -1;
             [player prepareToPlay];
             [player play];
+            
         }
     }
     
@@ -120,7 +119,7 @@
         
         self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main~ipad" bundle:nil];
-        ACViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"ClockView_ipad"];
+        ACViewController_ipad *viewController = [storyboard instantiateViewControllerWithIdentifier:@"ClockView_ipad"];
         viewController.alarmGoingOff = YES;
         self.window.rootViewController = viewController;
         [self.window makeKeyAndVisible];
@@ -169,7 +168,6 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
     [[UIScreen mainScreen] setBrightness:brightness];
-    sleep(0.5);
     NSLog(@"Entering background.");
     NSLog(@"brightness is %f", brightness);
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 

@@ -83,11 +83,9 @@
             labelTextField.font = [UIFont systemFontOfSize:20];
             
             UIView *myBackView = [[UIView alloc] initWithFrame:cell.frame];
+        
             
-            NSData *themeTintData = [[NSUserDefaults standardUserDefaults] objectForKey:@"themeTintColor"];
-            UIColor *themeTint = [NSKeyedUnarchiver unarchiveObjectWithData:themeTintData];
-            
-            myBackView.backgroundColor = themeTint;
+            myBackView.backgroundColor = [UIColor lightGrayColor];
             cell.selectedBackgroundView = myBackView;
         }
         

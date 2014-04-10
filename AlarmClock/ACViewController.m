@@ -288,8 +288,6 @@
     self.brightness = mainScreen.brightness;
     self.weatherTempLabel.text = @"00º";
     self.weatherCondLabel.text = @"Loading...";
-    
-    [self viewDidAppear:NO];
 }
 
 -(void)addAllTheSubViews {

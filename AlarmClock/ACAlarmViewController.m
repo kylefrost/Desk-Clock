@@ -192,7 +192,8 @@
         // cell.contentView.backgroundColor = [UIColor lightGrayColor];
         
         UIView *myBackView = [[UIView alloc] initWithFrame:cell.frame];
-        myBackView.backgroundColor = [UIColor colorWithRed:0.6 green:0.141 blue:0.141 alpha:1];
+        // myBackView.backgroundColor = [UIColor colorWithRed:0.6 green:0.141 blue:0.141 alpha:1];
+        myBackView.backgroundColor = [UIColor lightGrayColor];
         cell.selectedBackgroundView = myBackView;
         
         [enabledSwitch setOn:enabled];

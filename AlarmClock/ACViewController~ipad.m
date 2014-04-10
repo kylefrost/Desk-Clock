@@ -285,6 +285,8 @@
     // mainScreen.brightness = 0.5;
     
     self.brightness = mainScreen.brightness;
+    self.weatherTempLabel.text = @"00º";
+    self.weatherCondLabel.text = @"Loading...";
 }
 
 -(void)addAllTheSubViews {
@@ -342,6 +344,7 @@
                                                             delegate:self
                                                    cancelButtonTitle:@"Done"
                                                    otherButtonTitles:nil, nil];
+        [alarmAlert setTag:1];
         [alarmAlert show];
         
         self.alarmGoingOff = NO;
