@@ -59,6 +59,7 @@
 		279709AB18D420D300B03572 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 279709AA18D420D300B03572 /* Social.framework */; };
 		279709AD18D4247800B03572 /* Alarm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 279709AC18D4247800B03572 /* Alarm.mp3 */; };
 		279709AF18D425A300B03572 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 279709AE18D425A300B03572 /* AVFoundation.framework */; };
+		279CC57618F654C000096216 /* UIColor+Neon.m in Sources */ = {isa = PBXBuildFile; fileRef = 279CC57518F654C000096216 /* UIColor+Neon.m */; };
 		27A707DC18F21B140013C002 /* ACSettingsViewController~ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A707DB18F21B140013C002 /* ACSettingsViewController~ipad.m */; };
 		27A707DF18F21B680013C002 /* ACAboutViewController~ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A707DE18F21B680013C002 /* ACAboutViewController~ipad.m */; };
 		27A707E218F21BCF0013C002 /* ACThemesViewController~ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A707E118F21BCF0013C002 /* ACThemesViewController~ipad.m */; };
@@ -172,6 +173,8 @@
 		279709AA18D420D300B03572 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		279709AC18D4247800B03572 /* Alarm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Alarm.mp3; sourceTree = "<group>"; };
 		279709AE18D425A300B03572 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		279CC57418F654C000096216 /* UIColor+Neon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Neon.h"; sourceTree = "<group>"; };
+		279CC57518F654C000096216 /* UIColor+Neon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Neon.m"; sourceTree = "<group>"; };
 		27A707DA18F21B140013C002 /* ACSettingsViewController~ipad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ACSettingsViewController~ipad.h"; sourceTree = "<group>"; };
 		27A707DB18F21B140013C002 /* ACSettingsViewController~ipad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ACSettingsViewController~ipad.m"; sourceTree = "<group>"; };
 		27A707DD18F21B680013C002 /* ACAboutViewController~ipad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ACAboutViewController~ipad.h"; sourceTree = "<group>"; };
@@ -332,6 +335,8 @@
 				27A707E418F21C970013C002 /* Definitions~ipad.h */,
 				275B1EF218EF9A3F00B27899 /* UIColor+Custom.h */,
 				275B1EF318EF9A3F00B27899 /* UIColor+Custom.m */,
+				279CC57418F654C000096216 /* UIColor+Neon.h */,
+				279CC57518F654C000096216 /* UIColor+Neon.m */,
 			);
 			name = "Custom Files";
 			sourceTree = "<group>";
@@ -933,6 +938,7 @@
 				27EF34AA18D3D4A200B7D79C /* ACAddEditAlarmViewController.m in Sources */,
 				276182A418EB1B18000E2C31 /* ACWeatherSettingsViewController.m in Sources */,
 				27A707DC18F21B140013C002 /* ACSettingsViewController~ipad.m in Sources */,
+				279CC57618F654C000096216 /* UIColor+Neon.m in Sources */,
 				27D7FF93182ABAF800A14824 /* ACBetaViewController.m in Sources */,
 				2785DAFC18D0E53E00B8D39B /* ACNightViewController.m in Sources */,
 				27A8D1FB18DBD8C8003FBA55 /* ACDayTimeViewController.m in Sources */,
