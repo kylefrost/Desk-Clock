@@ -8,7 +8,7 @@
         <!--View Controller ipad-->
         <scene sceneID="ObN-il-koE">
             <objects>
-                <viewController storyboardIdentifier="ClockView" id="Anh-fb-hOA" customClass="ACViewController_ipad" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ClockView_ipad" id="Anh-fb-hOA" customClass="ACViewController_ipad" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SGO-D5-PHB"/>
                         <viewControllerLayoutGuide type="bottom" id="bK8-ND-AdD"/>

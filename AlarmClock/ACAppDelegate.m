@@ -40,22 +40,39 @@
     
     if (localNotif) {
         
-        self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        ACViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"ClockView"];
-        viewController.alarmGoingOff = YES;
-        self.window.rootViewController = viewController;
-        [self.window makeKeyAndVisible];
-        
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"Alarm" ofType:@"mp3"];
-        NSURL *file = [[NSURL alloc] initFileURLWithPath:path];
-        
-        player = [[AVAudioPlayer alloc] initWithContentsOfURL:file error:nil];
-        // player.numberOfLoops = -1;
-        [player prepareToPlay];
-        [player play];
-        
-        
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+            
+            self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main~ipad" bundle:nil];
+            ACViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"ClockView_ipad"];
+            viewController.alarmGoingOff = YES;
+            self.window.rootViewController = viewController;
+            [self.window makeKeyAndVisible];
+            
+            NSString *path = [[NSBundle mainBundle] pathForResource:@"Alarm" ofType:@"mp3"];
+            NSURL *file = [[NSURL alloc] initFileURLWithPath:path];
+            
+            player = [[AVAudioPlayer alloc] initWithContentsOfURL:file error:nil];
+            // player.numberOfLoops = -1;
+            [player prepareToPlay];
+            [player play];
+        } else {
+            
+            self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            ACViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"ClockView"];
+            viewController.alarmGoingOff = YES;
+            self.window.rootViewController = viewController;
+            [self.window makeKeyAndVisible];
+            
+            NSString *path = [[NSBundle mainBundle] pathForResource:@"Alarm" ofType:@"mp3"];
+            NSURL *file = [[NSURL alloc] initFileURLWithPath:path];
+            
+            player = [[AVAudioPlayer alloc] initWithContentsOfURL:file error:nil];
+            // player.numberOfLoops = -1;
+            [player prepareToPlay];
+            [player play];
+        }
     }
     
     [[NSUserDefaults standardUserDefaults]setFloat:[UIScreen mainScreen].brightness forKey:@"BrightnessValue"];
@@ -99,13 +116,24 @@
         
     }
     
-
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    ACViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"ClockView"];
-    viewController.alarmGoingOff = YES;
-    self.window.rootViewController = viewController;
-    [self.window makeKeyAndVisible];
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        
+        self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main~ipad" bundle:nil];
+        ACViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"ClockView_ipad"];
+        viewController.alarmGoingOff = YES;
+        self.window.rootViewController = viewController;
+        [self.window makeKeyAndVisible];
+    }
+    else {
+        
+        self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        ACViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"ClockView"];
+        viewController.alarmGoingOff = YES;
+        self.window.rootViewController = viewController;
+        [self.window makeKeyAndVisible];
+    }
 }
 
 -(void)isFirstOpen {
