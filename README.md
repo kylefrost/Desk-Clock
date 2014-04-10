@@ -11,12 +11,17 @@ If you're interested, you can find me on Twitter [@_kylefrost](http://www.twitte
 ## About the App
 ### Current Features
 - Portrait and Landscape Orientation Support
- - Using mostly `setFrame:CGRectMake(x, y, width, height)`
+ - Check out `Definitions.h` and `Definitions~ipad.h`
+- iPad and iPhone Universal App
+- Alarms
+ - Set multiple alarms
+- Themes
+ - 6 pre-made themes available in Settings
+- About Page
+ - About page that links to Twitter profiles of those involved
 - Day and Night Modes:
-![Day Mode](http://i.imgur.com/lZq0035.png)
-![Night Mode](http://i.imgur.com/3R4wYwb.png)
-- iCloud Syncing
-- Tutorial on First Launch
+ - Includes Custom Time Option as well as Always Day/Night Options
+- UIAlertView on First Launch
 
 ### Other Features
 - Beta Settings Page
@@ -26,15 +31,7 @@ If you're interested, you can find me on Twitter [@_kylefrost](http://www.twitte
  - Apparently Apple just bought this company, so we will see what happens here
 
 ## Features in Planning
-- Settings page
- - Choose custom Day/Night mode times
- - Set multiple alarms
- - Choose from pre-made themes
- - In-App Purchases to allow custom themes
- - Custom font choice for labels
-- Weather Information
- - Custom Location
- - Disable/Enable (at first, default will be enabled)
+- Theme Packs
 - Pebble support
  - e.g. every morning have weather pushed to Pebble
 - Google Glass support

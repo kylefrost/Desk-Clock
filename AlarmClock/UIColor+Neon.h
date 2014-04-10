@@ -1,9 +1,9 @@
 //
-//  UIColor+Neon.h
-//  AlarmClock
+//  UIColor+Neon.h
+//  AlarmClock
 //
-//  Created by Lauren White on 4/9/14.
-//  Copyright (c) 2014 Kyle Frost Design. All rights reserved.
+//  Created by Lauren White on 4/9/14.
+//  Copyright (c) 2014 Kyle Frost Design. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
