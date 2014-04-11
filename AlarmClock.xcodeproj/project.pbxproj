@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2705D4B218BD1A1C002C83D8 /* settingsButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 2705D4B018BD1A1B002C83D8 /* settingsButton.png */; };
+		2705D4B318BD1A1C002C83D8 /* settingsButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2705D4B118BD1A1C002C83D8 /* settingsButton@2x.png */; };
 		2708940A1821C297006E23BA /* AppIcon29x29.png in Resources */ = {isa = PBXBuildFile; fileRef = 270894001821C297006E23BA /* AppIcon29x29.png */; };
 		2708940B1821C297006E23BA /* AppIcon29x29@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 270894011821C297006E23BA /* AppIcon29x29@2x.png */; };
 		2708940C1821C297006E23BA /* AppIcon40x40.png in Resources */ = {isa = PBXBuildFile; fileRef = 270894021821C297006E23BA /* AppIcon40x40.png */; };
@@ -17,15 +19,20 @@
 		270894111821C297006E23BA /* AppIcon76x76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 270894071821C297006E23BA /* AppIcon76x76@2x.png */; };
 		270894121821C297006E23BA /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 270894081821C297006E23BA /* iTunesArtwork.png */; };
 		270894131821C297006E23BA /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 270894091821C297006E23BA /* iTunesArtwork@2x.png */; };
-		27208B15182145CC0025FEBD /* ACTutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27208B13182145CC0025FEBD /* ACTutorialViewController.m */; };
-		27208B16182145CC0025FEBD /* ACTutorialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27208B14182145CC0025FEBD /* ACTutorialViewController.xib */; };
+		271C36A318A9E11400FA8B53 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 278A542F182B107100A632DE /* libTestFlight.a */; };
+		271C36A518A9E1BE00FA8B53 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 271C36A418A9E1BE00FA8B53 /* Crashlytics.framework */; };
 		27291F0B1823E8B200CB2070 /* Main~ipad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27291F0A1823E8B200CB2070 /* Main~ipad.storyboard */; };
 		27291F101823EF6100CB2070 /* ACViewController~ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 27291F0F1823EF6100CB2070 /* ACViewController~ipad.m */; };
 		27291F131823EF8100CB2070 /* ACInfoViewController~ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 27291F121823EF8100CB2070 /* ACInfoViewController~ipad.m */; };
 		274B70C2182AC23900266466 /* BetaSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 274B70C1182AC23900266466 /* BetaSettings.plist */; };
+		2758F5E118F4615B00644FDC /* ACTutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2758F5E018F4615B00644FDC /* ACTutorialViewController.m */; };
+		275B1EF418EF9A3F00B27899 /* UIColor+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 275B1EF318EF9A3F00B27899 /* UIColor+Custom.m */; };
+		276182A418EB1B18000E2C31 /* ACWeatherSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 276182A318EB1B18000E2C31 /* ACWeatherSettingsViewController.m */; };
+		276182A618EB2C6F000E2C31 /* IFIHADONE.png in Resources */ = {isa = PBXBuildFile; fileRef = 276182A518EB2C6F000E2C31 /* IFIHADONE.png */; };
 		27642FF11827FB92007D66CE /* ACLaurenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27642FF01827FB92007D66CE /* ACLaurenViewController.m */; };
 		2767D54C182C3C020012586B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2767D54B182C3C020012586B /* MessageUI.framework */; };
 		276901B51820C4F9006B915D /* Digital-7MonoItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 276901B41820C4D1006B915D /* Digital-7MonoItalic.otf */; };
+		276B615618822DE100A8709E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 276B615518822DE100A8709E /* CoreLocation.framework */; };
 		277AFEE6181EA5B80009AE0F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 277AFEE5181EA5B80009AE0F /* Foundation.framework */; };
 		277AFEE8181EA5B80009AE0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 277AFEE7181EA5B80009AE0F /* CoreGraphics.framework */; };
 		277AFEEA181EA5B80009AE0F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 277AFEE9181EA5B80009AE0F /* UIKit.framework */; };
@@ -42,19 +49,48 @@
 		277AFF11181EA5B80009AE0F /* AlarmClockTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 277AFF10181EA5B80009AE0F /* AlarmClockTests.m */; };
 		277AFF22181EBE510009AE0F /* ACInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 277AFF21181EBE510009AE0F /* ACInfoViewController.m */; };
 		277AFF23181EBE510009AE0F /* ACInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 277AFF21181EBE510009AE0F /* ACInfoViewController.m */; };
-		278A542E182AFC6800A632DE /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 278A542D182AFC6800A632DE /* Crashlytics.framework */; };
-		278A5433182B107100A632DE /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 278A542F182B107100A632DE /* libTestFlight.a */; };
+		2785DAFC18D0E53E00B8D39B /* ACNightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2785DAFB18D0E53E00B8D39B /* ACNightViewController.m */; };
 		278A5436182B10C800A632DE /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 278A5435182B10C800A632DE /* libz.dylib */; };
 		278A543E182B40F900A632DE /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 278A543D182B40F900A632DE /* Accelerate.framework */; };
 		278A5447182B4D6C00A632DE /* iPhone5c.png in Resources */ = {isa = PBXBuildFile; fileRef = 278A5445182B4D6C00A632DE /* iPhone5c.png */; };
 		278A5448182B4D6C00A632DE /* iPhone5s.png in Resources */ = {isa = PBXBuildFile; fileRef = 278A5446182B4D6C00A632DE /* iPhone5s.png */; };
 		278A544A182B56CB00A632DE /* TutorialState.plist in Resources */ = {isa = PBXBuildFile; fileRef = 278A5449182B56CB00A632DE /* TutorialState.plist */; };
+		279709A918D419D000B03572 /* ACSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 279709A818D419D000B03572 /* ACSettingsViewController.m */; };
+		279709AB18D420D300B03572 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 279709AA18D420D300B03572 /* Social.framework */; };
+		279709AD18D4247800B03572 /* Alarm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 279709AC18D4247800B03572 /* Alarm.mp3 */; };
+		279709AF18D425A300B03572 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 279709AE18D425A300B03572 /* AVFoundation.framework */; };
+		279CC57618F654C000096216 /* UIColor+Neon.m in Sources */ = {isa = PBXBuildFile; fileRef = 279CC57518F654C000096216 /* UIColor+Neon.m */; };
+		27A707DC18F21B140013C002 /* ACSettingsViewController~ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A707DB18F21B140013C002 /* ACSettingsViewController~ipad.m */; };
+		27A707DF18F21B680013C002 /* ACAboutViewController~ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A707DE18F21B680013C002 /* ACAboutViewController~ipad.m */; };
+		27A707E218F21BCF0013C002 /* ACThemesViewController~ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A707E118F21BCF0013C002 /* ACThemesViewController~ipad.m */; };
+		27A707E718F234850013C002 /* ACAlarmViewController~ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A707E618F234850013C002 /* ACAlarmViewController~ipad.m */; };
+		27A707EA18F234CA0013C002 /* ACAddEditAlarmViewController~ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A707E918F234CA0013C002 /* ACAddEditAlarmViewController~ipad.m */; };
+		27A707ED18F235060013C002 /* ACAlarmLabelEditViewController~ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A707EC18F235060013C002 /* ACAlarmLabelEditViewController~ipad.m */; };
+		27A707F018F2354A0013C002 /* ACAlarmObject~ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A707EF18F2354A0013C002 /* ACAlarmObject~ipad.m */; };
+		27A707F418F239290013C002 /* ACNightViewController~ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A707F318F239290013C002 /* ACNightViewController~ipad.m */; };
+		27A707F718F239460013C002 /* ACDayTimeViewController~ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A707F618F239460013C002 /* ACDayTimeViewController~ipad.m */; };
+		27A707FA18F2395E0013C002 /* ACNightTimeViewController~ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A707F918F2395E0013C002 /* ACNightTimeViewController~ipad.m */; };
+		27A707FD18F23B240013C002 /* ACWeatherSettingsViewController~ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A707FC18F23B240013C002 /* ACWeatherSettingsViewController~ipad.m */; };
+		27A7080018F23B3C0013C002 /* ACWeatherRefreshIntervalViewController~ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A707FF18F23B3C0013C002 /* ACWeatherRefreshIntervalViewController~ipad.m */; };
+		27A7080318F242410013C002 /* MKiCloudSync.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A7080218F242410013C002 /* MKiCloudSync.m */; };
+		27A8D1FB18DBD8C8003FBA55 /* ACDayTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D1FA18DBD8C8003FBA55 /* ACDayTimeViewController.m */; };
+		27A8D1FE18DBD8F8003FBA55 /* ACNightTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D1FD18DBD8F8003FBA55 /* ACNightTimeViewController.m */; };
+		27B4861618D4EE91004CA2DD /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27B4861518D4EE91004CA2DD /* AudioToolbox.framework */; };
+		27B4861D18D509DF004CA2DD /* ACAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27B4861C18D509DF004CA2DD /* ACAboutViewController.m */; };
+		27B4862018D554EF004CA2DD /* heart_settings_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 27B4861E18D554EF004CA2DD /* heart_settings_button.png */; };
+		27B4862118D554EF004CA2DD /* heart_settings_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 27B4861F18D554EF004CA2DD /* heart_settings_button@2x.png */; };
+		27C6D47F18EFAEB20026A2E9 /* ACThemesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C6D47E18EFAEB20026A2E9 /* ACThemesViewController.m */; };
 		27D5CCEF18711EFC00061B47 /* ACOverlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D5CCEE18711EFC00061B47 /* ACOverlayViewController.m */; };
 		27D5CCF218711F1600061B47 /* ACOverlayViewController~ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D5CCF118711F1600061B47 /* ACOverlayViewController~ipad.m */; };
 		27D7FF93182ABAF800A14824 /* ACBetaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D7FF92182ABAF800A14824 /* ACBetaViewController.m */; };
 		27D7FF98182ABB3300A14824 /* ACBetaViewController~ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D7FF97182ABB3300A14824 /* ACBetaViewController~ipad.m */; };
 		27DA48D9183DBF1E00E42540 /* InitialSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 27DA48D8183DBF1E00E42540 /* InitialSettings.plist */; };
-		27E01BF21829AAC500DB1132 /* MKiCloudSync.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E01BF11829AAC500DB1132 /* MKiCloudSync.m */; };
+		27EF34A718D3D3F300B7D79C /* ACAlarmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EF34A618D3D3F300B7D79C /* ACAlarmViewController.m */; };
+		27EF34AA18D3D4A200B7D79C /* ACAddEditAlarmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EF34A918D3D4A200B7D79C /* ACAddEditAlarmViewController.m */; };
+		27EF34AD18D3D4DF00B7D79C /* ACAlarmLabelEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EF34AC18D3D4DF00B7D79C /* ACAlarmLabelEditViewController.m */; };
+		27EF34B018D3D53300B7D79C /* ACAlarmObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EF34AF18D3D53300B7D79C /* ACAlarmObject.m */; };
+		27EF4A2E18ECFC4300C9D72F /* ACWeatherRefreshIntervalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EF4A2D18ECFC4300C9D72F /* ACWeatherRefreshIntervalViewController.m */; };
+		AB6CC89BCE644DC0AACB5133 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C71414EA618468AA018A9AB /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +104,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2705D4B018BD1A1B002C83D8 /* settingsButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsButton.png; sourceTree = SOURCE_ROOT; };
+		2705D4B118BD1A1C002C83D8 /* settingsButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settingsButton@2x.png"; sourceTree = SOURCE_ROOT; };
 		270894001821C297006E23BA /* AppIcon29x29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = AppIcon29x29.png; path = DeskClockIcons/AppIcon29x29.png; sourceTree = "<group>"; };
 		270894011821C297006E23BA /* AppIcon29x29@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "AppIcon29x29@2x.png"; path = "DeskClockIcons/AppIcon29x29@2x.png"; sourceTree = "<group>"; };
 		270894021821C297006E23BA /* AppIcon40x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = AppIcon40x40.png; path = DeskClockIcons/AppIcon40x40.png; sourceTree = "<group>"; };
@@ -78,19 +116,26 @@
 		270894071821C297006E23BA /* AppIcon76x76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "AppIcon76x76@2x.png"; path = "DeskClockIcons/AppIcon76x76@2x.png"; sourceTree = "<group>"; };
 		270894081821C297006E23BA /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iTunesArtwork.png; path = DeskClockIcons/iTunesArtwork.png; sourceTree = "<group>"; };
 		270894091821C297006E23BA /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iTunesArtwork@2x.png"; path = "DeskClockIcons/iTunesArtwork@2x.png"; sourceTree = "<group>"; };
-		27208B12182145CC0025FEBD /* ACTutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACTutorialViewController.h; sourceTree = "<group>"; };
-		27208B13182145CC0025FEBD /* ACTutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACTutorialViewController.m; sourceTree = "<group>"; };
-		27208B14182145CC0025FEBD /* ACTutorialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACTutorialViewController.xib; sourceTree = "<group>"; };
+		271C36A418A9E1BE00FA8B53 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		27291F0A1823E8B200CB2070 /* Main~ipad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Main~ipad.storyboard"; sourceTree = "<group>"; };
 		27291F0E1823EF6100CB2070 /* ACViewController~ipad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ACViewController~ipad.h"; sourceTree = "<group>"; };
 		27291F0F1823EF6100CB2070 /* ACViewController~ipad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ACViewController~ipad.m"; sourceTree = "<group>"; };
 		27291F111823EF8100CB2070 /* ACInfoViewController~ipad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ACInfoViewController~ipad.h"; sourceTree = "<group>"; };
 		27291F121823EF8100CB2070 /* ACInfoViewController~ipad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ACInfoViewController~ipad.m"; sourceTree = "<group>"; };
+		2729A88218B7205500182ED1 /* Definitions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Definitions.h; sourceTree = "<group>"; };
 		274B70C1182AC23900266466 /* BetaSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BetaSettings.plist; sourceTree = "<group>"; };
+		2758F5DF18F4615B00644FDC /* ACTutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACTutorialViewController.h; sourceTree = "<group>"; };
+		2758F5E018F4615B00644FDC /* ACTutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACTutorialViewController.m; sourceTree = "<group>"; };
+		275B1EF218EF9A3F00B27899 /* UIColor+Custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Custom.h"; sourceTree = "<group>"; };
+		275B1EF318EF9A3F00B27899 /* UIColor+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Custom.m"; sourceTree = "<group>"; };
+		276182A218EB1B18000E2C31 /* ACWeatherSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACWeatherSettingsViewController.h; sourceTree = "<group>"; };
+		276182A318EB1B18000E2C31 /* ACWeatherSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACWeatherSettingsViewController.m; sourceTree = "<group>"; };
+		276182A518EB2C6F000E2C31 /* IFIHADONE.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IFIHADONE.png; sourceTree = "<group>"; };
 		27642FEF1827FB92007D66CE /* ACLaurenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACLaurenViewController.h; sourceTree = "<group>"; };
 		27642FF01827FB92007D66CE /* ACLaurenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACLaurenViewController.m; sourceTree = "<group>"; };
 		2767D54B182C3C020012586B /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		276901B41820C4D1006B915D /* Digital-7MonoItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Digital-7MonoItalic.otf"; sourceTree = "<group>"; };
+		276B615518822DE100A8709E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		277AFEE2181EA5B80009AE0F /* AlarmClock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlarmClock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		277AFEE5181EA5B80009AE0F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		277AFEE7181EA5B80009AE0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -112,7 +157,8 @@
 		277AFF10181EA5B80009AE0F /* AlarmClockTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlarmClockTests.m; sourceTree = "<group>"; };
 		277AFF20181EBE510009AE0F /* ACInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACInfoViewController.h; sourceTree = "<group>"; };
 		277AFF21181EBE510009AE0F /* ACInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACInfoViewController.m; sourceTree = "<group>"; };
-		278A542D182AFC6800A632DE /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = AlarmClock/Crashlytics.framework; sourceTree = "<group>"; };
+		2785DAFA18D0E53E00B8D39B /* ACNightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACNightViewController.h; sourceTree = "<group>"; };
+		2785DAFB18D0E53E00B8D39B /* ACNightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACNightViewController.m; sourceTree = "<group>"; };
 		278A542F182B107100A632DE /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
 		278A5430182B107100A632DE /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		278A5431182B107100A632DE /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
@@ -122,6 +168,51 @@
 		278A5445182B4D6C00A632DE /* iPhone5c.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhone5c.png; sourceTree = "<group>"; };
 		278A5446182B4D6C00A632DE /* iPhone5s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhone5s.png; sourceTree = "<group>"; };
 		278A5449182B56CB00A632DE /* TutorialState.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TutorialState.plist; sourceTree = "<group>"; };
+		279709A718D419D000B03572 /* ACSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACSettingsViewController.h; sourceTree = "<group>"; };
+		279709A818D419D000B03572 /* ACSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACSettingsViewController.m; sourceTree = "<group>"; };
+		279709AA18D420D300B03572 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		279709AC18D4247800B03572 /* Alarm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Alarm.mp3; sourceTree = "<group>"; };
+		279709AE18D425A300B03572 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		279CC57418F654C000096216 /* UIColor+Neon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Neon.h"; sourceTree = "<group>"; };
+		279CC57518F654C000096216 /* UIColor+Neon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Neon.m"; sourceTree = "<group>"; };
+		27A707DA18F21B140013C002 /* ACSettingsViewController~ipad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ACSettingsViewController~ipad.h"; sourceTree = "<group>"; };
+		27A707DB18F21B140013C002 /* ACSettingsViewController~ipad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ACSettingsViewController~ipad.m"; sourceTree = "<group>"; };
+		27A707DD18F21B680013C002 /* ACAboutViewController~ipad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ACAboutViewController~ipad.h"; sourceTree = "<group>"; };
+		27A707DE18F21B680013C002 /* ACAboutViewController~ipad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ACAboutViewController~ipad.m"; sourceTree = "<group>"; };
+		27A707E018F21BCF0013C002 /* ACThemesViewController~ipad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ACThemesViewController~ipad.h"; sourceTree = "<group>"; };
+		27A707E118F21BCF0013C002 /* ACThemesViewController~ipad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ACThemesViewController~ipad.m"; sourceTree = "<group>"; };
+		27A707E418F21C970013C002 /* Definitions~ipad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Definitions~ipad.h"; sourceTree = "<group>"; };
+		27A707E518F234850013C002 /* ACAlarmViewController~ipad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ACAlarmViewController~ipad.h"; sourceTree = "<group>"; };
+		27A707E618F234850013C002 /* ACAlarmViewController~ipad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ACAlarmViewController~ipad.m"; sourceTree = "<group>"; };
+		27A707E818F234CA0013C002 /* ACAddEditAlarmViewController~ipad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ACAddEditAlarmViewController~ipad.h"; sourceTree = "<group>"; };
+		27A707E918F234CA0013C002 /* ACAddEditAlarmViewController~ipad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ACAddEditAlarmViewController~ipad.m"; sourceTree = "<group>"; };
+		27A707EB18F235060013C002 /* ACAlarmLabelEditViewController~ipad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ACAlarmLabelEditViewController~ipad.h"; sourceTree = "<group>"; };
+		27A707EC18F235060013C002 /* ACAlarmLabelEditViewController~ipad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ACAlarmLabelEditViewController~ipad.m"; sourceTree = "<group>"; };
+		27A707EE18F2354A0013C002 /* ACAlarmObject~ipad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ACAlarmObject~ipad.h"; sourceTree = "<group>"; };
+		27A707EF18F2354A0013C002 /* ACAlarmObject~ipad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ACAlarmObject~ipad.m"; sourceTree = "<group>"; };
+		27A707F218F239290013C002 /* ACNightViewController~ipad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ACNightViewController~ipad.h"; sourceTree = "<group>"; };
+		27A707F318F239290013C002 /* ACNightViewController~ipad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ACNightViewController~ipad.m"; sourceTree = "<group>"; };
+		27A707F518F239460013C002 /* ACDayTimeViewController~ipad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ACDayTimeViewController~ipad.h"; sourceTree = "<group>"; };
+		27A707F618F239460013C002 /* ACDayTimeViewController~ipad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ACDayTimeViewController~ipad.m"; sourceTree = "<group>"; };
+		27A707F818F2395E0013C002 /* ACNightTimeViewController~ipad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ACNightTimeViewController~ipad.h"; sourceTree = "<group>"; };
+		27A707F918F2395E0013C002 /* ACNightTimeViewController~ipad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ACNightTimeViewController~ipad.m"; sourceTree = "<group>"; };
+		27A707FB18F23B240013C002 /* ACWeatherSettingsViewController~ipad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ACWeatherSettingsViewController~ipad.h"; sourceTree = "<group>"; };
+		27A707FC18F23B240013C002 /* ACWeatherSettingsViewController~ipad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ACWeatherSettingsViewController~ipad.m"; sourceTree = "<group>"; };
+		27A707FE18F23B3C0013C002 /* ACWeatherRefreshIntervalViewController~ipad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ACWeatherRefreshIntervalViewController~ipad.h"; sourceTree = "<group>"; };
+		27A707FF18F23B3C0013C002 /* ACWeatherRefreshIntervalViewController~ipad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ACWeatherRefreshIntervalViewController~ipad.m"; sourceTree = "<group>"; };
+		27A7080118F242410013C002 /* MKiCloudSync.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKiCloudSync.h; sourceTree = "<group>"; };
+		27A7080218F242410013C002 /* MKiCloudSync.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKiCloudSync.m; sourceTree = "<group>"; };
+		27A8D1F918DBD8C8003FBA55 /* ACDayTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACDayTimeViewController.h; sourceTree = "<group>"; };
+		27A8D1FA18DBD8C8003FBA55 /* ACDayTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACDayTimeViewController.m; sourceTree = "<group>"; };
+		27A8D1FC18DBD8F8003FBA55 /* ACNightTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACNightTimeViewController.h; sourceTree = "<group>"; };
+		27A8D1FD18DBD8F8003FBA55 /* ACNightTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACNightTimeViewController.m; sourceTree = "<group>"; };
+		27B4861518D4EE91004CA2DD /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		27B4861B18D509DF004CA2DD /* ACAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACAboutViewController.h; sourceTree = "<group>"; };
+		27B4861C18D509DF004CA2DD /* ACAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACAboutViewController.m; sourceTree = "<group>"; };
+		27B4861E18D554EF004CA2DD /* heart_settings_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart_settings_button.png; sourceTree = SOURCE_ROOT; };
+		27B4861F18D554EF004CA2DD /* heart_settings_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "heart_settings_button@2x.png"; sourceTree = SOURCE_ROOT; };
+		27C6D47D18EFAEB20026A2E9 /* ACThemesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACThemesViewController.h; sourceTree = "<group>"; };
+		27C6D47E18EFAEB20026A2E9 /* ACThemesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACThemesViewController.m; sourceTree = "<group>"; };
 		27D5CCED18711EFC00061B47 /* ACOverlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACOverlayViewController.h; sourceTree = "<group>"; };
 		27D5CCEE18711EFC00061B47 /* ACOverlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACOverlayViewController.m; sourceTree = "<group>"; };
 		27D5CCF018711F1600061B47 /* ACOverlayViewController~ipad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ACOverlayViewController~ipad.h"; sourceTree = "<group>"; };
@@ -131,9 +222,18 @@
 		27D7FF96182ABB3300A14824 /* ACBetaViewController~ipad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ACBetaViewController~ipad.h"; sourceTree = "<group>"; };
 		27D7FF97182ABB3300A14824 /* ACBetaViewController~ipad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ACBetaViewController~ipad.m"; sourceTree = "<group>"; };
 		27DA48D8183DBF1E00E42540 /* InitialSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = InitialSettings.plist; sourceTree = "<group>"; };
-		27E01BEF1829A9C700DB1132 /* AlarmClock.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = AlarmClock.entitlements; sourceTree = "<group>"; };
-		27E01BF01829AAC500DB1132 /* MKiCloudSync.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKiCloudSync.h; sourceTree = "<group>"; };
-		27E01BF11829AAC500DB1132 /* MKiCloudSync.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKiCloudSync.m; sourceTree = "<group>"; };
+		27EF34A518D3D3F300B7D79C /* ACAlarmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACAlarmViewController.h; sourceTree = "<group>"; };
+		27EF34A618D3D3F300B7D79C /* ACAlarmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACAlarmViewController.m; sourceTree = "<group>"; };
+		27EF34A818D3D4A200B7D79C /* ACAddEditAlarmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACAddEditAlarmViewController.h; sourceTree = "<group>"; };
+		27EF34A918D3D4A200B7D79C /* ACAddEditAlarmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACAddEditAlarmViewController.m; sourceTree = "<group>"; };
+		27EF34AB18D3D4DF00B7D79C /* ACAlarmLabelEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACAlarmLabelEditViewController.h; sourceTree = "<group>"; };
+		27EF34AC18D3D4DF00B7D79C /* ACAlarmLabelEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACAlarmLabelEditViewController.m; sourceTree = "<group>"; };
+		27EF34AE18D3D53300B7D79C /* ACAlarmObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACAlarmObject.h; sourceTree = "<group>"; };
+		27EF34AF18D3D53300B7D79C /* ACAlarmObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACAlarmObject.m; sourceTree = "<group>"; };
+		27EF4A2C18ECFC4300C9D72F /* ACWeatherRefreshIntervalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACWeatherRefreshIntervalViewController.h; sourceTree = "<group>"; };
+		27EF4A2D18ECFC4300C9D72F /* ACWeatherRefreshIntervalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACWeatherRefreshIntervalViewController.m; sourceTree = "<group>"; };
+		9BF5BECAF8E149C1A7C66531 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		9C71414EA618468AA018A9AB /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,14 +241,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27B4861618D4EE91004CA2DD /* AudioToolbox.framework in Frameworks */,
+				279709AF18D425A300B03572 /* AVFoundation.framework in Frameworks */,
+				279709AB18D420D300B03572 /* Social.framework in Frameworks */,
+				276B615618822DE100A8709E /* CoreLocation.framework in Frameworks */,
+				271C36A518A9E1BE00FA8B53 /* Crashlytics.framework in Frameworks */,
 				2767D54C182C3C020012586B /* MessageUI.framework in Frameworks */,
 				278A543E182B40F900A632DE /* Accelerate.framework in Frameworks */,
 				278A5436182B10C800A632DE /* libz.dylib in Frameworks */,
-				278A5433182B107100A632DE /* libTestFlight.a in Frameworks */,
+				271C36A318A9E11400FA8B53 /* libTestFlight.a in Frameworks */,
 				277AFEE8181EA5B80009AE0F /* CoreGraphics.framework in Frameworks */,
 				277AFEEA181EA5B80009AE0F /* UIKit.framework in Frameworks */,
-				278A542E182AFC6800A632DE /* Crashlytics.framework in Frameworks */,
 				277AFEE6181EA5B80009AE0F /* Foundation.framework in Frameworks */,
+				AB6CC89BCE644DC0AACB5133 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,8 +283,6 @@
 			isa = PBXGroup;
 			children = (
 				27D5CCEA18711EC600061B47 /* OverlayTutorial */,
-				278A5438182B385900A632DE /* iPad */,
-				278A5437182B385400A632DE /* iPhone */,
 			);
 			name = Tutorial;
 			sourceTree = "<group>";
@@ -187,10 +290,14 @@
 		27291F0C1823EF2B00CB2070 /* iPhone */ = {
 			isa = PBXGroup;
 			children = (
-				277AFEFA181EA5B80009AE0F /* ACViewController.h */,
-				277AFEFB181EA5B80009AE0F /* ACViewController.m */,
-				277AFF20181EBE510009AE0F /* ACInfoViewController.h */,
-				277AFF21181EBE510009AE0F /* ACInfoViewController.m */,
+				2785DAF418D0E47200B8D39B /* ViewController */,
+				27EF34A418D3D2EA00B7D79C /* SettingsViewController */,
+				27B4861A18D50971004CA2DD /* AboutViewController */,
+				27EF34A318D3D2DE00B7D79C /* Alarm */,
+				2785DAF618D0E49D00B8D39B /* NightViewController */,
+				276182A118EB1AE7000E2C31 /* WeatherSettingsViewController */,
+				27C6D47C18EFAE940026A2E9 /* ThemesViewController */,
+				2758F5DE18F4610900644FDC /* TutorialViewController */,
 				277AFEF7181EA5B80009AE0F /* Main.storyboard */,
 			);
 			name = iPhone;
@@ -199,13 +306,49 @@
 		27291F0D1823EF3500CB2070 /* iPad */ = {
 			isa = PBXGroup;
 			children = (
-				27291F0E1823EF6100CB2070 /* ACViewController~ipad.h */,
-				27291F0F1823EF6100CB2070 /* ACViewController~ipad.m */,
-				27291F111823EF8100CB2070 /* ACInfoViewController~ipad.h */,
-				27291F121823EF8100CB2070 /* ACInfoViewController~ipad.m */,
+				27A707D018F216B20013C002 /* ViewController */,
+				27A707D218F216D10013C002 /* SettingsViewController */,
+				27A707D318F217980013C002 /* AboutViewController */,
+				27A707D418F217A50013C002 /* Alarm */,
+				27A707D518F2186D0013C002 /* NightViewController */,
+				27A707D618F218980013C002 /* WeatherSettingsViewController */,
+				27A707D718F218B30013C002 /* ThemesViewController */,
 				27291F0A1823E8B200CB2070 /* Main~ipad.storyboard */,
 			);
 			name = iPad;
+			sourceTree = "<group>";
+		};
+		2758F5DE18F4610900644FDC /* TutorialViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2758F5DF18F4615B00644FDC /* ACTutorialViewController.h */,
+				2758F5E018F4615B00644FDC /* ACTutorialViewController.m */,
+			);
+			name = TutorialViewController;
+			sourceTree = "<group>";
+		};
+		275B1EE518EF973400B27899 /* Custom Files */ = {
+			isa = PBXGroup;
+			children = (
+				2729A88218B7205500182ED1 /* Definitions.h */,
+				27A707E418F21C970013C002 /* Definitions~ipad.h */,
+				275B1EF218EF9A3F00B27899 /* UIColor+Custom.h */,
+				275B1EF318EF9A3F00B27899 /* UIColor+Custom.m */,
+				279CC57418F654C000096216 /* UIColor+Neon.h */,
+				279CC57518F654C000096216 /* UIColor+Neon.m */,
+			);
+			name = "Custom Files";
+			sourceTree = "<group>";
+		};
+		276182A118EB1AE7000E2C31 /* WeatherSettingsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				276182A218EB1B18000E2C31 /* ACWeatherSettingsViewController.h */,
+				276182A318EB1B18000E2C31 /* ACWeatherSettingsViewController.m */,
+				27EF4A2C18ECFC4300C9D72F /* ACWeatherRefreshIntervalViewController.h */,
+				27EF4A2D18ECFC4300C9D72F /* ACWeatherRefreshIntervalViewController.m */,
+			);
+			name = WeatherSettingsViewController;
 			sourceTree = "<group>";
 		};
 		27642FF21827FB9E007D66CE /* Lauren (Secret) */ = {
@@ -224,6 +367,7 @@
 				277AFF0A181EA5B80009AE0F /* AlarmClockTests */,
 				277AFEE4181EA5B80009AE0F /* Frameworks */,
 				277AFEE3181EA5B80009AE0F /* Products */,
+				9BF5BECAF8E149C1A7C66531 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -239,14 +383,19 @@
 		277AFEE4181EA5B80009AE0F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				27B4861518D4EE91004CA2DD /* AudioToolbox.framework */,
+				279709AE18D425A300B03572 /* AVFoundation.framework */,
+				279709AA18D420D300B03572 /* Social.framework */,
+				271C36A418A9E1BE00FA8B53 /* Crashlytics.framework */,
+				276B615518822DE100A8709E /* CoreLocation.framework */,
 				2767D54B182C3C020012586B /* MessageUI.framework */,
 				278A543D182B40F900A632DE /* Accelerate.framework */,
 				278A5435182B10C800A632DE /* libz.dylib */,
-				278A542D182AFC6800A632DE /* Crashlytics.framework */,
 				277AFEE5181EA5B80009AE0F /* Foundation.framework */,
 				277AFEE7181EA5B80009AE0F /* CoreGraphics.framework */,
 				277AFEE9181EA5B80009AE0F /* UIKit.framework */,
 				277AFF04181EA5B80009AE0F /* XCTest.framework */,
+				9C71414EA618468AA018A9AB /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -258,8 +407,6 @@
 				277AFEF5181EA5B80009AE0F /* ACAppDelegate.m */,
 				27291F0D1823EF3500CB2070 /* iPad */,
 				27291F0C1823EF2B00CB2070 /* iPhone */,
-				27D7FF90182ABAD900A14824 /* Beta Settings */,
-				27208B17182146F10025FEBD /* Tutorial */,
 				277AFEEC181EA5B80009AE0F /* Supporting Files */,
 			);
 			path = AlarmClock;
@@ -268,11 +415,21 @@
 		277AFEEC181EA5B80009AE0F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				27D7FF90182ABAD900A14824 /* Beta Settings */,
+				2785DAF518D0E48A00B8D39B /* InfoView Controller */,
+				27208B17182146F10025FEBD /* Tutorial */,
+				275B1EE518EF973400B27899 /* Custom Files */,
+				279709AC18D4247800B03572 /* Alarm.mp3 */,
+				2705D4B018BD1A1B002C83D8 /* settingsButton.png */,
+				2705D4B118BD1A1C002C83D8 /* settingsButton@2x.png */,
+				27B4861E18D554EF004CA2DD /* heart_settings_button.png */,
+				27B4861F18D554EF004CA2DD /* heart_settings_button@2x.png */,
 				278A5434182B107700A632DE /* TestFlight */,
 				27E01BF31829AACC00DB1132 /* iCloud */,
 				27642FF21827FB9E007D66CE /* Lauren (Secret) */,
 				270893FF1821C269006E23BA /* Images */,
 				277AFEFD181EA5B80009AE0F /* Images.xcassets */,
+				276182A518EB2C6F000E2C31 /* IFIHADONE.png */,
 				276901B41820C4D1006B915D /* Digital-7MonoItalic.otf */,
 				277AFEED181EA5B80009AE0F /* AlarmClock-Info.plist */,
 				277AFEEE181EA5B80009AE0F /* InfoPlist.strings */,
@@ -303,6 +460,37 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		2785DAF418D0E47200B8D39B /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				277AFEFA181EA5B80009AE0F /* ACViewController.h */,
+				277AFEFB181EA5B80009AE0F /* ACViewController.m */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		2785DAF518D0E48A00B8D39B /* InfoView Controller */ = {
+			isa = PBXGroup;
+			children = (
+				27A707D918F219C50013C002 /* iPad */,
+				27A707D818F219BF0013C002 /* iPhone */,
+			);
+			name = "InfoView Controller";
+			sourceTree = "<group>";
+		};
+		2785DAF618D0E49D00B8D39B /* NightViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2785DAFA18D0E53E00B8D39B /* ACNightViewController.h */,
+				2785DAFB18D0E53E00B8D39B /* ACNightViewController.m */,
+				27A8D1F918DBD8C8003FBA55 /* ACDayTimeViewController.h */,
+				27A8D1FA18DBD8C8003FBA55 /* ACDayTimeViewController.m */,
+				27A8D1FC18DBD8F8003FBA55 /* ACNightTimeViewController.h */,
+				27A8D1FD18DBD8F8003FBA55 /* ACNightTimeViewController.m */,
+			);
+			name = NightViewController;
+			sourceTree = "<group>";
+		};
 		278A5434182B107700A632DE /* TestFlight */ = {
 			isa = PBXGroup;
 			children = (
@@ -312,23 +500,6 @@
 				278A5432182B107100A632DE /* TestFlight+ManualSessions.h */,
 			);
 			name = TestFlight;
-			sourceTree = "<group>";
-		};
-		278A5437182B385400A632DE /* iPhone */ = {
-			isa = PBXGroup;
-			children = (
-				27208B12182145CC0025FEBD /* ACTutorialViewController.h */,
-				27208B13182145CC0025FEBD /* ACTutorialViewController.m */,
-				27208B14182145CC0025FEBD /* ACTutorialViewController.xib */,
-			);
-			name = iPhone;
-			sourceTree = "<group>";
-		};
-		278A5438182B385900A632DE /* iPad */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = iPad;
 			sourceTree = "<group>";
 		};
 		278A543F182B4D0000A632DE /* Icons */ = {
@@ -355,6 +526,117 @@
 				278A5446182B4D6C00A632DE /* iPhone5s.png */,
 			);
 			name = "Product Images";
+			sourceTree = "<group>";
+		};
+		27A707D018F216B20013C002 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				27291F0E1823EF6100CB2070 /* ACViewController~ipad.h */,
+				27291F0F1823EF6100CB2070 /* ACViewController~ipad.m */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		27A707D218F216D10013C002 /* SettingsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				27A707DA18F21B140013C002 /* ACSettingsViewController~ipad.h */,
+				27A707DB18F21B140013C002 /* ACSettingsViewController~ipad.m */,
+			);
+			name = SettingsViewController;
+			sourceTree = "<group>";
+		};
+		27A707D318F217980013C002 /* AboutViewController */ = {
+			isa = PBXGroup;
+			children = (
+				27A707DD18F21B680013C002 /* ACAboutViewController~ipad.h */,
+				27A707DE18F21B680013C002 /* ACAboutViewController~ipad.m */,
+			);
+			name = AboutViewController;
+			sourceTree = "<group>";
+		};
+		27A707D418F217A50013C002 /* Alarm */ = {
+			isa = PBXGroup;
+			children = (
+				27A707E518F234850013C002 /* ACAlarmViewController~ipad.h */,
+				27A707E618F234850013C002 /* ACAlarmViewController~ipad.m */,
+				27A707E818F234CA0013C002 /* ACAddEditAlarmViewController~ipad.h */,
+				27A707E918F234CA0013C002 /* ACAddEditAlarmViewController~ipad.m */,
+				27A707EB18F235060013C002 /* ACAlarmLabelEditViewController~ipad.h */,
+				27A707EC18F235060013C002 /* ACAlarmLabelEditViewController~ipad.m */,
+				27A707EE18F2354A0013C002 /* ACAlarmObject~ipad.h */,
+				27A707EF18F2354A0013C002 /* ACAlarmObject~ipad.m */,
+			);
+			name = Alarm;
+			sourceTree = "<group>";
+		};
+		27A707D518F2186D0013C002 /* NightViewController */ = {
+			isa = PBXGroup;
+			children = (
+				27A707F218F239290013C002 /* ACNightViewController~ipad.h */,
+				27A707F318F239290013C002 /* ACNightViewController~ipad.m */,
+				27A707F518F239460013C002 /* ACDayTimeViewController~ipad.h */,
+				27A707F618F239460013C002 /* ACDayTimeViewController~ipad.m */,
+				27A707F818F2395E0013C002 /* ACNightTimeViewController~ipad.h */,
+				27A707F918F2395E0013C002 /* ACNightTimeViewController~ipad.m */,
+			);
+			name = NightViewController;
+			sourceTree = "<group>";
+		};
+		27A707D618F218980013C002 /* WeatherSettingsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				27A707FB18F23B240013C002 /* ACWeatherSettingsViewController~ipad.h */,
+				27A707FC18F23B240013C002 /* ACWeatherSettingsViewController~ipad.m */,
+				27A707FE18F23B3C0013C002 /* ACWeatherRefreshIntervalViewController~ipad.h */,
+				27A707FF18F23B3C0013C002 /* ACWeatherRefreshIntervalViewController~ipad.m */,
+			);
+			name = WeatherSettingsViewController;
+			sourceTree = "<group>";
+		};
+		27A707D718F218B30013C002 /* ThemesViewController */ = {
+			isa = PBXGroup;
+			children = (
+				27A707E018F21BCF0013C002 /* ACThemesViewController~ipad.h */,
+				27A707E118F21BCF0013C002 /* ACThemesViewController~ipad.m */,
+			);
+			name = ThemesViewController;
+			sourceTree = "<group>";
+		};
+		27A707D818F219BF0013C002 /* iPhone */ = {
+			isa = PBXGroup;
+			children = (
+				277AFF20181EBE510009AE0F /* ACInfoViewController.h */,
+				277AFF21181EBE510009AE0F /* ACInfoViewController.m */,
+			);
+			name = iPhone;
+			sourceTree = "<group>";
+		};
+		27A707D918F219C50013C002 /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+				27291F111823EF8100CB2070 /* ACInfoViewController~ipad.h */,
+				27291F121823EF8100CB2070 /* ACInfoViewController~ipad.m */,
+			);
+			name = iPad;
+			sourceTree = "<group>";
+		};
+		27B4861A18D50971004CA2DD /* AboutViewController */ = {
+			isa = PBXGroup;
+			children = (
+				27B4861B18D509DF004CA2DD /* ACAboutViewController.h */,
+				27B4861C18D509DF004CA2DD /* ACAboutViewController.m */,
+			);
+			name = AboutViewController;
+			sourceTree = "<group>";
+		};
+		27C6D47C18EFAE940026A2E9 /* ThemesViewController */ = {
+			isa = PBXGroup;
+			children = (
+				27C6D47D18EFAEB20026A2E9 /* ACThemesViewController.h */,
+				27C6D47E18EFAEB20026A2E9 /* ACThemesViewController.m */,
+			);
+			name = ThemesViewController;
 			sourceTree = "<group>";
 		};
 		27D5CCEA18711EC600061B47 /* OverlayTutorial */ = {
@@ -414,11 +696,34 @@
 		27E01BF31829AACC00DB1132 /* iCloud */ = {
 			isa = PBXGroup;
 			children = (
-				27E01BEF1829A9C700DB1132 /* AlarmClock.entitlements */,
-				27E01BF01829AAC500DB1132 /* MKiCloudSync.h */,
-				27E01BF11829AAC500DB1132 /* MKiCloudSync.m */,
+				27A7080118F242410013C002 /* MKiCloudSync.h */,
+				27A7080218F242410013C002 /* MKiCloudSync.m */,
 			);
 			name = iCloud;
+			sourceTree = "<group>";
+		};
+		27EF34A318D3D2DE00B7D79C /* Alarm */ = {
+			isa = PBXGroup;
+			children = (
+				27EF34A518D3D3F300B7D79C /* ACAlarmViewController.h */,
+				27EF34A618D3D3F300B7D79C /* ACAlarmViewController.m */,
+				27EF34A818D3D4A200B7D79C /* ACAddEditAlarmViewController.h */,
+				27EF34A918D3D4A200B7D79C /* ACAddEditAlarmViewController.m */,
+				27EF34AB18D3D4DF00B7D79C /* ACAlarmLabelEditViewController.h */,
+				27EF34AC18D3D4DF00B7D79C /* ACAlarmLabelEditViewController.m */,
+				27EF34AE18D3D53300B7D79C /* ACAlarmObject.h */,
+				27EF34AF18D3D53300B7D79C /* ACAlarmObject.m */,
+			);
+			name = Alarm;
+			sourceTree = "<group>";
+		};
+		27EF34A418D3D2EA00B7D79C /* SettingsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				279709A718D419D000B03572 /* ACSettingsViewController.h */,
+				279709A818D419D000B03572 /* ACSettingsViewController.m */,
+			);
+			name = SettingsViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -428,10 +733,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 277AFF14181EA5B80009AE0F /* Build configuration list for PBXNativeTarget "AlarmClock" */;
 			buildPhases = (
+				152AD5BFA5944471BA784718 /* Check Pods Manifest.lock */,
 				277AFEDE181EA5B80009AE0F /* Sources */,
 				277AFEDF181EA5B80009AE0F /* Frameworks */,
 				277AFEE0181EA5B80009AE0F /* Resources */,
 				27D7FF8D182AB8A200A14824 /* ShellScript */,
+				92EC8F42B8554AC3BB35B2F3 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -467,7 +774,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = AC;
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Kyle Frost";
 				TargetAttributes = {
 					277AFEE1181EA5B80009AE0F = {
@@ -512,15 +819,18 @@
 			files = (
 				2708940B1821C297006E23BA /* AppIcon29x29@2x.png in Resources */,
 				2708940C1821C297006E23BA /* AppIcon40x40.png in Resources */,
+				2705D4B318BD1A1C002C83D8 /* settingsButton@2x.png in Resources */,
 				276901B51820C4F9006B915D /* Digital-7MonoItalic.otf in Resources */,
+				27B4862118D554EF004CA2DD /* heart_settings_button@2x.png in Resources */,
 				270894131821C297006E23BA /* iTunesArtwork@2x.png in Resources */,
+				276182A618EB2C6F000E2C31 /* IFIHADONE.png in Resources */,
 				270894121821C297006E23BA /* iTunesArtwork.png in Resources */,
 				270894101821C297006E23BA /* AppIcon76x76.png in Resources */,
 				277AFEFE181EA5B80009AE0F /* Images.xcassets in Resources */,
-				27208B16182145CC0025FEBD /* ACTutorialViewController.xib in Resources */,
 				278A5448182B4D6C00A632DE /* iPhone5s.png in Resources */,
 				278A5447182B4D6C00A632DE /* iPhone5c.png in Resources */,
 				27DA48D9183DBF1E00E42540 /* InitialSettings.plist in Resources */,
+				279709AD18D4247800B03572 /* Alarm.mp3 in Resources */,
 				277AFEF0181EA5B80009AE0F /* InfoPlist.strings in Resources */,
 				2708940D1821C297006E23BA /* AppIcon40x40@2x.png in Resources */,
 				27291F0B1823E8B200CB2070 /* Main~ipad.storyboard in Resources */,
@@ -528,6 +838,8 @@
 				278A544A182B56CB00A632DE /* TutorialState.plist in Resources */,
 				277AFEF9181EA5B80009AE0F /* Main.storyboard in Resources */,
 				2708940F1821C297006E23BA /* AppIcon60x60@2x.png in Resources */,
+				27B4862018D554EF004CA2DD /* heart_settings_button.png in Resources */,
+				2705D4B218BD1A1C002C83D8 /* settingsButton.png in Resources */,
 				270894111821C297006E23BA /* AppIcon76x76@2x.png in Resources */,
 				2708940E1821C297006E23BA /* AppIcon60x60.png in Resources */,
 				274B70C2182AC23900266466 /* BetaSettings.plist in Resources */,
@@ -545,6 +857,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		152AD5BFA5944471BA784718 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		27D7FF8D182AB8A200A14824 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 12;
@@ -556,7 +883,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "./AlarmClock/Crashlytics.framework/run e6796ec21a8268eef118ce2bffeb5fd9a084bcb1";
+			shellScript = "./Crashlytics.framework/run e6796ec21a8268eef118ce2bffeb5fd9a084bcb1 a12dedb951e246404c4da4a62cdfdc987980947d1e39583cb86f9f54d4c38dd5";
+			showEnvVarsInLog = 0;
+		};
+		92EC8F42B8554AC3BB35B2F3 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -566,17 +909,43 @@
 			buildActionMask = 2147483647;
 			files = (
 				277AFF22181EBE510009AE0F /* ACInfoViewController.m in Sources */,
-				27E01BF21829AAC500DB1132 /* MKiCloudSync.m in Sources */,
+				27A707FA18F2395E0013C002 /* ACNightTimeViewController~ipad.m in Sources */,
+				2758F5E118F4615B00644FDC /* ACTutorialViewController.m in Sources */,
+				27EF4A2E18ECFC4300C9D72F /* ACWeatherRefreshIntervalViewController.m in Sources */,
+				27EF34A718D3D3F300B7D79C /* ACAlarmViewController.m in Sources */,
+				27C6D47F18EFAEB20026A2E9 /* ACThemesViewController.m in Sources */,
+				27A707DF18F21B680013C002 /* ACAboutViewController~ipad.m in Sources */,
+				27A707EA18F234CA0013C002 /* ACAddEditAlarmViewController~ipad.m in Sources */,
+				275B1EF418EF9A3F00B27899 /* UIColor+Custom.m in Sources */,
+				27EF34AD18D3D4DF00B7D79C /* ACAlarmLabelEditViewController.m in Sources */,
+				27EF34B018D3D53300B7D79C /* ACAlarmObject.m in Sources */,
 				27291F131823EF8100CB2070 /* ACInfoViewController~ipad.m in Sources */,
 				277AFEF6181EA5B80009AE0F /* ACAppDelegate.m in Sources */,
+				27A7080018F23B3C0013C002 /* ACWeatherRefreshIntervalViewController~ipad.m in Sources */,
 				277AFEFC181EA5B80009AE0F /* ACViewController.m in Sources */,
+				27A7080318F242410013C002 /* MKiCloudSync.m in Sources */,
+				27A8D1FE18DBD8F8003FBA55 /* ACNightTimeViewController.m in Sources */,
+				27B4861D18D509DF004CA2DD /* ACAboutViewController.m in Sources */,
+				279709A918D419D000B03572 /* ACSettingsViewController.m in Sources */,
+				27A707E718F234850013C002 /* ACAlarmViewController~ipad.m in Sources */,
 				27D5CCEF18711EFC00061B47 /* ACOverlayViewController.m in Sources */,
+				27A707F718F239460013C002 /* ACDayTimeViewController~ipad.m in Sources */,
+				27A707F018F2354A0013C002 /* ACAlarmObject~ipad.m in Sources */,
+				27A707ED18F235060013C002 /* ACAlarmLabelEditViewController~ipad.m in Sources */,
 				27D7FF98182ABB3300A14824 /* ACBetaViewController~ipad.m in Sources */,
-				27208B15182145CC0025FEBD /* ACTutorialViewController.m in Sources */,
+				27EF34AA18D3D4A200B7D79C /* ACAddEditAlarmViewController.m in Sources */,
+				276182A418EB1B18000E2C31 /* ACWeatherSettingsViewController.m in Sources */,
+				27A707DC18F21B140013C002 /* ACSettingsViewController~ipad.m in Sources */,
+				279CC57618F654C000096216 /* UIColor+Neon.m in Sources */,
 				27D7FF93182ABAF800A14824 /* ACBetaViewController.m in Sources */,
+				2785DAFC18D0E53E00B8D39B /* ACNightViewController.m in Sources */,
+				27A8D1FB18DBD8C8003FBA55 /* ACDayTimeViewController.m in Sources */,
+				27A707E218F21BCF0013C002 /* ACThemesViewController~ipad.m in Sources */,
 				27642FF11827FB92007D66CE /* ACLaurenViewController.m in Sources */,
 				277AFEF2181EA5B80009AE0F /* main.m in Sources */,
 				27D5CCF218711F1600061B47 /* ACOverlayViewController~ipad.m in Sources */,
+				27A707F418F239290013C002 /* ACNightViewController~ipad.m in Sources */,
+				27A707FD18F23B240013C002 /* ACWeatherSettingsViewController~ipad.m in Sources */,
 				27291F101823EF6100CB2070 /* ACViewController~ipad.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -632,7 +1001,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -671,7 +1039,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -702,17 +1069,18 @@
 		};
 		277AFF15181EA5B80009AE0F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9BF5BECAF8E149C1A7C66531 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_ENTITLEMENTS = AlarmClock/AlarmClock.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Kyle Frost (47V7X4JJ5M)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Kyle Frost (47V7X4JJ5M)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/Kyle/XcodeProjects/Desk-Clock",
 					/Users/Kyle/XcodeProjects/AlarmClock/AlarmClock,
 					"/Users/Kyle/XcodeProjects/Desk-Clock/AlarmClock",
+					"/Users/Kyle/Xcode/Desk-Clock",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AlarmClock/AlarmClock-Prefix.pch";
@@ -721,9 +1089,10 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/Kyle/XcodeProjects/Desk-Clock/AlarmClock",
+					"/Users/Kyle/Xcode/Desk-Clock/AlarmClock",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "305869AA-03BA-4590-9005-0E89911A0C77";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -731,17 +1100,18 @@
 		};
 		277AFF16181EA5B80009AE0F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9BF5BECAF8E149C1A7C66531 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_ENTITLEMENTS = AlarmClock/AlarmClock.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Kyle Frost (34UZ7Y2KSW)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Kyle Frost (34UZ7Y2KSW)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/Kyle/XcodeProjects/Desk-Clock",
 					/Users/Kyle/XcodeProjects/AlarmClock/AlarmClock,
 					"/Users/Kyle/XcodeProjects/Desk-Clock/AlarmClock",
+					"/Users/Kyle/Xcode/Desk-Clock",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AlarmClock/AlarmClock-Prefix.pch";
@@ -750,9 +1120,10 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/Kyle/XcodeProjects/Desk-Clock/AlarmClock",
+					"/Users/Kyle/Xcode/Desk-Clock/AlarmClock",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "494362EB-755B-407A-9D82-B1F87F5B848D";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -761,7 +1132,6 @@
 		277AFF18181EA5B80009AE0F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AlarmClock.app/AlarmClock";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -784,7 +1154,6 @@
 		277AFF19181EA5B80009AE0F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AlarmClock.app/AlarmClock";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",

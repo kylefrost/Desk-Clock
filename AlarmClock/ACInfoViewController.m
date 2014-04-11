@@ -229,13 +229,14 @@
     
     // If beta, show button, if not, don't show button
     if (buildBOOL == 1) {
-        [self.betaButton setAlpha:1.0];
-        [self.betaButton setUserInteractionEnabled:YES];
+        // [self.betaButton setAlpha:1.0];
+        [self.betaButton setEnabled:YES];
+        // [self.betaButton setUserInteractionEnabled:YES];
         NSLog(@"Build is a beta build.");
     }
     else if (buildBOOL == 0) {
-        [self.betaButton setAlpha:0.0];
-        [self.betaButton setUserInteractionEnabled:NO];
+        [self.betaButton setEnabled:NO];
+        // [self.betaButton setUserInteractionEnabled:NO];
         NSLog(@"Build is NOT a beta build.");
     }
     
