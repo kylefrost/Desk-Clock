@@ -353,12 +353,32 @@
                                             <segue destination="tBr-6s-2UX" kind="push" id="apg-Ui-x4r"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="CQw-zS-6mO" style="IBUITableViewCellStyleDefault" id="Xb7-Cv-HSW">
+                                        <rect key="frame" x="0.0" y="323" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xb7-Cv-HSW" id="9hh-p1-zKl">
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Extras" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CQw-zS-6mO">
+                                                    <rect key="frame" x="15" y="0.0" width="270" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="FmF-Y5-19b" kind="push" id="1Vb-Xv-qIa"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="APP INFO" id="fgj-Ws-2Nq">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Eg7-RY-VEg" style="IBUITableViewCellStyleDefault" id="Lgv-28-aOy">
-                                        <rect key="frame" x="0.0" y="371" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="415" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Lgv-28-aOy" id="PtR-Y0-2y2">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
@@ -444,7 +464,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gTg-kv-XEM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="653" y="-1405"/>
+            <point key="canvasLocation" x="653" y="-1837"/>
         </scene>
         <!--Add Edit Alarm View Controller - Edit-->
         <scene sceneID="sTc-mL-0h8">
@@ -533,7 +553,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pch-Tx-9IV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1116" y="-1405"/>
+            <point key="canvasLocation" x="1116" y="-1837"/>
         </scene>
         <!--Alarm Label Edit View Controller-->
         <scene sceneID="BVZ-zQ-eKy">
@@ -591,7 +611,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cnI-mt-8YY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1584" y="-1405"/>
+            <point key="canvasLocation" x="1584" y="-1837"/>
         </scene>
         <!--Themes View Controller - Themes-->
         <scene sceneID="FYR-S0-ZfS">
@@ -726,7 +746,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BS6-lt-aqF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="653" y="-586"/>
+            <point key="canvasLocation" x="653" y="-1018"/>
         </scene>
         <!--Table View Controller - Add-Ons-->
         <scene sceneID="Q9E-tj-ZJH">
@@ -755,7 +775,67 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9xh-aG-LbG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="163" y="392"/>
+            <point key="canvasLocation" x="-792" y="808"/>
+        </scene>
+        <!--Extras View Controller - Extras-->
+        <scene sceneID="iro-gP-ymp">
+            <objects>
+                <tableViewController id="FmF-Y5-19b" customClass="ACExtrasViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="meK-a4-sAa">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="JjB-YN-jjl" style="IBUITableViewCellStyleDefault" id="gtG-GX-M6q">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gtG-GX-M6q" id="kIu-Sr-7YP">
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JjB-YN-jjl">
+                                            <rect key="frame" x="15" y="0.0" width="270" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="Yvw-B7-KqD" kind="push" identifier="showDetail" id="hg4-D2-nB0"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="FmF-Y5-19b" id="red-Su-jQs"/>
+                            <outlet property="delegate" destination="FmF-Y5-19b" id="3Av-2w-8FR"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Extras" id="EJD-Bn-hgj"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="90f-ex-nUI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="653" y="426"/>
+        </scene>
+        <!--Extras Details View Controller - Detail-->
+        <scene sceneID="xjf-jp-W60">
+            <objects>
+                <viewController id="Yvw-B7-KqD" customClass="ACExtrasDetailsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ngT-yD-zVl"/>
+                        <viewControllerLayoutGuide type="bottom" id="6mC-u4-4sQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="O3R-UE-4qf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Detail" id="Oel-nG-8iJ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YsS-fB-XlF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1126" y="426"/>
         </scene>
         <!--Day Time View Controller - Morning-->
         <scene sceneID="UBH-GB-VfF">
@@ -845,7 +925,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w3i-kG-ERU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1116" y="90"/>
+            <point key="canvasLocation" x="1116" y="-342"/>
         </scene>
         <!--Night Time View Controller - Night-->
         <scene sceneID="hpI-Zh-8Ot">
@@ -934,7 +1014,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ltm-7u-RZU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1584" y="90"/>
+            <point key="canvasLocation" x="1584" y="-342"/>
         </scene>
         <!--Night View Controller - Night Mode-->
         <scene sceneID="4WW-C3-MWi">
@@ -1162,7 +1242,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D9O-e2-Jup" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1116" y="-586"/>
+            <point key="canvasLocation" x="1116" y="-1018"/>
         </scene>
         <!--Weather Settings View Controller - Weather-->
         <scene sceneID="yWw-h7-7Ko">
@@ -1310,7 +1390,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z2J-aq-YOR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1584" y="-586"/>
+            <point key="canvasLocation" x="1584" y="-1018"/>
         </scene>
         <!--Weather Refresh Interval View Controller - Refresh Rate-->
         <scene sceneID="mUU-Vt-0w5">
@@ -1427,7 +1507,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VTx-ea-BDm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2074" y="-586"/>
+            <point key="canvasLocation" x="2074" y="-1018"/>
         </scene>
         <!--About View Controller - About-->
         <scene sceneID="93i-ho-T2B">
@@ -1661,7 +1741,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MDJ-Eb-JLx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-542" y="392"/>
+            <point key="canvasLocation" x="-1497" y="808"/>
         </scene>
         <!--Table View Controller - Google Glass-->
         <scene sceneID="CcF-yY-OOP">
@@ -1690,7 +1770,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4mG-Dm-WN5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-188" y="392"/>
+            <point key="canvasLocation" x="-1143" y="808"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pgY-y1-HgP">
@@ -1724,6 +1804,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="76T-Ev-Xo7"/>
+        <segue reference="pRv-c4-lhT"/>
     </inferredMetricsTieBreakers>
 </document>

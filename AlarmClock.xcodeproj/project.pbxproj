@@ -20,12 +20,10 @@
 		270894121821C297006E23BA /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 270894081821C297006E23BA /* iTunesArtwork.png */; };
 		270894131821C297006E23BA /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 270894091821C297006E23BA /* iTunesArtwork@2x.png */; };
 		271C36A318A9E11400FA8B53 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 278A542F182B107100A632DE /* libTestFlight.a */; };
-		271C36A518A9E1BE00FA8B53 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 271C36A418A9E1BE00FA8B53 /* Crashlytics.framework */; };
 		27291F0B1823E8B200CB2070 /* Main~ipad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27291F0A1823E8B200CB2070 /* Main~ipad.storyboard */; };
 		27291F101823EF6100CB2070 /* ACViewController~ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 27291F0F1823EF6100CB2070 /* ACViewController~ipad.m */; };
 		27291F131823EF8100CB2070 /* ACInfoViewController~ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 27291F121823EF8100CB2070 /* ACInfoViewController~ipad.m */; };
 		274B70C2182AC23900266466 /* BetaSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 274B70C1182AC23900266466 /* BetaSettings.plist */; };
-		2758F5E118F4615B00644FDC /* ACTutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2758F5E018F4615B00644FDC /* ACTutorialViewController.m */; };
 		275B1EF418EF9A3F00B27899 /* UIColor+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 275B1EF318EF9A3F00B27899 /* UIColor+Custom.m */; };
 		276182A418EB1B18000E2C31 /* ACWeatherSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 276182A318EB1B18000E2C31 /* ACWeatherSettingsViewController.m */; };
 		276182A618EB2C6F000E2C31 /* IFIHADONE.png in Resources */ = {isa = PBXBuildFile; fileRef = 276182A518EB2C6F000E2C31 /* IFIHADONE.png */; };
@@ -79,6 +77,11 @@
 		27B4861D18D509DF004CA2DD /* ACAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27B4861C18D509DF004CA2DD /* ACAboutViewController.m */; };
 		27B4862018D554EF004CA2DD /* heart_settings_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 27B4861E18D554EF004CA2DD /* heart_settings_button.png */; };
 		27B4862118D554EF004CA2DD /* heart_settings_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 27B4861F18D554EF004CA2DD /* heart_settings_button@2x.png */; };
+		27B8329F18F874FD00958370 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27B8329E18F874FD00958370 /* StoreKit.framework */; };
+		27B832A318F875DD00958370 /* IAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 27B832A218F875DD00958370 /* IAPHelper.m */; };
+		27B832A818F8780400958370 /* ACIAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 27B832A718F8780400958370 /* ACIAPHelper.m */; };
+		27B832AC18F878FA00958370 /* ACExtrasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27B832AB18F878FA00958370 /* ACExtrasViewController.m */; };
+		27B832F318F87B6100958370 /* ACExtrasDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27B832F218F87B6100958370 /* ACExtrasDetailsViewController.m */; };
 		27C6D47F18EFAEB20026A2E9 /* ACThemesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C6D47E18EFAEB20026A2E9 /* ACThemesViewController.m */; };
 		27D5CCEF18711EFC00061B47 /* ACOverlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D5CCEE18711EFC00061B47 /* ACOverlayViewController.m */; };
 		27D5CCF218711F1600061B47 /* ACOverlayViewController~ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D5CCF118711F1600061B47 /* ACOverlayViewController~ipad.m */; };
@@ -124,8 +127,6 @@
 		27291F121823EF8100CB2070 /* ACInfoViewController~ipad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ACInfoViewController~ipad.m"; sourceTree = "<group>"; };
 		2729A88218B7205500182ED1 /* Definitions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Definitions.h; sourceTree = "<group>"; };
 		274B70C1182AC23900266466 /* BetaSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BetaSettings.plist; sourceTree = "<group>"; };
-		2758F5DF18F4615B00644FDC /* ACTutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACTutorialViewController.h; sourceTree = "<group>"; };
-		2758F5E018F4615B00644FDC /* ACTutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACTutorialViewController.m; sourceTree = "<group>"; };
 		275B1EF218EF9A3F00B27899 /* UIColor+Custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Custom.h"; sourceTree = "<group>"; };
 		275B1EF318EF9A3F00B27899 /* UIColor+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Custom.m"; sourceTree = "<group>"; };
 		276182A218EB1B18000E2C31 /* ACWeatherSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACWeatherSettingsViewController.h; sourceTree = "<group>"; };
@@ -211,6 +212,15 @@
 		27B4861C18D509DF004CA2DD /* ACAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACAboutViewController.m; sourceTree = "<group>"; };
 		27B4861E18D554EF004CA2DD /* heart_settings_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart_settings_button.png; sourceTree = SOURCE_ROOT; };
 		27B4861F18D554EF004CA2DD /* heart_settings_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "heart_settings_button@2x.png"; sourceTree = SOURCE_ROOT; };
+		27B8329E18F874FD00958370 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		27B832A118F875DD00958370 /* IAPHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAPHelper.h; sourceTree = "<group>"; };
+		27B832A218F875DD00958370 /* IAPHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAPHelper.m; sourceTree = "<group>"; };
+		27B832A618F8780400958370 /* ACIAPHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACIAPHelper.h; sourceTree = "<group>"; };
+		27B832A718F8780400958370 /* ACIAPHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACIAPHelper.m; sourceTree = "<group>"; };
+		27B832AA18F878FA00958370 /* ACExtrasViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACExtrasViewController.h; sourceTree = "<group>"; };
+		27B832AB18F878FA00958370 /* ACExtrasViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACExtrasViewController.m; sourceTree = "<group>"; };
+		27B832F118F87B6100958370 /* ACExtrasDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACExtrasDetailsViewController.h; sourceTree = "<group>"; };
+		27B832F218F87B6100958370 /* ACExtrasDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACExtrasDetailsViewController.m; sourceTree = "<group>"; };
 		27C6D47D18EFAEB20026A2E9 /* ACThemesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACThemesViewController.h; sourceTree = "<group>"; };
 		27C6D47E18EFAEB20026A2E9 /* ACThemesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACThemesViewController.m; sourceTree = "<group>"; };
 		27D5CCED18711EFC00061B47 /* ACOverlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACOverlayViewController.h; sourceTree = "<group>"; };
@@ -241,11 +251,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27B8329F18F874FD00958370 /* StoreKit.framework in Frameworks */,
 				27B4861618D4EE91004CA2DD /* AudioToolbox.framework in Frameworks */,
 				279709AF18D425A300B03572 /* AVFoundation.framework in Frameworks */,
 				279709AB18D420D300B03572 /* Social.framework in Frameworks */,
 				276B615618822DE100A8709E /* CoreLocation.framework in Frameworks */,
-				271C36A518A9E1BE00FA8B53 /* Crashlytics.framework in Frameworks */,
 				2767D54C182C3C020012586B /* MessageUI.framework in Frameworks */,
 				278A543E182B40F900A632DE /* Accelerate.framework in Frameworks */,
 				278A5436182B10C800A632DE /* libz.dylib in Frameworks */,
@@ -297,7 +307,7 @@
 				2785DAF618D0E49D00B8D39B /* NightViewController */,
 				276182A118EB1AE7000E2C31 /* WeatherSettingsViewController */,
 				27C6D47C18EFAE940026A2E9 /* ThemesViewController */,
-				2758F5DE18F4610900644FDC /* TutorialViewController */,
+				27B832A918F878C500958370 /* ExtrasViewController */,
 				277AFEF7181EA5B80009AE0F /* Main.storyboard */,
 			);
 			name = iPhone;
@@ -316,15 +326,6 @@
 				27291F0A1823E8B200CB2070 /* Main~ipad.storyboard */,
 			);
 			name = iPad;
-			sourceTree = "<group>";
-		};
-		2758F5DE18F4610900644FDC /* TutorialViewController */ = {
-			isa = PBXGroup;
-			children = (
-				2758F5DF18F4615B00644FDC /* ACTutorialViewController.h */,
-				2758F5E018F4615B00644FDC /* ACTutorialViewController.m */,
-			);
-			name = TutorialViewController;
 			sourceTree = "<group>";
 		};
 		275B1EE518EF973400B27899 /* Custom Files */ = {
@@ -383,6 +384,7 @@
 		277AFEE4181EA5B80009AE0F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				27B8329E18F874FD00958370 /* StoreKit.framework */,
 				27B4861518D4EE91004CA2DD /* AudioToolbox.framework */,
 				279709AE18D425A300B03572 /* AVFoundation.framework */,
 				279709AA18D420D300B03572 /* Social.framework */,
@@ -415,6 +417,7 @@
 		277AFEEC181EA5B80009AE0F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				27B832A018F875BB00958370 /* IAP */,
 				27D7FF90182ABAD900A14824 /* Beta Settings */,
 				2785DAF518D0E48A00B8D39B /* InfoView Controller */,
 				27208B17182146F10025FEBD /* Tutorial */,
@@ -630,6 +633,44 @@
 			name = AboutViewController;
 			sourceTree = "<group>";
 		};
+		27B832A018F875BB00958370 /* IAP */ = {
+			isa = PBXGroup;
+			children = (
+				27B832A518F877D700958370 /* ACIAPHelper */,
+				27B832A418F877CD00958370 /* IAPHelper */,
+			);
+			name = IAP;
+			sourceTree = "<group>";
+		};
+		27B832A418F877CD00958370 /* IAPHelper */ = {
+			isa = PBXGroup;
+			children = (
+				27B832A118F875DD00958370 /* IAPHelper.h */,
+				27B832A218F875DD00958370 /* IAPHelper.m */,
+			);
+			name = IAPHelper;
+			sourceTree = "<group>";
+		};
+		27B832A518F877D700958370 /* ACIAPHelper */ = {
+			isa = PBXGroup;
+			children = (
+				27B832A618F8780400958370 /* ACIAPHelper.h */,
+				27B832A718F8780400958370 /* ACIAPHelper.m */,
+			);
+			name = ACIAPHelper;
+			sourceTree = "<group>";
+		};
+		27B832A918F878C500958370 /* ExtrasViewController */ = {
+			isa = PBXGroup;
+			children = (
+				27B832AA18F878FA00958370 /* ACExtrasViewController.h */,
+				27B832AB18F878FA00958370 /* ACExtrasViewController.m */,
+				27B832F118F87B6100958370 /* ACExtrasDetailsViewController.h */,
+				27B832F218F87B6100958370 /* ACExtrasDetailsViewController.m */,
+			);
+			name = ExtrasViewController;
+			sourceTree = "<group>";
+		};
 		27C6D47C18EFAE940026A2E9 /* ThemesViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -737,7 +778,6 @@
 				277AFEDE181EA5B80009AE0F /* Sources */,
 				277AFEDF181EA5B80009AE0F /* Frameworks */,
 				277AFEE0181EA5B80009AE0F /* Resources */,
-				27D7FF8D182AB8A200A14824 /* ShellScript */,
 				92EC8F42B8554AC3BB35B2F3 /* Copy Pods Resources */,
 			);
 			buildRules = (
@@ -872,20 +912,6 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		27D7FF8D182AB8A200A14824 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 12;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "./Crashlytics.framework/run e6796ec21a8268eef118ce2bffeb5fd9a084bcb1 a12dedb951e246404c4da4a62cdfdc987980947d1e39583cb86f9f54d4c38dd5";
-			showEnvVarsInLog = 0;
-		};
 		92EC8F42B8554AC3BB35B2F3 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -910,12 +936,13 @@
 			files = (
 				277AFF22181EBE510009AE0F /* ACInfoViewController.m in Sources */,
 				27A707FA18F2395E0013C002 /* ACNightTimeViewController~ipad.m in Sources */,
-				2758F5E118F4615B00644FDC /* ACTutorialViewController.m in Sources */,
 				27EF4A2E18ECFC4300C9D72F /* ACWeatherRefreshIntervalViewController.m in Sources */,
 				27EF34A718D3D3F300B7D79C /* ACAlarmViewController.m in Sources */,
 				27C6D47F18EFAEB20026A2E9 /* ACThemesViewController.m in Sources */,
 				27A707DF18F21B680013C002 /* ACAboutViewController~ipad.m in Sources */,
+				27B832AC18F878FA00958370 /* ACExtrasViewController.m in Sources */,
 				27A707EA18F234CA0013C002 /* ACAddEditAlarmViewController~ipad.m in Sources */,
+				27B832A318F875DD00958370 /* IAPHelper.m in Sources */,
 				275B1EF418EF9A3F00B27899 /* UIColor+Custom.m in Sources */,
 				27EF34AD18D3D4DF00B7D79C /* ACAlarmLabelEditViewController.m in Sources */,
 				27EF34B018D3D53300B7D79C /* ACAlarmObject.m in Sources */,
@@ -928,8 +955,10 @@
 				27B4861D18D509DF004CA2DD /* ACAboutViewController.m in Sources */,
 				279709A918D419D000B03572 /* ACSettingsViewController.m in Sources */,
 				27A707E718F234850013C002 /* ACAlarmViewController~ipad.m in Sources */,
+				27B832A818F8780400958370 /* ACIAPHelper.m in Sources */,
 				27D5CCEF18711EFC00061B47 /* ACOverlayViewController.m in Sources */,
 				27A707F718F239460013C002 /* ACDayTimeViewController~ipad.m in Sources */,
+				27B832F318F87B6100958370 /* ACExtrasDetailsViewController.m in Sources */,
 				27A707F018F2354A0013C002 /* ACAlarmObject~ipad.m in Sources */,
 				27A707ED18F235060013C002 /* ACAlarmLabelEditViewController~ipad.m in Sources */,
 				27D7FF98182ABB3300A14824 /* ACBetaViewController~ipad.m in Sources */,
