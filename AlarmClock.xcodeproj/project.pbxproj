@@ -222,7 +222,6 @@
 		27D7FF96182ABB3300A14824 /* ACBetaViewController~ipad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ACBetaViewController~ipad.h"; sourceTree = "<group>"; };
 		27D7FF97182ABB3300A14824 /* ACBetaViewController~ipad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ACBetaViewController~ipad.m"; sourceTree = "<group>"; };
 		27DA48D8183DBF1E00E42540 /* InitialSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = InitialSettings.plist; sourceTree = "<group>"; };
-		27E01BEF1829A9C700DB1132 /* AlarmClock.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = AlarmClock.entitlements; sourceTree = "<group>"; };
 		27EF34A518D3D3F300B7D79C /* ACAlarmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACAlarmViewController.h; sourceTree = "<group>"; };
 		27EF34A618D3D3F300B7D79C /* ACAlarmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACAlarmViewController.m; sourceTree = "<group>"; };
 		27EF34A818D3D4A200B7D79C /* ACAddEditAlarmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACAddEditAlarmViewController.h; sourceTree = "<group>"; };
@@ -697,7 +696,6 @@
 		27E01BF31829AACC00DB1132 /* iCloud */ = {
 			isa = PBXGroup;
 			children = (
-				27E01BEF1829A9C700DB1132 /* AlarmClock.entitlements */,
 				27A7080118F242410013C002 /* MKiCloudSync.h */,
 				27A7080218F242410013C002 /* MKiCloudSync.m */,
 			);
@@ -1075,9 +1073,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_ENTITLEMENTS = AlarmClock/AlarmClock.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Kyle Frost (47V7X4JJ5M)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Kyle Frost (47V7X4JJ5M)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/Kyle/XcodeProjects/Desk-Clock",
@@ -1107,9 +1104,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_ENTITLEMENTS = AlarmClock/AlarmClock.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Kyle Frost (34UZ7Y2KSW)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Kyle Frost (34UZ7Y2KSW)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/Kyle/XcodeProjects/Desk-Clock",

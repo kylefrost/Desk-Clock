@@ -26,6 +26,7 @@
     [super viewDidLoad];
     
     self.customLocationField.delegate = self;
+    self.customLocationCell.textLabel.text = @"Location";
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     

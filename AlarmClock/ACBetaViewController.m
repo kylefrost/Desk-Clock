@@ -7,8 +7,8 @@
 //
 
 #import "ACBetaViewController.h"
-#import "TestFlight.h"
-#import <Crashlytics/Crashlytics.h>
+// #import "TestFlight.h"
+// #import <Crashlytics/Crashlytics.h>
 #import <MessageUI/MessageUI.h>
 #import <CoreLocation/CoreLocation.h>
 #import "OWMWeatherAPI.h"
@@ -57,7 +57,7 @@
     [self setNeedsStatusBarAppearanceUpdate];
     self.bar.delegate = self;
     
-    [TestFlight passCheckpoint:@"Beta Settings Page Opened."];
+    // [TestFlight passCheckpoint:@"Beta Settings Page Opened."];
     
     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
     
@@ -227,13 +227,12 @@
     if (buttonIndex == 0) {
         nil;
         NSLog(@"Pressed Proceed");
-        [TestFlight passCheckpoint:@"Beta Settings Accessed."];
+        // [TestFlight passCheckpoint:@"Beta Settings Accessed."];
     }
     
     //User Pressed Leave
     else if (buttonIndex == 1) {
         [self dismissViewControllerAnimated:YES completion:NULL];
-        [TestFlight passCheckpoint:@"Beta Settings Canceled."];
     }
 }
 
@@ -246,7 +245,7 @@
     [defaults setBool:NO forKey:@"firstLoad"];
     [defaults setBool:NO forKey:@"notFirstRun"];
     [defaults synchronize];
-    [TestFlight passCheckpoint:@"Tutorial Default Reset to NO."];
+    // [TestFlight passCheckpoint:@"Tutorial Default Reset to NO."];
 }
 
 - (UIBarPosition)positionForBar:(id <UIBarPositioning>)bar {
@@ -254,8 +253,8 @@
 }
 
 -(IBAction)pressCrashButton {
-    [TestFlight passCheckpoint:@"Crash Button Pressed"];
-    [[Crashlytics sharedInstance] crash];
+    // [TestFlight passCheckpoint:@"Crash Button Pressed"];
+    // [[Crashlytics sharedInstance] crash];
 }
 
 -(IBAction)sendReport:(id)sender {

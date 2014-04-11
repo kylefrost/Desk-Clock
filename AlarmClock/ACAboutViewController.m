@@ -27,11 +27,14 @@
     
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    NSData *themeTintData = [[NSUserDefaults standardUserDefaults] objectForKey:@"themeTintColor"];
+    UIColor *themeTint = [NSKeyedUnarchiver unarchiveObjectWithData:themeTintData];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.deskClockTwitterCell.textLabel.textColor = themeTint;
+    self.kyleFrostTwitterCell.textLabel.textColor = themeTint;
+    self.laurenWhiteTwitterCell.textLabel.textColor = themeTint;
+    self.adamOramTwitterCell.textLabel.textColor = themeTint;
+    self.griffinKoupalTwitterCell.textLabel.textColor = themeTint;
 }
 
 -(void)viewWillAppear:(BOOL)animated {

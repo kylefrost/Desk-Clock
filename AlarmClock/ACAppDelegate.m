@@ -7,11 +7,11 @@
 //
 
 #import "ACAppDelegate.h"
-#import "TestFlight.h"
+// #import "TestFlight.h"
 #import "ACViewController.h"
 #import "ACViewController~ipad.h"
 #import <AudioToolbox/AudioToolbox.h>
-#import <Crashlytics/Crashlytics.h>
+// #import <Crashlytics/Crashlytics.h>
 
 @implementation ACAppDelegate
 
@@ -20,8 +20,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // 3rd Party Tracking Tools
-    [Crashlytics startWithAPIKey:@"e6796ec21a8268eef118ce2bffeb5fd9a084bcb1"];
-    [TestFlight takeOff:@"d9f92e3b-23a4-4db3-a9a7-afb748461408"];
+    // [Crashlytics startWithAPIKey:@"e6796ec21a8268eef118ce2bffeb5fd9a084bcb1"];
+    // [TestFlight takeOff:@"d9f92e3b-23a4-4db3-a9a7-afb748461408"];
     
     //Prevents screen from locking
     [UIApplication sharedApplication].idleTimerDisabled = YES;

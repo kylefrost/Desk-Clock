@@ -54,6 +54,8 @@
     [firstAlert setTag:2];
     [firstAlert show];
     
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setLocale:[NSLocale currentLocale]];
     [formatter setDateStyle:NSDateFormatterNoStyle];
@@ -1222,18 +1224,29 @@
     CLLocationCoordinate2D coordinate = [self getLocation];
     NSLog(@"Lat is: %f, and Long is: %f", coordinate.latitude, coordinate.longitude);
     
-    OWMWeatherAPI *weatherAPI = [[OWMWeatherAPI alloc] initWithAPIKey:@"82195186406a95aa715896dcc20e054f"];
-    [weatherAPI setTemperatureFormat:kOWMTempCelcius];
+    if (coordinate.longitude == 0.000000 && coordinate.latitude == 0.000000) {
+        
+        self.weatherTempLabel.text = @"00º";
+        self.weatherCondLabel.text = @"Loading...";
+        [self getLocation];
+        [self performSelector:@selector(getWeather) withObject:self afterDelay:1.0];
+    }
     
-    [weatherAPI currentWeatherByCoordinate:coordinate withCallback:^(NSError *error, NSDictionary *result) {
+    else {
         
-        int tempString = [result[@"main"][@"temp"] floatValue];
-        NSString *weatherDescription = result[@"weather"][0][@"main"];
-        NSLog(@"tempString is %d and weatherDescription = %@", tempString, weatherDescription);
+        OWMWeatherAPI *weatherAPI = [[OWMWeatherAPI alloc] initWithAPIKey:@"82195186406a95aa715896dcc20e054f"];
+        [weatherAPI setTemperatureFormat:kOWMTempCelcius];
         
-        self.weatherTempLabel.text = [NSString stringWithFormat:@"%dºC", tempString];
-        self.weatherCondLabel.text = [[NSString stringWithFormat:@"%@", weatherDescription] uppercaseString];
-    }];
+        [weatherAPI currentWeatherByCoordinate:coordinate withCallback:^(NSError *error, NSDictionary *result) {
+            
+            int tempString = [result[@"main"][@"temp"] floatValue];
+            NSString *weatherDescription = result[@"weather"][0][@"main"];
+            NSLog(@"tempString is %d and weatherDescription = %@", tempString, weatherDescription);
+            
+            self.weatherTempLabel.text = [NSString stringWithFormat:@"%dºC", tempString];
+            self.weatherCondLabel.text = [[NSString stringWithFormat:@"%@", weatherDescription] uppercaseString];
+        }];
+    }
 }
 
 // Weather is in Celsius for Custom Location
@@ -1269,18 +1282,27 @@
     CLLocationCoordinate2D coordinate = [self getLocation];
     NSLog(@"Lat is: %f, and Long is: %f", coordinate.latitude, coordinate.longitude);
     
-    OWMWeatherAPI *weatherAPI = [[OWMWeatherAPI alloc] initWithAPIKey:@"82195186406a95aa715896dcc20e054f"];
-    [weatherAPI setTemperatureFormat:kOWMTempFahrenheit];
+    if (coordinate.longitude == 0.000000 && coordinate.latitude == 0.000000) {
+        self.weatherTempLabel.text = @"00º";
+        self.weatherCondLabel.text = @"Loading...";
+        [self getLocation];
+        [self performSelector:@selector(getWeather) withObject:self afterDelay:1.0];
+    }
     
-    [weatherAPI currentWeatherByCoordinate:coordinate withCallback:^(NSError *error, NSDictionary *result) {
+    else {
+        OWMWeatherAPI *weatherAPI = [[OWMWeatherAPI alloc] initWithAPIKey:@"82195186406a95aa715896dcc20e054f"];
+        [weatherAPI setTemperatureFormat:kOWMTempFahrenheit];
         
-        int tempString = [result[@"main"][@"temp"] floatValue];
-        NSString *weatherDescription = result[@"weather"][0][@"main"];
-        NSLog(@"tempString is %d and weatherDescription = %@", tempString, weatherDescription);
-        
-        self.weatherTempLabel.text = [NSString stringWithFormat:@"%dºF", tempString];
-        self.weatherCondLabel.text = [[NSString stringWithFormat:@"%@", weatherDescription] uppercaseString];
-    }];
+        [weatherAPI currentWeatherByCoordinate:coordinate withCallback:^(NSError *error, NSDictionary *result) {
+            
+            int tempString = [result[@"main"][@"temp"] floatValue];
+            NSString *weatherDescription = result[@"weather"][0][@"main"];
+            NSLog(@"tempString is %d and weatherDescription = %@", tempString, weatherDescription);
+            
+            self.weatherTempLabel.text = [NSString stringWithFormat:@"%dºF", tempString];
+            self.weatherCondLabel.text = [[NSString stringWithFormat:@"%@", weatherDescription] uppercaseString];
+        }];
+    }
 }
 
 // If Weather is in Fahrenheit for Custom Location
