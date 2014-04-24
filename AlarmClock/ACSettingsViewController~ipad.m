@@ -117,7 +117,7 @@
             [self presentViewController:shareSheet animated:YES completion:nil];
         }
         else if (buttonIndex == 2) {
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://itunes.com/apps/deskclock"]];
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://itunes.apple.com/us/app/desk-clock/id860361972?mt=8"]];
         }
     }
     
